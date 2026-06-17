@@ -36,6 +36,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.highlight
   - attr_list
   - md_in_html
@@ -61,6 +63,8 @@ nav:
     - '4. Seizure Action Plans': chapters/04-seizure-action-plans/index.md
     - '5. The Data: Mapping the Gaps': chapters/05-the-data-case-study/index.md
     - '6. How to Help': chapters/06-how-to-help/index.md
+  - Explore the Data: explore/index.md
   - 'Interactive Sims':
     - 'Seizure First Aid Simulator': sims/seizure-first-aid/index.md
+  - FAQ: faq.md
   - Glossary: glossary.md
