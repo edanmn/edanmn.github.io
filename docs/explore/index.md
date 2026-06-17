@@ -16,15 +16,13 @@ profile: whether a seizure plan is posted, district facts, county context, and w
 
 <iframe src="district_lookup.html" width="100%" height="560" style="border:1px solid #e0e0e0;border-radius:8px" title="Minnesota district lookup" loading="lazy"></iframe>
 
-### See the whole state on a map
-Darker counties have more districts with no posted plan. Hover any county for details.
+### See the whole state, and browse every district
+Darker counties have more districts with no posted plan, hover any county for details. Below the
+map is a searchable table of all districts with the source we checked. (For the charts behind
+the gap, by district type, size, and county health need, see
+[The Data: Mapping the Gaps](../chapters/05-the-data-case-study/index.md).)
 
-<iframe src="../charts/gap_map.html" width="100%" height="520" style="border:1px solid #e0e0e0;border-radius:8px" title="County map of seizure-plan gaps" loading="lazy"></iframe>
-
-### Or browse the full table
-Every district, searchable, with the source we checked.
-
-<iframe src="finder.html" width="100%" height="800" style="border:1px solid #e0e0e0;border-radius:8px" title="Minnesota seizure-plan finder table" loading="lazy"></iframe>
+<iframe src="finder.html" width="100%" height="900" style="border:1px solid #e0e0e0;border-radius:8px" title="Minnesota seizure-plan map and table" loading="lazy"></iframe>
 
 ## What to do next
 
