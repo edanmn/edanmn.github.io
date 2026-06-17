@@ -11,9 +11,20 @@ plans are and are not posted. This is the same dataset described in
     of how safe a school is. Always contact your school directly.
 
 ## Find your district
-Search by district or county name. Click a source link to see what we found.
+Start typing your district or county name, pick it from the list, and you will get a full
+profile: whether a seizure plan is posted, district facts, county context, and what to do next.
 
-<iframe src="finder.html" width="100%" height="900" style="border:1px solid #e0e0e0;border-radius:8px" title="Minnesota seizure-plan finder" loading="lazy"></iframe>
+<iframe src="district_lookup.html" width="100%" height="560" style="border:1px solid #e0e0e0;border-radius:8px" title="Minnesota district lookup" loading="lazy"></iframe>
+
+### See the whole state on a map
+Darker counties have more districts with no posted plan. Hover any county for details.
+
+<iframe src="../charts/gap_map.html" width="100%" height="520" style="border:1px solid #e0e0e0;border-radius:8px" title="County map of seizure-plan gaps" loading="lazy"></iframe>
+
+### Or browse the full table
+Every district, searchable, with the source we checked.
+
+<iframe src="finder.html" width="100%" height="800" style="border:1px solid #e0e0e0;border-radius:8px" title="Minnesota seizure-plan finder table" loading="lazy"></iframe>
 
 ## What to do next
 
