@@ -9,6 +9,9 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  font:
+    text: Inter
+    code: JetBrains Mono
   palette:
     - scheme: default
       primary: red
@@ -30,6 +33,7 @@ theme:
     - search.highlight
     - search.suggest
     - content.action.edit
+    - content.tooltips
     - toc.follow
 
 markdown_extensions:

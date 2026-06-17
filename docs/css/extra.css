@@ -1,19 +1,265 @@
-/* EDAN textbook custom styling */
+/* ==========================================================================
+   Seizure-Safe Schools — EDAN custom theme
+   Editorial / publication styling layered over MkDocs Material.
+   Pairing: Newsreader (serif headings) + Inter (body) + JetBrains Mono (code).
+   Brand: medical red (#b3202c) with warm-ink neutrals.
+   ========================================================================== */
+
+/* Serif display face for headings (Inter + JetBrains Mono load via mkdocs.yml). */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand */
+  --edan-red: #b3202c;
+  --edan-red-dark: #8f1922;
+  --edan-red-tint: rgba(179, 32, 44, 0.08);
+  --edan-ink: #24211e;       /* warm near-black for headings/header */
+  --edan-ink-soft: #3a3733;
+
+  /* Editorial serif for headings */
+  --edan-serif: "Newsreader", Georgia, "Times New Roman", serif;
+
+  /* Accent (hover/active) — brand red */
+  --md-accent-fg-color: var(--edan-red);
+
+  /* Links use brand red */
+  --md-typeset-a-color: var(--edan-red);
+
+  /* Slightly warmer, calmer reading surface */
+  --md-default-fg-color: #232020;
+  --md-default-fg-color--light: #5d5851;
+  --md-default-bg-color: #fcfcfb;
+}
+
+/* Recolor Material's primary (header, drawer, search) to charcoal ink.
+   Must match Material's own [data-md-color-primary] scope to win the cascade. */
+[data-md-color-primary="red"] {
+  --md-primary-fg-color: var(--edan-ink);
+  --md-primary-fg-color--light: #4a463f;
+  --md-primary-fg-color--dark: #19170f;
+}
+
+/* Dark scheme adjustments — keep brand red legible on dark surfaces */
+[data-md-color-scheme="slate"] {
+  --edan-red: #ff6b73;
+  --edan-red-tint: rgba(255, 107, 115, 0.12);
+  --md-primary-fg-color: #1b1916;
+  --md-accent-fg-color: #ff8088;
+  --md-typeset-a-color: #ff8088;
+  --md-default-bg-color: #16140f;
+}
+
+/* --------------------------------------------------------------------------
+   2. Typography
+   -------------------------------------------------------------------------- */
+.md-typeset {
+  font-size: 0.82rem;          /* ~16.4px base — comfortable long-form reading */
+  line-height: 1.72;
+  letter-spacing: 0.001em;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-family: var(--edan-serif);
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--edan-ink);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4 {
+  color: #f3efe9;
+}
+
+.md-typeset h1 {
+  font-weight: 700;
+  font-size: 2.35rem;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5em;
+}
+
+.md-typeset h2 {
+  font-size: 1.55rem;
+  line-height: 1.2;
+  margin-top: 2.6em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.md-typeset h3 {
+  font-size: 1.2rem;
+  margin-top: 1.9em;
+}
+
+/* The italic lede paragraph right under the page title reads as a standfirst */
+.md-typeset h1 + p > em:only-child,
+.md-typeset h1 + p em {
+  font-style: italic;
+}
+.md-typeset h1 + p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Comfortable measure for prose without starving wide tables/figures */
+.md-typeset p,
+.md-typeset ul,
+.md-typeset ol {
+  max-width: 42rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. Links
+   -------------------------------------------------------------------------- */
+.md-typeset a {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+.md-typeset a:hover {
+  color: var(--edan-red-dark);
+  border-bottom-color: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   4. Header / navigation — quiet charcoal bar with red accents
+   -------------------------------------------------------------------------- */
+.md-header {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+  border-bottom: 3px solid var(--edan-red);
+}
+.md-header__title {
+  font-family: var(--edan-serif);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+/* Tabs: subtle, with a red indicator on the active item */
+.md-tabs {
+  background-color: var(--edan-ink);
+}
+.md-tabs__link {
+  opacity: 0.78;
+  font-size: 0.74rem;
+  transition: opacity 160ms ease;
+}
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  opacity: 1;
+}
+
+/* Active item in the left nav gets the brand red */
+.md-nav__link--active,
+.md-nav__item .md-nav__link--active {
+  color: var(--edan-red);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   5. Focus states & motion (accessibility)
+   -------------------------------------------------------------------------- */
+.md-typeset a:focus-visible,
+.md-nav__link:focus-visible,
+.md-tabs__link:focus-visible,
+.md-search__input:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--edan-red);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Blockquotes, admonitions, tables, code
+   -------------------------------------------------------------------------- */
+.md-typeset blockquote {
+  border-left: 3px solid var(--edan-red);
+  background: var(--edan-red-tint);
+  color: var(--md-default-fg-color);
+  border-radius: 0 6px 6px 0;
+  padding: 0.5rem 1rem;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 8px;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  font-size: 0.78rem;
+}
+
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  font-size: 0.74rem;
+}
+.md-typeset table:not([class]) th {
+  background: var(--edan-ink);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background: #2a2620;
+}
+
+.md-typeset code {
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* --------------------------------------------------------------------------
+   7. Footer
+   -------------------------------------------------------------------------- */
+.md-footer-meta {
+  background-color: var(--edan-ink);
+}
+
+/* --------------------------------------------------------------------------
+   8. Existing EDAN components (preserved + refined)
+   -------------------------------------------------------------------------- */
+
+/* Minnesota-law callout */
 .md-typeset .admonition.law,
 .md-typeset details.law {
-  border-color: #b3202c;
+  border-color: var(--edan-red);
 }
 .md-typeset .law > .admonition-title,
 .md-typeset .law > summary {
-  background-color: rgba(179, 32, 44, 0.1);
+  background-color: var(--edan-red-tint);
 }
 
 /* MicroSim iframe sizing */
 .microsim {
   width: 100%;
   max-width: 820px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 /* Quiz answer reveal */
@@ -21,8 +267,12 @@
   border-left: 3px solid #1a9850;
 }
 
+/* Headline statistic */
 .edan-stat {
-  font-size: 2.2rem;
+  font-family: var(--edan-serif);
+  font-size: 2.6rem;
   font-weight: 700;
-  color: #b3202c;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--edan-red);
 }
