@@ -2,7 +2,7 @@ site_name: Seizure-Safe Schools - An Intelligent Textbook
 site_description: A plain-language, interactive guide to epilepsy, seizure first aid, and Minnesota's seizure-safety law, with the data behind the gaps in Minnesota schools.
 site_author: Rishik Kondadadi, Epilepsy Data & Advocacy Network (EDAN)
 # Set these two when you create the GitHub repo:
-site_url: https://fieryknight2010.github.io/seizure-safe-schools/
+site_url: https://edanmn.org/
 repo_url: https://github.com/fieryknight2010/seizure-safe-schools
 repo_name: seizure-safe-schools
 edit_uri: edit/main/docs/

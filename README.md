@@ -26,7 +26,7 @@ mkdocs build      # outputs to ./site
    - Automatic on every push: keep `.github/workflows/deploy.yml` (already included).
 4. In the repo Settings > Pages, set the source to the `gh-pages` branch (if using gh-deploy)
    or to GitHub Actions (if using the workflow). Your site appears at
-   `https://fieryknight2010.github.io/seizure-safe-schools/`.
+   `https://edanmn.org/`.
 
 ## Structure (mirrors the intelligent-textbooks pattern)
 ```
