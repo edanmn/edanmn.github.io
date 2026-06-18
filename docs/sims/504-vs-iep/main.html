@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>504 vs IEP path-finder</title>
+<style>
+ :root{--red:#b3202c;--ink:#24211e}
+ *{box-sizing:border-box}
+ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:var(--ink);line-height:1.5;background:#fff}
+ .wrap{max-width:660px;margin:0 auto;padding:18px}
+ .q{font-size:1.15rem;font-weight:600;margin:6px 0 12px}
+ .hint{color:#555;font-size:.92rem;margin-bottom:12px}
+ button.opt{display:block;width:100%;text-align:left;margin:9px 0;padding:14px;font-size:1rem;border:1.5px solid #ccc;border-radius:10px;background:#fff;cursor:pointer;transition:.15s}
+ button.opt:hover{border-color:var(--red);background:#fdf3f4}
+ .step{color:#666;font-size:.85rem;margin-bottom:10px}
+ .result{border:1px solid #e3e3e3;border-radius:12px;padding:18px;display:none}
+ .result h2{margin:.1em 0 .4em;font-size:1.3rem;color:var(--red)}
+ .result.show{display:block}
+ .pill{display:inline-block;background:#fdf3f4;color:var(--red);border:1px solid var(--red);border-radius:999px;padding:3px 12px;font-weight:600;font-size:.9rem;margin-bottom:8px}
+ .next{margin-top:14px;background:#f3f1ef;border:1px solid #ddd;border-radius:10px;padding:12px 14px;font-size:.95rem}
+ .disc{color:#777;font-size:.83rem;margin-top:14px}
+ .restart{background:var(--red);color:#fff;border:none;padding:10px 18px;border-radius:9px;font-size:.95rem;cursor:pointer;margin-top:14px}
+ a{color:var(--red)}
+</style></head><body><div class="wrap">
+<div id="quiz">
+ <div class="step" id="step"></div>
+ <div class="q" id="q"></div>
+ <div class="hint" id="hint"></div>
+ <div id="opts"></div>
+</div>
+<div class="result" id="result"></div>
+<script>
+const Q=[
+ {key:"support",q:"What kind of support does your child mainly need at school?",
+  hint:"Accommodations change the environment or schedule. Specialized instruction changes how or what your child is taught.",
+  opts:[
+   {t:"Mostly accommodations (e.g., rest after seizures, make-up work, trained staff, testing flexibility)",v:"accom"},
+   {t:"Specially designed teaching to make academic progress (changes to how/what is taught)",v:"instruction"},
+   {t:"I'm not sure",v:"unsure"}]},
+ {key:"learning",q:"Does epilepsy or its treatment noticeably affect your child's learning or school performance?",
+  hint:"For example: memory or attention problems, missing a lot of instruction, or falling behind academically.",
+  opts:[
+   {t:"Yes, it noticeably affects learning",v:"yes"},
+   {t:"No, learning is on track",v:"no"},
+   {t:"I'm not sure",v:"unsure"}]},
+];
+const A={}; let i=0;
+const $=id=>document.getElementById(id);
+function render(){
+ const q=Q[i]; $("step").textContent="Question "+(i+1)+" of "+Q.length;
+ $("q").textContent=q.q; $("hint").textContent=q.hint;
+ const ob=$("opts"); ob.innerHTML="";
+ q.opts.forEach(o=>{const b=document.createElement("button");b.className="opt";b.textContent=o.t;
+  b.onclick=()=>{A[q.key]=o.v; if(i<Q.length-1){i++;render();}else finish();}; ob.appendChild(b);});
+}
+function finish(){
+ let kind,why;
+ if(A.support==="instruction"){kind="iep";}
+ else if(A.support==="accom" && A.learning==="no"){kind="504";}
+ else if(A.support==="accom" && A.learning==="yes"){kind="both";}
+ else {kind="evaluate";}
+ const next="<div class='next'><b>Your next step either way:</b> put your request <b>in writing</b> to the school (the 504 coordinator or principal, or the special-education office). You can request an evaluation no matter which plan, and the school team decides eligibility with you. Remember: epilepsy qualifies even if seizures are well controlled by medication.</div>";
+ const disc="<div class='disc'>This is general information, not legal advice. Only the school's evaluation team can determine which plan your child is eligible for. See <a href='../../chapters/07-your-childs-rights/index.html' target='_top'>Chapter 7: Your Child's Rights</a>.</div>";
+ const R={
+  "504":{p:"A 504 Plan may fit",h:"Consider a Section 504 Plan",
+    b:"Your child mainly needs <b>accommodations</b> to access school equally, and learning itself is on track. That's the classic case for a <b>504 plan</b> under the Rehabilitation Act/ADA, things like rest after a seizure, make-up work, testing flexibility, and trained staff for rescue medication."},
+  "iep":{p:"An IEP may fit",h:"Consider an IEP (special education)",
+    b:"Because your child needs <b>specially designed instruction</b>, that points toward an <b>IEP</b> under IDEA (epilepsy falls under 'Other Health Impairment'). An IEP provides specialized teaching plus related services. Note: every student with an IEP is <b>also</b> protected under Section 504, so accommodations are included."},
+  "both":{p:"Either could apply",h:"Request an evaluation, raise both",
+    b:"Your child needs accommodations <b>and</b> learning is affected. That could be a 504 plan, or an IEP if the team finds your child needs specialized instruction. <b>Request an evaluation</b> and ask the team to consider an IEP (Other Health Impairment) as well as a 504."},
+  "evaluate":{p:"Start with an evaluation",h:"Request an evaluation",
+    b:"Since you're not certain yet, the best move is to <b>request an evaluation</b> in writing. The school must evaluate (with your permission), and the team will help determine whether a 504 plan or an IEP fits. You can name either in your request."},
+ }[kind];
+ $("quiz").style.display="none";
+ const r=$("result"); r.className="result show";
+ r.innerHTML="<span class='pill'>"+R.p+"</span><h2>"+R.h+"</h2><p>"+R.b+"</p>"+next+disc+
+   "<button class='restart' id='rs'>Start over</button>";
+ document.getElementById("rs").onclick=()=>{for(const k in A)delete A[k]; i=0; r.className="result"; $("quiz").style.display="block"; render();};
+}
+render();
+</script></div></body></html>

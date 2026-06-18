@@ -52,4 +52,4 @@ Call 911 if **any** of these are true:
 Free, on-demand training and a 2-year Seizure First Aid Certification are available from the
 Epilepsy Foundation: https://www.epilepsy.com/programs/training-education
 
-[Continue to the quiz](quiz.md){ .md-button } [Try the simulator](../../sims/seizure-first-aid/index.md){ .md-button }
+[Continue to the quiz](quiz.md){ .md-button } [Try the simulator](../../sims/seizure-first-aid/index.md){ .md-button } [Practice: Call 911?](../../sims/call-911/index.md){ .md-button }

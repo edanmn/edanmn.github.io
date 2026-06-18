@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Call 911?</title>
+<style>
+ :root{--red:#b3202c;--green:#1a7f37;--ink:#24211e}
+ *{box-sizing:border-box}
+ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:var(--ink);line-height:1.5;background:#fff}
+ .wrap{max-width:640px;margin:0 auto;padding:18px}
+ .bar{height:8px;background:#eee;border-radius:6px;overflow:hidden;margin-bottom:14px}
+ .bar>div{height:100%;background:var(--red);width:0;transition:width .3s}
+ .scenario{font-size:1.12rem;background:#faf8f6;border:1px solid #eee;border-radius:10px;padding:16px;margin-bottom:14px}
+ .choices{display:flex;gap:12px;flex-wrap:wrap}
+ button.opt{flex:1;min-width:200px;padding:16px;font-size:1.05rem;font-weight:600;border:1.5px solid #ccc;border-radius:10px;background:#fff;cursor:pointer;transition:.15s}
+ button.opt:hover:not(:disabled){border-color:var(--red);background:#fdf3f4}
+ button.opt:disabled{cursor:default;opacity:.95}
+ .opt.correct{border-color:var(--green);background:#eaf6ec}
+ .opt.wrong{border-color:var(--red);background:#fdecec}
+ .fb{margin:14px 0;padding:12px 14px;border-radius:10px;font-size:.97rem;display:none}
+ .fb.show{display:block}.fb.ok{background:#eaf6ec;border:1px solid var(--green)}.fb.no{background:#fdecec;border:1px solid var(--red)}
+ .next{background:var(--red);color:#fff;border:none;padding:11px 20px;border-radius:9px;font-size:1rem;cursor:pointer;margin-top:6px}
+ .muted{color:#666;font-size:.85rem}.score{font-weight:600}
+</style></head><body><div class="wrap">
+<div class="bar"><div id="bar"></div></div>
+<p class="muted">Scenario <span id="qn">1</span> of <span id="qt">8</span> · Score: <span class="score" id="sc">0</span></p>
+<div class="scenario" id="scenario"></div>
+<div class="choices"><button class="opt" id="call">Call 911</button><button class="opt" id="monitor">Stay &amp; monitor (no 911 yet)</button></div>
+<div class="fb" id="fb"></div>
+<button class="next" id="next" style="display:none">Next &rarr;</button>
+<script>
+// a=true means "Call 911" is correct
+const Q=[
+ {s:"A student has a convulsive seizure that stops on its own after about 2 minutes. They're now drowsy and slowly recovering. No known injuries.",a:false,
+  e:"Stay and monitor. A typical convulsive seizure that stops within a few minutes doesn't need 911 by itself, time it, keep them safe and on their side, and call if it passes 5 minutes."},
+ {s:"A convulsive seizure has now lasted longer than 5 minutes and is still going.",a:true,
+  e:"Call 911. A convulsive seizure lasting over 5 minutes is an emergency (status epilepticus risk)."},
+ {s:"A student has a seizure, starts to recover, then a second seizure begins before they've fully come back to normal.",a:true,
+  e:"Call 911. Repeated seizures without full recovery in between are an emergency."},
+ {s:"During swim unit, a student has a seizure in the pool.",a:true,
+  e:"Call 911. Any seizure in water needs emergency care, even if brief, because of the drowning and aspiration risk."},
+ {s:"A student with no known seizure history suddenly has their first-ever seizure.",a:true,
+  e:"Call 911. A first-ever seizure should be evaluated emergently."},
+ {s:"A student with diagnosed absence seizures has a few seconds of blank staring, then resumes normally, as described in their seizure action plan.",a:false,
+  e:"Stay and monitor. Brief absence seizures in a student with a known diagnosis and action plan usually don't need 911. Note it and follow the plan."},
+ {s:"After a seizure, the student hit their head hard on a desk and is bleeding, and their breathing seems off.",a:true,
+  e:"Call 911. Serious injury or trouble breathing after a seizure is an emergency."},
+ {s:"A student's seizure action plan says to call 911 if a seizure lasts longer than 3 minutes. It has now been 3 minutes.",a:true,
+  e:"Call 911. The student's individual action plan takes priority, follow its specific instructions."},
+];
+let i=0,score=0;
+const $=id=>document.getElementById(id);
+$("qt").textContent=Q.length;
+function render(){
+ const q=Q[i]; $("qn").textContent=i+1; $("sc").textContent=score;
+ $("bar").style.width=(i/Q.length*100)+"%";
+ $("scenario").textContent=q.s; $("fb").className="fb"; $("next").style.display="none";
+ ["call","monitor"].forEach(id=>{const b=$(id);b.disabled=false;b.className="opt";});
+ $("call").style.display=""; $("monitor").style.display="";
+}
+function pick(callChosen){
+ const q=Q[i]; $("call").disabled=true; $("monitor").disabled=true;
+ const correctBtn = q.a ? $("call") : $("monitor");
+ correctBtn.classList.add("correct");
+ const chosen = callChosen ? $("call") : $("monitor");
+ const right = (callChosen===q.a);
+ if(!right) chosen.classList.add("wrong");
+ if(right) score++;
+ $("sc").textContent=score;
+ const fb=$("fb"); fb.className="fb show "+(right?"ok":"no");
+ fb.textContent=(right?"Correct. ":"Reconsider. ")+q.e;
+ $("next").style.display="inline-block";
+ $("next").textContent=i<Q.length-1?"Next →":"See results";
+}
+$("call").onclick=()=>pick(true);
+$("monitor").onclick=()=>pick(false);
+function results(){
+ $("bar").style.width="100%";
+ $("scenario").innerHTML="<b>You scored "+score+" / "+Q.length+".</b><br>Call 911 when: a convulsive seizure lasts over 5 minutes; seizures repeat without recovery; it happens in water; there's serious injury or trouble breathing; it's a first-ever seizure; or the student's action plan says to. <b>When in doubt, call.</b>";
+ $("call").style.display="none"; $("monitor").style.display="none"; $("fb").className="fb";
+ $("next").textContent="Try again"; $("next").onclick=restart;
+}
+function restart(){i=0;score=0;render();$("next").onclick=advance;}
+function advance(){ if(i<Q.length-1){i++;render();} else results(); }
+$("next").onclick=advance;
+render();
+</script></div></body></html>

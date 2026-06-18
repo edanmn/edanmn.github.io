@@ -40,6 +40,8 @@ student staring, wandering, or suddenly confused may also be having a seizure.
     keep them safe, time it, and tell the nurse. Repeated, unexplained staring spells are worth
     mentioning to the family and nurse.
 
+[Practice: Is This a Seizure?](../../sims/recognize-seizure/index.md){ .md-button }
+
 ## What triggers seizures?
 Triggers vary by person, but common ones include missed medication, lack of sleep, illness or
 fever, stress, and, for some people, flashing lights. Knowing a student's triggers (recorded

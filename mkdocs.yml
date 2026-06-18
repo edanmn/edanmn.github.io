@@ -72,6 +72,9 @@ nav:
     - '8. For Schools: In Practice': chapters/08-for-schools-in-practice/index.md
   - 'Interactive Sims':
     - 'Seizure First Aid Simulator': sims/seizure-first-aid/index.md
+    - 'Is This a Seizure?': sims/recognize-seizure/index.md
+    - 'Call 911? Decision Trainer': sims/call-911/index.md
+    - '504 vs IEP Path-Finder': sims/504-vs-iep/index.md
   - Resources & Support: resources/index.md
   - FAQ: faq.md
   - Glossary: glossary.md

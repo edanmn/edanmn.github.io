@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Is this a seizure?</title>
+<style>
+ :root{--red:#b3202c;--green:#1a7f37;--ink:#24211e}
+ *{box-sizing:border-box}
+ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:var(--ink);line-height:1.5;background:#fff}
+ .wrap{max-width:640px;margin:0 auto;padding:18px}
+ .bar{height:8px;background:#eee;border-radius:6px;overflow:hidden;margin-bottom:14px}
+ .bar>div{height:100%;background:var(--red);width:0;transition:width .3s}
+ .scenario{font-size:1.12rem;background:#faf8f6;border:1px solid #eee;border-radius:10px;padding:16px;margin-bottom:14px}
+ button.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 14px;font-size:1rem;border:1.5px solid #ccc;border-radius:10px;background:#fff;cursor:pointer;transition:.15s}
+ button.opt:hover:not(:disabled){border-color:var(--red);background:#fdf3f4}
+ button.opt:disabled{cursor:default}
+ .opt.correct{border-color:var(--green);background:#eaf6ec}
+ .opt.wrong{border-color:var(--red);background:#fdecec}
+ .fb{margin:12px 0;padding:12px 14px;border-radius:10px;font-size:.97rem;display:none}
+ .fb.show{display:block}
+ .fb.ok{background:#eaf6ec;border:1px solid var(--green)}
+ .fb.no{background:#fdecec;border:1px solid var(--red)}
+ .next{background:var(--red);color:#fff;border:none;padding:11px 20px;border-radius:9px;font-size:1rem;cursor:pointer;margin-top:6px}
+ .muted{color:#666;font-size:.85rem}
+ .score{font-weight:600}
+</style></head><body><div class="wrap">
+<div class="bar"><div id="bar"></div></div>
+<p class="muted">Question <span id="qn">1</span> of <span id="qt">6</span> · Score: <span class="score" id="sc">0</span></p>
+<div class="scenario" id="scenario"></div>
+<div id="opts"></div>
+<div class="fb" id="fb"></div>
+<button class="next" id="next" style="display:none">Next &rarr;</button>
+<script>
+const Q=[
+ {s:"During class, a student stops mid-sentence and stares blankly for about 8 seconds. They don't respond to their name, then carry on as if nothing happened and seem unaware of the pause.",
+  o:["Absence seizure","Tonic-clonic seizure","Just daydreaming","Focal seizure with movements"],a:0,
+  e:"Absence seizures look like brief staring with loss of awareness and no response, often mistaken for daydreaming. The lack of response and the gap in awareness are the clues."},
+ {s:"A student suddenly cries out, stiffens, falls to the floor, and has rhythmic jerking of the arms and legs for about a minute, then is confused and very tired.",
+  o:["Absence seizure","Tonic-clonic seizure","Fainting only","Not a seizure"],a:1,
+  e:"This is a generalized tonic-clonic seizure (stiffening + rhythmic jerking, then a confused, tired 'postictal' recovery). Time it and give seizure first aid."},
+ {s:"A student begins smacking their lips and picking at their clothes, looks confused, and doesn't answer normally for about 30 seconds. Afterward they're groggy and don't remember it.",
+  o:["Not a seizure, just fidgeting","Absence seizure","Focal seizure (impaired awareness)","Tonic-clonic seizure"],a:2,
+  e:"Focal seizures with impaired awareness can cause automatic movements (lip-smacking, picking), confusion, and not responding normally. Easy to miss, treat as a seizure."},
+ {s:"A student seems spaced-out and quiet. When you say their name, they look up and answer you normally right away, and remember what you said.",
+  o:["Absence seizure","Focal seizure","Not a seizure","Tonic-clonic seizure"],a:2,
+  e:"Responding right away and remembering the moment points away from a seizure. True absence seizures involve loss of awareness and no response. Still, mention repeated spells to the nurse."},
+ {s:"A student says they suddenly smell something strange that isn't there and feel a wave of déjà vu, then briefly stares before coming back to normal.",
+  o:["Not a seizure, just imagination","Focal seizure (a warning/aura)","Tonic-clonic seizure","Fainting"],a:1,
+  e:"Odd smells, déjà vu, or rising sensations can be a focal seizure or an 'aura' (warning). Note it; auras can precede larger seizures and belong in the seizure action plan."},
+ {s:"A student is tearful and withdrawn after an argument with a friend. They respond when you talk to them and explain what happened.",
+  o:["Focal seizure","Absence seizure","Not a seizure (emotional upset)","Tonic-clonic seizure"],a:2,
+  e:"This is emotional distress, not a seizure: the student is aware, responsive, and can explain. Support them, but it isn't a seizure event."},
+];
+let i=0,score=0;
+const $=id=>document.getElementById(id);
+$("qt").textContent=Q.length;
+function render(){
+ const q=Q[i];
+ $("qn").textContent=i+1; $("sc").textContent=score;
+ $("bar").style.width=(i/Q.length*100)+"%";
+ $("scenario").textContent=q.s;
+ $("fb").className="fb"; $("next").style.display="none";
+ const ob=$("opts"); ob.innerHTML="";
+ q.o.forEach((t,idx)=>{
+  const b=document.createElement("button");
+  b.className="opt"; b.textContent=t;
+  b.onclick=()=>pick(idx,b);
+  ob.appendChild(b);
+ });
+}
+function pick(idx,btn){
+ const q=Q[i]; const opts=[...document.querySelectorAll(".opt")];
+ opts.forEach((b,k)=>{b.disabled=true; if(k===q.a)b.classList.add("correct");});
+ const fb=$("fb");
+ if(idx===q.a){score++; fb.className="fb ok show"; fb.textContent="Correct. "+q.e;}
+ else{btn.classList.add("wrong"); fb.className="fb no show"; fb.textContent="Not quite. "+q.e;}
+ $("sc").textContent=score;
+ $("next").style.display="inline-block";
+ $("next").textContent = i<Q.length-1 ? "Next →" : "See results";
+}
+$("next").onclick=()=>{
+ if(i<Q.length-1){i++;render();}
+ else{
+  $("bar").style.width="100%";
+  $("scenario").innerHTML="<b>You scored "+score+" / "+Q.length+".</b><br>Key idea: many seizures don't look like convulsions. A sudden blank stare, confusion, automatic movements, or not responding normally can all be seizures. When in doubt, stay with the student, keep them safe, time it, and tell the nurse.";
+  $("opts").innerHTML=""; $("fb").className="fb"; $("next").textContent="Try again"; $("next").onclick=()=>{i=0;score=0;render();$("next").onclick=arguments.callee;};
+  location.hash="";
+ }
+};
+render();
+</script></div></body></html>

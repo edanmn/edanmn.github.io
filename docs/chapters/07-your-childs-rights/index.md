@@ -103,7 +103,7 @@ standard in practice but should be tailored with your team.
 - **Daily communication:** written notice to you of any seizure at school; the plan stays in
   effect during drills, evacuation, and shelter-in-place.
 
-[Take the quiz](quiz.md){ .md-button }
+[Take the quiz](quiz.md){ .md-button } [504 vs IEP Path-Finder](../../sims/504-vs-iep/index.md){ .md-button }
 
 ---
 *Sources: U.S. Dept. of Education Office for Civil Rights (epilepsy fact sheet; 504/FAPE and
