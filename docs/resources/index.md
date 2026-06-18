@@ -9,39 +9,39 @@ nationally. Listings of clinics are informational, not endorsements.
 
 ## Minnesota
 
-**Epilepsy Foundation of Minnesota (EFMN)** — https://www.epilepsyfoundationmn.org
+**Epilepsy Foundation of Minnesota (EFMN)**, https://www.epilepsyfoundationmn.org
 Phone **651-287-2300** · info@efmn.org. Free, statewide support:
 
 - **Personalized support & care coordination** (phone, video, in person; English and Spanish)
 - **Community Health Workers** who connect families to healthcare and social services
 - **Connect Groups** (support groups): adult, parent/caregiver, young adult, teen, and Spanish
-- **Camps:** Camp Oz (overnight, ages 9–17), Day Camp (ages 6–12), and Family Camp
+- **Camps:** Camp Oz (overnight, ages 9-17), Day Camp (ages 6-12), and Family Camp
 - **Seizure Smart trainings** (free, for schools, workplaces, and community groups)
 - **Advocacy** on prescription costs and SUDEP awareness
 
-**Minnesota Department of Health, "Managing Seizures in School"** —
+**Minnesota Department of Health, "Managing Seizures in School"**, 
 https://www.health.state.mn.us/people/childrenyouth/schoolhealth/hco/seizurestoolkit.html
 The state's seizure toolkit: action-plan templates in multiple languages, training tools, and the
 law behind it all.
 
 **Pediatric epilepsy centers in Minnesota** *(informational listing, not a recommendation)*
 
-- Children's Minnesota, Pediatric Epilepsy — https://www.childrensmn.org/services/care-specialties-departments/epilepsy/
-- M Health Fairview / University of Minnesota, Pediatric Epilepsy — https://www.mhealthfairviewpeds.org/condition/epilepsy
-- Gillette Children's, Pediatric Neurology — https://www.gillettechildrens.org/conditions-care/pediatric-neurology
-- Mayo Clinic (Rochester), Epilepsy — https://www.mayoclinic.org/diseases-conditions/epilepsy
+- Children's Minnesota, Pediatric Epilepsy, https://www.childrensmn.org/services/care-specialties-departments/epilepsy/
+- M Health Fairview / University of Minnesota, Pediatric Epilepsy, https://www.mhealthfairviewpeds.org/condition/epilepsy
+- Gillette Children's, Pediatric Neurology, https://www.gillettechildrens.org/conditions-care/pediatric-neurology
+- Mayo Clinic (Rochester), Epilepsy, https://www.mayoclinic.org/diseases-conditions/epilepsy
 
 ## National
 
-**Epilepsy Foundation Helpline** — https://www.epilepsy.com/helpline
+**Epilepsy Foundation Helpline**, https://www.epilepsy.com/helpline
 **1-800-332-1000** (English) · **1-866-748-8008** (Spanish). Note: live specialists answer
-Monday–Friday, 8am–8pm ET; outside those hours it's self-service (online form + assistant).
+Monday to Friday, 8am-8pm ET; outside those hours it's self-service (online form + assistant).
 
-- Seizure first aid (Stay, Safe, Side) — https://www.epilepsy.com/recognition/first-aid-resources
-- Seizure action plan templates (multiple languages) — https://www.epilepsy.com/preparedness-safety/action-plans
-- Free training for school staff and nurses — https://www.epilepsy.com/programs/training-education
+- Seizure first aid (Stay, Safe, Side), https://www.epilepsy.com/recognition/first-aid-resources
+- Seizure action plan templates (multiple languages), https://www.epilepsy.com/preparedness-safety/action-plans
+- Free training for school staff and nurses, https://www.epilepsy.com/programs/training-education
 
-**CDC Epilepsy** — https://www.cdc.gov/epilepsy/index.html (family and school guidance, first aid).
+**CDC Epilepsy**, https://www.cdc.gov/epilepsy/index.html (family and school guidance, first aid).
 
 ## Understanding SUDEP (Sudden Unexpected Death in Epilepsy)
 Families often ask about SUDEP and rarely get a straight, calm answer. Here is one.
@@ -66,12 +66,12 @@ also discuss nighttime monitoring with their care team.
 control, not alarm; ask your doctor what applies to your child.
 
 ## Help affording medication
-- **NeedyMeds** — https://www.needymeds.org (helpline 800-503-6897): free directory of patient
+- **NeedyMeds**, https://www.needymeds.org (helpline 800-503-6897): free directory of patient
   assistance programs and a discount card.
-- **RxAssist** — https://www.rxassist.org: directory of manufacturer assistance programs.
-- **Medicine Assistance Tool** — https://medicineassistancetool.org (industry assistance search;
+- **RxAssist**, https://www.rxassist.org: directory of manufacturer assistance programs.
+- **Medicine Assistance Tool**, https://medicineassistancetool.org (industry assistance search;
   this program is transitioning in 2026, confirm the live link).
-- **GoodRx** — https://www.goodrx.com: free coupon/price-comparison tool (a discount tool, not
+- **GoodRx**, https://www.goodrx.com: free coupon/price-comparison tool (a discount tool, not
   insurance or charity).
 - **Manufacturer programs:** most brand-name epilepsy drugs have their own assistance programs;
   search the maker's site, or use NeedyMeds/RxAssist to find it.
@@ -85,8 +85,8 @@ Medical Assistance based on the child's income regardless of the parents'
 Epilepsy commonly co-occurs with **depression** (the most common), **anxiety**, **ADHD**, and
 **learning differences**. Recognizing these early and getting support helps.
 
-- Epilepsy Foundation, related conditions in children — https://www.epilepsy.com/parents-and-caregivers/talking-kids-about-epilepsy/related-conditions
-- **988 Suicide & Crisis Lifeline** — call or text **988** — https://988lifeline.org
+- Epilepsy Foundation, related conditions in children, https://www.epilepsy.com/parents-and-caregivers/talking-kids-about-epilepsy/related-conditions
+- **988 Suicide & Crisis Lifeline**, call or text **988**, https://988lifeline.org
 - Also: your pediatrician, and your school counselor or psychologist.
 
 ## Teens, driving, and seizures in Minnesota

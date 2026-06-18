@@ -8,10 +8,10 @@ families, and communities affected by epilepsy.
 ## Our approach
 We follow one repeatable model that can be pointed at many different epilepsy challenges:
 
-1. **Map** — use open, public data to find where needs and gaps actually are.
-2. **Translate** — turn complex clinical, legal, and statistical material into plain language
+1. **Map:** use open, public data to find where needs and gaps actually are.
+2. **Translate:** turn complex clinical, legal, and statistical material into plain language
    anyone can use.
-3. **Deliver** — put free, ready-to-use resources where they help most, and partner with the
+3. **Deliver:** put free, ready-to-use resources where they help most, and partner with the
    organizations already equipped to act at scale.
 
 We do not duplicate the excellent work of existing epilepsy organizations. We use data to point
@@ -30,12 +30,12 @@ project.
 ## Where we are headed
 The same data-driven approach extends well beyond schools. Directions we are exploring include:
 
-- **Translating research** — turning new epilepsy and neurology studies into plain-language
+- **Translating research**, turning new epilepsy and neurology studies into plain-language
   summaries for patients and families.
-- **Mapping access to care** — using public health data to find where access to neurologists,
+- **Mapping access to care**, using public health data to find where access to neurologists,
   school nurses, and treatment is thinnest.
-- **Awareness and stigma** — data-informed materials that counter myths about seizures.
-- **Expanding the audit** — extending the schools analysis to other states with similar laws.
+- **Awareness and stigma**, data-informed materials that counter myths about seizures.
+- **Expanding the audit**, extending the schools analysis to other states with similar laws.
 
 These are directions, not finished work. If one of them matters to you, we would love to hear it.
 
