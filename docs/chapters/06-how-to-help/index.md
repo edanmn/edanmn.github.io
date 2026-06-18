@@ -28,7 +28,9 @@ EDAN provides a **free drop-in packet** that turns this into about 30 minutes of
 - A Seizure Action Plan template (with official multilingual versions linked)
 - Drop-in Policy 516 language that cites Minn. Stat. 121A.24
 - A printable seizure first-aid poster for health offices and staff rooms
-- A short adoption checklist
+- A seizure observation log and a short adoption checklist
+
+[Download the free packet (PDF)](../../packet/EDAN-Seizure-Safe-Schools-Packet.pdf){ .md-button }
 
 The single highest-impact step: **post a seizure action plan template on your health-services
 web page** so families can find it.

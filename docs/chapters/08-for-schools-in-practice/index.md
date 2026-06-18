@@ -75,7 +75,8 @@ observation guidance, record:
 - **Response:** rescue medication given (name, dose, time, by whom); any injury; who was notified
   (parent, nurse, 911).
 
-A ready-to-use log is in EDAN's free [district packet](../06-how-to-help/index.md).
+A ready-to-use log is in EDAN's free packet.
+[Download the free district packet (PDF)](../../packet/EDAN-Seizure-Safe-Schools-Packet.pdf){ .md-button }
 
 ## Privacy: sharing the plan the right way (FERPA)
 Sharing a student's seizure plan with staff is allowed and expected, you do not need fresh parental
