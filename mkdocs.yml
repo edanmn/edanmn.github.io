@@ -56,6 +56,9 @@ plugins:
 extra_css:
   - css/extra.css
 
+extra_javascript:
+  - js/reactbits.js
+
 nav:
   - Home: index.md
   - About EDAN: about.md

@@ -276,3 +276,142 @@ button:focus-visible {
   letter-spacing: -0.02em;
   color: var(--edan-red);
 }
+
+/* ==========================================================================
+   9. Modern / interactive layer — effects modelled on reactbits.dev,
+   rebuilt in vanilla CSS/JS so they work in a static MkDocs build.
+   Content is fully visible without JS; the .rb-ready flag (set by JS on
+   <html>) is what arms the entrance animations. All motion is disabled
+   under prefers-reduced-motion.
+   ========================================================================== */
+
+/* ---- Scroll Reveal / Animated Content -----------------------------------
+   reactbits: "Scroll Reveal" + "Animated Content". Top-level content blocks
+   fade and rise into view. Only armed once JS adds .rb-ready. */
+@media (prefers-reduced-motion: no-preference) {
+  .rb-ready .rb-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 620ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .rb-ready .rb-reveal.rb-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- Aurora background (home hero only) ----------------------------------
+   reactbits: "Aurora". A slow, soft brand-tinted gradient wash behind the
+   first screen of the home page. Sits behind content, never over text. */
+.rb-aurora {
+  position: fixed;
+  inset: -20vh 0 auto 0;
+  height: 75vh;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 55% at 18% 12%, rgba(179, 32, 44, 0.16), transparent 70%),
+    radial-gradient(38% 50% at 82% 8%, rgba(214, 122, 60, 0.14), transparent 72%),
+    radial-gradient(45% 60% at 55% 0%, rgba(120, 36, 48, 0.12), transparent 75%);
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 900ms ease;
+}
+.rb-aurora.rb-in { opacity: 1; }
+[data-md-color-scheme="slate"] .rb-aurora {
+  background:
+    radial-gradient(40% 55% at 18% 12%, rgba(255, 107, 115, 0.18), transparent 70%),
+    radial-gradient(38% 50% at 82% 8%, rgba(214, 122, 60, 0.16), transparent 72%),
+    radial-gradient(45% 60% at 55% 0%, rgba(255, 107, 115, 0.12), transparent 75%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rb-aurora {
+    animation: rb-aurora-drift 22s ease-in-out infinite alternate;
+  }
+}
+@keyframes rb-aurora-drift {
+  0%   { transform: translate3d(-2%, 0, 0) scale(1); }
+  100% { transform: translate3d(3%, 2%, 0) scale(1.08); }
+}
+
+/* ---- Gradient / Shiny Text (home title) ----------------------------------
+   reactbits: "Gradient Text" + "Shiny Text". A slow sheen sweeps across the
+   home page H1. Falls back to solid ink when motion is reduced. */
+@media (prefers-reduced-motion: no-preference) {
+  .rb-gradient-text {
+    background: linear-gradient(
+      100deg,
+      var(--edan-ink) 0%, var(--edan-ink) 38%,
+      var(--edan-red) 50%,
+      var(--edan-ink) 62%, var(--edan-ink) 100%);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rb-sheen 7s linear infinite;
+  }
+  [data-md-color-scheme="slate"] .rb-gradient-text {
+    background: linear-gradient(
+      100deg, #f3efe9 0%, #f3efe9 38%, var(--edan-red) 50%, #f3efe9 62%, #f3efe9 100%);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+@keyframes rb-sheen {
+  0%   { background-position: 180% center; }
+  100% { background-position: -80% center; }
+}
+
+/* ---- Count Up ------------------------------------------------------------
+   reactbits: "Count Up". JS animates the number; this just steadies width. */
+.edan-stat { font-variant-numeric: tabular-nums; }
+
+/* ---- Spotlight Card + hover lift -----------------------------------------
+   reactbits: "Spotlight Card" / "Magic Bento". Callouts, details and tables
+   lift on hover and reveal a soft cursor-following glow. */
+.md-typeset .admonition,
+.md-typeset details,
+.md-typeset table:not([class]) {
+  position: relative;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .md-typeset .admonition:hover,
+  .md-typeset details:hover,
+  .md-typeset table:not([class]):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+  }
+}
+/* The glow layer is driven by --rb-x / --rb-y set from JS pointer tracking. */
+.rb-spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 240ms ease;
+  background: radial-gradient(
+    180px circle at var(--rb-x, 50%) var(--rb-y, 0%),
+    rgba(179, 32, 44, 0.10), transparent 60%);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .rb-spot:hover::before { opacity: 1; }
+}
+
+/* ---- Star Border (edit action button) ------------------------------------
+   reactbits: "Star Border". A subtle animated sheen on the page edit button. */
+@media (prefers-reduced-motion: no-preference) {
+  .md-content__button.md-icon {
+    transition: color 200ms ease, transform 200ms ease;
+  }
+  .md-content__button.md-icon:hover {
+    color: var(--edan-red);
+    transform: rotate(-6deg) scale(1.08);
+  }
+}
