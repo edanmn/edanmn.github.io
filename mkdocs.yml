@@ -73,11 +73,13 @@ nav:
     - '6. How to Help': chapters/06-how-to-help/index.md
     - '7. Your Child''s Rights (504/IEP)': chapters/07-your-childs-rights/index.md
     - '8. For Schools: In Practice': chapters/08-for-schools-in-practice/index.md
+    - '9. Everyday Safety & Living': chapters/09-everyday-safety/index.md
   - 'Interactive Sims':
     - 'Seizure First Aid Simulator': sims/seizure-first-aid/index.md
     - 'Is This a Seizure?': sims/recognize-seizure/index.md
     - 'Call 911? Decision Trainer': sims/call-911/index.md
     - '504 vs IEP Path-Finder': sims/504-vs-iep/index.md
   - Resources & Support: resources/index.md
+  - Research, Translated: research-translated/index.md
   - FAQ: faq.md
   - Glossary: glossary.md
