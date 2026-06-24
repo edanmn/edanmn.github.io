@@ -3,6 +3,8 @@
 *This page is for you, the student with epilepsy. Not your parents, not your teachers, you.
 Epilepsy is part of your life, but it doesn't define you, and school can absolutely work for you.*
 
+*Seizure materials in Spanish, Somali, and Hmong: see [In Your Language](../in-your-language/index.md).*
+
 ## You are not alone
 About **1 in 100 people** have epilepsy. In a school your size, that's probably a lot of people,
 you just may not know who they are, because many keep it private. Plenty of athletes, artists,
