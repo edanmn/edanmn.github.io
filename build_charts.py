@@ -128,4 +128,12 @@ fig.update_yaxes(title="% of districts with no public plan", gridcolor="#eee", r
 fig.update_layout(title="Higher-need counties tend to have bigger gaps")
 save(fig, "county_need_vs_gap.html")
 
-print("\nAll charts written to", OUT)
+# Plotly's full_html output omits a mobile viewport tag; inject it so charts
+# render responsively inside their iframes on phones.
+import glob
+VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1">'
+for fp in glob.glob(os.path.join(OUT, "*.html")):
+    t = open(fp, encoding="utf-8").read()
+    if 'name="viewport"' not in t and "<head>" in t:
+        open(fp, "w", encoding="utf-8").write(t.replace("<head>", "<head>" + VIEWPORT, 1))
+print("\nAll charts written to", OUT, "(viewport injected)")
