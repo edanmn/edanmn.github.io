@@ -63,6 +63,10 @@ nav:
   - Home: index.md
   - About EDAN: about.md
   - Find Your District: find-your-district/index.md
+  - 'Programs':
+    - 'Seizure-Smart Classroom': programs/seizure-smart-classroom/index.md
+    - 'Student Peer-Awareness Toolkit': programs/peer-awareness/index.md
+    - 'Is Your School Trained?': programs/staff-training/index.md
   - 'Chapters':
     - '0. Introduction': chapters/00-introduction/index.md
     - '1. Understanding Epilepsy': chapters/01-understanding-epilepsy/index.md
