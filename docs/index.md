@@ -1,26 +1,27 @@
-# Seizure-Safe Schools
+# Epilepsy Data & Advocacy Network
 
-*An intelligent textbook from the Epilepsy Data & Advocacy Network (EDAN), a student-led
-initiative. Plain language, interactive, and free.*
+*Plain-language epilepsy support for Minnesota families and schools. A student-led initiative,
+free, interactive, and built on open data.*
 
-> **New here?** [Read about EDAN](about.md), the student-led initiative behind this book, and
-> the data project that started it.
+> **New here?** [Read about EDAN](about.md), what we do and why.
 
 ---
 
-About 1 in 100 people has epilepsy, and most seizures that happen at school are handled by
-teachers and staff, not doctors. Minnesota law asks every school to be ready. This book
-explains, in plain language, what epilepsy is, how to respond to a seizure, what the law
-requires, and what we learned when we checked whether Minnesota's school districts are
-actually prepared.
+About 1 in 100 people has epilepsy. EDAN uses public data and clear writing to help the people
+affected by it, families, students, teachers, and school staff, understand epilepsy, respond to
+a seizure, know their rights, and find support. Everything here is free.
+
+Our first project mapped whether Minnesota school districts are prepared for seizures (the law
+requires it), and turned the findings into free tools to close the gaps. From there we have grown
+into a broader resource for living with epilepsy.
 
 ## Who this is for
-- **Families** of children with epilepsy who want to know their rights and how to ask their
-  school for a plan.
-- **Teachers, school staff, and nurses** who want clear, correct seizure first aid and to
-  understand Minn. Stat. 121A.24.
-- **Students and researchers** curious about how public data can reveal, and help close, a
-  real community safety gap.
+- **Families** of children with epilepsy: your child's rights, everyday safety, support, and how
+  to ask a school for a plan.
+- **Teachers, school staff, and nurses:** clear seizure first aid, the Minnesota law, and a free
+  drop-in packet.
+- **Anyone affected by epilepsy** who wants plain-language information and recent research,
+  translated.
 
 ## What makes this "intelligent"
 - **Interactive MicroSims** let you practice, like the [Seizure First Aid Simulator](sims/seizure-first-aid/index.md).
