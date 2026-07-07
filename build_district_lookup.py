@@ -5,7 +5,7 @@ import csv, json, os, html
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
-OUT = os.path.join(HERE, "docs", "explore", "district_lookup.html")
+OUT = os.path.join(HERE, "docs", "find-your-district", "district_lookup.html")
 CHECK_DATE = "June 2026"
 
 def clean_isd(s):
@@ -25,6 +25,29 @@ for fn in ["audit_results_pilot.csv", "audit_results_census.csv"]:
         for r in csv.DictReader(open(p)):
             ev[clean_isd(r["isd"])] = (r.get("evidence_url", ""), r.get("note", ""))
 
+# composite risk data (nurse + EMS layers)
+composite = {}
+cp = os.path.join(DATA, "mn_district_risk_composite.csv")
+if os.path.exists(cp):
+    for r in csv.DictReader(open(cp)):
+        composite[str(r["isd"])] = r
+
+NURSE_LABEL = {
+    "ZERO_SUPPORT_STAFF": ("No support staff on record", "#b71c1c"),
+    "HIGH_RISK_SMALL":    ("~83% chance no licensed nurse", "#e65100"),
+    "ELEVATED_RISK_MID":  ("~60% chance no licensed nurse", "#f57f17"),
+    "LOW_RISK_LARGE":     ("Likely has a licensed nurse", "#2e7d32"),
+}
+
+def ems_text(val):
+    try:
+        m = float(val)
+        if m >= 15: return (f"{m:.0f} min county avg — CRITICAL", "#b71c1c")
+        if m >= 12: return (f"{m:.0f} min county avg — HIGH", "#e65100")
+        if m >= 10: return (f"{m:.0f} min county avg — ELEVATED", "#f57f17")
+        return (f"{m:.0f} min county avg", "#2e7d32")
+    except: return ("n/a", "#999")
+
 # named contacts for priority districts (bonus)
 contacts = {}
 tp = os.path.join(DATA, "target_schools.csv")
@@ -37,24 +60,30 @@ if os.path.exists(tp):
 rows = []
 for r in csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))):
     isd = str(r["isd"])
-    ro = roster.get(isd, {})
+    ro  = roster.get(isd, {})
+    c   = contacts.get(isd)
     url, note = ev.get(isd, ("", ""))
-    c = contacts.get(isd)
+    comp = composite.get(isd, {})
+    nl, nc = NURSE_LABEL.get(comp.get("nurse_risk_tier",""), ("Unknown","#999"))
+    et, ec = ems_text(comp.get("ems_avg_min",""))
     rows.append({
-        "isd": isd,
-        "name": (r["district"] or "").title(),
-        "county": (r.get("county") or "").replace(" County", ""),
-        "city": (ro.get("city") or "").title(),
-        "type": r.get("locale", ""),
-        "enroll": ro.get("enrollment", ""),
+        "isd":   isd,
+        "name":  (r["district"] or "").title(),
+        "county":(r.get("county") or "").replace(" County", ""),
+        "city":  (ro.get("city") or "").title(),
+        "type":  r.get("locale", ""),
+        "enroll":ro.get("enrollment", ""),
         "phone": ro.get("phone", ""),
-        "cls": r["classification"],
-        "url": url if url.startswith("http") else "",
-        "note": note,
+        "cls":   r["classification"],
+        "url":   url if url.startswith("http") else "",
+        "note":  note,
         "disab": r.get("disability", ""),
         "unins": r.get("uninsured", ""),
-        "contact": (f'{c["name"]} ({c["role"]})' if c and c.get("name") else ""),
-        "cemail": (c["email"] if c and c.get("email", "").count("@") else ""),
+        "contact":(f'{c["name"]} ({c["role"]})' if c and c.get("name") else ""),
+        "cemail":(c["email"] if c and c.get("email", "").count("@") else ""),
+        "nl": nl, "nc": nc,
+        "et": et, "ec": ec,
+        "dual": str(comp.get("dual_risk","")).lower() == "true",
     })
 rows.sort(key=lambda x: x["name"])
 payload = json.dumps(rows, separators=(",", ":"))
@@ -110,31 +139,45 @@ function render(d){{
  const enroll=d.enroll&&d.enroll!=="None"?Number(d.enroll).toLocaleString()+" students":"enrollment n/a";
  let contactLine = d.cemail ? `<a href="mailto:${{d.cemail}}">${{d.contact||d.cemail}}</a>`
                    : (d.contact||"");
+ const dualBadge = d.dual ? `<span style="display:inline-block;margin-left:8px;background:#fce4ec;color:#880e4f;font-size:.78rem;padding:2px 9px;border-radius:12px;font-weight:600">DUAL RISK</span>` : "";
+ const ctaText = d.dual
+   ? `Your district has two gaps: no public seizure plan and likely no licensed nurse. Use the <a href="../chapters/06-how-to-help/index.md" target="_top">template letter</a> to request a seizure action plan and ask about a <b>504 plan</b> for stronger legal protections.`
+   : d.cls!=="FOUND_SEIZURE_SPECIFIC"
+     ? `No public seizure plan found. You can ask your school to create one — the law (Minn. Stat. 121A.24) is on your side. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide and copy-paste email</a>.`
+     : `A seizure plan is posted. Confirm it covers your child specifically and ask when it was last updated. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide</a> for a checklist.`;
  card.innerHTML = `
-  <span class="badge" style="background:${{color}}">${{label}}</span>
+  <span class="badge" style="background:${{color}}">${{label}}</span>${{dualBadge}}
   <h2 style="margin:10px 0 2px">${{d.name}}</h2>
   <div class="muted">ISD ${{d.isd}} &middot; ${{d.city?d.city+", ":""}}${{d.county}} County &middot; ${{d.type}}</div>
   <div class="mean">${{meaning}}${{d.note?`<br><span class="muted">What we saw: ${{d.note}}</span>`:""}}</div>
+  <table style="width:100%;font-size:.88rem;border-collapse:collapse;margin:12px 0">
+   <tr style="border-bottom:1px solid #eee">
+    <td style="padding:6px 4px;color:#555;font-size:.76rem">SEIZURE PLAN POSTED<br><span style="color:#aaa;font-size:.7rem">Checked June 2026</span></td>
+    <td style="padding:6px 4px"><span class="badge" style="background:${{color}};font-size:.8rem">${{label}}</span></td>
+   </tr>
+   <tr style="border-bottom:1px solid #eee">
+    <td style="padding:6px 4px;color:#555;font-size:.76rem">SCHOOL NURSE ON SITE<br><span style="color:#aaa;font-size:.7rem">Est. NCES 2023-24 + MDH 2022</span></td>
+    <td style="padding:6px 4px"><span style="display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600;color:#fff;background:${{d.nc}}">${{d.nl}}</span></td>
+   </tr>
+   <tr>
+    <td style="padding:6px 4px;color:#555;font-size:.76rem">EMS RESPONSE TIME<br><span style="color:#aaa;font-size:.7rem">2023 county average</span></td>
+    <td style="padding:6px 4px"><span style="display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600;color:#fff;background:${{d.ec}}">${{d.et}}</span></td>
+   </tr>
+  </table>
   <div class="facts">
    <div><b>Enrollment:</b> ${{enroll}}</div>
    <div><b>District phone:</b> ${{d.phone||"n/a"}}</div>
    <div><b>County adult disability:</b> ${{d.disab||"n/a"}}%</div>
    <div><b>County uninsured (18-64):</b> ${{d.unins||"n/a"}}%</div>
   </div>
-  ${{d.url?`<div><b>Source we checked:</b> <a href="${{d.url}}" target="_blank" rel="noopener">view district page</a></div>`:""}}
-  ${{contactLine?`<div style="margin-top:6px"><b>Known health contact:</b> ${{contactLine}}</div>`:""}}
-  <div class="cta"><h4>If you are a parent</h4>
-   You can ask your school to set up a seizure action plan for your child, the law (Minn. Stat.
-   121A.24) is on your side, whatever this status says. See the
-   <a href="../chapters/06-how-to-help/index.md" target="_top">family guide and copy-paste email</a>.</div>
+  ${{d.url?`<div style="margin:6px 0"><b>Source we checked:</b> <a href="${{d.url}}" target="_blank" rel="noopener">view district page</a></div>`:""}}
+  ${{contactLine?`<div style="margin:6px 0"><b>Known health contact:</b> ${{contactLine}}</div>`:""}}
+  <div class="cta"><h4>What to do as a parent</h4>${{ctaText}}</div>
   <div class="cta"><h4>If you work for this district</h4>
    ${{d.cls==="FOUND_SEIZURE_SPECIFIC"
-      ?"You already post a plan, thank you. A yearly review keeps it current."
-      :"Closing this gap is easy with the free <a href='../chapters/06-how-to-help/index.md' target='_top'>drop-in packet</a> (plan template + policy language + poster)."}}</div>
-  <div class="disc">Reflects what was <b>publicly findable online as of ${{CHECK}}</b>, not legal
-   compliance or school safety. County health figures are community context (CDC PLACES, adults),
-   not seizure rates. Wrong or out of date? Tell us via
-   <a href="https://www.linkedin.com/in/krishikk/" target="_blank" rel="noopener">LinkedIn</a>.</div>`;
+      ?"You already post a plan — thank you. A yearly review keeps it current."
+      :"Use the free <a href='../chapters/06-how-to-help/index.md' target='_top'>drop-in packet</a> (plan template + Policy 516 language + poster). Note: the current MSBA Model Policy 516 does not reference Minn. Stat. 121A.24 — the drop-in language fixes this."}}</div>
+  <div class="disc">Seizure plan reflects what was <b>publicly findable as of ${{CHECK}}</b>. Nurse coverage is estimated from NCES 2023-24 support staff data and MDH 2022 statistics — not a confirmed count. EMS times are 2023 county averages, not school-specific. Not a measure of legal compliance. Wrong or out of date? <a href="mailto:edanmnorg@gmail.com">edanmnorg@gmail.com</a></div>`;
  card.style.display="block";
 }}
 
