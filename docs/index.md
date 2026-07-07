@@ -9,7 +9,7 @@ A student-led initiative, free and open.*
 
 About 1 in 100 people has epilepsy. For students, that means navigating school safety, knowing
 your rights, understanding your condition, and finding support that speaks plainly. **EDAN exists
-to help with all of it** — using public data, free tools, and plain-language information built
+to help with all of it**, using public data, free tools, and plain-language information built
 for students and families, not just clinicians. Everything here is free.
 
 Our data work maps whether Minnesota school districts are prepared for seizures and delivers free

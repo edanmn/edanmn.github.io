@@ -54,7 +54,7 @@ for r in rows:
     nl, nc = NURSE_LABEL.get(c.get("nurse_risk_tier",""), ("Unknown","#999"))
     el, ec = ems_label(c.get("ems_avg_min",""))
     url  = ev.get(isd, "")
-    link = f'<a href="{html.escape(url)}" target="_blank" rel="noopener">source</a>' if url.startswith("http") else "&mdash;"
+    link = f'<a href="{html.escape(url)}" target="_blank" rel="noopener">source</a>' if url.startswith("http") else "&ndash;"
     name   = html.escape(r["district"].title())
     county = html.escape((r.get("county") or "").replace(" County",""))
     dual   = str(c.get("dual_risk","")).lower() == "true"
@@ -75,7 +75,7 @@ n_plan = sum(1 for r in rows if r["classification"] == "FOUND_SEIZURE_SPECIFIC")
 page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>All Minnesota districts — seizure readiness</title>
+<title>All Minnesota districts: seizure readiness</title>
 <style>
  body{{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#1a1a1a}}
  .wrap{{max-width:980px;margin:0 auto;padding:6px}}
@@ -97,11 +97,11 @@ page = f"""<!doctype html>
   <span>EMS times: <b>2023 county data</b></span>
 </div>
 <p class="muted">{n} Minnesota districts. {n_plan} post a seizure-specific plan publicly online.
-"Not found" does not mean no plan — always contact your school directly.</p>
+"Not found" does not mean no plan; always contact your school directly.</p>
 <div class="filters">
   <input id="q" placeholder="Filter by district or county…">
   <select id="f-plan" onchange="filt()">
-    <option value="">All — seizure plan</option>
+    <option value="">All seizure plans</option>
     <option value="yes">Plan posted</option>
     <option value="med">Medication policy only</option>
     <option value="no">Nothing found</option>

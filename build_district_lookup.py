@@ -42,9 +42,9 @@ NURSE_LABEL = {
 def ems_text(val):
     try:
         m = float(val)
-        if m >= 15: return (f"{m:.0f} min county avg — CRITICAL", "#b71c1c")
-        if m >= 12: return (f"{m:.0f} min county avg — HIGH", "#e65100")
-        if m >= 10: return (f"{m:.0f} min county avg — ELEVATED", "#f57f17")
+        if m >= 15: return (f"{m:.0f} min county avg (critical)", "#b71c1c")
+        if m >= 12: return (f"{m:.0f} min county avg (high)", "#e65100")
+        if m >= 10: return (f"{m:.0f} min county avg (elevated)", "#f57f17")
         return (f"{m:.0f} min county avg", "#2e7d32")
     except: return ("n/a", "#999")
 
@@ -143,7 +143,7 @@ function render(d){{
  const ctaText = d.dual
    ? `Your district has two gaps: no public seizure plan and likely no licensed nurse. Use the <a href="../chapters/06-how-to-help/index.md" target="_top">template letter</a> to request a seizure action plan and ask about a <b>504 plan</b> for stronger legal protections.`
    : d.cls!=="FOUND_SEIZURE_SPECIFIC"
-     ? `No public seizure plan found. You can ask your school to create one — the law (Minn. Stat. 121A.24) is on your side. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide and copy-paste email</a>.`
+     ? `No public seizure plan found. You can ask your school to create one; the law (Minn. Stat. 121A.24) is on your side. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide and copy-paste email</a>.`
      : `A seizure plan is posted. Confirm it covers your child specifically and ask when it was last updated. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide</a> for a checklist.`;
  card.innerHTML = `
   <span class="badge" style="background:${{color}}">${{label}}</span>${{dualBadge}}
@@ -175,9 +175,9 @@ function render(d){{
   <div class="cta"><h4>What to do as a parent</h4>${{ctaText}}</div>
   <div class="cta"><h4>If you work for this district</h4>
    ${{d.cls==="FOUND_SEIZURE_SPECIFIC"
-      ?"You already post a plan — thank you. A yearly review keeps it current."
-      :"Use the free <a href='../chapters/06-how-to-help/index.md' target='_top'>drop-in packet</a> (plan template + Policy 516 language + poster). Note: the current MSBA Model Policy 516 does not reference Minn. Stat. 121A.24 — the drop-in language fixes this."}}</div>
-  <div class="disc">Seizure plan reflects what was <b>publicly findable as of ${{CHECK}}</b>. Nurse coverage is estimated from NCES 2023-24 support staff data and MDH 2022 statistics — not a confirmed count. EMS times are 2023 county averages, not school-specific. Not a measure of legal compliance. Wrong or out of date? <a href="mailto:edanmnorg@gmail.com">edanmnorg@gmail.com</a></div>`;
+      ?"You already post a plan, thank you. A yearly review keeps it current."
+      :"Use the free <a href='../chapters/06-how-to-help/index.md' target='_top'>drop-in packet</a> (plan template + Policy 516 language + poster). Note: the current MSBA Model Policy 516 does not reference Minn. Stat. 121A.24, and the drop-in language fixes this."}}</div>
+  <div class="disc">Seizure plan reflects what was <b>publicly findable as of ${{CHECK}}</b>. Nurse coverage is estimated from NCES 2023-24 support staff data and MDH 2022 statistics, not a confirmed count. EMS times are 2023 county averages, not school-specific. Not a measure of legal compliance. Wrong or out of date? <a href="mailto:edanmnorg@gmail.com">edanmnorg@gmail.com</a></div>`;
  card.style.display="block";
 }}
 
