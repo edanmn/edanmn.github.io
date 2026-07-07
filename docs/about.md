@@ -17,7 +17,7 @@ We follow one repeatable model that can be pointed at many different epilepsy ch
 We do not duplicate the excellent work of existing epilepsy organizations. We use data to point
 that work, and our own resources, where they are needed most.
 
-## Our first project: Seizure-Safe Schools (Minnesota)
+## Seizure-Safe Schools (Minnesota)
 Our flagship project applies this model to school safety. Minnesota law (Minn. Stat. 121A.24)
 asks every public and charter school to have a seizure action plan and trained staff. We found
 that about **70% of Minnesota school districts** do not post a seizure plan that families and

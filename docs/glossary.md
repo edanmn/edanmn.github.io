@@ -12,8 +12,7 @@ Plain-language definitions of terms used in this book.
 
 **EDAN (Epilepsy Data & Advocacy Network)**
 : The student-led initiative behind this textbook. It uses public data to advance epilepsy
-  awareness, advocacy, and safety. Its first project maps and helps close seizure-safety gaps
-  in Minnesota schools. See [About EDAN](about.md).
+  awareness, advocacy, and safety. It maps and helps close seizure-safety gaps in Minnesota schools. See [About EDAN](about.md).
 
 **Cohen's kappa**
 : A statistic that measures how much two independent raters agree, corrected for chance.
