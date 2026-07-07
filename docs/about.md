@@ -28,14 +28,10 @@ in [Find Your District](find-your-district/index.md), and find free resources in
 project.
 
 ## Where we are headed
-The same data-driven approach extends well beyond schools. Directions we are exploring include:
-
-- **Translating research**, turning new epilepsy and neurology studies into plain-language
-  summaries for patients and families.
-- **Mapping access to care**, using public health data to find where access to neurologists,
-  school nurses, and treatment is thinnest.
-- **Awareness and stigma**, data-informed materials that counter myths about seizures.
-- **Expanding the audit**, extending the schools analysis to other states with similar laws.
+The same data-driven approach extends well beyond schools. Directions we are exploring include
+expanding the school audit to other states with similar laws, translating new epilepsy research
+into plain-language summaries for families, and using public health data to map where access to
+school nurses and treatment is thinnest.
 
 These are directions, not finished work. If one of them matters to you, we would love to hear it.
 
