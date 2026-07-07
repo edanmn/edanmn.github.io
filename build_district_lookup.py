@@ -33,10 +33,10 @@ if os.path.exists(cp):
         composite[str(r["isd"])] = r
 
 NURSE_LABEL = {
-    "ZERO_SUPPORT_STAFF": ("No support staff on record", "#b71c1c"),
-    "HIGH_RISK_SMALL":    ("~83% chance no licensed nurse", "#e65100"),
-    "ELEVATED_RISK_MID":  ("~60% chance no licensed nurse", "#f57f17"),
-    "LOW_RISK_LARGE":     ("Likely has a licensed nurse", "#2e7d32"),
+    "ZERO_SUPPORT_STAFF": ("Likely no nurse",  "#b71c1c"),
+    "HIGH_RISK_SMALL":    ("Likely no nurse",  "#e65100"),
+    "ELEVATED_RISK_MID":  ("Possibly no nurse","#f57f17"),
+    "LOW_RISK_LARGE":     ("Likely yes",       "#2e7d32"),
 }
 
 def ems_text(val):

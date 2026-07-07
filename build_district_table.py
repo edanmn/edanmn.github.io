@@ -15,10 +15,10 @@ PLAN_LABEL = {
     "NOT_VERIFIABLE":         ("Could not check",      "#999999", "unk"),
 }
 NURSE_LABEL = {
-    "ZERO_SUPPORT_STAFF":  ("No support staff",       "#b71c1c"),
-    "HIGH_RISK_SMALL":     ("~83% chance no nurse",   "#e65100"),
-    "ELEVATED_RISK_MID":   ("~60% chance no nurse",   "#f57f17"),
-    "LOW_RISK_LARGE":      ("Likely has nurse",        "#2e7d32"),
+    "ZERO_SUPPORT_STAFF":  ("Likely no nurse",  "#b71c1c"),
+    "HIGH_RISK_SMALL":     ("Likely no nurse",  "#e65100"),
+    "ELEVATED_RISK_MID":   ("Possibly no nurse","#f57f17"),
+    "LOW_RISK_LARGE":      ("Likely yes",       "#2e7d32"),
 }
 
 def ems_label(val):
