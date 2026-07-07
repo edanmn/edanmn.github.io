@@ -1,21 +1,21 @@
 # Epilepsy Data & Advocacy Network
 
-*Helping Minnesota students with epilepsy stay safe and supported at school, using public data.
+*Free tools, plain-language information, and data-driven advocacy for Minnesota students with epilepsy and their families.
 A student-led initiative, free and open.*
 
 > **New here?** [Read about EDAN](about.md), what we do and why.
 
 ---
 
-About 1 in 100 people has epilepsy, and for students, school is where a seizure most often needs
-a response, usually from staff, not doctors. **EDAN focuses on students with epilepsy and the
-schools that serve them**, using public data to find where schools fall short and delivering free
-tools to fix it. Everything here is free.
+About 1 in 100 people has epilepsy. For students, that means navigating school safety, knowing
+your rights, understanding your condition, and finding support that speaks plainly. **EDAN exists
+to help with all of it** — using public data, free tools, and plain-language information built
+for students and families, not just clinicians. Everything here is free.
 
-Our flagship project maps whether Minnesota school districts are prepared for seizures (the law
-requires it) and turns the findings into free resources to close the gaps. Around that, we give
-students and their families what they need: seizure first aid, their rights at school, everyday
-safety, and recent research in plain language.
+Our data work maps whether Minnesota school districts are prepared for seizures and delivers free
+resources to close the gaps. Beyond that, we give students and families what they need: seizure
+first aid, IEP and 504 guidance, their rights at school, everyday safety, and recent research in
+plain language.
 
 ## Who this is for
 - **Families** of children with epilepsy: your child's rights, everyday safety, support, and how
