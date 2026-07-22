@@ -19,9 +19,10 @@ that work, and our own resources, where they are needed most.
 
 ## Seizure-Safe Schools (Minnesota)
 Our flagship project applies this model to school safety. Minnesota law (Minn. Stat. 121A.24)
-asks every public and charter school to have a seizure action plan and trained staff. We found
-that about **70% of Minnesota school districts** do not post a seizure plan that families and
-staff can actually find, with the gap largest in the smallest, least-resourced districts. See
+requires every public and charter school to prepare an individualized seizure action plan for a
+student once a family notifies them of the diagnosis, and to train staff to respond. But we found
+that about **70% of Minnesota school districts** do not post a seizure plan, or even a template a
+family could use to request one, with the gap largest in the smallest, least-resourced districts. See
 [The Data: Mapping the Gaps](chapters/05-the-data-case-study/index.md), look up your district
 in [Find Your District](find-your-district/index.md), and find free resources in
 [How to Help](chapters/06-how-to-help/index.md). This interactive textbook is part of that
