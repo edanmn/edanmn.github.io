@@ -28,6 +28,12 @@ in [Find Your District](find-your-district/index.md), and find free resources in
 [How to Help](chapters/06-how-to-help/index.md). This interactive textbook is part of that
 project.
 
+## In the news
+The *Minnesota Star Tribune* published EDAN founder Rishik Kondadadi's commentary,
+["If a student had a seizure in the classroom, would your school be prepared?"](https://www.startribune.com/seizure-first-aid-training-mn-schools-epilepsy-awareness/601870213)
+(July 23, 2026), arguing that more Minnesota schools should post seizure action plans where
+families can actually find them.
+
 ## Where we are headed
 The same data-driven approach extends well beyond schools. Directions we are exploring include
 expanding the school audit to other states with similar laws, translating new epilepsy research

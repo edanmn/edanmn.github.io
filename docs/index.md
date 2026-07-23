@@ -3,6 +3,9 @@
 *Free tools, plain-language information, and data-driven advocacy for Minnesota students with epilepsy and their families.
 A student-led initiative, free and open.*
 
+!!! quote "📣 In the news: Minnesota Star Tribune"
+    EDAN founder Rishik Kondadadi's commentary, **["If a student had a seizure in the classroom, would your school be prepared?"](https://www.startribune.com/seizure-first-aid-training-mn-schools-epilepsy-awareness/601870213)**, ran in the *Minnesota Star Tribune* on July 23, 2026. It makes the case that more Minnesota schools should post seizure action plans where families can actually find them.
+
 > **New here?** [Read about EDAN](about.md), what we do and why.
 
 ---
