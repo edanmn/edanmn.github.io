@@ -63,6 +63,13 @@ extra_javascript:
 nav:
   - Home: index.md
   - About EDAN: about.md
+  - 'Initiatives':
+    - 'Overview': initiatives/index.md
+    - '1. Seizure-Safe Schools': initiatives/seizure-safe-schools.md
+    - '2. The State''s Epilepsy Data': initiatives/state-epilepsy-data.md
+    - '3. Medication Access': initiatives/medication-access.md
+    - '4. Distance to Care': initiatives/care-access.md
+    - '5. SUDEP': initiatives/sudep.md
   - For Students: for-students/index.md
   - In Your Language: in-your-language/index.md
   - Find Your District: find-your-district/index.md
@@ -86,6 +93,9 @@ nav:
     - 'Is This a Seizure?': sims/recognize-seizure/index.md
     - 'Call 911? Decision Trainer': sims/call-911/index.md
     - '504 vs IEP Path-Finder': sims/504-vs-iep/index.md
+    - 'Distance to Care Lookup': sims/distance-lookup/index.md
+    - 'Pharmacy Problem Solver': sims/pharmacy-problem/index.md
+    - 'Device Benefit Check': sims/device-benefit-check/index.md
   - Resources & Support: resources/index.md
   - Research, Translated: research-translated/index.md
   - FAQ: faq.md

@@ -35,12 +35,11 @@ The *Minnesota Star Tribune* published EDAN founder Rishik Kondadadi's commentar
 families can actually find them.
 
 ## Where we are headed
-The same data-driven approach extends well beyond schools. Directions we are exploring include
-expanding the school audit to other states with similar laws, translating new epilepsy research
-into plain-language summaries for families, and using public health data to map where access to
-school nurses and treatment is thinnest.
-
-These are directions, not finished work. If one of them matters to you, we would love to hear it.
+The same method now runs five initiatives: verified adoption of school seizure plans, a data
+partnership with the new Minnesota Epilepsy Program at MDH, medication access, distance to
+care, and SUDEP. Each has a page, a status, and a number, on [Initiatives](initiatives/index.md).
+Our measure for 2026-27 is at least twenty people with epilepsy whose situation we can
+document changing because of this work.
 
 ## Who we are
 EDAN was founded by **Rishik Kondadadi**, a Minnesota high school student. It is run by students

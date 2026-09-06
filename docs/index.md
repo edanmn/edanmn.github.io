@@ -1,7 +1,7 @@
 # Epilepsy Data & Advocacy Network
 
-*Free tools, plain-language information, and data-driven advocacy for Minnesota students with epilepsy and their families.
-A student-led initiative, free and open.*
+*Public data, plain language, and free resources for Minnesotans with epilepsy and their
+families. Student-led, free, and open.*
 
 !!! quote "📣 In the news: Minnesota Star Tribune"
     EDAN founder Rishik Kondadadi's commentary, **["If a student had a seizure in the classroom, would your school be prepared?"](https://www.startribune.com/seizure-first-aid-training-mn-schools-epilepsy-awareness/601870213)**, ran in the *Minnesota Star Tribune* on July 23, 2026. It makes the case that more Minnesota schools should post seizure action plans where families can actually find them.
@@ -10,15 +10,25 @@ A student-led initiative, free and open.*
 
 ---
 
-About 1 in 100 people has epilepsy. For students, that means navigating school safety, knowing
-your rights, understanding your condition, and finding support that speaks plainly. **EDAN exists
-to help with all of it**, using public data, free tools, and plain-language information built
-for students and families, not just clinicians. Everything here is free.
+About 53,700 Minnesotans live with epilepsy, and most of what goes wrong for them is an
+information problem: a school with no plan, a pharmacy that closed, a specialist three hours
+away, a benefit nobody explained. EDAN is a student-led organization that uses public data to
+find those gaps, translates what it finds into plain language, and puts free resources where
+they help most. Then we count the people whose lives changed. Everything here is free.
 
-Our data work maps whether Minnesota school districts are prepared for seizures and delivers free
-resources to close the gaps. Beyond that, we give students and families what they need: seizure
-first aid, IEP and 504 guidance, their rights at school, everyday safety, and recent research in
-plain language.
+## Five initiatives for 2026-27
+1. [Seizure-Safe Schools](initiatives/seizure-safe-schools.md): 7 in 10 Minnesota districts
+   post no findable seizure plan. We are turning that finding into adoptions.
+2. [The state's epilepsy data](initiatives/state-epilepsy-data.md): a 2025 law makes MDH
+   count epilepsy every year. We are its first district-level data partner.
+3. [Medication access](initiatives/medication-access.md): shortages, prices, pharmacy
+   deserts, and a bill to cap what epilepsy drugs cost families.
+4. [Distance to care](initiatives/care-access.md): 101 districts are more than 60 miles from
+   a child neurologist. We mapped every one.
+5. [SUDEP](initiatives/sudep.md): about 1,000 Minnesota deaths a year involve seizures and
+   nobody counts SUDEP. Data, a missed benefit, and a reporting law.
+
+[Read the full initiatives page](initiatives/index.md), including how we measure impact.
 
 ## Who this is for
 - **Families** of children with epilepsy: your child's rights, everyday safety, support, and how
