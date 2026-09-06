@@ -16,14 +16,40 @@ prescribed, and supervision at night. Since January 2024 Minnesota Medical Assis
 covered seizure detection devices, wearables that alert a caregiver to a convulsive seizure.
 Minnesota was the first state to do this. Most eligible families have not heard of it.
 
+## What the death data shows
+We pulled every Minnesota death certificate from 2018 to 2024 that mentions epilepsy or
+seizures, from the CDC's multiple cause of death files.
+
+<iframe src="../../charts/mortality_by_year.html" class="microsim" width="100%" height="480" title="Minnesota deaths mentioning epilepsy or seizures by year" loading="lazy"></iframe>
+
+| 2018 to 2024, Minnesota residents | Deaths | Per year |
+|---|---|---|
+| Any mention of epilepsy or seizures on the certificate (G40, G41, R56) | 6,077 | about 870 |
+| Any mention of epilepsy (G40, G41) | 1,404 | about 200 |
+| Epilepsy as the underlying cause of death | 415 | about 60 |
+
+Both counts rose across the seven years, from 728 to 967 for any seizure mention and from
+153 to 233 for epilepsy. Rates are low through childhood, rise steadily through adulthood,
+and climb steeply after 65, when seizures ride along with strokes, dementia, and other
+conditions. The epilepsy-specific count peaks at ages 65 to 74.
+
+<iframe src="../../charts/mortality_by_age.html" class="microsim" width="100%" height="480" title="Rate by age" loading="lazy"></iframe>
+
+SUDEP is inside the epilepsy count and cannot be separated from it. That is the whole
+problem. Only 27 of 87 counties had enough epilepsy-specific deaths in seven years to
+report a number at all; the other 60 are suppressed as fewer than 10, and those are
+the same counties with the smallest districts, the longest ambulance runs, and the farthest
+specialists. Source and method:
+`data/mn_epilepsy_mortality_summary.md`.
+
 ## What we are doing this year
 - A plain-language family guide to the seizure detection device benefit: who qualifies, how
   to ask, what to do if denied. Distributed through EFMN care coordinators and the pediatric
   epilepsy clinics.
 - A public-records request to find out how many devices Medical Assistance has covered, so
   the benefit can be measured.
-- A plain-language analysis of Minnesota epilepsy-related deaths by year and region from
-  state vital statistics.
+- Keeping the death analysis above current each year as CDC releases data, and adding
+  regional groupings so rural rates can be shown without breaking suppression rules.
 - A draft Minnesota SUDEP investigation and reporting law, modeled on Illinois, for the
   Epilepsy Foundation of Minnesota and the authors of the 2025 epilepsy program law. Its
   data would feed the mortality count the state is now required to publish.
