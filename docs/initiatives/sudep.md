@@ -1,7 +1,8 @@
 # 5. SUDEP
 
-Status: started September 2026. Every page in this initiative is reviewed by the Epilepsy
-Foundation of Minnesota or a clinician before publication.
+Status: started September 2026. This page and the device guide are student-written from
+public sources and have not yet been reviewed by a clinician or the Epilepsy Foundation of
+Minnesota; we are seeking that review. Nothing here is medical advice.
 
 ## The gap
 Sudden Unexpected Death in Epilepsy is rare, about one in a thousand adults with epilepsy a

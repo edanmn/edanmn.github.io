@@ -40,7 +40,7 @@ the Twin Cities.
 - Giving the map to the Minnesota Epilepsy Program at MDH as a candidate "area of need."
 - Writing a plain-language page for families: what a Level 4 center is, when to ask for a
   referral, which Minnesota systems offer tele-neurology and remote EEG, and how Medical
-  Assistance covers travel. A clinician reviews it before it goes up.
+  Assistance covers travel. We are seeking a clinician to review it before it is promoted.
 - Pharmacy distance is now in the same file and the lookup tool, so one map shows the
   whole picture. The next pass swaps the federal registry for the Minnesota Board of
   Pharmacy list to drop closed stores.

@@ -77,7 +77,9 @@ things a family still faces after school is handled. SUDEP is the reason all of 
 Students, nurses, clinicians, and families can help with every one of these. Write to
 edanmnorg@gmail.com, or start with [How to Help](../chapters/06-how-to-help/index.md).
 
-!!! note "What we do not do"
+!!! note "What we do not do, and what to know about these pages"
     We are not a medical or legal service. We measure what is publicly findable and never
-    label a district or provider "non-compliant." Every guide is reviewed by a clinician,
-    nurse, or the Epilepsy Foundation of Minnesota before it goes up.
+    label a district or provider "non-compliant." These pages are written by students from
+    public sources and have not yet been reviewed by a clinician or the Epilepsy Foundation
+    of Minnesota. We are seeking that review. Until then, treat everything here as
+    information to bring to your own care team, not as medical advice.
