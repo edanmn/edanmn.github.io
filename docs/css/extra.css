@@ -465,7 +465,7 @@ button:focus-visible {
 .md-typeset h1 .edan-hero-logo {
   display: block;
   width: 100%;
-  max-width: 34rem;
+  max-width: 20rem;
   height: auto;
   margin: 0;
 }
