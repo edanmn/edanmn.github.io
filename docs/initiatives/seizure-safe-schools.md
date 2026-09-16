@@ -11,6 +11,11 @@ The gap tracks district size: small districts, most of them rural, lack the nurs
 administrative time to publish one. About half of Minnesota districts have no licensed
 school nurse at all.
 
+A plan that is not posted can still exist. When we followed up with districts by email, most
+of those that answered said they keep an individual plan on file for each student and train
+their staff, but do not put the plans online. The audit measures whether a family can find a
+plan, which is a different question from whether a district has one.
+
 The full analysis, with interactive charts, is in
 [The Data: Mapping the Gaps](../chapters/05-the-data-case-study/index.md). Look up any
 district in [Find Your District](../find-your-district/index.md).
@@ -69,7 +74,9 @@ health office used the packet to put one in place, and wrote back:
 ## Check yourself
 ??? quiz "1. What share of Minnesota districts post a findable seizure plan?"
     About 30 percent (97 of 328). About 70 percent post none, most of them only a general
-    medication policy that never mentions seizures.
+    medication policy that never mentions seizures. Posting and having are different things:
+    many districts keep individual plans on file and train staff without putting anything
+    online, as most districts that answered our follow-up emails told us.
 
 ??? quiz "2. What predicts whether a district posts a plan: being rural, or being small?"
     Being small. Once enrollment is in the model, rurality is no longer significant. The gap
