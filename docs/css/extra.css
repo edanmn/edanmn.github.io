@@ -450,6 +450,5 @@ button:focus-visible {
     margin: 0.4rem 0 0.3rem;
     color: var(--md-default-fg-color--lighter);
   }
-  .edan-side-quote__more { font-weight: 600; }
   .edan-quote-inline { display: none; }
 }

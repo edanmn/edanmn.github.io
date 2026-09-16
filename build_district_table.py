@@ -46,10 +46,14 @@ if os.path.exists(cp):
 
 # districts that confirmed by email that they have plans on file and trained staff
 confirmed = {}
+responded = {}   # replied, but no confirmed plan yet (in progress or pending)
 cfp = os.path.join(DATA, "district_confirmations.csv")
 if os.path.exists(cfp):
     for r in csv.DictReader(open(cfp)):
-        confirmed[str(r["isd"])] = r
+        if r.get("status", "confirmed") == "confirmed":
+            confirmed[str(r["isd"])] = r
+        else:
+            responded[str(r["isd"])] = r
 
 rows = sorted(csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))),
               key=lambda r: r["district"].title())
@@ -69,6 +73,11 @@ for r in rows:
     cf = confirmed.get(isd)
     conf_tag = (f'<br><span style="background:#e6f4ea;color:#1b5e20;font-size:.72rem;padding:1px 6px;'
                 f'border-radius:10px;font-weight:600">&#10003; Confirmed by district, {html.escape(cf["confirmed_month"])}</span>') if cf else ""
+    rs = responded.get(isd)
+    if rs:
+        rlabel = "District working on a plan" if rs["status"] == "in_progress" else "District replied, awaiting confirmation"
+        conf_tag = (f'<br><span style="background:#e8f0fe;color:#174ea6;font-size:.72rem;padding:1px 6px;'
+                    f'border-radius:10px;font-weight:600">{rlabel}, {html.escape(rs["confirmed_month"])}</span>')
     trs.append(
         f'<tr data-s="{html.escape((name+" "+county+" "+isd).lower())}" data-plan="{ptag}" data-conf="{"1" if cf else ""}">'
         f'<td>{name}{dual_tag}</td>'

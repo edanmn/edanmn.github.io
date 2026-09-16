@@ -59,10 +59,14 @@ if os.path.exists(tp):
 
 # districts that confirmed by email that they have plans on file and trained staff
 confirmed = {}
+responded = {}   # replied, but no confirmed plan yet (in progress or pending)
 cfp = os.path.join(DATA, "district_confirmations.csv")
 if os.path.exists(cfp):
     for r in csv.DictReader(open(cfp)):
-        confirmed[str(r["isd"])] = r
+        if r.get("status", "confirmed") == "confirmed":
+            confirmed[str(r["isd"])] = r
+        else:
+            responded[str(r["isd"])] = r
 
 rows = []
 for r in csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))):
@@ -93,6 +97,9 @@ for r in csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))):
         "dual": str(comp.get("dual_risk","")).lower() == "true",
         "conf": (f'{confirmed[isd]["respondent_role"]} confirmed by email in {confirmed[isd]["confirmed_month"]}: '
                  f'{confirmed[isd]["what_confirmed"]}') if isd in confirmed else "",
+        "resp": (f'{responded[isd]["respondent_role"]} told us by email in {responded[isd]["confirmed_month"]} that '
+                 f'{responded[isd]["what_confirmed"]}.') if isd in responded else "",
+        "rstat": responded[isd]["status"] if isd in responded else "",
     })
 rows.sort(key=lambda x: x["name"])
 payload = json.dumps(rows, separators=(",", ":"))
@@ -161,6 +168,7 @@ function render(d){{
   <h2 style="margin:10px 0 2px">${{d.name}}</h2>
   <div class="muted">${{d.isd==="30001"?"SSD 1":"ISD "+d.isd}} &middot; ${{d.city?d.city+", ":""}}${{d.county}} County &middot; ${{d.type}}</div>
   ${{d.conf?`<div class="mean" style="background:#e6f4ea;border-left:3px solid #1a9850"><b>&#10003; Confirmed by the district.</b> ${{d.conf}} The badge above still shows what is posted online.</div>`:""}}
+  ${{d.resp?`<div class="mean" style="background:#e8f0fe;border-left:3px solid #1a73e8"><b>${{d.rstat==="in_progress"?"District update: working on a plan.":"District update: awaiting confirmation."}}</b> ${{d.resp}} We will update this entry when the district confirms a plan is in place.</div>`:""}}
   <div class="mean">${{meaning}}${{d.note?`<br><span class="muted">What we saw: ${{d.note}}</span>`:""}}</div>
   <table style="width:100%;font-size:.88rem;border-collapse:collapse;margin:12px 0">
    <tr style="border-bottom:1px solid #eee">
