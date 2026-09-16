@@ -3,6 +3,15 @@
 *Public data, plain language, and free resources for Minnesotans with epilepsy and their
 families. Student-led, free, and open.*
 
+!!! tip "For school districts: the free Seizure-Safe Schools packet"
+    Everything a district needs to meet Minnesota's seizure-safety law (Minn. Stat. 121A.24)
+    in one 7-page PDF: a seizure action plan template, drop-in Policy 516 language, a
+    printable first-aid poster, a seizure observation log, and an adoption checklist. Free to
+    copy, adapt, and use.
+
+    [Download the packet (PDF)](packet/EDAN-Seizure-Safe-Schools-Packet.pdf){ .md-button .md-button--primary download="EDAN-Seizure-Safe-Schools-Packet.pdf" }
+    [How to put it into practice](chapters/08-for-schools-in-practice/index.md){ .md-button }
+
 !!! quote "📣 In the news: Minnesota Star Tribune"
     EDAN founder Rishik Kondadadi's commentary, **["If a student had a seizure in the classroom, would your school be prepared?"](https://www.startribune.com/seizure-first-aid-training-mn-schools-epilepsy-awareness/601870213)**, ran in the *Minnesota Star Tribune* on July 23, 2026. It makes the case that more Minnesota schools should post seizure action plans where families can actually find them.
 
