@@ -1,4 +1,8 @@
-# Epilepsy Data & Advocacy Network
+---
+title: Epilepsy Data & Advocacy Network
+---
+
+# ![Epilepsy Data & Advocacy Network (EDAN): data, education, advocacy](img/brand/edan-logo.png){ .edan-hero-logo }
 
 *Public data, plain language, and free resources for Minnesotans with epilepsy and their
 families. Student-led, free, and open.*

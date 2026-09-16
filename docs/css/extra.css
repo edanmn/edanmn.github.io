@@ -456,3 +456,23 @@ button:focus-visible {
 /* Page titles do not need a visible permalink symbol. Section headings keep
    theirs, which Material shows only on hover. */
 .md-typeset h1 .headerlink { display: none; }
+
+/* ---- EDAN logo ------------------------------------------------------------
+   Header icon is a white rounded square, so it reads on the dark header.
+   The homepage title is the full wordmark. Its navy letters disappear on the
+   dark color scheme, so there it sits on a white card. */
+.md-header__button.md-logo img { height: 1.8rem; width: auto; border-radius: 0.3rem; }
+.md-typeset h1 .edan-hero-logo {
+  display: block;
+  width: 100%;
+  max-width: 34rem;
+  height: auto;
+  margin: 0;
+}
+.md-typeset h1:has(.edan-hero-logo) { margin-bottom: 0.6rem; }
+[data-md-color-scheme="slate"] .md-typeset h1 .edan-hero-logo {
+  background: #fff;
+  border-radius: 0.6rem;
+  padding: 0.8rem 1rem;
+  box-sizing: border-box;
+}
