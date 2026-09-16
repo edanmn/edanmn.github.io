@@ -415,3 +415,41 @@ button:focus-visible {
     transform: rotate(-6deg) scale(1.08);
   }
 }
+
+/* ---- Homepage testimonial in the right sidebar ---------------------------
+   The secondary sidebar only shows at 76.25em and wider. Below that the quote
+   stays in the page body; at that width and up the body copy is hidden so the
+   quote does not appear twice. The toc partial is also reused inside the
+   mobile drawer, so the sidebar box is hidden everywhere except the sidebar. */
+.edan-side-quote { display: none; }
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--secondary .edan-side-quote {
+    display: block;
+    margin: 0 0 1.2rem 0.6rem;
+    padding: 0.8rem 0.9rem;
+    border-left: 0.2rem solid var(--md-accent-fg-color);
+    border-radius: 0.2rem;
+    background: var(--md-code-bg-color);
+    font-size: 0.64rem;
+    line-height: 1.5;
+  }
+  .edan-side-quote__title {
+    margin: 0 0 0.4rem;
+    font-weight: 700;
+    color: var(--md-default-fg-color);
+  }
+  .edan-side-quote blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--md-default-fg-color--light);
+    font-style: italic;
+  }
+  .edan-side-quote blockquote p { margin: 0 0 0.5rem; }
+  .edan-side-quote__by {
+    margin: 0.4rem 0 0.3rem;
+    color: var(--md-default-fg-color--lighter);
+  }
+  .edan-side-quote__more { font-weight: 600; }
+  .edan-quote-inline { display: none; }
+}

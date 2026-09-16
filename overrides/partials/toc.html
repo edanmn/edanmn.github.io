@@ -1,0 +1,41 @@
+{#-
+  Copy of Material 9.7 partials/toc.html. The only change: on the homepage, a
+  district testimonial sits above the table of contents in the right sidebar.
+-#}
+{% set title = lang.t("toc") %}
+{% if config.mdx_configs.toc and config.mdx_configs.toc.title %}
+  {% set title = config.mdx_configs.toc.title %}
+{% endif %}
+{% if page and page.is_homepage %}
+  <aside class="edan-side-quote" aria-label="What a school district told us">
+    <p class="edan-side-quote__title">What a school district told us</p>
+    <blockquote>
+      <p>Your initial email that came in August was such a blessing! As I had been working
+      through things, I had discovered that we (the district) did indeed have three students
+      with seizure disorders and we had no formal plan in place.</p>
+      <p>With the help of your packet, I can say that we now have a plan in place for all
+      students and that staff know what to do.</p>
+    </blockquote>
+    <p class="edan-side-quote__by">District staff member, a Minnesota public school district,
+    September 2026. Shared with permission.</p>
+    <a class="edan-side-quote__more" href="{{ 'initiatives/seizure-safe-schools/' | url }}#districts-that-confirmed-they-have-a-plan">Read the full note</a>
+  </aside>
+{% endif %}
+<nav class="md-nav md-nav--secondary" aria-label="{{ title | e }}">
+  {% set toc = page.toc %}
+  {% set first = toc | first %}
+  {% if first and first.level == 1 %}
+    {% set toc = first.children %}
+  {% endif %}
+  {% if toc %}
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      {{ title }}
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      {% for toc_item in toc %}
+        {% include "partials/toc-item.html" %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</nav>
