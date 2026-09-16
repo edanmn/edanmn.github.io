@@ -476,3 +476,6 @@ button:focus-visible {
   padding: 0.8rem 1rem;
   box-sizing: border-box;
 }
+
+/* Homepage tagline under the logo: smaller than the standfirst on other pages. */
+.md-typeset h1:has(.edan-hero-logo) + p { font-size: 0.85rem; line-height: 1.5; }

@@ -57,7 +57,8 @@ plugins:
   - search
 
 extra_css:
-  - css/extra.css
+  # Bump the version after CSS changes so browsers fetch the new file right away.
+  - css/extra.css?v=2026-09-16b
 
 extra_javascript:
   - js/reactbits.js
