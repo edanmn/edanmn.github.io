@@ -9,6 +9,10 @@ facts, and exactly what to do next, whether you are a parent or you work for the
     plans internal or on pages we could not reach. It is not a measure of legal compliance or
     of how safe a school is. Always contact your school directly.
 
+    Some districts have since told us by email that they keep seizure action plans on file
+    and train staff. Their entries show a green "Confirmed by district" tag. The full list is
+    on the [Seizure-Safe Schools](../initiatives/seizure-safe-schools.md) page.
+
 ## Search your district
 Start typing your district or county name, pick it from the list, and you will get a full
 profile: the seizure-plan status, district facts, county context, the source we checked, and

@@ -43,7 +43,37 @@ the [Seizure First Aid Simulator](../sims/seizure-first-aid/index.md), and the
 | Districts audited | 328 of 329 |
 | Districts with a findable seizure plan | 97 (29.6%) |
 | Districts contacted directly | 41 (July 2026), all others in progress |
+| Districts that confirmed a plan and trained staff by email | 13 (as of September 16, 2026) |
+| Districts that adopted a plan after our outreach | 1 (Grand Meadow) |
 | Reliability of the audit (blind re-check of 30 districts) | 90% agreement, kappa 0.82 |
+
+## Districts that confirmed they have a plan
+In September we asked every district we had contacted one question: is there a seizure
+action plan on file for each student with a seizure disorder, and a trained adult at each
+school? These districts wrote back yes. Most had plans all along and simply do not post
+them online, which is why a public audit alone undercounts. Their entries in
+[Find Your District](../find-your-district/index.md) now carry a "Confirmed by district" tag
+next to the June audit result.
+
+| District | County | Who confirmed | Date |
+|---|---|---|---|
+| Battle Lake | Otter Tail | School health lead | Sep 2026 |
+| Clinton-Graceville-Beardsley | Big Stone | School nurse | Sep 2026 |
+| Goodridge | Pennington | School nurse | Sep 2026 |
+| Grand Meadow | Mower | District office | Sep 2026 |
+| Hayfield | Dodge | Licensed school nurse | Sep 2026 |
+| Hermantown | St. Louis | District nurse | Aug 2026 |
+| Kittson Central | Kittson | Superintendent | Sep 2026 |
+| Lewiston-Altura | Winona | District licensed school nurse | Sep 2026 |
+| Minneapolis | Hennepin | Director of nursing | Sep 2026 |
+| Osakis | Douglas | Health services | Sep 2026 |
+| Paynesville Area | Stearns | School nurse | Sep 2026 |
+| St. James | Watonwan | Licensed school nurse | Sep 2026 |
+| Triton | Dodge | District nurse | Sep 2026 |
+
+Grand Meadow is the first district to put a plan in place after our outreach. Staff found
+three students with seizure disorders and no formal plan, used the packet, and now have a
+plan for every student.
 
 ## Check yourself
 ??? quiz "1. What share of Minnesota districts post a findable seizure plan?"

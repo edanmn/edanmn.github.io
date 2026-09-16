@@ -44,6 +44,13 @@ if os.path.exists(cp):
     for r in csv.DictReader(open(cp)):
         composite[str(r["isd"])] = r
 
+# districts that confirmed by email that they have plans on file and trained staff
+confirmed = {}
+cfp = os.path.join(DATA, "district_confirmations.csv")
+if os.path.exists(cfp):
+    for r in csv.DictReader(open(cfp)):
+        confirmed[str(r["isd"])] = r
+
 rows = sorted(csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))),
               key=lambda r: r["district"].title())
 trs = []
@@ -59,18 +66,22 @@ for r in rows:
     county = html.escape((r.get("county") or "").replace(" County",""))
     dual   = str(c.get("dual_risk","")).lower() == "true"
     dual_tag = ' <span style="background:#fce4ec;color:#880e4f;font-size:.72rem;padding:1px 6px;border-radius:10px;font-weight:600">DUAL RISK</span>' if dual else ""
+    cf = confirmed.get(isd)
+    conf_tag = (f'<br><span style="background:#e6f4ea;color:#1b5e20;font-size:.72rem;padding:1px 6px;'
+                f'border-radius:10px;font-weight:600">&#10003; Confirmed by district, {html.escape(cf["confirmed_month"])}</span>') if cf else ""
     trs.append(
-        f'<tr data-s="{html.escape((name+" "+county+" "+isd).lower())}" data-plan="{ptag}">'
+        f'<tr data-s="{html.escape((name+" "+county+" "+isd).lower())}" data-plan="{ptag}" data-conf="{"1" if cf else ""}">'
         f'<td>{name}{dual_tag}</td>'
         f'<td>{county}</td>'
         f'<td>{html.escape(r.get("locale",""))}</td>'
-        f'<td><span class="dot" style="background:{pc}"></span>{pl}</td>'
+        f'<td><span class="dot" style="background:{pc}"></span>{pl}{conf_tag}</td>'
         f'<td><span class="dot" style="background:{nc}"></span>{nl}</td>'
         f'<td><span class="dot" style="background:{ec}"></span>{el}</td>'
         f'<td>{link}</td></tr>')
 
 n = len(rows)
 n_plan = sum(1 for r in rows if r["classification"] == "FOUND_SEIZURE_SPECIFIC")
+n_conf = sum(1 for r in rows if str(r["isd"]) in confirmed)
 
 page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
@@ -97,6 +108,7 @@ page = f"""<!doctype html>
   <span>EMS times: <b>2023 county data</b></span>
 </div>
 <p class="muted">{n} Minnesota districts. {n_plan} post a seizure-specific plan publicly online.
+{n_conf} more have told us by email that they keep plans on file and train staff.
 "Not found" does not mean no plan; always contact your school directly.</p>
 <div class="filters">
   <input id="q" placeholder="Filter by district or county…">
@@ -105,6 +117,7 @@ page = f"""<!doctype html>
     <option value="yes">Plan posted</option>
     <option value="med">Medication policy only</option>
     <option value="no">Nothing found</option>
+    <option value="conf">Confirmed by district</option>
   </select>
   <select id="f-dual" onchange="filt()">
     <option value="">All districts</option>
@@ -130,7 +143,7 @@ function filt(){{
  var rows=document.querySelectorAll('#tb tr'), n=0;
  rows.forEach(function(r){{
    var ms=r.getAttribute('data-s').indexOf(q)>-1;
-   var mp=!fp||r.getAttribute('data-plan')===fp;
+   var mp=!fp||(fp==='conf'?r.getAttribute('data-conf')==='1':r.getAttribute('data-plan')===fp);
    var md=!fd||(fd==='dual'&&r.innerHTML.indexOf('DUAL RISK')>-1);
    var show=ms&&mp&&md; r.style.display=show?'':'none'; if(show)n++;
  }});

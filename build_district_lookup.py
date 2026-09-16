@@ -57,6 +57,13 @@ if os.path.exists(tp):
                                             "role": r.get("Contact_Role", ""),
                                             "email": r.get("Best_Contact_Email", "")}
 
+# districts that confirmed by email that they have plans on file and trained staff
+confirmed = {}
+cfp = os.path.join(DATA, "district_confirmations.csv")
+if os.path.exists(cfp):
+    for r in csv.DictReader(open(cfp)):
+        confirmed[str(r["isd"])] = r
+
 rows = []
 for r in csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))):
     isd = str(r["isd"])
@@ -84,6 +91,8 @@ for r in csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))):
         "nl": nl, "nc": nc,
         "et": et, "ec": ec,
         "dual": str(comp.get("dual_risk","")).lower() == "true",
+        "conf": (f'{confirmed[isd]["respondent_role"]} confirmed by email in {confirmed[isd]["confirmed_month"]}: '
+                 f'{confirmed[isd]["what_confirmed"]}') if isd in confirmed else "",
     })
 rows.sort(key=lambda x: x["name"])
 payload = json.dumps(rows, separators=(",", ":"))
@@ -142,6 +151,8 @@ function render(d){{
  const dualBadge = d.dual ? `<span style="display:inline-block;margin-left:8px;background:#fce4ec;color:#880e4f;font-size:.78rem;padding:2px 9px;border-radius:12px;font-weight:600">DUAL RISK</span>` : "";
  const ctaText = d.dual
    ? `Your district has two gaps: no public seizure plan and likely no licensed nurse. Use the <a href="../chapters/06-how-to-help/index.md" target="_top">template letter</a> to request a seizure action plan and ask about a <b>504 plan</b> for stronger legal protections.`
+   : d.conf
+     ? `This district told us it keeps individual seizure action plans and trains staff. Ask the school nurse to set up or review your child's plan. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide</a> for a checklist.`
    : d.cls!=="FOUND_SEIZURE_SPECIFIC"
      ? `No public seizure plan found. You can ask your school to create one; the law (Minn. Stat. 121A.24) is on your side. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide and copy-paste email</a>.`
      : `A seizure plan is posted. Confirm it covers your child specifically and ask when it was last updated. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide</a> for a checklist.`;
@@ -149,6 +160,7 @@ function render(d){{
   <span class="badge" style="background:${{color}}">${{label}}</span>${{dualBadge}}
   <h2 style="margin:10px 0 2px">${{d.name}}</h2>
   <div class="muted">ISD ${{d.isd}} &middot; ${{d.city?d.city+", ":""}}${{d.county}} County &middot; ${{d.type}}</div>
+  ${{d.conf?`<div class="mean" style="background:#e6f4ea;border-left:3px solid #1a9850"><b>&#10003; Confirmed by the district.</b> ${{d.conf}} The badge above still shows what is posted online.</div>`:""}}
   <div class="mean">${{meaning}}${{d.note?`<br><span class="muted">What we saw: ${{d.note}}</span>`:""}}</div>
   <table style="width:100%;font-size:.88rem;border-collapse:collapse;margin:12px 0">
    <tr style="border-bottom:1px solid #eee">
@@ -176,6 +188,8 @@ function render(d){{
   <div class="cta"><h4>If you work for this district</h4>
    ${{d.cls==="FOUND_SEIZURE_SPECIFIC"
       ?"You already post a plan, thank you. A yearly review keeps it current."
+      :d.conf
+      ?"Thank you for confirming. Posting a blank plan template or a short seizure page online helps families and substitute staff find it; the free <a href='../chapters/06-how-to-help/index.md' target='_top'>packet</a> has one ready."
       :"Use the free <a href='../chapters/06-how-to-help/index.md' target='_top'>drop-in packet</a> (plan template + Policy 516 language + poster). Note: the current MSBA Model Policy 516 does not reference Minn. Stat. 121A.24, and the drop-in language fixes this."}}</div>
   <div class="disc">Seizure plan reflects what was <b>publicly findable as of ${{CHECK}}</b>. Nurse coverage is estimated from NCES 2023-24 support staff data and MDH 2022 statistics, not a confirmed count. EMS times are 2023 county averages, not school-specific. Not a measure of legal compliance. Wrong or out of date? <a href="mailto:edanmnorg@gmail.com">edanmnorg@gmail.com</a></div>`;
  card.style.display="block";
