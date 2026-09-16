@@ -16,6 +16,20 @@ away, a benefit nobody explained. EDAN is a student-led organization that uses p
 find those gaps, translates what it finds into plain language, and puts free resources where
 they help most. Then we count the people whose lives changed. Everything here is free.
 
+!!! quote "What a school district told us"
+    Your initial email that came in August was such a blessing! As I had been working through
+    things, I had discovered that we (the district) did indeed have three students with seizure
+    disorders and we had no formal plan in place, nor did I have the time to dedicate to finding
+    what we would need on top of my other regular duties.
+
+    With the help of your packet, I can say that we now have a plan in place for all students
+    and that staff know what to do. I am grateful to you for all of the work you put into this
+    packet! It is a wonderful resource and one that I plan to keep handy for reference in the
+    future.
+
+    *District staff member, a Minnesota public school district, September 2026. Shared with
+    permission; name and district withheld.*
+
 ## Five initiatives for 2026-27
 1. [Seizure-Safe Schools](initiatives/seizure-safe-schools.md): 7 in 10 Minnesota districts
    post no findable seizure plan. We are turning that finding into adoptions.

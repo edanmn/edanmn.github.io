@@ -44,7 +44,7 @@ the [Seizure First Aid Simulator](../sims/seizure-first-aid/index.md), and the
 | Districts with a findable seizure plan | 97 (29.6%) |
 | Districts contacted directly | 41 (July 2026), all others in progress |
 | Districts that confirmed a plan and trained staff by email | 13 (as of September 16, 2026) |
-| Districts that adopted a plan after our outreach | 1 (Grand Meadow) |
+| Districts that adopted a plan after our outreach | 1 |
 | Reliability of the audit (blind re-check of 30 districts) | 90% agreement, kappa 0.82 |
 
 ## Districts that confirmed they have a plan
@@ -60,7 +60,7 @@ next to the June audit result.
 | Battle Lake | Otter Tail | School health lead | Sep 2026 |
 | Clinton-Graceville-Beardsley | Big Stone | School nurse | Sep 2026 |
 | Goodridge | Pennington | School nurse | Sep 2026 |
-| Grand Meadow | Mower | District office | Sep 2026 |
+| Grand Meadow | Mower | District staff | Sep 2026 |
 | Hayfield | Dodge | Licensed school nurse | Sep 2026 |
 | Hermantown | St. Louis | District nurse | Aug 2026 |
 | Kittson Central | Kittson | Superintendent | Sep 2026 |
@@ -71,9 +71,22 @@ next to the June audit result.
 | St. James | Watonwan | Licensed school nurse | Sep 2026 |
 | Triton | Dodge | District nurse | Sep 2026 |
 
-Grand Meadow is the first district to put a plan in place after our outreach. Staff found
-three students with seizure disorders and no formal plan, used the packet, and now have a
-plan for every student.
+One district had no formal plan when our first email arrived. A staff member covering the
+health office used the packet to put one in place, and wrote back:
+
+!!! quote "In their words"
+    Your initial email that came in August was such a blessing! As I had been working through
+    things, I had discovered that we (the district) did indeed have three students with seizure
+    disorders and we had no formal plan in place, nor did I have the time to dedicate to finding
+    what we would need on top of my other regular duties.
+
+    With the help of your packet, I can say that we now have a plan in place for all students
+    and that staff know what to do. I am grateful to you for all of the work you put into this
+    packet! It is a wonderful resource and one that I plan to keep handy for reference in the
+    future.
+
+    *District staff member, a Minnesota public school district, September 2026. Shared with
+    permission; name and district withheld.*
 
 ## Check yourself
 ??? quiz "1. What share of Minnesota districts post a findable seizure plan?"
