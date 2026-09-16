@@ -10,7 +10,7 @@ CHECK_DATE = "June 2026"
 
 def clean_isd(s):
     s = str(s).replace("ISD ", "").replace("MN-", "").strip()
-    return (s[-4:].lstrip("0") or "0") if (s.startswith("0") or len(s) > 4) else (s.lstrip("0") or "0")
+    return (s[-4:].lstrip("0") or "0") if s.startswith("0") else (s.lstrip("0") or "0")
 
 # roster: facts
 roster = {}
@@ -122,7 +122,7 @@ page = f"""<!doctype html>
 
 <input id="q" placeholder="Type your school district or county (e.g. Worthington, St. Louis)..." autocomplete="off">
 <div id="list"></div>
-<p class="muted" id="hint">328 Minnesota districts. Start typing to find yours.</p>
+<p class="muted" id="hint">{len(rows)} Minnesota districts. Start typing to find yours.</p>
 
 <div class="card" id="card"></div>
 
@@ -159,7 +159,7 @@ function render(d){{
  card.innerHTML = `
   <span class="badge" style="background:${{color}}">${{label}}</span>${{dualBadge}}
   <h2 style="margin:10px 0 2px">${{d.name}}</h2>
-  <div class="muted">ISD ${{d.isd}} &middot; ${{d.city?d.city+", ":""}}${{d.county}} County &middot; ${{d.type}}</div>
+  <div class="muted">${{d.isd==="30001"?"SSD 1":"ISD "+d.isd}} &middot; ${{d.city?d.city+", ":""}}${{d.county}} County &middot; ${{d.type}}</div>
   ${{d.conf?`<div class="mean" style="background:#e6f4ea;border-left:3px solid #1a9850"><b>&#10003; Confirmed by the district.</b> ${{d.conf}} The badge above still shows what is posted online.</div>`:""}}
   <div class="mean">${{meaning}}${{d.note?`<br><span class="muted">What we saw: ${{d.note}}</span>`:""}}</div>
   <table style="width:100%;font-size:.88rem;border-collapse:collapse;margin:12px 0">
