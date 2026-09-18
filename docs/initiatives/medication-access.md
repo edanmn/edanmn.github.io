@@ -7,7 +7,8 @@ For most conditions a missed dose is a nuisance. For epilepsy it can be a seizur
 an emergency room visit, a lost driver's license, or worse. Nationally, among adults with
 active epilepsy, about 13 percent say they could not afford their prescription and about 9
 percent skipped doses to save money. Two other things stand between a Minnesota family and
-the pill: shortages (clobazam has been hard to find on and off since 2020) and distance.
+the pill: supply problems (FDA currently lists a valproate injection shortage open since
+2020, and discontinuations of several other seizure products) and distance.
 Minnesota has lost 13 percent of its community pharmacies since 2009, and about one in five
 residents now lives in a low-access area.
 
@@ -26,8 +27,11 @@ from the federal State Drug Utilization Data.
 | Average cost, cannabidiol (Epidiolex) | $3,739 |
 | Average cost, vigabatrin | $13,724 |
 
-Clobazam prescriptions fell 34 percent between the first and second quarters of 2024, the
-one drop in the file that lines up with a known national supply problem. Medicaid covers
+Clobazam prescriptions fell 34 percent between the first and second quarters of 2024. We
+first read that as a shortage. Checking it against the FDA shortage database in September
+2026 changed our mind: FDA has no clobazam record, and 16 other seizure medicines fell by a
+fifth or more in the same quarter. A shortage hits one drug. Minnesota's Medicaid renewals
+after the pandemic ran through mid-2024, which fits the pattern better. Medicaid covers
 at most a third of Minnesotans with epilepsy; commercial claims are held by MDH and we have
 asked for them.
 
