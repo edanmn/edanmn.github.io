@@ -28,10 +28,12 @@ from the federal State Drug Utilization Data.
 | Average cost, vigabatrin | $13,724 |
 
 Clobazam prescriptions fell 34 percent between the first and second quarters of 2024. We
-first read that as a shortage. Checking it against the FDA shortage database in September
-2026 changed our mind: FDA has no clobazam record, and 16 other seizure medicines fell by a
-fifth or more in the same quarter. A shortage hits one drug. Minnesota's Medicaid renewals
-after the pandemic ran through mid-2024, which fits the pattern better. Medicaid covers
+first read that as a shortage, and we were wrong. We checked both national shortage trackers
+as they stood during 2024, using archived snapshots of the FDA list and the ASHP list, and
+neither recorded a clobazam shortage that year. The only clobazam entry anywhere is one
+company discontinuing its 20 mg tablet. Sixteen other seizure medicines fell by a fifth or
+more in the same quarter, and a shortage hits one drug at a time. Minnesota's Medicaid
+renewals after the pandemic ran through mid-2024, which fits the pattern better. Medicaid covers
 at most a third of Minnesotans with epilepsy; commercial claims are held by MDH and we have
 asked for them.
 
