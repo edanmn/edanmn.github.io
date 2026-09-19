@@ -453,9 +453,9 @@ button:focus-visible {
   .edan-quote-inline { display: none; }
 }
 
-/* Page titles do not need a visible permalink symbol. Section headings keep
-   theirs, which Material shows only on hover. */
-.md-typeset h1 .headerlink { display: none; }
+/* Hide the permalink symbol on every heading. Anchors still work: the heading
+   ids are unchanged, so links like /about/#who-we-are jump as before. */
+.md-typeset .headerlink { display: none; }
 
 /* ---- EDAN logo ------------------------------------------------------------
    Header icon is a white rounded square, so it reads on the dark header.
