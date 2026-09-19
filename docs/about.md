@@ -42,8 +42,9 @@ Our measure for 2026-27 is at least twenty people with epilepsy whose situation 
 document changing because of this work.
 
 ## Who we are
-EDAN was founded by **Rishik Kondadadi**, a Minnesota high school student. It is run by students
-and is non-commercial. Everything we produce is free to use and adapt.
+EDAN was founded by Rishik Kondadadi, a Minnesota high school student, and is run by students.
+Aaryav Sharma, a sophomore, joined the team in September 2026. We are non-commercial, and
+everything we produce is free to use and adapt.
 
 ## Get involved or get in touch
 - Families and schools: see [How to Help](chapters/06-how-to-help/index.md).
