@@ -7,10 +7,10 @@ For most conditions a missed dose is a nuisance. For epilepsy, going without med
 stretch is what causes harm. In a study of 33,658 adults with epilepsy on Medicaid, the
 periods when people were not taking their medicine carried about three times the death rate,
 one and a half times the emergency visits, and twice the rate of injury-causing crashes. A
-single forgotten dose is a different thing, and a 2026 study found it did not raise seizure
-risk in the hours after. Nationally, among adults with active epilepsy, about 13 percent say
+single forgotten dose is a different thing, and a 2026 study found that missing a dose the day
+before did not raise seizure risk. Nationally, among adults with active epilepsy, about 13 percent say
 they could not afford their prescription and about 9 percent skip doses to save money. Adults
-without epilepsy report 6 to 8 percent on the same questions. Two other things stand between a Minnesota family and
+without epilepsy report about 6 percent on both of those questions. Two other things stand between a Minnesota family and
 the pill: supply problems (FDA currently lists a valproate injection shortage open since
 2020, and discontinuations of several other seizure products) and distance.
 Minnesota has lost 13 percent of its community pharmacies since 2009, and about one in five
@@ -47,37 +47,41 @@ Medicaid prices are not what a working family sees. In September 2026 we pulled 
 drug pricing file, checked which seizure medicines have a generic, priced ten real Minnesota
 insurance plans, and read the state's own claims data. Four things stand out.
 
-**Six seizure medicines have no generic at all.** Epidiolex, Fintepla, Xcopri, Ztalmy,
+Six seizure medicines have no generic at all: Epidiolex, Fintepla, Xcopri, Ztalmy,
 Diacomit and nasal midazolam. In Minnesota Medicaid they are 1.5 percent of seizure
 prescriptions and 32 percent of the spending.
 
 ![Six seizure medicines have no generic and take a third of the spending](../img/asm_brandonly_share.png)
 
-**Where a generic exists, the gap is enormous.** A month of generic clobazam costs a pharmacy
+Where a generic does exist, the gap is enormous. A month of generic clobazam costs a pharmacy
 about $15. The brand, Onfi, costs about $1,795. Generic levetiracetam is $4.43 against $595
 for Keppra. Some children cannot switch between versions without losing seizure control.
 
 ![What a month of seizure medicine costs a pharmacy](../img/asm_brand_vs_generic.png)
 
-**Minnesotans on commercial insurance pay far more than people on public programs.** From the
+Minnesotans on commercial insurance pay far more than people on public programs. From the
 Minnesota All Payer Claims Database for 2022: $18.48 out of pocket per fill on a commercial
 plan, against $9.30 on Medicare and $1.31 on Medical Assistance. For the expensive drugs the
-median payment is $0.00 and the average is hundreds, which is the deductible pattern. Across a
+median payment is $0.00 while the average runs from about $96 to $267 a fill, which is the
+deductible pattern. Across a
 year, commercial members taking fenfluramine paid $1,822 on average, eslicarbazepine $1,460,
-and cannabidiol $1,073.
+and cannabidiol $1,073. Those three averages rest on small numbers of people, 12, 13 and 71
+respectively, and the database holds roughly 40 percent of Minnesota's commercial market, so
+read them as the shape of the problem rather than a statewide count.
 
-**Prices keep rising, and Minnesota knows it.** Under the state's 2023 transparency law,
-manufacturers have reported 50 price increases on seizure drugs since 2022. Sabril rose about
-15 percent in twelve months, to $20,182 for a bottle of 100 tablets. Onfi rose about 24
-percent over three January increases. Anticonvulsants have been a top-ten class in every
-reporting period, and the median two-year increase for the class has climbed from 15 percent
-to 31 percent. The reasons manufacturers give are boilerplate, and in two cases the reason was
+Prices keep rising, and the state knows it. Minnesota's drug price transparency law requires
+manufacturers to report large increases, and since January 2022 they have reported 50 on
+seizure drugs. Sabril rose about 15 percent in twelve months, to $20,182 for a bottle of 100
+tablets. Onfi rose about 24 percent over three January increases. In each of the three annual
+reports we tabulated, anticonvulsants were a top-ten class by number of price increase
+filings, and the median two-year increase for the class went from 15 percent to 31 percent,
+though the number of products behind that median also fell. The reasons manufacturers give are boilerplate, and in two cases the reason was
 withheld as a trade secret.
 
 Bills before the legislature (HF 3652 and SF 3786) would add epilepsy to Minn. Stat. 62Q.481,
 which since 2023 has capped what a Minnesotan pays for diabetes, asthma and severe allergy
-medicine at $25 a month. The Department of Commerce estimates current epilepsy cost sharing at
-$44.71 a month, with $17.35 of that above the $25 line, and prices the change at four cents
+medicine at $25 a month. The Department of Commerce, using claims from 2021 to 2024, projects epilepsy cost sharing of
+$44.71 a month in 2027, with $17.35 of that above the $25 line, and prices the change at four cents
 per member per month. Both bills died with this legislature and would need to be reintroduced
 in 2027.
 

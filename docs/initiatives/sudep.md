@@ -8,7 +8,8 @@ Minnesota; we are seeking that review. Nothing here is medical advice.
 Sudden Unexpected Death in Epilepsy is rare, about one in a thousand adults with epilepsy a
 year and far lower in children, and it is the outcome every family fears. The Minnesota
 Department of Health reports around 1,000 deaths a year in the state related to epilepsy or
-seizures. How many are SUDEP, nobody knows: it has no diagnostic code, and death certificates
+seizures; our own pull of 2018 to 2024 death certificates gives about 870 a year that mention
+epilepsy or seizures, and about 200 a year that mention epilepsy specifically. How many are SUDEP, nobody knows: it has no diagnostic code, and death certificates
 record it as "epilepsy" or "undetermined." Illinois, New Jersey, and North Carolina require
 medical examiners to look for it and report it. Minnesota does not.
 
@@ -29,8 +30,9 @@ seizures, from the CDC's multiple cause of death files.
 | Any mention of epilepsy (G40, G41) | 1,404 | about 200 |
 | Epilepsy as the underlying cause of death | 415 | about 60 |
 
-Both counts rose across the seven years, from 728 to 967 for any seizure mention and from
-153 to 233 for epilepsy. Rates are low through childhood, rise steadily through adulthood,
+The two broader counts rose across the seven years, from 728 to 967 for any seizure mention
+and from 153 to 233 for any epilepsy mention. Deaths with epilepsy as the underlying cause
+did not trend up, going from 60 in 2018 to 55 in 2024. Rates are low through childhood, rise steadily through adulthood,
 and climb steeply after 65, when seizures ride along with strokes, dementia, and other
 conditions. The epilepsy-specific count peaks at ages 65 to 74.
 
@@ -38,7 +40,8 @@ conditions. The epilepsy-specific count peaks at ages 65 to 74.
 
 SUDEP is inside the epilepsy count and cannot be separated from it. That is the whole
 problem. Only 27 of 87 counties had enough epilepsy-specific deaths in seven years to
-report a number at all; the other 60 are suppressed as fewer than 10, and those are
+report a number at all. Fifty-seven are suppressed as fewer than 10, and three had none
+recorded. Those are
 the same counties with the smallest districts, the longest ambulance runs, and the farthest
 specialists. Source and method:
 `data/mn_epilepsy_mortality_summary.md`.
@@ -60,10 +63,13 @@ is the population where SUDEP is most likely and least likely to be recorded as 
 proxy, not a count: dying at home is not proof of SUDEP, and some SUDEP deaths happen
 elsewhere.
 
-Minnesota's epilepsy death rate also runs above the national one. Age-adjusted, 2018 to 2024,
-Minnesota is 3.0 deaths per 100,000 against 2.4 nationally, about 25 percent higher. We are
-clearly above Wisconsin, North Dakota and the United States. Iowa and South Dakota overlap
-with us, so there is no real difference there.
+Minnesota's epilepsy death rate also runs above the national one. Counting every death
+certificate that mentions epilepsy anywhere, not only those where it was the underlying cause,
+Minnesota's age-adjusted rate for 2018 to 2024 is 3.0 per 100,000 against 2.4 nationally,
+about 25 percent higher. Minnesota is clearly above Wisconsin, North Dakota and the United
+States. Iowa is marginal, since its interval touches ours at 2.9. South Dakota is the only
+neighbor with a higher estimate, 3.4, and its interval overlaps ours, so we cannot say the two
+states differ.
 
 ![Minnesota's epilepsy death rate against neighboring states](../img/epilepsy_mortality_neighbors.png)
 
