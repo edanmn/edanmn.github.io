@@ -43,6 +43,35 @@ the same counties with the smallest districts, the longest ambulance runs, and t
 specialists. Source and method:
 `data/mn_epilepsy_mortality_summary.md`.
 
+## Where these deaths happen, and how Minnesota compares
+
+SUDEP usually happens at home, often during sleep, and often with nobody present. Death
+certificates almost never say so. The closest public measure is where people died, and for
+younger Minnesotans that pattern is stark.
+
+| Minnesota, 2018 to 2024 | Died at home | Total |
+|---|---|---|
+| Epilepsy mentioned anywhere on the certificate, all ages | 458 (33%) | 1,404 |
+| Epilepsy mentioned anywhere, ages 1 to 44 | 169 (54%) | 311 |
+| Epilepsy as the underlying cause, ages 1 to 44 | 98 (64%) | 152 |
+
+Nearly two in three young Minnesotans whose deaths were caused by epilepsy died at home. That
+is the population where SUDEP is most likely and least likely to be recorded as such. It is a
+proxy, not a count: dying at home is not proof of SUDEP, and some SUDEP deaths happen
+elsewhere.
+
+Minnesota's epilepsy death rate also runs above the national one. Age-adjusted, 2018 to 2024,
+Minnesota is 3.0 deaths per 100,000 against 2.4 nationally, about 25 percent higher. We are
+clearly above Wisconsin, North Dakota and the United States. Iowa and South Dakota overlap
+with us, so there is no real difference there.
+
+![Minnesota's epilepsy death rate against neighboring states](../img/epilepsy_mortality_neighbors.png)
+
+One caution before reading too much into that gap. A state's rate depends partly on how often
+doctors write epilepsy on a death certificate, which varies. A higher rate may mean more
+deaths, better recording, or both. Source and method:
+`data/mn_epilepsy_mortality_place_summary.md`.
+
 ## What we are doing this year
 - A plain-language family guide to the seizure detection device benefit: who qualifies, how
   to ask, what to do if denied. Distributed through EFMN care coordinators and the pediatric
