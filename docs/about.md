@@ -43,8 +43,8 @@ document changing because of this work.
 
 ## Who we are
 EDAN was founded by Rishik Kondadadi, a junior at Eastview High School in Apple Valley, and is
-run by students. Aaryav Sharma, a sophomore at Eastview, joined the team in September 2026. We
-are non-commercial, and everything we produce is free to use and adapt.
+run by students. Aaryav Sharma, a sophomore at Eastview, is part of the team. We are
+non-commercial, and everything we produce is free to use and adapt.
 
 ## Get involved or get in touch
 - Families and schools: see [How to Help](chapters/06-how-to-help/index.md).
