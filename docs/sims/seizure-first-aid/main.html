@@ -2,13 +2,334 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seizure First Aid Simulator</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
 <style>
- body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#fff}
- #sketch-holder{display:flex;justify-content:center}
- canvas{max-width:100%;height:auto}
+:root{
+  --ink:#1a1a1a; --muted:#5f5f5f; --line:#e3e3e3; --bg:#fff;
+  --red:#b3202c; --green:#1a7f37; --amber:#b26a00; --navy:#16244e; --purple:#5b2d90;
+  --panel:#faf8f6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);
+     background:var(--bg);line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:14px}
+h1{font-size:1.25rem;margin:0 0 2px}
+.sub{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--bg)}
+.scene{background:var(--panel);border-radius:12px;padding:8px;position:relative}
+svg{width:100%;height:auto;display:block}
+.hud{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0 4px}
+.clock{font-variant-numeric:tabular-nums;font-size:2rem;font-weight:700;letter-spacing:-.02em}
+.clock.warn{color:var(--amber)} .clock.danger{color:var(--red)}
+.phase{font-weight:600;padding:3px 10px;border-radius:999px;background:#eee;font-size:.85rem}
+.phase.tonic{background:#fdecec;color:var(--red)}
+.phase.clonic{background:#fdecec;color:var(--red)}
+.phase.post{background:#eef3fb;color:var(--navy)}
+.phase.done{background:#eaf6ec;color:var(--green)}
+.timeline{height:12px;border-radius:8px;background:#ececec;overflow:hidden;position:relative;margin-top:6px}
+.timeline>div{height:100%;background:var(--purple);width:0}
+.tick{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--red)}
+.ticklabel{position:absolute;font-size:.7rem;color:var(--red);top:14px;transform:translateX(-50%)}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+@media(max-width:520px){.actions{grid-template-columns:1fr}}
+button{font:inherit}
+.act{display:flex;align-items:center;gap:8px;text-align:left;padding:10px 12px;border:1.5px solid #ccc;
+     border-radius:10px;background:#fff;cursor:pointer;transition:.12s}
+.act:hover:not(:disabled){border-color:var(--purple);background:#f7f3fb}
+.act:disabled{opacity:.55;cursor:default}
+.act.done{border-color:var(--green);background:#eaf6ec}
+.act.bad{border-color:var(--red);background:#fdecec}
+.act .k{display:inline-flex;color:var(--purple);flex:0 0 auto}
+.act.bad .k{color:var(--red)} .act.done .k{color:var(--green)}
+.act small{display:block;color:var(--muted);font-size:.76rem}
+.primary{background:var(--red);color:#fff;border:none;padding:11px 18px;border-radius:9px;cursor:pointer;font-weight:600}
+.ghost{background:#fff;border:1.5px solid #bbb;padding:10px 16px;border-radius:9px;cursor:pointer}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.feed{margin-top:10px;font-size:.92rem;min-height:2.6em;border-left:3px solid var(--purple);padding:6px 10px;background:var(--panel);border-radius:0 8px 8px 0}
+.feed.ok{border-color:var(--green)} .feed.no{border-color:var(--red)}
+.log{margin:0;padding:0;list-style:none;font-size:.85rem;max-height:150px;overflow:auto}
+.log li{padding:3px 0;border-bottom:1px dashed #eee;display:flex;gap:8px}
+.log .t{color:var(--muted);font-variant-numeric:tabular-nums;min-width:46px}
+.brief{font-size:.92rem;background:#eef3fb;border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.brief b{color:var(--navy)}
+h2{font-size:1rem;margin:0 0 8px}
+.report{display:none}
+.report.show{display:block}
+.score{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 12px}
+.score div{background:var(--panel);border-radius:10px;padding:8px 12px;font-size:.9rem}
+.score b{display:block;font-size:1.3rem}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+td,th{text-align:left;padding:5px 6px;border-bottom:1px solid #eee;vertical-align:top}
+.tag{font-size:.75rem;padding:1px 7px;border-radius:999px;white-space:nowrap}
+.tag.y{background:#eaf6ec;color:var(--green)} .tag.n{background:#fdecec;color:var(--red)}
+.tag.o{background:#fff4e5;color:var(--amber)}
+.note{font-size:.82rem;color:var(--muted);margin-top:10px}
+a{color:var(--red)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
 </style></head>
-<body>
-<div id="sketch-holder"></div>
-<script src="sketch.js"></script>
-</body></html>
+<body><div class="wrap">
+
+<h1>Seizure first aid: practice in real time</h1>
+<p class="sub">A student has a seizure. Do the right things, in the right order, and decide whether this one needs 911. Every run is different.</p>
+
+<div class="grid">
+  <div>
+    <div class="card">
+      <div class="brief" id="brief">Press start. You will get the situation, then the seizure begins.</div>
+
+      <div class="scene">
+        <svg viewBox="0 0 560 260" role="img" aria-label="Classroom scene showing a student during a seizure">
+          <rect x="0" y="0" width="560" height="260" fill="#faf8f6"/>
+          <rect x="0" y="196" width="560" height="64" fill="#ece5dc"/>
+          <rect id="deskA" x="40" y="120" width="90" height="12" rx="3" fill="#c9b79c"/>
+          <rect x="52" y="132" width="8" height="64" fill="#c9b79c"/><rect x="110" y="132" width="8" height="64" fill="#c9b79c"/>
+          <rect id="deskB" x="430" y="120" width="90" height="12" rx="3" fill="#c9b79c"/>
+          <rect x="442" y="132" width="8" height="64" fill="#c9b79c"/><rect x="500" y="132" width="8" height="64" fill="#c9b79c"/>
+          <g id="hazards">
+            <rect id="chair" x="300" y="150" width="46" height="46" rx="5" fill="#b9c6d6" stroke="#93a3b6"/>
+            <rect id="bag" x="366" y="172" width="42" height="24" rx="6" fill="#8fae8f" stroke="#6f8c6f"/>
+          </g>
+          <g id="student">
+            <g id="body">
+              <ellipse id="head" cx="200" cy="150" rx="19" ry="19" fill="#f0c9a8" stroke="#d6a87f"/>
+              <rect id="torso" x="176" y="168" width="70" height="26" rx="12" fill="#5b2d90"/>
+              <rect id="armL" x="150" y="170" width="34" height="9" rx="4.5" fill="#f0c9a8"/>
+              <rect id="armR" x="238" y="170" width="34" height="9" rx="4.5" fill="#f0c9a8"/>
+              <rect id="legL" x="246" y="186" width="40" height="9" rx="4.5" fill="#2f3a4a"/>
+              <rect id="legR" x="246" y="174" width="40" height="9" rx="4.5" fill="#2f3a4a"/>
+            </g>
+            <g id="cushion" style="display:none"><ellipse cx="200" cy="168" rx="26" ry="9" fill="#e8b4bc"/></g>
+            <g id="sideArrow" style="display:none">
+              <path d="M200 120 q22 -18 44 0" stroke="#1a7f37" stroke-width="3" fill="none" marker-end="url(#ah)"/>
+            </g>
+            <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0 0 L8 4 L0 8 z" fill="#1a7f37"/></marker></defs>
+          </g>
+          <g id="helper" style="display:none">
+            <circle cx="120" cy="150" r="14" fill="#f0c9a8" stroke="#d6a87f"/>
+            <rect x="104" y="166" width="32" height="30" rx="8" fill="#16244e"/>
+          </g>
+          <text id="sceneLabel" x="280" y="26" text-anchor="middle" font-size="15" fill="#5f5f5f">Ready</text>
+        </svg>
+      </div>
+
+      <div class="hud">
+        <span class="clock" id="clock">0:00</span>
+        <span class="phase" id="phase">not started</span>
+        <span id="calledTag"></span>
+      </div>
+      <div class="timeline"><div id="bar"></div>
+        <span class="tick" id="tick5"></span><span class="ticklabel" id="tick5l">5 min: emergency</span>
+      </div>
+
+      <div class="row">
+        <button class="primary" id="start">Start a scenario</button>
+        <button class="ghost" id="reset" style="display:none">New scenario</button>
+      </div>
+      <div class="feed" id="feed">The three things that matter most: time it, keep them safe, stay with them.</div>
+    </div>
+
+    <div class="card report" id="report" style="margin-top:14px">
+      <h2>What happened, and what to do next</h2>
+      <div class="score">
+        <div><b id="sScore">0</b>actions right</div>
+        <div><b id="sMiss">0</b>missed</div>
+        <div><b id="sHarm">0</b>harmful</div>
+        <div><b id="sCall">--</b>911 decision</div>
+      </div>
+      <table id="checklist"></table>
+      <h2 style="margin-top:14px">Write it down while it is fresh</h2>
+      <p class="note" id="docNote"></p>
+      <div class="row">
+        <a class="ghost" href="https://edanmn.org/packet/EDAN-Seizure-Safe-Schools-Packet.pdf">Observation log and plan template (PDF)</a>
+        <a class="ghost" href="https://www.epilepsyfoundationmn.org/get-support/seizure-smart-trainings/">Free Minnesota training</a>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="card">
+      <h2>Your actions</h2>
+      <div class="actions" id="acts"></div>
+      <h2 style="margin-top:14px">Log</h2>
+      <ul class="log" id="log"><li><span class="t">--:--</span><span>Nothing yet.</span></li></ul>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>When a seizure is a 911 call</h2>
+      <ul style="margin:0;padding-left:18px;font-size:.88rem">
+        <li>Convulsive seizure lasting more than 5 minutes</li>
+        <li>A second seizure before the person recovers</li>
+        <li>Trouble breathing, or blue or grey lips</li>
+        <li>Injury, or the seizure happened in water</li>
+        <li>The person's first known seizure</li>
+        <li>They do not wake up afterwards</li>
+        <li>Their seizure action plan says to call</li>
+      </ul>
+      <p class="note">Most seizures stop on their own and do not need an ambulance. Calling when it is not needed costs a family money and does not help the student.</p>
+    </div>
+  </div>
+</div>
+
+<p class="note">This is practice, not medical advice or certification. A student's care is set by their healthcare provider and their seizure action plan.</p>
+
+<script>
+const ACTIONS=[
+ {id:'time',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>',  label:'Start timing',        hint:'Note the start time',            good:true,  phase:'any'},
+ {id:'clear', k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>',  label:'Clear the area',      hint:'Move the chair and bag',         good:true,  phase:'any'},
+ {id:'cushion',k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="5"/></svg>',label:'Cushion the head',  hint:'Something soft underneath',      good:true,  phase:'any'},
+ {id:'glasses',k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="14" r="3.5"/><circle cx="18" cy="14" r="3.5"/><path d="M9.5 14h5M2.5 12 4 9M21.5 12 20 9"/></svg>',label:'Remove glasses',    hint:'And loosen anything tight',      good:true,  phase:'any'},
+ {id:'stay',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>',label:'Stay with them',     hint:'Speak calmly, keep others back', good:true,  phase:'any'},
+ {id:'side',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 1 2.3 5.6"/><path d="M3 20v-5h5"/></svg>',  label:'Turn on their side',  hint:'Once the jerking eases',         good:true,  phase:'post'},
+ {id:'call',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>',  label:'Call 911',            hint:'Only when it is needed',         good:null,  phase:'any'},
+ {id:'rescue',k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20 9 15M8 12l4-4 4 4-4 4zM14 6l4 4M16 4l4 4"/></svg>',label:'Give rescue medicine',hint:'Only if the plan says so',      good:null,  phase:'any'},
+ {id:'hold',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 11V5a1.5 1.5 0 1 1 3 0v6M11 11V4a1.5 1.5 0 1 1 3 0v7M14 11V6a1.5 1.5 0 1 1 3 0v8a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6v-3a1.5 1.5 0 1 1 3 0"/></svg>',  label:'Hold them still',     hint:'',                               good:false, phase:'any'},
+ {id:'mouth', k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg>',label:'Put something in the mouth',hint:'',                        good:false, phase:'any'},
+ {id:'water', k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l-1.5 17a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2L6 3z"/><path d="M7 9h10"/></svg>',label:'Give water or food',  hint:'',                              good:false, phase:'any'},
+];
+const BAD_FEEDBACK={
+ hold:"Never restrain someone during a seizure. You cannot stop the movements, and holding them down can injure a shoulder or a wrist. Protect the space around them instead.",
+ mouth:"Never put anything in the mouth. A person having a seizure cannot swallow their tongue, and objects break teeth or block the airway.",
+ water:"Nothing by mouth until they are fully awake and able to swallow. Food, drink and medicine can go into the lungs."
+};
+const SCENARIOS=[
+ {name:'In the classroom', setting:"Third period. A student cries out, stiffens and falls beside their desk. There is a chair and a backpack next to them.",
+  dur:82, first:false, water:false, injury:false, repeat:false, planRescue:false, planCallMin:null},
+ {name:'First known seizure', setting:"A student with no known seizure history collapses in the library and begins to convulse. Nobody has seen this happen to them before.",
+  dur:64, first:true, water:false, injury:false, repeat:false, planRescue:false, planCallMin:null},
+ {name:'Long seizure', setting:"A student with epilepsy is convulsing on the classroom floor. Their plan is on file in the health office.",
+  dur:372, first:false, water:false, injury:false, repeat:false, planRescue:true, planCallMin:5},
+ {name:'Second seizure', setting:"A student had a brief seizure ten minutes ago and was still groggy when a second one started.",
+  dur:70, first:false, water:false, injury:false, repeat:true, planRescue:false, planCallMin:null},
+ {name:'At the pool', setting:"During a swim unit, a student begins seizing in the shallow end. Staff have brought them to the pool deck.",
+  dur:58, first:false, water:true, injury:false, repeat:false, planRescue:false, planCallMin:null},
+ {name:'Hit on the way down', setting:"A student falls against the corner of a table as they go down and has a cut above the eyebrow that is bleeding.",
+  dur:76, first:false, injury:true, water:false, repeat:false, planRescue:false, planCallMin:null},
+ {name:'Rescue medicine on file', setting:"A student with a seizure action plan is convulsing. Their plan says to give nasal rescue medicine if the seizure passes 3 minutes.",
+  dur:247, first:false, water:false, injury:false, repeat:false, planRescue:true, planCallMin:5, rescueMin:3},
+];
+let S=null, t=0, timer=null, done=false, log=[], acted={}, harmful=0, calledAt=null, rescueAt=null, startedTiming=false;
+
+const $=id=>document.getElementById(id);
+const fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+function phaseAt(sec){ if(!S) return 'ready'; if(sec<12) return 'tonic'; if(sec<S.dur) return 'clonic'; if(sec<S.dur+60) return 'post'; return 'recover'; }
+
+function drawActions(){
+  const wrap=$('acts'); wrap.innerHTML='';
+  ACTIONS.forEach(a=>{
+    const b=document.createElement('button');
+    b.className='act'; b.id='b_'+a.id; b.disabled=!S||done;
+    b.innerHTML='<span class="k">'+a.k+'</span><span>'+a.label+(a.hint?'<small>'+a.hint+'</small>':'')+'</span>';
+    b.onclick=()=>doAction(a);
+    wrap.appendChild(b);
+  });
+}
+function addLog(msg){
+  log.push({t:fmt(t),msg});
+  $('log').innerHTML=log.map(l=>'<li><span class="t">'+l.t+'</span><span>'+l.msg+'</span></li>').join('');
+  $('log').scrollTop=$('log').scrollHeight;
+}
+function say(msg,kind){ const f=$('feed'); f.textContent=msg; f.className='feed'+(kind?' '+kind:''); }
+
+function doAction(a){
+  if(!S||done) return;
+  const b=$('b_'+a.id);
+  if(a.good===false){
+    harmful++; b.classList.add('bad'); say(BAD_FEEDBACK[a.id],'no'); addLog('Harmful: '+a.label.toLowerCase()); return;
+  }
+  if(a.id==='side' && phaseAt(t)!=='post'){
+    say("Not yet. Turning someone while they are still convulsing is hard and can hurt them. Wait until the jerking eases, then roll them onto their side so saliva can drain.",'no');
+    addLog('Too early: turn on side'); return;
+  }
+  if(acted[a.id]) return;
+  acted[a.id]=t; b.classList.add('done');
+  if(a.id==='time'){ startedTiming=true; say("Good. The clock is the whole decision. Five minutes of convulsing turns this into an emergency, and nobody can judge that by feel.",'ok'); }
+  if(a.id==='clear'){ $('chair').style.opacity=.25; $('bag').style.opacity=.25; say("Space cleared. You cannot stop the movements, so the job is to make sure nothing hard is within reach.",'ok'); }
+  if(a.id==='cushion'){ $('cushion').style.display='block'; say("Something soft under the head prevents the injury that actually happens most: the head striking the floor over and over.",'ok'); }
+  if(a.id==='glasses'){ say("Glasses off, collar loosened. Small things, quickly done.",'ok'); }
+  if(a.id==='stay'){ $('helper').style.display='block'; say("Stay. Someone who is postictal wakes up confused and frightened, and a familiar calm voice matters more than anything else you will do.",'ok'); }
+  if(a.id==='side'){ $('sideArrow').style.display='block'; $('torso').setAttribute('height','22'); say("On their side, chin slightly up. This is the recovery position, and it keeps the airway clear while they come round.",'ok'); }
+  if(a.id==='call'){ calledAt=t; $('calledTag').innerHTML='<span class="tag y">911 called at '+fmt(t)+'</span>'; say("911 called at "+fmt(t)+". Tell them: seizure, how long it has lasted, whether the person is breathing, and the age of the student.",'ok'); }
+  if(a.id==='rescue'){ rescueAt=t;
+    if(S.planRescue) say("Rescue medicine given at "+fmt(t)+". Only ever give it when the student's own plan authorises it, by the route and at the time the plan states.",'ok');
+    else { harmful++; b.classList.add('bad'); say("This student has no rescue medicine on their plan. Giving medicine that is not prescribed for them is not first aid, it is a medication error.",'no'); }
+  }
+  addLog(a.label);
+}
+
+function tick(){
+  t++;
+  $('clock').textContent=fmt(t);
+  $('clock').className='clock'+(t>=300?' danger':(t>=180?' warn':''));
+  const ph=phaseAt(t);
+  const pl=$('phase');
+  pl.textContent = ph==='tonic'?'stiffening':ph==='clonic'?'convulsing':ph==='post'?'postictal, waking':'recovered';
+  pl.className='phase '+(ph==='post'?'post':ph==='recover'?'done':'tonic');
+  $('sceneLabel').textContent = ph==='tonic'?'Stiffening':ph==='clonic'?'Convulsing':ph==='post'?'Not awake yet':'Coming round';
+  const pct=Math.min(100, t/420*100); $('bar').style.width=pct+'%';
+  // simple motion
+  const jerk = (ph==='clonic')? (Math.sin(t*6)*4) : (ph==='tonic'? 2 : 0);
+  $('armL').setAttribute('x', 150+jerk); $('armR').setAttribute('x', 238-jerk);
+  $('legL').setAttribute('x', 246+jerk); $('legR').setAttribute('x', 246-jerk);
+  if(ph==='post' && !acted.side) say("The jerking has stopped and they are not awake yet. Now turn them onto their side.",null);
+  if(t===300 && !calledAt) say("Five minutes. A convulsive seizure this long is a medical emergency. Call 911 now.",'no');
+  if(ph==='recover'){ finish(); }
+}
+
+function start(){
+  S=SCENARIOS[Math.floor(Math.random()*SCENARIOS.length)];
+  t=0; done=false; log=[]; acted={}; harmful=0; calledAt=null; rescueAt=null; startedTiming=false;
+  $('brief').innerHTML='<b>'+S.name+'.</b> '+S.setting+(S.planRescue?' Rescue medicine is on their plan.':'');
+  $('report').className='report'; $('log').innerHTML=''; $('cushion').style.display='none';
+  $('sideArrow').style.display='none'; $('helper').style.display='none'; $('calledTag').innerHTML='';
+  $('chair').style.opacity=1; $('bag').style.opacity=1; $('torso').setAttribute('height','26');
+  $('start').style.display='none'; $('reset').style.display='inline-block';
+  $('tick5').style.left=(300/420*100)+'%'; $('tick5l').style.left=(300/420*100)+'%';
+  drawActions(); say("It has started. Work the problem.",null);
+  clearInterval(timer); timer=setInterval(tick,1000);
+}
+
+function finish(){
+  done=true; clearInterval(timer);
+  document.querySelectorAll('.act').forEach(b=>b.disabled=true);
+  const needCall = S.dur>=300 || S.first || S.water || S.injury || S.repeat || (S.planCallMin && S.dur>=S.planCallMin*60);
+  const why = S.dur>=300?'the convulsion passed five minutes'
+            : S.first?'it was their first known seizure'
+            : S.water?'it happened in water'
+            : S.injury?'they were injured'
+            : S.repeat?'a second seizure came before they recovered'
+            : null;
+  const goodIds=['time','clear','cushion','glasses','stay','side'];
+  const got=goodIds.filter(i=>acted[i]!==undefined).length;
+  const missed=goodIds.length-got;
+  $('sScore').textContent=got; $('sMiss').textContent=missed; $('sHarm').textContent=harmful;
+  let callVerdict;
+  if(needCall && calledAt!==null) callVerdict='right';
+  else if(needCall && calledAt===null) callVerdict='missed';
+  else if(!needCall && calledAt!==null) callVerdict='not needed';
+  else callVerdict='right';
+  $('sCall').textContent=callVerdict;
+  const rows=[];
+  const label={time:'Timed the seizure',clear:'Cleared the area',cushion:'Cushioned the head',glasses:'Removed glasses',stay:'Stayed with them',side:'Turned on their side'};
+  goodIds.forEach(i=>{
+    rows.push('<tr><td>'+label[i]+'</td><td>'+(acted[i]!==undefined?'<span class="tag y">done at '+fmt(acted[i])+'</span>':'<span class="tag n">missed</span>')+'</td></tr>');
+  });
+  rows.push('<tr><td>911</td><td>'+(needCall
+      ? (calledAt!==null? '<span class="tag y">needed, called at '+fmt(calledAt)+'</span>' : '<span class="tag n">needed, not called</span>')
+      : (calledAt!==null? '<span class="tag o">not needed this time</span>' : '<span class="tag y">correctly not called</span>'))
+      +'</td></tr>');
+  if(S.planRescue) rows.push('<tr><td>Rescue medicine</td><td>'+(rescueAt!==null?'<span class="tag y">given at '+fmt(rescueAt)+'</span>':'<span class="tag o">on the plan, not given</span>')+'</td></tr>');
+  if(harmful) rows.push('<tr><td>Harmful actions</td><td><span class="tag n">'+harmful+'</span></td></tr>');
+  $('checklist').innerHTML=rows.join('');
+  const dur=fmt(S.dur);
+  $('docNote').textContent="This seizure lasted "+dur+". "+(why? "It needed 911 because "+why+". " : "It did not need an ambulance. ")
+    +"Before you forget the details, write down: the time it started and stopped, what the movements looked like and which side they started on, whether they were responsive, any injury, whether rescue medicine was given and when, and how long until they were back to normal. The family and the neurologist use exactly these notes to adjust treatment.";
+  $('report').className='report show';
+  say("Scenario over. The report below shows what you did and what to write down.",null);
+  $('report').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+$('start').onclick=start; $('reset').onclick=start;
+drawActions();
+</script>
+</div></body></html>
