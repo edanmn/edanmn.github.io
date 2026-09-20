@@ -1,4 +1,4 @@
-# 8. For Schools: Putting a Plan Into Practice
+# For Schools: Putting a Plan Into Practice
 
 Having a seizure action plan on file is the start. This chapter covers the operational pieces that
 make it actually work on a normal school day, who to train, how to handle subs and field trips,

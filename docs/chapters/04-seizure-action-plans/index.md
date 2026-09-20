@@ -1,4 +1,4 @@
-# 4. Seizure Action Plans
+# Seizure Action Plans
 
 ## What a Seizure Action Plan (SAP) is
 A **Seizure Action Plan** is a short, written document that tells school staff exactly what to

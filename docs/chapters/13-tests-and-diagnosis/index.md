@@ -1,4 +1,4 @@
-# 13. Appointments and tests: what to bring, what to ask
+# Appointments and tests: what to bring, what to ask
 
 We do not explain what an EEG measures or what a scan shows. Clinicians do that, and the links
 at the bottom are better than anything we could write. This page is about the part families

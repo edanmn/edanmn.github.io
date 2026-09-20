@@ -1,4 +1,4 @@
-# 10. Driving in Minnesota After a Seizure
+# Driving in Minnesota After a Seizure
 
 This is the question people search for first. Minnesota does have a written answer, and it is
 short enough to read yourself. This chapter walks through the rule, who applies it, and what to
@@ -223,7 +223,7 @@ general authority to transport students
 ([Minn. Stat. 123B.88](https://www.revisor.mn.gov/statutes/cite/123B.88)).
 
 A student with epilepsy is almost always covered by Section 504, even when seizures are
-controlled. [Chapter 7](../07-your-childs-rights/index.md) explains how to request a 504 plan or
+controlled. [Your child's rights](../07-your-childs-rights/index.md) explains how to request a 504 plan or
 an IEP, and what to ask for in it. A transportation accommodation usually also says that whoever
 drives the student can recognize a seizure and knows what to do.
 

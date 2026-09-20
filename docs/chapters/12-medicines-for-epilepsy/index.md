@@ -1,4 +1,4 @@
-# 12. Seizure medicines: what to ask, and what they cost
+# Seizure medicines: what to ask, and what they cost
 
 We are a data project, not a clinic. This page does not explain how seizure medicines work or
 tell you what to take. For that, use the sources at the bottom of this page, written by

@@ -1,4 +1,4 @@
-# 2. Seizure First Aid
+# Seizure First Aid
 
 This is the most important chapter for anyone who works with students. You do not need to be a
 nurse to keep a student safe during a seizure. Practice it in the

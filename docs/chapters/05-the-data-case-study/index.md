@@ -1,4 +1,4 @@
-# 5. The Data: Mapping the Gaps
+# The Audit: Mapping the Gaps
 
 This chapter is the research heart of the book. We asked a simple question with a measurable
 answer: **how many Minnesota school districts post a seizure plan that families and staff can

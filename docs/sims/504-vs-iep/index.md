@@ -37,7 +37,7 @@ district says no, and a list of what to bring to the meeting. Minnesota evaluati
 set in state rule and they change, so the tool asks the district for its deadline in writing
 rather than printing a number.
 
-Full detail is in [Chapter 7: Your Child's Rights](../../chapters/07-your-childs-rights/index.md).
+Full detail is in [Your Child's Rights](../../chapters/07-your-childs-rights/index.md).
 
 !!! warning "General information, not legal advice"
     Only your school's evaluation team can decide what your child is eligible for. For free

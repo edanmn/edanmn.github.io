@@ -1,4 +1,4 @@
-# 3. The Minnesota Law (Minn. Stat. 121A.24)
+# The Minnesota Law (Minn. Stat. 121A.24)
 
 ## What the law is
 Minnesota's seizure-safety law is **Minnesota Statutes section 121A.24**, titled "Seizure
@@ -42,7 +42,7 @@ The statute requires that self-study materials be *provided*; it does not by its
 fixed number of training hours or a single statewide certification. That means the legal floor
 is real but modest. The practical gap is in **adoption and follow-through**: does each building
 actually have a named trained person, a posted plan template, and completed training? This is
-exactly what our data in [Chapter 5](../05-the-data-case-study/index.md) examines.
+exactly what [our audit](../05-the-data-case-study/index.md) examines.
 
 ## Plain-language summary
 If your child has epilepsy and rescue medication, the school must work with you on a written

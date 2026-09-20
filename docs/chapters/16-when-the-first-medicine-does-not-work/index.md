@@ -1,4 +1,4 @@
-# 16. When the first medicines do not work
+# When the first medicines do not work
 
 About a third of people with epilepsy keep having seizures on medication. There is a name for
 that, there are other options, and there is a referral that should happen. Many families wait

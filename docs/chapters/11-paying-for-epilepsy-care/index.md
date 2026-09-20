@@ -1,4 +1,4 @@
-# 11. Paying for Epilepsy Care in Minnesota
+# Paying for Epilepsy Care in Minnesota
 
 Epilepsy costs money in two places: the appointments and the pills. This chapter covers the
 Minnesota programs that help with each, what a prior authorization is, how to fight a denial,

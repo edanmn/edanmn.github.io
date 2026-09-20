@@ -1,4 +1,4 @@
-# 7. Your Child's Rights: 504 Plans, IEPs, and Accommodations
+# Your Child's Rights: 504 Plans, IEPs, and Accommodations
 
 A seizure action plan handles the medical emergency. But your child also has **legal rights** at
 school that go beyond first aid, the right to learn on equal footing, with support for the
@@ -14,7 +14,7 @@ Families hear several plan names and understandably get confused. There are two 
 **Health/nursing documents** (the "what to do" for the body):
 
 - **Seizure Action Plan (SAP):** a first-aid document completed with your child's healthcare
-  provider, contacts, first aid, and rescue medication. (See [Chapter 4](../04-seizure-action-plans/index.md).)
+  provider, contacts, first aid, and rescue medication. (See [seizure action plans](../04-seizure-action-plans/index.md).)
 - **Individual Health Plan (IHP):** written by the school nurse to communicate your child's
   nursing needs to staff.
 - **Emergency Care Plan (ECP):** the short, action-step version of the IHP for frontline staff.

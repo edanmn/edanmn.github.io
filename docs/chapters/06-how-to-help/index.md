@@ -1,4 +1,4 @@
-# 6. How to Help
+# How to Ask Your School
 
 The point of this book is not to describe a problem. It is to close it. Here is how each
 reader can help, matched to what the data showed.
@@ -16,7 +16,7 @@ You have the right to ask, and the law is on your side.
 A copy-paste email and a full walkthrough are in EDAN's family guide.
 
 ## If you are a teacher or staff member
-- Learn the three S's (Chapter 2) and take the free
+- Learn the three S's in [seizure first aid](../02-seizure-first-aid/index.md) and take the free
   [Seizure First Aid Certification](https://www.epilepsy.com/recognition/first-aid-resources).
 - Know where your school keeps students' seizure action plans.
 - Practice with the [Seizure First Aid Simulator](../../sims/seizure-first-aid/index.md).
