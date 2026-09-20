@@ -1,6 +1,7 @@
 # Glossary
 
-Plain-language definitions of terms used in this book.
+Plain-language definitions of the terms used across this site, from the statute and the
+audit method to the words a school nurse or a neurologist will use.
 
 **Absence seizure**
 : A type of generalized seizure that looks like a brief staring spell with loss of awareness,
@@ -10,13 +11,13 @@ Plain-language definitions of terms used in this book.
 : A publicly funded school that operates independently of a traditional district. Covered by
   Minn. Stat. 121A.24, the same as public districts.
 
-**EDAN (Epilepsy Data & Advocacy Network)**
-: The student-led initiative behind this textbook. It uses public data to advance epilepsy
-  awareness, advocacy, and safety. It maps and helps close seizure-safety gaps in Minnesota schools. See [About EDAN](about.md).
-
 **Cohen's kappa**
 : A statistic that measures how much two independent raters agree, corrected for chance.
   Values above 0.81 are considered "almost perfect" agreement.
+
+**EDAN (Epilepsy Data & Advocacy Network)**
+: The student-led project behind this site. We assemble public epilepsy data that is buried or
+  scattered and publish it in one place. See [About EDAN](about.md).
 
 **Epilepsy**
 : A medical condition in which a person tends to have repeated, unprovoked seizures. Diagnosed
@@ -72,7 +73,3 @@ Plain-language definitions of terms used in this book.
 **Tonic-clonic seizure**
 : A generalized seizure with stiffening (tonic) and rhythmic jerking (clonic). The most
   recognizable seizure type. (Older term: "grand mal.")
-
-**Title I**
-: A federal program providing funds to schools with high percentages of students from
-  low-income families; used as a marker of under-resourced districts.

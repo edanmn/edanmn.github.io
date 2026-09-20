@@ -59,7 +59,7 @@ emergencies, always call 911.
 ??? question "How did you decide whether a district 'posts a plan'?"
     We reviewed each district's public website: the board-policy page (Policy 516), the
     health-services page, and the parent/student handbook, then classified into four
-    categories. See [The Data](chapters/05-the-data-case-study/index.md).
+    categories. See [The Audit](chapters/05-the-data-case-study/index.md).
 
 ??? question "Is 'no plan found' the same as 'not compliant'?"
     No. We measured **public findability**, not legal compliance. A district may have an
@@ -71,5 +71,6 @@ emergencies, always call 911.
     anything, slightly overstated.
 
 ??? question "My district's entry is wrong or out of date. Can you fix it?"
-    Yes, please tell us via [LinkedIn](https://www.linkedin.com/in/krishikk/). We update entries
-    and especially want to hear when a district has adopted a plan.
+    Yes. Email <edanmnorg@gmail.com> and we will correct it and say that we did. If your
+    district has plans and trained staff in place, that is exactly what we want to hear:
+    [tell us what your district has](programs/report-your-district/index.md).
