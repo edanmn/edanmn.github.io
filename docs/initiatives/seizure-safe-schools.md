@@ -88,6 +88,5 @@ health office used the packet to put one in place, and wrote back:
 
 ## For schools
 The free packet is at [For Schools: In Practice](../chapters/08-for-schools-in-practice/index.md).
-A school that adopts a plan can earn the
-[Seizure-Smart Classroom badge](../programs/seizure-smart-classroom/index.md). Tell us when
-you post a plan and we will update the map.
+If your district already has plans and trained staff in place,
+[tell us](../programs/report-your-district/index.md) and we will correct your entry on the map.

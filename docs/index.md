@@ -84,7 +84,7 @@ built from federal sources or state filings that every state has. Other states a
 - New here? Start with [what the law requires](chapters/03-minnesota-law/index.md) and [what our audit found](chapters/05-the-data-case-study/index.md).
 - Need to know what to do in a seizure right now? Go to [Seizure First Aid](chapters/02-seizure-first-aid/index.md).
 - Want to check your own district? Use [Find Your District](find-your-district/index.md).
-- A school ready to act? Earn the [Seizure-Smart Classroom badge](programs/seizure-smart-classroom/index.md).
+- A school that already has a plan? [Tell us, so the map is right](programs/report-your-district/index.md).
 - A parent wanting to know your child's rights? See [504 Plans, IEPs & Accommodations](chapters/07-your-childs-rights/index.md).
 - A school putting a plan into practice? See [For Schools: In Practice](chapters/08-for-schools-in-practice/index.md).
 - Want the research story and interactive charts? See [The Data: Mapping the Gaps](chapters/05-the-data-case-study/index.md).

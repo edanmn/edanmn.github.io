@@ -78,9 +78,7 @@ nav:
     - '5. SUDEP': initiatives/sudep.md
   - In Your Language: in-your-language/index.md
   - Find Your District: find-your-district/index.md
-  - 'Programs':
-    - 'Seizure-Smart Classroom': programs/seizure-smart-classroom/index.md
-    - 'Is Your School Trained?': programs/staff-training/index.md
+  - 'Tell Us What Your District Has': programs/report-your-district/index.md
   - 'Chapters':
     - 'Seizure First Aid': chapters/02-seizure-first-aid/index.md
     - 'The Minnesota Law (121A.24)': chapters/03-minnesota-law/index.md
