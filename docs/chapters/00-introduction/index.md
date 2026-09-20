@@ -25,7 +25,7 @@ You do not have to read it front to back. Each chapter stands on its own:
 
 | If you are a... | Start with |
 |-----------------|------------|
-| Parent or guardian | [Ch. 1 Understanding Epilepsy](../01-understanding-epilepsy/index.md), then [Ch. 6 How to Help](../06-how-to-help/index.md) |
+| Parent or guardian | [Ch. 3 The Minnesota law](../03-minnesota-law/index.md), then [Ch. 6 How to Help](../06-how-to-help/index.md) |
 | Teacher or staff member | [Ch. 2 Seizure First Aid](../02-seizure-first-aid/index.md) and the [Simulator](../../sims/seizure-first-aid/index.md) |
 | School nurse or administrator | [Ch. 3 The Law](../03-minnesota-law/index.md) and [Ch. 4 Action Plans](../04-seizure-action-plans/index.md) |
 | Student or researcher | [Ch. 5 The Data](../05-the-data-case-study/index.md) |

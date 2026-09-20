@@ -47,5 +47,5 @@ instead, and it turns itself on if your device already asks for reduced motion.
 - Keyboard usable throughout, with the feedback announced to screen readers.
 - Learning objective: tell the main seizure types apart by sight, and separate them from the
   common look-alikes.
-- Source chapters: [Understanding Epilepsy](../../chapters/01-understanding-epilepsy/index.md) and
+- Source chapters: [Seizure First Aid](../../chapters/02-seizure-first-aid/index.md) and
   [Seizure First Aid](../../chapters/02-seizure-first-aid/index.md).

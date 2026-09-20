@@ -11,13 +11,6 @@ families. Student-led, free, and open.*
 Someone having a seizure right now? [What to do, in four steps](now/index.md)
 </div>
 
-<div class="start-row" markdown>
-New to this? Start where you are:
-[I was just diagnosed](start/adult/index.md) &middot;
-[My child was just diagnosed](start/parent/index.md) &middot;
-[I am a teenager with epilepsy](start/teen/index.md)
-</div>
-
 !!! tip "For school districts: the free Seizure-Safe Schools packet"
     Everything a district needs to meet Minnesota's seizure-safety law (Minn. Stat. 121A.24)
     in one 7-page PDF: a seizure action plan template, drop-in Policy 516 language, a
@@ -87,8 +80,7 @@ they help most. Then we count the people whose lives changed. Everything here is
 - A **glossary** translates clinical terms into plain English.
 
 ## Start here
-- **A student with epilepsy yourself?** This page is for you: [For Students](for-students/index.md).
-- New to epilepsy? Begin with [Understanding Epilepsy](chapters/01-understanding-epilepsy/index.md).
+- New here? Start with [what the law requires](chapters/03-minnesota-law/index.md) and [what our audit found](chapters/05-the-data-case-study/index.md).
 - Need to know what to do in a seizure right now? Go to [Seizure First Aid](chapters/02-seizure-first-aid/index.md).
 - Want to check your own district? Use [Find Your District](find-your-district/index.md).
 - A school ready to act? Earn the [Seizure-Smart Classroom badge](programs/seizure-smart-classroom/index.md).
@@ -96,7 +88,6 @@ they help most. Then we count the people whose lives changed. Everything here is
 - A parent wanting to know your child's rights? See [504 Plans, IEPs & Accommodations](chapters/07-your-childs-rights/index.md).
 - A school putting a plan into practice? See [For Schools: In Practice](chapters/08-for-schools-in-practice/index.md).
 - Want the research story and interactive charts? See [The Data: Mapping the Gaps](chapters/05-the-data-case-study/index.md).
-- Living day to day with epilepsy? See [Everyday Safety & Living](chapters/09-everyday-safety/index.md).
 - Looking for support, helplines, or financial help? See [Resources & Support](resources/index.md).
 - Want recent research in plain language? See [Research, Translated](research-translated/index.md).
 - Quick answers? See the [FAQ](faq.md).

@@ -81,13 +81,33 @@ Ask specifically about **MA-TEFRA**, which can qualify a child with a certified 
 Medical Assistance based on the child's income regardless of the parents'
 (https://disabilityhubmn.org).
 
-## Mental health and related conditions
-Epilepsy commonly co-occurs with **depression** (the most common), **anxiety**, **ADHD**, and
-**learning differences**. Recognizing these early and getting support helps.
+## If you are in crisis
 
-- Epilepsy Foundation, related conditions in children, https://www.epilepsy.com/parents-and-caregivers/talking-kids-about-epilepsy/related-conditions
-- **988 Suicide & Crisis Lifeline**, call or text **988**, https://988lifeline.org
-- Also: your pediatrician, and your school counselor or psychologist.
+If someone is in immediate danger, call 911.
+
+- 988 Suicide and Crisis Lifeline. Call or text 988, or chat at <https://988lifeline.org>.
+  Free, every hour of every day. Text and chat are available in Spanish.
+- Crisis Text Line. Text HOME to 741741, or HOLA for a Spanish-speaking counselor.
+  <https://www.crisistextline.org/>
+- Your county's mobile crisis team. Minnesota counties run 24 hour teams that can come to you.
+  Numbers are listed by the Department of Human Services at
+  <https://mn.gov/dhs/people-we-serve/adults/health-care/mental-health/resources/crisis-contacts.jsp>.
+  If you cannot find yours quickly, call 988 and they will route you.
+- At school, the counselor, social worker, psychologist or nurse can help the same day.
+
+*Checked 20 September 2026 against 988lifeline.org and crisistextline.org.*
+
+## Mental health support
+
+Depression and anxiety are more common in people with epilepsy than in the general population,
+and they are often missed. Talking to a clinician about it is worth doing early.
+
+- Epilepsy Foundation of Minnesota, free Connect Groups for teens, adults and caregivers, plus
+  one to one support: <https://www.epilepsyfoundationmn.org/connect/>, 651-287-2300
+- Fast-Tracker, a free Minnesota search for mental health providers with current openings:
+  <https://fasttrackermn.org/>
+- Epilepsy Foundation, related conditions in children: <https://www.epilepsy.com/parents-and-caregivers/talking-kids-about-epilepsy/related-conditions>
+- Your own clinician, your pediatrician, or your school counselor
 
 ## Teens, driving, and seizures in Minnesota
 In Minnesota, to get or keep a driver's license after a seizure or loss of consciousness, a person

@@ -69,11 +69,6 @@ extra_javascript:
 nav:
   - Home: index.md
   - 'Seizure happening now': now/index.md
-  - 'Start Here':
-    - 'Pick your path': start/index.md
-    - 'I was just diagnosed': start/adult/index.md
-    - 'My child was just diagnosed': start/parent/index.md
-    - 'I am a teenager with epilepsy': start/teen/index.md
   - About EDAN: about.md
   - 'Initiatives':
     - 'Overview': initiatives/index.md
@@ -82,7 +77,6 @@ nav:
     - '3. Medication Access': initiatives/medication-access.md
     - '4. Distance to Care': initiatives/care-access.md
     - '5. SUDEP': initiatives/sudep.md
-  - For Students: for-students/index.md
   - In Your Language: in-your-language/index.md
   - Find Your District: find-your-district/index.md
   - 'Programs':
@@ -91,7 +85,6 @@ nav:
     - 'Is Your School Trained?': programs/staff-training/index.md
   - 'Chapters':
     - '0. Introduction': chapters/00-introduction/index.md
-    - '1. Understanding Epilepsy': chapters/01-understanding-epilepsy/index.md
     - '2. Seizure First Aid': chapters/02-seizure-first-aid/index.md
     - '3. The Minnesota Law (121A.24)': chapters/03-minnesota-law/index.md
     - '4. Seizure Action Plans': chapters/04-seizure-action-plans/index.md
@@ -99,13 +92,10 @@ nav:
     - '6. How to Help': chapters/06-how-to-help/index.md
     - '7. Your Child''s Rights (504/IEP)': chapters/07-your-childs-rights/index.md
     - '8. For Schools: In Practice': chapters/08-for-schools-in-practice/index.md
-    - '9. Everyday Safety & Living': chapters/09-everyday-safety/index.md
     - '10. Driving in Minnesota': chapters/10-driving-in-minnesota/index.md
     - '11. Paying for Epilepsy Care': chapters/11-paying-for-epilepsy-care/index.md
     - '12. Medicines: What to Ask and What They Cost': chapters/12-medicines-for-epilepsy/index.md
     - '13. Appointments and Tests': chapters/13-tests-and-diagnosis/index.md
-    - '14. Mental Health and Epilepsy': chapters/14-mental-health-and-epilepsy/index.md
-    - '15. Teens and Growing Up': chapters/15-teens-and-growing-up/index.md
     - '16. When the First Medicines Do Not Work': chapters/16-when-the-first-medicine-does-not-work/index.md
   - 'Interactive Sims':
     - 'Seizure First Aid Simulator': sims/seizure-first-aid/index.md

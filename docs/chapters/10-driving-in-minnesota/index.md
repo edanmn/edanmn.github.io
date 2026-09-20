@@ -261,5 +261,4 @@ and [91 FR 2420 (January 20, 2026)](https://www.govinfo.gov/content/pkg/FR-2026-
 [Transit Link](https://www.metrotransit.org/transit-link);
 [34 CFR 300.34](https://sites.ed.gov/idea/regs/b/a/300.34).
 Terms are defined in the [glossary](../../glossary.md). See also
-[Everyday Safety](../09-everyday-safety/index.md) and
 [Resources & Support](../../resources/index.md).*
