@@ -116,8 +116,7 @@ neurologist can decide.
     and good seizure control are the most consistent protective steps.
 
 ## Talking about SUDEP
-A calm explanation for families is in [Resources & Support](../resources/index.md), and
-recent research on lowering risk is in [Research, Translated](../research-translated/index.md).
+A calm explanation for families is in [Resources & Support](../resources/index.md).
 
 !!! note
     Ask your neurologist about your own or your child's risk. Most people with epilepsy have

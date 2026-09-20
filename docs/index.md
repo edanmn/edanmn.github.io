@@ -90,7 +90,6 @@ built from federal sources or state filings that every state has. Other states a
 - A school putting a plan into practice? See [For Schools: In Practice](chapters/08-for-schools-in-practice/index.md).
 - Want the research story and interactive charts? See [The Data: Mapping the Gaps](chapters/05-the-data-case-study/index.md).
 - Looking for support, helplines, or financial help? See [Resources & Support](resources/index.md).
-- Want recent research in plain language? See [Research, Translated](research-translated/index.md).
 - Quick answers? See the [FAQ](faq.md).
 
 !!! warning "Important"
