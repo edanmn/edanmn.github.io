@@ -1,6 +1,6 @@
 # The Audit: Mapping the Gaps
 
-This chapter is the research heart of the book. We asked a simple question with a measurable
+This is the study the rest of the schools work rests on. We asked a question with a measurable
 answer: **how many Minnesota school districts post a seizure plan that families and staff can
 actually find?** The charts below are interactive, hover, zoom, and explore.
 
@@ -8,7 +8,7 @@ actually find?** The charts below are interactive, hover, zoom, and explore.
     Jump to [Find Your District](../../find-your-district/index.md) and search your district by name.
 
 ## How we measured it
-For **328 of Minnesota's ~329 regular public school districts**, we reviewed the official
+For all **329 of Minnesota's regular public school districts**, we reviewed the official
 district website: the school-board policy page (MSBA Policy 516, Student Medication), the
 health-services page, and the student/parent handbook. We classified each district into one of
 four categories:
@@ -27,7 +27,7 @@ four categories:
 
 ## What we found
 <span class="edan-stat">~70%</span> of districts post **no** publicly findable seizure-specific
-plan (231 of 328). Only about 30% do. Most districts post only a general medication policy that
+plan (232 of 329). Only about 30% do. Most districts post only a general medication policy that
 never mentions seizures.
 
 <iframe src="../../charts/classification_breakdown.html" class="microsim" width="100%" height="380" title="What Minnesota districts post" loading="lazy"></iframe>
@@ -86,6 +86,7 @@ they disagreed, the second reviewer usually found *more* seizure content, which 
 figure may slightly **overstate** the gap, an error in the safe direction.
 
 ---
-*Data sources: NCES/Urban Institute district roster, CDC PLACES county health data, MDH
-school-nurse report. Full methods and reliability details are summarized on the
-[Find Your District](../../find-your-district/index.md) page.*
+*Data sources: NCES and Urban Institute district roster, CDC PLACES county health data, and the
+MDH school nurse workforce report. The campaign built on these findings is
+[Seizure-Safe Schools](../../initiatives/seizure-safe-schools.md). Look up a single district in
+[Find Your District](../../find-your-district/index.md).*

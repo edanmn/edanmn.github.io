@@ -25,7 +25,7 @@ not page views. Progress is reported on this page.
 
     ---
 
-    We audited all 328 Minnesota school districts. Seven in ten post no findable seizure
+    We audited all 329 Minnesota school districts. Seven in ten post no findable seizure
     plan. Now we are turning findings into adoptions, district by district.
 
     [:octicons-arrow-right-24: Read more](seizure-safe-schools.md)
