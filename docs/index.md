@@ -7,6 +7,10 @@ title: Epilepsy Data & Advocacy Network
 *Public data, plain language, and free resources for Minnesotans with epilepsy and their
 families. Student-led, free, and open.*
 
+<div class="emergency-bar" markdown>
+Someone having a seizure right now? [What to do, in four steps](now/index.md)
+</div>
+
 !!! tip "For school districts: the free Seizure-Safe Schools packet"
     Everything a district needs to meet Minnesota's seizure-safety law (Minn. Stat. 121A.24)
     in one 7-page PDF: a seizure action plan template, drop-in Policy 516 language, a

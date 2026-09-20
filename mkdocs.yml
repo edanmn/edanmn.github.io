@@ -58,13 +58,14 @@ plugins:
 
 extra_css:
   # Bump the version after CSS changes so browsers fetch the new file right away.
-  - css/extra.css?v=2026-09-19a
+  - css/extra.css?v=2026-09-20a
 
 extra_javascript:
   - js/reactbits.js
 
 nav:
   - Home: index.md
+  - 'Seizure happening now': now/index.md
   - About EDAN: about.md
   - 'Initiatives':
     - 'Overview': initiatives/index.md
