@@ -4,8 +4,8 @@ title: Epilepsy Data & Advocacy Network
 
 # ![Epilepsy Data & Advocacy Network (EDAN): data, education, advocacy](img/brand/edan-logo.png){ .edan-hero-logo }
 
-*Public data, plain language, and free resources for Minnesotans with epilepsy and their
-families. Student-led, free, and open.*
+*We find epilepsy data that is buried, scattered or unpublished, and we put it where anyone can
+see it. Minnesota first, other states next. Student-led, free, and sourced.*
 
 <div class="emergency-bar" markdown>
 Someone having a seizure right now? [What to do, in four steps](now/index.md)
@@ -27,11 +27,16 @@ Someone having a seizure right now? [What to do, in four steps](now/index.md)
 
 ---
 
-About 53,700 Minnesotans live with epilepsy, and most of what goes wrong for them is an
-information problem: a school with no plan, a pharmacy that closed, a specialist three hours
-away, a benefit nobody explained. EDAN is a student-led organization that uses public data to
-find those gaps, translates what it finds into plain language, and puts free resources where
-they help most. Then we count the people whose lives changed. Everything here is free.
+About 53,700 Minnesotans live with epilepsy. What goes wrong for them is usually visible in
+data that exists but nobody has assembled: a district with no plan, a pharmacy that closed, a
+specialist three hours away, a drug whose price rose 15 percent in a year. We pull that
+information out of state filings, federal registries, one-PDF-per-district reports and web
+archives, and we publish it with the method attached, so you can check it. Then we take it to
+the people who can act on it. Everything here is free to use.
+
+We started in Minnesota because we live here and because the questions were answerable. The
+method travels: the school audit rubric, the cost analysis and the distance mapping are all
+built from federal sources or state filings that every state has. Other states are next.
 
 <div class="edan-quote-inline" markdown>
 

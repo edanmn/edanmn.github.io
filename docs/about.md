@@ -1,9 +1,15 @@
 # About EDAN
 
-**EDAN (the Epilepsy Data & Advocacy Network)** is a student-led initiative that uses public
-data to advance epilepsy awareness, advocacy, and safety. We turn open data and dense clinical,
-legal, and research material into clear information, tools, and resources for the patients,
-families, and communities affected by epilepsy.
+EDAN, the Epilepsy Data & Advocacy Network, is a student-led project that assembles public
+data about epilepsy and publishes it where people can use it. Our work starts in Minnesota and
+is built to travel to other states. The information we
+work with is public, in the sense that nobody is hiding it, and it is also effectively out of
+reach: one PDF per school district, a report appendix, a database that keeps only what is
+current, a list sold rather than published. We collect it, document how we got it, and put it
+in one place.
+
+We are not clinicians and we do not give medical or legal advice. For questions about care, we
+point to the people qualified to answer them.
 
 ## Our approach
 We follow one repeatable model that can be pointed at many different epilepsy challenges:
