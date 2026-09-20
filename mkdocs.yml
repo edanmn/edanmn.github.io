@@ -102,10 +102,11 @@ nav:
     - '9. Everyday Safety & Living': chapters/09-everyday-safety/index.md
     - '10. Driving in Minnesota': chapters/10-driving-in-minnesota/index.md
     - '11. Paying for Epilepsy Care': chapters/11-paying-for-epilepsy-care/index.md
-    - '12. Medicines for Epilepsy': chapters/12-medicines-for-epilepsy/index.md
-    - '13. Tests and Diagnosis': chapters/13-tests-and-diagnosis/index.md
+    - '12. Medicines: What to Ask and What They Cost': chapters/12-medicines-for-epilepsy/index.md
+    - '13. Appointments and Tests': chapters/13-tests-and-diagnosis/index.md
     - '14. Mental Health and Epilepsy': chapters/14-mental-health-and-epilepsy/index.md
     - '15. Teens and Growing Up': chapters/15-teens-and-growing-up/index.md
+    - '16. When the First Medicines Do Not Work': chapters/16-when-the-first-medicine-does-not-work/index.md
   - 'Interactive Sims':
     - 'Seizure First Aid Simulator': sims/seizure-first-aid/index.md
     - 'Is This a Seizure?': sims/recognize-seizure/index.md

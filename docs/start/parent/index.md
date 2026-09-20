@@ -9,19 +9,19 @@ Here is what actually needs doing, in order, and what can wait.
 
 ## This week
 
-**Do not stop or change any medicine on your own.** If a side effect frightens you, call the
+Do not stop or change any medicine on your own. If a side effect frightens you, call the
 clinic today rather than adjusting anything yourself.
 
-**Learn first aid and teach the other adults.** Your partner, the grandparents, the babysitter,
+Learn first aid and teach the other adults. Your partner, the grandparents, the babysitter,
 the coach. Five minutes each: [seizure first aid](../../chapters/02-seizure-first-aid/index.md),
 or have them practise on the [simulator](../../sims/seizure-first-aid/index.md).
 
-**Start writing seizures down.** Time started, time stopped, what it looked like, what happened
+Start writing seizures down. Time started, time stopped, what it looked like, what happened
 before, how they were afterwards. Record one on your phone if you can do it safely. A video is
 worth more to a neurologist than a long description, and it is normal to feel strange filming
 your own child.
 
-**Ask the clinic for a seizure action plan.** One page, signed by the prescriber, that says
+Ask the clinic for a seizure action plan. One page, signed by the prescriber, that says
 what a school or a caregiver should do. This is the document everything else hangs on:
 [seizure action plans](../../chapters/04-seizure-action-plans/index.md).
 
@@ -44,32 +44,33 @@ do not have to argue for this, and you do not need a lawyer to ask.
 
 ## This month
 
-- What the medicine does, and which side effects mean call today: [medicines](../../chapters/12-medicines-for-epilepsy/index.md)
-- What the tests mean, and why a normal EEG does not rule anything out: [tests and diagnosis](../../chapters/13-tests-and-diagnosis/index.md)
+- What to ask about the medicine, and what it costs in Minnesota: [medicines](../../chapters/12-medicines-for-epilepsy/index.md)
+- What to bring to appointments, and where the specialists are: [appointments and tests](../../chapters/13-tests-and-diagnosis/index.md)
 - What it costs and what help exists: [paying for epilepsy care](../../chapters/11-paying-for-epilepsy-care/index.md)
 - Sleep, sports, water, and what your child can still do, which is almost everything:
   [everyday safety](../../chapters/09-everyday-safety/index.md)
 
 ## The things parents actually ask at 2am
 
-**Will my child die from this?** SUDEP is real and it is rare. The honest information, including
+Will my child die from this? SUDEP is real and it is rare. The honest information, including
 what lowers risk, is here: [SUDEP](../../initiatives/sudep.md). Most children with epilepsy grow
 up and most become seizure free.
 
-**Did I cause this?** No.
+Did I cause this? No.
 
-**Will they be normal?** Yes, with the same range of ordinary difficulties as anyone. Watch for
+Will they be normal? Yes, with the same range of ordinary difficulties as anyone. Watch for
 mood and attention, because depression and anxiety are more common in epilepsy and are often
 missed in children: [mental health](../../chapters/14-mental-health-and-epilepsy/index.md).
 
-**How do I stop being afraid all the time?** You do not, entirely, but it gets much better once
+How do I stop being afraid all the time? You do not, entirely, but it gets much better once
 the plan is in place and other adults know what to do. Talking to other parents helps more than
 reading. The Epilepsy Foundation of Minnesota runs caregiver groups.
 
 ## If the first two medicines do not work
 
-Ask about referral to a comprehensive epilepsy centre. Minnesota has four accredited Level 4
-centres. Families often wait years to ask, and there is no reason to.
+Ask about referral to an epilepsy center. What the term drug resistant means, which centers
+Minnesota has, and how far they are:
+[when the first medicines do not work](../../chapters/16-when-the-first-medicine-does-not-work/index.md).
 
 ---
 

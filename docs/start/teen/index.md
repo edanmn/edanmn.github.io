@@ -9,23 +9,23 @@ being talked about in the third person while you are sitting right there.
 
 ## The five things worth knowing first
 
-**Most people will never notice.** Around two thirds of people with epilepsy become seizure free
+Most people will never notice. Around two thirds of people with epilepsy become seizure free
 on medication. This is a condition you manage, not an identity you have to take on.
 
-**Sleep is the one that gets people.** Missing sleep is one of the most common triggers, and
+Sleep is the one that gets people. Missing sleep is one of the most common triggers, and
 late nights plus early practice is exactly the pattern that sets it off. This is annoying and it
 is also true.
 
-**Alcohol interacts with your medicine, not just with you.** The rules are different for you
+Alcohol interacts with your medicine, not just with you. The rules are different for you
 than for your friends, and it is worth knowing why before you are in the situation:
 [teens and growing up](../../chapters/15-teens-and-growing-up/index.md).
 
-**Driving has actual rules in Minnesota.** You report a loss of consciousness within 30 days,
+Driving has actual rules in Minnesota. You report a loss of consciousness within 30 days,
 and driving is usually cancelled for three months from the episode, with specific exceptions.
 Find out where you stand rather than guessing:
 [driving in Minnesota](../../chapters/10-driving-in-minnesota/index.md).
 
-**You can do almost every sport.** A few things around water and height need a spotter. Ask your
+You can do almost every sport. A few things around water and height need a spotter. Ask your
 neurologist about your situation rather than accepting a blanket no from someone who is
 guessing.
 
