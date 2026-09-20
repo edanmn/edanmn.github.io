@@ -1,7 +1,10 @@
 # Initiatives
 
 ## The vision
-About 53,700 Minnesotans live with active epilepsy, 7,400 of them children. Most of what
+About 53,700 Minnesotans live with active epilepsy, 46,300 adults and 7,400 children, by the
+CDC's [2017 state estimates](https://www.cdc.gov/mmwr/volumes/66/wr/mm6631a1.htm). Nobody
+counts it directly in Minnesota, so that figure is a national rate applied to the state's
+population, and every county-level number anywhere is the same kind of estimate. Most of what
 goes wrong for them is not medical. It is a school with no plan, a pharmacy that closed, a
 neurologist three hours away, a benefit nobody told the family about, a death nobody counted.
 Those are information problems, and information problems can be mapped.

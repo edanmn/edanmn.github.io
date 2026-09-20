@@ -23,7 +23,8 @@ see it. Minnesota first, other states next. Student-led, free, and sourced.*
 
 ---
 
-About 53,700 Minnesotans live with epilepsy. What goes wrong for them is usually visible in
+About 53,700 Minnesotans live with epilepsy, by the CDC's 2017 state estimates. Nobody counts
+it directly here. What goes wrong for them is usually visible in
 data that exists but nobody has assembled: a district with no plan, a pharmacy that closed, a
 specialist three hours away, a drug whose price rose 15 percent in a year. We pull that
 information out of state filings, federal registries, one-PDF-per-district reports and web
