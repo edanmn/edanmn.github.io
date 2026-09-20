@@ -1,17 +1,49 @@
-# When the first medicines do not work
+# Getting specialist care in Minnesota
 
-About a third of people with epilepsy keep having seizures on medication. There is a name for
-that, there are other options, and there is a referral that should happen. Many families wait
-years before anyone says so.
+Two things determine whether an appointment is useful: what you bring to it, and whether you
+are seeing the right person at all. This page covers both, plus our own data on how far that
+care is from where people live.
 
-We are not the people to explain those options. What we can tell you is what the term means,
-who in Minnesota does this work, and how far away they are.
+We do not explain what an EEG measures or what a scan shows. Clinicians do that, and the links
+at the end are better than anything we could write.
 
 !!! warning "Who decides"
     Whether any of this applies to you is a clinical judgment. Nothing here is medical advice.
     Ask your neurologist.
 
-## The term to know
+## What to bring
+
+Almost everyone underestimates this. The description of what happened matters more than any
+test, because the person having a seizure cannot see it and the neurologist was not there.
+
+Write down, for each episode:
+
+- The date, the time it started, and the time it stopped
+- What the person was doing beforehand, and how much they had slept
+- What the movements looked like, and where they started
+- Whether they responded to their name or a touch
+- How long until they were back to normal, and whether they remember it
+- Whether a dose had been missed
+
+A phone video of an episode, taken when it is safe to do so, is worth more than a page of
+description. Clinicians ask for these often. The free
+[observation log in our school packet](https://edanmn.org/packet/EDAN-Seizure-Safe-Schools-Packet.pdf)
+is one page and designed for exactly this.
+
+## What to ask
+
+1. What do you think is happening, and what would change your mind?
+2. What will this test tell us, and what will it not tell us?
+3. How should we prepare, and what does the day look like?
+4. When do we get results, and who calls whom?
+5. What should we do if another episode happens before then?
+6. Who do I contact between appointments?
+
+## If the first medicines are not working
+
+About a third of people with epilepsy keep having seizures on medication. There is a name for
+that, and there is a referral that should happen. Many families wait years before anyone says
+so.
 
 Epilepsy is called drug resistant when two suitable antiseizure medicines, properly chosen and
 properly taken, have failed to stop the seizures. That definition comes from the International
@@ -24,7 +56,7 @@ referral, not after the fifth.
 A question that costs nothing to ask: "Would you consider me drug resistant, and should I be
 evaluated at an epilepsy center?"
 
-## What else exists
+## The options that exist beyond medicine
 
 We list these so you know the words. Each is a serious decision with real risks and benefits,
 and the links go to clinicians who explain them properly.
@@ -38,7 +70,7 @@ and the links go to clinicians who explain them properly.
 Read about them here: the [Epilepsy Foundation on treatments](https://www.epilepsy.com/treatment)
 and the [National Association of Epilepsy Centers](https://www.naec-epilepsy.org/).
 
-## Where this care happens in Minnesota
+## Where that care is, and how far
 
 Comprehensive epilepsy centers are accredited by the National Association of Epilepsy Centers.
 Level 4 is the highest category. Minnesota has four: Mayo Clinic, the University of Minnesota
@@ -69,6 +101,15 @@ asking for by name.
   [paying for epilepsy care](../11-paying-for-epilepsy-care/index.md)
 - The Epilepsy Foundation of Minnesota has staff who help people navigate exactly this:
   <https://www.epilepsyfoundationmn.org/>
+
+## Where to read about the tests and treatments
+
+These are written and reviewed by clinicians.
+
+- Epilepsy Foundation, diagnosis: <https://www.epilepsy.com/diagnosis>
+- Epilepsy Foundation, treatments: <https://www.epilepsy.com/treatment>
+- National Institute of Neurological Disorders and Stroke: <https://www.ninds.nih.gov/health-information/disorders/epilepsy-and-seizures>
+- National Association of Epilepsy Centers, what the levels mean: <https://www.naec-epilepsy.org/>
 
 !!! note "What this page is"
     EDAN is a student-led data and advocacy project. The distances and district figures here
