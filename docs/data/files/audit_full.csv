@@ -1,0 +1,330 @@
+isd,district,classification,locale,county,fips,enrollment,uninsured,disability,seizure_specific
+709,Duluth,FOUND_SEIZURE_SPECIFIC,City,St. Louis County,27137,8757.0,6.8,30.8,1
+270,Hopkins,FOUND_SEIZURE_SPECIFIC,City,Hennepin County,27053,6977.0,7.5,25.0,1
+272,Eden Prairie,FOUND_SEIZURE_SPECIFIC,City,Hennepin County,27053,8963.0,7.5,25.0,1
+742,St. Cloud,FOUND_MED_POLICY_ONLY,City,Stearns County,27145,9543.0,7.9,27.6,0
+112,Eastern Carver County,FOUND_SEIZURE_SPECIFIC,Suburb,Carver County,27019,9254.0,5.8,23.3,1
+833,South Washington County,FOUND_MED_POLICY_ONLY,Suburb,Washington County,27163,19360.0,5.8,23.5,0
+719,Prior Lake-Savage,FOUND_SEIZURE_SPECIFIC,Suburb,Scott County,27139,8777.0,6.6,23.7,1
+286,Brooklyn Center,FOUND_MED_POLICY_ONLY,Suburb,Hennepin County,27053,2099.0,7.5,25.0,0
+861,Winona Area,FOUND_MED_POLICY_ONLY,Town,Winona County,27169,2433.0,7.3,29.1,0
+656,Faribault,FOUND_MED_POLICY_ONLY,Town,Rice County,27131,3107.0,8.7,28.1,0
+206,Alexandria,FOUND_SEIZURE_SPECIFIC,Town,Douglas County,27041,4021.0,6.9,29.6,1
+347,Willmar,FOUND_MED_POLICY_ONLY,Town,Kandiyohi County,27067,4220.0,10.0,30.0,0
+88,New Ulm,FOUND_SEIZURE_SPECIFIC,Town,Brown County,27015,2135.0,8.1,30.2,1
+94,Cloquet,FOUND_SEIZURE_SPECIFIC,Town,Carlton County,27017,2598.0,8.0,31.0,1
+2137,Kingsland,FOUND_MED_POLICY_ONLY,Rural,Fillmore County,27045,517.0,7.6,31.6,0
+2609,Win-E-Mac,FOUND_SEIZURE_SPECIFIC,Rural,Polk County,27119,444.0,8.3,29.7,1
+2711,Mesabi East,FOUND_MED_POLICY_ONLY,Rural,St. Louis County,27137,871.0,6.8,30.8,0
+857,Lewiston-Altura,FOUND_MED_POLICY_ONLY,Rural,Winona County,27169,591.0,7.3,29.1,0
+690,Warroad,FOUND_MED_POLICY_ONLY,Rural,Roseau County,27135,1053.0,7.8,30.7,0
+466,Dassel-Cokato,FOUND_SEIZURE_SPECIFIC,Rural,Wright County,27171,2015.0,6.8,26.0,1
+11,Anoka-Hennepin School District,FOUND_SEIZURE_SPECIFIC,Suburb,Anoka County,27003,38631.0,7.5,28.1,1
+625,Saint Paul Public Schools,FOUND_SEIZURE_SPECIFIC,City,Ramsey County,27123,32145.0,7.8,27.9,1
+196,Rosemount-Apple Valley-Eagan,FOUND_SEIZURE_SPECIFIC,Suburb,Dakota County,27037,29115.0,7.1,25.8,1
+1,Aitkin Public School District,FOUND_MED_POLICY_ONLY,Rural,Aitkin County,27001,995.0,7.4,34.7,0
+30001,Minneapolis Public School District,FOUND_MED_POLICY_ONLY,City,Hennepin County,27053,29063.0,7.5,25.0,0
+279,Osseo Public School District,FOUND_SEIZURE_SPECIFIC,Suburb,Hennepin County,27053,20776.0,7.5,25.0,1
+535,Rochester Public School District,FOUND_SEIZURE_SPECIFIC,City,Olmsted County,27109,17342.0,6.7,24.9,1
+728,Elk River Public School District,FOUND_MED_POLICY_ONLY,Suburb,Sherburne County,27141,14352.0,7.1,27.3,0
+284,Wayzata Public Schools,FOUND_SEIZURE_SPECIFIC,City,Hennepin County,27053,12625.0,7.5,25.0,1
+194,Lakeville Area Schools,FOUND_SEIZURE_SPECIFIC,Suburb,Dakota County,27037,12021.0,7.1,25.8,1
+621,Mounds View Public School District,NOT_FOUND,Suburb,Ramsey County,27123,11632.0,7.8,27.9,0
+276,Minnetonka Public School District,FOUND_MED_POLICY_ONLY,City,Hennepin County,27053,11356.0,7.5,25.0,0
+281,Robbinsdale Public School District,FOUND_SEIZURE_SPECIFIC,Suburb,Hennepin County,27053,10735.0,7.5,25.0,1
+622,North St. Paul-Maplewood Oakdale,FOUND_SEIZURE_SPECIFIC,Suburb,Ramsey County,27123,10633.0,7.8,27.9,1
+271,Bloomington Public School District,FOUND_SEIZURE_SPECIFIC,City,Hennepin County,27053,10294.0,7.5,25.0,1
+273,Edina Public School District,FOUND_SEIZURE_SPECIFIC,City,Hennepin County,27053,8609.0,7.5,25.0,1
+624,White Bear Lake Area Schools,FOUND_SEIZURE_SPECIFIC,Suburb,Ramsey County,27123,8549.0,7.8,27.9,1
+834,Stillwater Area Public Schools,FOUND_SEIZURE_SPECIFIC,Town,Washington County,27163,8368.0,5.8,23.5,1
+77,Mankato Area Public Schools,FOUND_SEIZURE_SPECIFIC,City,Blue Earth County,27013,8276.0,7.9,28.8,1
+720,Shakopee Public Schools,FOUND_SEIZURE_SPECIFIC,Suburb,Scott County,27139,7678.0,6.6,23.7,1
+191,Burnsville-Eagan-Savage Schools,FOUND_SEIZURE_SPECIFIC,City,Dakota County,27037,7594.0,7.1,25.8,1
+152,Moorhead Area Public Schools,FOUND_MED_POLICY_ONLY,Suburb,Clay County,27027,7460.0,7.2,27.4,0
+623,Roseville Public School District,FOUND_SEIZURE_SPECIFIC,Suburb,Ramsey County,27123,7355.0,7.8,27.9,1
+12,Centennial Public School District,FOUND_SEIZURE_SPECIFIC,Suburb,Anoka County,27003,6772.0,7.5,28.1,1
+885,St. Michael-Albertville Schools,FOUND_SEIZURE_SPECIFIC,Suburb,Wright County,27171,6696.0,6.8,26.0,1
+192,Farmington Public School District,FOUND_MED_POLICY_ONLY,Suburb,Dakota County,27037,6630.0,7.1,25.8,0
+16,Spring Lake Park Public Schools,FOUND_SEIZURE_SPECIFIC,Suburb,Anoka County,27003,6140.0,7.5,28.1,1
+181,Brainerd Public School District,FOUND_SEIZURE_SPECIFIC,Town,Crow Wing County,27035,6134.0,7.0,30.7,1
+831,Forest Lake Public School District,FOUND_SEIZURE_SPECIFIC,Town,Washington County,27163,5763.0,5.8,23.5,1
+197,West St. Paul-Mendota Heights-Eagan,FOUND_SEIZURE_SPECIFIC,Suburb,Dakota County,27037,5293.0,7.1,25.8,1
+877,Buffalo-Hanover-Montrose Schools,FOUND_SEIZURE_SPECIFIC,Town,Wright County,27171,5282.0,6.8,26.0,1
+492,Austin Public School District,FOUND_SEIZURE_SPECIFIC,Town,Mower County,27099,5146.0,10.6,30.9,1
+911,Cambridge-Isanti Schools,FOUND_SEIZURE_SPECIFIC,Town,Isanti County,27059,5092.0,8.0,29.0,1
+761,Owatonna Public School District,FOUND_MED_POLICY_ONLY,Town,Steele County,27147,4995.0,8.2,28.2,0
+31,Bemidji Area Schools,NOT_VERIFIABLE,Town,Beltrami County,27007,4812.0,8.2,32.7,0
+47,Sauk Rapids-Rice Public Schools,FOUND_SEIZURE_SPECIFIC,Suburb,Benton County,27009,4352.0,8.0,28.4,1
+283,St. Louis Park Public School District,FOUND_MED_POLICY_ONLY,City,Hennepin County,27053,4347.0,7.5,25.0,0
+15,St. Francis Area Schools,FOUND_SEIZURE_SPECIFIC,Town,Anoka County,27003,4236.0,7.5,28.1,1
+882,Monticello Public School District,FOUND_MED_POLICY_ONLY,Town,Wright County,27171,4138.0,6.8,26.0,0
+200,Hastings Public School District,FOUND_SEIZURE_SPECIFIC,Town,Dakota County,27037,4095.0,7.1,25.8,1
+721,New Prague Area Schools,FOUND_MED_POLICY_ONLY,Town,Scott County,27139,4072.0,6.6,23.7,0
+748,Sartell-St. Stephen School District,FOUND_MED_POLICY_ONLY,Suburb,Stearns County,27145,4046.0,7.9,27.6,0
+280,Richfield Public School District,FOUND_SEIZURE_SPECIFIC,Suburb,Hennepin County,27053,4043.0,7.5,25.0,1
+318,Grand Rapids Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Itasca County,27061,4024.0,7.1,32.7,1
+110,Waconia Public Schools,FOUND_SEIZURE_SPECIFIC,Town,Carver County,27019,4000.0,5.8,23.3,1
+518,Worthington Public School District,NOT_VERIFIABLE,Town,Nobles County,27105,3914.0,16.5,33.2,0
+659,Northfield Public School District,FOUND_MED_POLICY_ONLY,Town,Rice County,27131,3875.0,8.7,28.1,0
+199,Inver Grove Heights Schools,FOUND_MED_POLICY_ONLY,Suburb,Dakota County,27037,3510.0,7.1,25.8,0
+13,Columbia Heights Public School Dist,FOUND_MED_POLICY_ONLY,Suburb,Anoka County,27003,3420.0,7.5,28.1,0
+241,Albert Lea Public School District,FOUND_SEIZURE_SPECIFIC,Town,Freeborn County,27047,3338.0,9.8,32.7,1
+2144,Chisago Lakes School District,FOUND_SEIZURE_SPECIFIC,Town,Chisago County,27025,3331.0,7.0,28.4,1
+477,Princeton Public School District,FOUND_SEIZURE_SPECIFIC,Town,Mille Lacs County,27095,3217.0,8.3,32.7,1
+832,Mahtomedi Public Schools,FOUND_SEIZURE_SPECIFIC,Rural,Washington County,27163,3194.0,5.8,23.5,1
+727,Big Lake Public School District,FOUND_SEIZURE_SPECIFIC,Town,Sherburne County,27141,3157.0,7.1,27.3,1
+278,Orono Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Hennepin County,27053,2946.0,7.5,25.0,1
+6,South St. Paul Public School District,FOUND_SEIZURE_SPECIFIC,Suburb,Dakota County,27037,2917.0,7.1,25.8,1
+544,Fergus Falls Public School District,FOUND_SEIZURE_SPECIFIC,Town,Otter Tail County,27111,2901.0,7.5,30.6,1
+726,Becker Public School District,FOUND_MED_POLICY_ONLY,Rural,Sherburne County,27141,2847.0,7.1,27.3,0
+22,Detroit Lakes Public School Dist.,FOUND_SEIZURE_SPECIFIC,Town,Becker County,27005,2797.0,7.5,30.3,1
+423,Hutchinson Public School District,FOUND_SEIZURE_SPECIFIC,Town,McLeod County,27085,2783.0,8.3,29.3,1
+138,North Branch Area Public Schools,FOUND_MED_POLICY_ONLY,Rural,Chisago County,27025,2744.0,7.0,28.4,0
+413,Marshall Public School District,FOUND_MED_POLICY_ONLY,Town,Lyon County,27083,2705.0,8.5,29.1,0
+14,Fridley Public School District,FOUND_MED_POLICY_ONLY,Suburb,Anoka County,27003,2633.0,7.5,28.1,0
+879,Delano Public School District,FOUND_MED_POLICY_ONLY,Town,Wright County,27171,2464.0,6.8,26.0,0
+277,Westonka Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Hennepin County,27053,2428.0,7.5,25.0,1
+750,Rocori Public School District,FOUND_MED_POLICY_ONLY,Rural,Stearns County,27145,2414.0,7.9,27.6,0
+482,Little Falls Community Schools,FOUND_MED_POLICY_ONLY,Town,Morrison County,27097,2376.0,7.7,30.1,0
+2909,Rock Ridge Public Schools,FOUND_SEIZURE_SPECIFIC,Rural,St. Louis County,27137,2331.0,6.8,30.8,1
+531,Byron Public School District,FOUND_MED_POLICY_ONLY,Town,Olmsted County,27109,2331.0,6.7,24.9,0
+256,Red Wing Public School District,FOUND_MED_POLICY_ONLY,Rural,Goodhue County,27049,2231.0,7.7,28.6,0
+701,Hibbing Public School District,NOT_FOUND,Town,St. Louis County,27137,2197.0,6.8,30.8,0
+204,Kasson-Mantorville School District,FOUND_MED_POLICY_ONLY,Town,Dodge County,27039,2161.0,7.1,26.1,0
+508,St. Peter Public School District,FOUND_MED_POLICY_ONLY,Town,Nicollet County,27103,2105.0,7.3,28.3,0
+700,Hermantown Community Schools,FOUND_MED_POLICY_ONLY,Rural,St. Louis County,27137,2100.0,6.8,30.8,0
+876,Annandale Public School District,FOUND_MED_POLICY_ONLY,Rural,Wright County,27171,2049.0,6.8,26.0,0
+534,Stewartville Public Schools,FOUND_MED_POLICY_ONLY,Town,Olmsted County,27109,2005.0,6.7,24.9,0
+294,Houston Public School District,FOUND_MED_POLICY_ONLY,Rural,Houston County,27055,2000.0,6.8,28.5,0
+2142,St. Louis County School District,FOUND_MED_POLICY_ONLY,Rural,St. Louis County,27137,1947.0,6.8,30.8,0
+595,East Grand Forks Public Schools,FOUND_SEIZURE_SPECIFIC,Suburb,Polk County,27119,1942.0,8.3,29.7,1
+51,Foley Public School District,FOUND_MED_POLICY_ONLY,Rural,Benton County,27009,1925.0,8.0,28.4,0
+2905,Tri-City United School District,FOUND_MED_POLICY_ONLY,Rural,Le Sueur County,27079,1910.0,7.7,27.0,0
+704,Proctor Public School District,FOUND_MED_POLICY_ONLY,Suburb,St. Louis County,27137,1871.0,6.8,30.8,0
+282,St. Anthony-New Brighton Schools,FOUND_MED_POLICY_ONLY,Suburb,Hennepin County,27053,1856.0,7.5,25.0,0
+717,Jordan Public School District,FOUND_SEIZURE_SPECIFIC,Town,Scott County,27139,1826.0,6.6,23.7,1
+2752,Fairmont Area School District,FOUND_MED_POLICY_ONLY,Town,Martin County,27091,1818.0,8.4,31.8,0
+564,Thief River Falls School District,FOUND_SEIZURE_SPECIFIC,Town,Pennington County,27113,1811.0,7.9,30.7,1
+186,Pequot Lakes Public Schools,FOUND_SEIZURE_SPECIFIC,Rural,Crow Wing County,27035,1807.0,7.0,30.7,1
+745,Albany Public School District,FOUND_MED_POLICY_ONLY,Rural,Stearns County,27145,1799.0,7.9,27.6,0
+829,Waseca Public Schools,FOUND_MED_POLICY_ONLY,Town,Waseca County,27161,1735.0,8.9,30.7,0
+549,Perham-Dent Public Schools,FOUND_MED_POLICY_ONLY,Rural,Otter Tail County,27111,1687.0,7.5,30.6,0
+309,Park Rapids Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Hubbard County,27057,1675.0,6.9,30.1,1
+332,Mora Public School District,FOUND_MED_POLICY_ONLY,Rural,Kanabec County,27065,1653.0,8.5,33.8,0
+912,Milaca Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Mille Lacs County,27095,1627.0,8.3,32.7,1
+578,Pine City Public School District,FOUND_MED_POLICY_ONLY,Rural,Pine County,27115,1594.0,8.7,33.9,0
+2164,Dilworth-Glyndon-Felton,FOUND_SEIZURE_SPECIFIC,Rural,Clay County,27027,1586.0,7.2,27.4,1
+883,Rockford Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Wright County,27171,1564.0,6.8,26.0,1
+465,Litchfield Public School District,NOT_VERIFIABLE,Town,Meeker County,27093,1562.0,7.8,29.1,0
+345,New London-Spicer School District,NOT_VERIFIABLE,Town,Kandiyohi County,27067,1549.0,10.0,30.0,0
+716,Belle Plaine Public Schools,FOUND_MED_POLICY_ONLY,Town,Scott County,27139,1541.0,6.6,23.7,0
+255,Pine Island Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Goodhue County,27049,1538.0,7.7,28.6,1
+2899,Plainview-Elgin-Millville Community Schools,FOUND_SEIZURE_SPECIFIC,Rural,Wabasha County,27157,1466.0,7.0,28.5,1
+111,Watertown-Mayer Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Carver County,27019,1465.0,5.8,23.3,1
+38,Red Lake Public School District,NOT_VERIFIABLE,Rural,Beltrami County,27007,1441.0,8.2,32.7,0
+2859,Glencoe-Silver Lake School District,FOUND_MED_POLICY_ONLY,Town,McLeod County,27085,1433.0,8.3,29.3,0
+129,Montevideo Public Schools,FOUND_SEIZURE_SPECIFIC,Town,Chippewa County,27023,1396.0,9.9,32.6,1
+2149,Minnewaska Area Schools,FOUND_SEIZURE_SPECIFIC,Rural,Pope County,27121,1345.0,7.2,30.1,1
+2687,Howard Lake-Waverly-Winsted,FOUND_SEIZURE_SPECIFIC,Rural,Wright County,27171,1310.0,6.8,26.0,1
+381,Lake Superior Public School Dist.,FOUND_MED_POLICY_ONLY,Rural,Lake County,27075,1300.0,7.2,32.4,0
+99,Esko Public School District,FOUND_SEIZURE_SPECIFIC,Town,Carlton County,27017,1296.0,8.0,31.0,1
+116,Pillager Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Cass County,27021,1291.0,7.4,34.1,1
+740,Melrose Public School District,FOUND_MED_POLICY_ONLY,Rural,Stearns County,27145,1266.0,7.9,27.6,0
+484,Pierz Public School District,NOT_VERIFIABLE,Rural,Morrison County,27097,1245.0,7.7,30.1,0
+2805,Zumbrota-Mazeppa School District,FOUND_MED_POLICY_ONLY,Rural,Goodhue County,27049,1224.0,7.7,28.6,0
+813,Lake City Public School District,FOUND_MED_POLICY_ONLY,Town,Wabasha County,27157,1182.0,7.0,28.5,0
+593,Crookston Public School District,FOUND_MED_POLICY_ONLY,Town,Polk County,27119,1162.0,8.3,29.7,0
+2184,Luverne Public School District,FOUND_MED_POLICY_ONLY,Rural,Rock County,27133,1155.0,8.0,30.8,0
+840,St. James Public School District,NOT_FOUND,Rural,Watonwan County,27165,1150.0,13.4,33.0,0
+177,Windom Public School District,NOT_FOUND,Rural,Cottonwood County,27033,1150.0,10.2,32.9,0
+2897,Redwood Area School District,FOUND_MED_POLICY_ONLY,Town,Redwood County,27127,1132.0,8.5,31.7,0
+743,Sauk Centre Public School District,FOUND_MED_POLICY_ONLY,Town,Stearns County,27145,1130.0,7.9,27.6,0
+682,Roseau Public School District,NOT_FOUND,Rural,Roseau County,27135,1120.0,7.8,30.7,0
+2155,Wadena-Deer Creek School District,FOUND_MED_POLICY_ONLY,Town,Wadena County,27159,1112.0,8.8,34.4,0
+115,Cass Lake-Bena Public Schools,FOUND_MED_POLICY_ONLY,Rural,Cass County,27021,1112.0,7.4,34.1,0
+2895,Jackson County Central School Dist.,FOUND_MED_POLICY_ONLY,Rural,Jackson County,27063,1104.0,7.7,30.5,0
+2769,Morris Area Public Schools,FOUND_SEIZURE_SPECIFIC,Rural,Stevens County,27149,1096.0,9.7,29.5,1
+2689,Pipestone Area School District,FOUND_SEIZURE_SPECIFIC,Rural,Pipestone County,27117,1087.0,9.1,32.6,1
+738,Holdingford Public School District,FOUND_MED_POLICY_ONLY,Rural,Stearns County,27145,1077.0,7.9,27.6,0
+2860,Blue Earth Area School District,FOUND_MED_POLICY_ONLY,Rural,Faribault County,27043,1075.0,9.3,34.3,0
+2310,Sibley East School District,FOUND_MED_POLICY_ONLY,Rural,Sibley County,27143,1067.0,9.0,30.4,0
+533,Dover-Eyota Public School District,NOT_FOUND,Rural,Olmsted County,27109,1063.0,6.7,24.9,0
+150,Hawley Public School District,FOUND_MED_POLICY_ONLY,Rural,Clay County,27027,1062.0,7.2,27.4,0
+252,Cannon Falls Public School District,FOUND_MED_POLICY_ONLY,Rural,Goodhue County,27049,1044.0,7.7,28.6,0
+316,Greenway Public School District,FOUND_MED_POLICY_ONLY,Rural,Itasca County,27061,1032.0,7.1,32.7,0
+300,La Crescent-Hokah School District,FOUND_MED_POLICY_ONLY,Suburb,Houston County,27055,1020.0,6.8,28.5,0
+182,Crosby-Ironton School District,FOUND_MED_POLICY_ONLY,Rural,Crow Wing County,27035,991.0,7.0,30.7,0
+2753,Long Prairie-Grey Eagle School Dist,FOUND_MED_POLICY_ONLY,Rural,Todd County,27153,984.0,10.4,34.5,0
+858,St. Charles Public School District,FOUND_MED_POLICY_ONLY,Rural,Winona County,27169,968.0,7.3,29.1,0
+811,Wabasha-Kellogg School District,FOUND_MED_POLICY_ONLY,Suburb,Wabasha County,27157,966.0,7.0,28.5,0
+2071,Lake Crystal-Wellcome Memorial,FOUND_SEIZURE_SPECIFIC,Rural,Blue Earth County,27013,961.0,7.9,28.8,1
+2165,Hinckley-Finlayson School District,FOUND_MED_POLICY_ONLY,Rural,Pine County,27115,946.0,8.7,33.9,0
+821,Menahga Public School District,FOUND_MED_POLICY_ONLY,Rural,Wadena County,27159,945.0,8.8,34.4,0
+2135,Maple River School District,FOUND_MED_POLICY_ONLY,Rural,Blue Earth County,27013,944.0,7.9,28.8,0
+108,Central Public School District,FOUND_MED_POLICY_ONLY,Rural,Carver County,27019,943.0,5.8,23.3,0
+485,Royalton Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Morrison County,27097,937.0,7.7,30.1,1
+162,Bagley Public School District,FOUND_MED_POLICY_ONLY,Rural,Clearwater County,27029,921.0,8.9,33.2,0
+741,Paynesville Area Schools,FOUND_MED_POLICY_ONLY,Rural,Stearns County,27145,920.0,7.9,27.6,0
+2125,Triton School District,FOUND_MED_POLICY_ONLY,Rural,Dodge County,27039,909.0,7.1,26.1,0
+2397,Le Sueur-Henderson School District,FOUND_MED_POLICY_ONLY,Rural,Le Sueur County,27079,898.0,7.7,27.0,0
+463,Eden Valley-Watkins School District,FOUND_MED_POLICY_ONLY,Rural,Meeker County,27093,896.0,7.8,29.1,0
+763,Medford Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Steele County,27147,890.0,8.2,28.2,1
+361,International Falls School District,FOUND_MED_POLICY_ONLY,Town,Koochiching County,27071,888.0,7.3,32.7,0
+2170,Staples-Motley School District,FOUND_SEIZURE_SPECIFIC,Rural,Todd County,27153,888.0,10.4,34.5,1
+227,Chatfield Public Schools,FOUND_SEIZURE_SPECIFIC,Rural,Olmsted County,27109,885.0,6.7,24.9,1
+2396,A.C.G.C. Public School District,FOUND_MED_POLICY_ONLY,Rural,Meeker County,27093,880.0,7.8,29.1,0
+2174,Pine River-Backus School District,FOUND_MED_POLICY_ONLY,Rural,Cass County,27021,879.0,7.4,34.1,0
+146,Barnesville Public School Dist.,FOUND_MED_POLICY_ONLY,Rural,Clay County,27027,875.0,7.2,27.4,0
+139,Rush City Public School District,FOUND_MED_POLICY_ONLY,Rural,Chisago County,27025,871.0,7.0,28.4,0
+195,Randolph Public School District,FOUND_MED_POLICY_ONLY,Rural,Dakota County,27037,870.0,7.1,25.8,0
+213,Osakis Public School District,NOT_VERIFIABLE,Rural,Douglas County,27041,869.0,6.9,29.6,0
+756,Blooming Prairie Public Schools,FOUND_SEIZURE_SPECIFIC,Rural,Steele County,27147,864.0,8.2,28.2,1
+548,Pelican Rapids Public Schools,FOUND_MED_POLICY_ONLY,Rural,Otter Tail County,27111,860.0,7.5,30.6,0
+317,Deer River Public School District,FOUND_MED_POLICY_ONLY,Rural,Itasca County,27061,852.0,7.1,32.7,0
+2853,Lac Qui Parle Valley Schools,FOUND_MED_POLICY_ONLY,Rural,Lac qui Parle County,27073,834.0,7.3,31.4,0
+75,St. Clair Public School District,FOUND_MED_POLICY_ONLY,Rural,Blue Earth County,27013,820.0,7.9,28.8,0
+23,Frazee-Vergas Public Schools,FOUND_MED_POLICY_ONLY,Rural,Becker County,27005,802.0,7.5,30.3,0
+553,New York Mills Public School Dist.,FOUND_MED_POLICY_ONLY,Rural,Otter Tail County,27111,802.0,7.5,30.6,0
+2134,United South Central Schools,FOUND_MED_POLICY_ONLY,Rural,Faribault County,27043,797.0,9.3,34.3,0
+775,Kerkhoven-Murdock-Sunburg,FOUND_SEIZURE_SPECIFIC,Rural,Swift County,27151,797.0,9.1,33.9,1
+2168,Nrheg School District,FOUND_MED_POLICY_ONLY,Rural,Waseca County,27161,792.0,8.9,30.7,0
+314,Braham Public School District,FOUND_MED_POLICY_ONLY,Rural,Isanti County,27059,791.0,8.0,29.0,0
+881,Maple Lake Public School District,FOUND_MED_POLICY_ONLY,Rural,Wright County,27171,786.0,6.8,26.0,0
+777,Benson Public School District,FOUND_MED_POLICY_ONLY,Rural,Swift County,27151,774.0,9.1,33.9,0
+2580,East Central School District,FOUND_MED_POLICY_ONLY,Rural,Pine County,27115,765.0,8.7,33.9,0
+2143,Waterville-Elysian-Morristown,FOUND_SEIZURE_SPECIFIC,Rural,Le Sueur County,27079,761.0,7.7,27.0,1
+2180,Maccray School District,FOUND_MED_POLICY_ONLY,Rural,Chippewa County,27023,758.0,9.9,32.6,0
+2342,West Central Area,FOUND_MED_POLICY_ONLY,Rural,Grant County,27051,750.0,8.0,32.3,0
+739,Kimball Public School District,FOUND_MED_POLICY_ONLY,Rural,Stearns County,27145,748.0,7.9,27.6,0
+435,Waubun-Ogema-White Earth Schools,FOUND_MED_POLICY_ONLY,Rural,Mahnomen County,27087,741.0,11.4,42.2,0
+253,Goodhue Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Goodhue County,27049,740.0,7.7,28.6,1
+32,Blackduck Public School,FOUND_MED_POLICY_ONLY,Rural,Beltrami County,27007,739.0,8.2,32.7,0
+2167,Lakeview School District,FOUND_SEIZURE_SPECIFIC,Rural,Lyon County,27083,724.0,8.5,29.1,1
+299,Caledonia Public School District,FOUND_MED_POLICY_ONLY,Rural,Houston County,27055,705.0,6.8,28.5,0
+2169,Murray County Central Schools,NOT_FOUND,Rural,Murray County,27101,701.0,8.3,31.7,0
+2910,Ada-Borup-West Public Schools,NOT_VERIFIABLE,Rural,Norman County,27107,701.0,8.3,31.7,0
+2904,Tracy Area Public School District,FOUND_MED_POLICY_ONLY,Rural,Lyon County,27083,688.0,8.5,29.1,0
+113,Walker-Hackensack-Akeley School District,FOUND_MED_POLICY_ONLY,Rural,Cass County,27021,688.0,7.4,34.1,0
+2889,Lake Park Audubon School District,FOUND_MED_POLICY_ONLY,Rural,Becker County,27005,685.0,7.5,30.3,0
+91,Barnum Public School District,NOT_VERIFIABLE,Rural,Carlton County,27017,675.0,8.0,31.0,0
+2172,Kenyon-Wanamingo School District,FOUND_MED_POLICY_ONLY,Rural,Goodhue County,27049,674.0,7.7,28.6,0
+2835,Janesville-Waldorf-Pemberton,FOUND_SEIZURE_SPECIFIC,Rural,Waseca County,27161,663.0,8.9,30.7,1
+695,Chisholm Public School District,FOUND_MED_POLICY_ONLY,Town,St. Louis County,27137,658.0,6.8,30.8,0
+432,Mahnomen Public School District,FOUND_MED_POLICY_ONLY,Rural,Mahnomen County,27087,650.0,11.4,42.2,0
+2902,Rtr Public Schools,FOUND_MED_POLICY_ONLY,Rural,Lincoln County,27081,637.0,7.7,32.0,0
+391,Cleveland Public School District,FOUND_MED_POLICY_ONLY,Rural,Le Sueur County,27079,637.0,7.7,27.0,0
+837,Madelia Public School District,FOUND_MED_POLICY_ONLY,Rural,Watonwan County,27165,633.0,13.4,33.0,0
+239,Rushford-Peterson Public Schools,NOT_FOUND,Rural,Fillmore County,27045,632.0,7.6,31.6,0
+2364,Belgrade-Brooten-Elrosa School Dist,FOUND_SEIZURE_SPECIFIC,Rural,Stearns County,27145,630.0,7.9,27.6,1
+2448,Martin County West School District,FOUND_MED_POLICY_ONLY,Rural,Martin County,27091,630.0,8.4,31.8,0
+203,Hayfield Public School District,FOUND_MED_POLICY_ONLY,Rural,Dodge County,27039,627.0,7.1,26.1,0
+2534,Bird Island-Olivia-Lake Lillian,FOUND_MED_POLICY_ONLY,Rural,Renville County,27129,619.0,9.8,33.2,0
+601,Fosston Public School District,FOUND_MED_POLICY_ONLY,Rural,Polk County,27119,618.0,8.3,29.7,0
+2365,Gfw Public Schools,FOUND_MED_POLICY_ONLY,Rural,Sibley County,27143,611.0,9.0,30.4,0
+308,Nevis Public School District,FOUND_MED_POLICY_ONLY,Rural,Hubbard County,27057,609.0,6.9,30.1,0
+2190,Yellow Medicine East,FOUND_SEIZURE_SPECIFIC,Rural,Yellow Medicine County,27173,603.0,8.5,31.3,1
+85,Springfield Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Brown County,27015,599.0,8.1,30.2,1
+84,Sleepy Eye Public School District,FOUND_MED_POLICY_ONLY,Rural,Brown County,27015,596.0,8.1,30.2,0
+712,Mountain Iron-Buhl School District,FOUND_MED_POLICY_ONLY,Town,St. Louis County,27137,591.0,6.8,30.8,0
+891,Canby Public School District,NOT_VERIFIABLE,Rural,Yellow Medicine County,27173,590.0,8.5,31.3,0
+97,Moose Lake Public School District,FOUND_MED_POLICY_ONLY,Rural,Carlton County,27017,587.0,8.0,31.0,0
+511,Adrian Public School District,FOUND_MED_POLICY_ONLY,Rural,Nobles County,27105,585.0,16.5,33.2,0
+480,Onamia Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Mille Lacs County,27095,585.0,8.3,32.7,1
+319,Nashwauk-Keewatin School District,NOT_VERIFIABLE,Rural,Itasca County,27061,583.0,7.1,32.7,0
+2198,Fillmore Central,NOT_FOUND,Rural,Fillmore County,27045,581.0,7.6,31.6,0
+2176,Warren-Alvarado-Oslo School Dist.,FOUND_MED_POLICY_ONLY,Rural,Marshall County,27089,580.0,8.2,31.9,0
+846,Breckenridge Public School District,FOUND_MED_POLICY_ONLY,Town,Wilkin County,27167,577.0,8.0,31.3,0
+550,Underwood Public School District,NOT_FOUND,Rural,Otter Tail County,27111,571.0,7.5,30.6,0
+378,Dawson-Boyd Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Lac qui Parle County,27073,566.0,7.3,31.4,1
+2890,Renville County West Schools,FOUND_SEIZURE_SPECIFIC,Rural,Renville County,27129,561.0,9.8,33.2,1
+2908,Brandon-Evansville Public Schools,FOUND_MED_POLICY_ONLY,Rural,Douglas County,27041,556.0,6.9,29.6,0
+414,Minneota Public School District,FOUND_MED_POLICY_ONLY,Rural,Lyon County,27083,552.0,8.5,29.1,0
+696,Ely Public School District,FOUND_MED_POLICY_ONLY,Rural,St. Louis County,27137,536.0,6.8,30.8,0
+547,Parkers Prairie Public Schools,FOUND_MED_POLICY_ONLY,Rural,Otter Tail County,27111,535.0,7.5,30.6,0
+787,Browerville Public School District,NOT_FOUND,Rural,Todd County,27153,532.0,10.4,34.5,0
+786,Bertha-Hewitt Public School District,FOUND_MED_POLICY_ONLY,Rural,Todd County,27153,518.0,10.4,34.5,0
+173,Mountain Lake Public Schools,FOUND_MED_POLICY_ONLY,Rural,Cottonwood County,27033,509.0,10.2,32.9,0
+818,Verndale Public School District,FOUND_MED_POLICY_ONLY,Rural,Wadena County,27159,509.0,8.8,34.4,0
+2898,Westbrook-Walnut Grove Schools,FOUND_MED_POLICY_ONLY,Rural,Cottonwood County,27033,499.0,10.2,32.9,0
+500,Southland Public School District,FOUND_MED_POLICY_ONLY,Rural,Mower County,27099,499.0,10.6,30.9,0
+2903,Ortonville Public Schools,FOUND_SEIZURE_SPECIFIC,Rural,Big Stone County,27011,497.0,7.9,32.0,1
+599,Fertile-Beltrami School District,FOUND_MED_POLICY_ONLY,Rural,Polk County,27119,492.0,8.3,29.7,0
+2907,Round Lake-Brewster Public Schools,NOT_FOUND,Rural,Nobles County,27105,490.0,16.5,33.2,0
+333,Ogilvie Public School District,FOUND_MED_POLICY_ONLY,Rural,Kanabec County,27065,482.0,8.5,33.8,0
+820,Sebeka Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Wadena County,27159,482.0,8.8,34.4,1
+2311,Clearbrook-Gonvick School District,FOUND_SEIZURE_SPECIFIC,Rural,Clearwater County,27029,480.0,8.9,33.2,1
+424,Lester Prairie Public Schools,FOUND_MED_POLICY_ONLY,Rural,McLeod County,27085,459.0,8.3,29.3,0
+441,Marshall County Central Schools,NOT_VERIFIABLE,Rural,Marshall County,27089,459.0,8.2,31.9,0
+390,Lake Of The Woods School District,FOUND_MED_POLICY_ONLY,Rural,Lake of the Woods County,27077,458.0,7.0,31.0,0
+242,Alden-Conger Public School District,FOUND_MED_POLICY_ONLY,Rural,Freeborn County,27047,457.0,9.8,32.7,0
+166,Cook County Public Schools,FOUND_MED_POLICY_ONLY,Rural,Cook County,27031,457.0,6.3,28.9,0
+2159,Buffalo Lake-Hector-Stewart,FOUND_MED_POLICY_ONLY,Rural,Renville County,27129,446.0,9.8,33.2,0
+229,Lanesboro Public School District,NOT_FOUND,Rural,Fillmore County,27045,443.0,7.6,31.6,0
+768,Hancock Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Stevens County,27149,434.0,9.7,29.5,1
+581,Edgerton Public School District,FOUND_MED_POLICY_ONLY,Rural,Pipestone County,27117,430.0,9.1,32.6,0
+495,Grand Meadow Public School District,FOUND_MED_POLICY_ONLY,Rural,Mower County,27099,428.0,10.6,30.9,0
+4,Mcgregor Public School District,FOUND_MED_POLICY_ONLY,Rural,Aitkin County,27001,428.0,7.4,34.7,0
+473,Isle Public School District,FOUND_MED_POLICY_ONLY,Rural,Mille Lacs County,27095,423.0,8.3,32.7,0
+640,Wabasso Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Redwood County,27127,418.0,8.5,31.7,1
+577,Willow River Public School District,FOUND_MED_POLICY_ONLY,Rural,Pine County,27115,415.0,8.7,33.9,0
+2884,Red Rock Central School District,FOUND_MED_POLICY_ONLY,Rural,Redwood County,27127,406.0,8.5,31.7,0
+542,Battle Lake Public School District,FOUND_MED_POLICY_ONLY,Rural,Otter Tail County,27111,403.0,7.5,30.6,0
+2754,Cedar Mountain School District,FOUND_MED_POLICY_ONLY,Rural,Redwood County,27127,396.0,8.5,31.7,0
+630,Red Lake Falls Public School Dist.,NOT_FOUND,Rural,Red Lake County,27125,389.0,7.6,30.9,0
+545,Henning Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Otter Tail County,27111,383.0,7.5,30.6,1
+362,Littlefork-Big Falls School Dist.,NOT_VERIFIABLE,Rural,Koochiching County,27071,369.0,7.3,32.7,0
+803,Wheaton Area Public School District,FOUND_MED_POLICY_ONLY,Rural,Traverse County,27155,368.0,8.5,33.8,0
+306,Laporte Public School District,FOUND_MED_POLICY_ONLY,Rural,Hubbard County,27057,367.0,6.9,30.1,0
+505,Fulda Public School District,FOUND_MED_POLICY_ONLY,Rural,Murray County,27101,364.0,8.3,31.7,0
+671,Hills-Beaver Creek School District,FOUND_MED_POLICY_ONLY,Rural,Rock County,27133,354.0,8.0,30.8,0
+297,Spring Grove School District,FOUND_MED_POLICY_ONLY,Rural,Houston County,27055,353.0,6.8,28.5,0
+118,Northland Community Schools,FOUND_MED_POLICY_ONLY,Rural,Cass County,27021,347.0,7.4,34.1,0
+2906,Red Lake County Central Public Sch,FOUND_MED_POLICY_ONLY,Rural,Red Lake County,27125,342.0,7.6,30.9,0
+486,Swanville Public School District,NOT_FOUND,Rural,Morrison County,27097,341.0,7.7,30.1,0
+507,Nicollet Public School District,FOUND_MED_POLICY_ONLY,Rural,Nicollet County,27103,338.0,7.3,28.3,0
+100,Wrenshall Public School District,FOUND_MED_POLICY_ONLY,Rural,Carlton County,27017,336.0,8.0,31.0,0
+2888,Clinton-Graceville-Beardsley,FOUND_MED_POLICY_ONLY,Rural,Big Stone County,27011,328.0,7.9,32.0,0
+36,Kelliher Public School District,FOUND_MED_POLICY_ONLY,Rural,Beltrami County,27007,328.0,8.2,32.7,0
+487,Upsala Public School District,NOT_VERIFIABLE,Rural,Morrison County,27097,327.0,7.7,30.1,0
+261,Ashby Public School District,FOUND_MED_POLICY_ONLY,Rural,Grant County,27051,320.0,8.0,32.3,0
+850,Rothsay Public School District,FOUND_MED_POLICY_ONLY,Rural,Wilkin County,27167,312.0,8.0,31.3,0
+497,Lyle Public School District,FOUND_MED_POLICY_ONLY,Rural,Mower County,27099,309.0,10.6,30.9,0
+2536,Granada Huntley East Chain,FOUND_MED_POLICY_ONLY,Rural,Martin County,27091,303.0,8.4,31.8,0
+95,Cromwell-Wright Public Schools,FOUND_MED_POLICY_ONLY,Rural,Carlton County,27017,301.0,8.0,31.0,0
+93,Carlton Public School District,FOUND_MED_POLICY_ONLY,Town,Carlton County,27017,296.0,8.0,31.0,0
+330,Heron Lake-Okabena School District,FOUND_MED_POLICY_ONLY,Rural,Jackson County,27063,290.0,7.7,30.5,0
+914,Ulen-Hitterdal Public School Dist,FOUND_MED_POLICY_ONLY,Rural,Clay County,27027,285.0,7.2,27.4,0
+238,Mabel-Canton Public School District,FOUND_MED_POLICY_ONLY,Rural,Fillmore County,27045,280.0,7.6,31.6,0
+2856,Stephen-Argyle Central Schools,FOUND_MED_POLICY_ONLY,Rural,Marshall County,27089,276.0,8.2,31.9,0
+561,Goodridge Public School District,FOUND_MED_POLICY_ONLY,Rural,Pennington County,27113,264.0,7.9,30.7,0
+499,Leroy-Ostrander Public Schools,FOUND_SEIZURE_SPECIFIC,Rural,Mower County,27099,250.0,10.6,30.9,1
+2,Hill City Public School District,FOUND_MED_POLICY_ONLY,Rural,Aitkin County,27001,242.0,7.4,34.7,0
+458,Truman Public School District,FOUND_MED_POLICY_ONLY,Rural,Martin County,27091,241.0,8.4,31.8,0
+2171,Kittson Central School District,FOUND_MED_POLICY_ONLY,Rural,Kittson County,27069,241.0,7.0,31.0,0
+600,Fisher Public School District,FOUND_MED_POLICY_ONLY,Rural,Polk County,27119,233.0,8.3,29.7,0
+402,Hendricks Public School District,FOUND_MED_POLICY_ONLY,Rural,Lincoln County,27081,231.0,7.7,32.0,0
+2683,Greenbush Middle River Schools,FOUND_MED_POLICY_ONLY,Rural,Roseau County,27135,226.0,7.8,30.7,0
+2886,Glenville-Emmons School District,FOUND_MED_POLICY_ONLY,Rural,Freeborn County,27047,224.0,9.8,32.7,0
+676,Badger Public School District,FOUND_MED_POLICY_ONLY,Rural,Roseau County,27135,222.0,7.8,30.7,0
+836,Butterfield-Odin Public Schools,FOUND_MED_POLICY_ONLY,Rural,Watonwan County,27165,210.0,13.4,33.0,0
+356,Lancaster Public School District,NOT_VERIFIABLE,Rural,Kittson County,27069,202.0,7.0,31.0,0
+2215,Norman County East School District,FOUND_MED_POLICY_ONLY,Rural,Norman County,27107,199.0,8.3,31.7,0
+801,Browns Valley Public School Dist,NOT_FOUND,Rural,Traverse County,27155,197.0,8.5,33.8,0
+592,Climax-Shelly Public Schools,FOUND_MED_POLICY_ONLY,Rural,Polk County,27119,186.0,8.3,29.7,0
+363,South Koochiching School District,NOT_VERIFIABLE,Rural,Koochiching County,27071,182.0,7.3,32.7,0
+2358,Tri-County School District,NOT_FOUND,Rural,Kittson County,27069,176.0,7.0,31.0,0
+415,Lynd Public School District,FOUND_MED_POLICY_ONLY,Rural,Lyon County,27083,160.0,8.5,29.1,0
+698,Floodwood Public School District,FOUND_MED_POLICY_ONLY,Rural,St. Louis County,27137,158.0,6.8,30.8,0
+771,Chokio-Alberta Public Schools,FOUND_MED_POLICY_ONLY,Rural,Stevens County,27149,140.0,9.7,29.5,0
+852,Campbell-Tintah Public Schools,FOUND_MED_POLICY_ONLY,Rural,Wilkin County,27167,128.0,8.0,31.3,0
+514,Ellsworth Public School District,FOUND_MED_POLICY_ONLY,Rural,Nobles County,27105,128.0,16.5,33.2,0
+447,Grygla Public School District,NOT_FOUND,Rural,Marshall County,27089,125.0,8.2,31.9,0
+404,Lake Benton Public School District,FOUND_MED_POLICY_ONLY,Rural,Lincoln County,27081,113.0,7.7,32.0,0
+81,Comfrey Public School District,FOUND_MED_POLICY_ONLY,Rural,Brown County,27015,105.0,8.1,30.2,0
+264,Herman-Norcross Community School,FOUND_MED_POLICY_ONLY,Rural,Grant County,27051,103.0,8.0,32.3,0
+403,Ivanhoe Public School District,FOUND_MED_POLICY_ONLY,Rural,Lincoln County,27081,68.0,7.7,32.0,0
+707,Nett Lake Public School District,FOUND_MED_POLICY_ONLY,Rural,St. Louis County,27137,48.0,6.8,30.8,0
+25,Pine Point Public School District,FOUND_MED_POLICY_ONLY,Rural,Becker County,27005,47.0,7.5,30.3,0
+635,Milroy Public School District,FOUND_SEIZURE_SPECIFIC,Rural,Redwood County,27127,20.0,8.5,31.7,1
+323,Franconia Public School District,NOT_VERIFIABLE,Rural,Washington County,27163,,5.8,23.5,0
+815,Prinsburg Public School District,NOT_VERIFIABLE,Rural,Kandiyohi County,27067,,10.0,30.0,0

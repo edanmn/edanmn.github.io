@@ -1,0 +1,9 @@
+group,deaths,population,crude_rate_per_100k,ci_95,codes_applied,query_criteria
+2018,153,"5,611,179",2.7,2.3 - 3.2,True,Query Criteria: MCD - ICD-10 Codes: G40.0 (Localization-related (focal)(partial) idiopathic epilepsy and epileptic syndromes with seizures of localized onset); G40.1 (Localization-related (focal)(partial) symptomatic epilepsy and epileptic syndromes with simple partial seizures); G40.2 (Localization-related (focal)(partial) symptomatic epilepsy and epileptic syndromes with complex partial seizures); G40.3 (Generalized idiopathic epilepsy and epileptic syndromes); G40.4 (Other generalized epileps
+2019,171,"5,639,632",3.0,2.6 - 3.5,,
+2020,196,"5,657,342",3.5,3.0 - 3.9,,
+2021,206,"5,707,390",3.6,3.1 - 4.1,,
+2022,218,"5,717,184",3.8,3.3 - 4.3,,
+2023,227,"5,737,915",4.0,3.4 - 4.5,,
+2024,233,"5,793,151",4.0,3.5 - 4.5,,
+Total,"1,404","39,863,793",3.5,3.3 - 3.7,,
