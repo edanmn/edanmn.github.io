@@ -1,86 +1,709 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Call 911?</title>
+<title>On the Phone with 911</title>
 <style>
- :root{--red:#b3202c;--green:#1a7f37;--ink:#24211e}
- *{box-sizing:border-box}
- body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:var(--ink);line-height:1.5;background:#fff}
- .wrap{max-width:640px;margin:0 auto;padding:18px}
- .bar{height:8px;background:#eee;border-radius:6px;overflow:hidden;margin-bottom:14px}
- .bar>div{height:100%;background:var(--red);width:0;transition:width .3s}
- .scenario{font-size:1.12rem;background:#faf8f6;border:1px solid #eee;border-radius:10px;padding:16px;margin-bottom:14px}
- .choices{display:flex;gap:12px;flex-wrap:wrap}
- button.opt{flex:1;min-width:200px;padding:16px;font-size:1.05rem;font-weight:600;border:1.5px solid #ccc;border-radius:10px;background:#fff;cursor:pointer;transition:.15s}
- button.opt:hover:not(:disabled){border-color:var(--red);background:#fdf3f4}
- button.opt:disabled{cursor:default;opacity:.95}
- .opt.correct{border-color:var(--green);background:#eaf6ec}
- .opt.wrong{border-color:var(--red);background:#fdecec}
- .fb{margin:14px 0;padding:12px 14px;border-radius:10px;font-size:.97rem;display:none}
- .fb.show{display:block}.fb.ok{background:#eaf6ec;border:1px solid var(--green)}.fb.no{background:#fdecec;border:1px solid var(--red)}
- .next{background:var(--red);color:#fff;border:none;padding:11px 20px;border-radius:9px;font-size:1rem;cursor:pointer;margin-top:6px}
- .muted{color:#666;font-size:.85rem}.score{font-weight:600}
-</style></head><body><div class="wrap">
-<div class="bar"><div id="bar"></div></div>
-<p class="muted">Scenario <span id="qn">1</span> of <span id="qt">8</span> · Score: <span class="score" id="sc">0</span></p>
-<div class="scenario" id="scenario"></div>
-<div class="choices"><button class="opt" id="call">Call 911</button><button class="opt" id="monitor">Stay &amp; monitor (no 911 yet)</button></div>
-<div class="fb" id="fb"></div>
-<button class="next" id="next" style="display:none">Next &rarr;</button>
+:root{
+  --ink:#1a1a1a; --muted:#5f5f5f; --line:#e3e3e3; --bg:#fff;
+  --red:#b3202c; --green:#1a7f37; --amber:#b26a00; --navy:#16244e; --purple:#5b2d90;
+  --panel:#faf8f6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);
+     background:var(--bg);line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:14px}
+h1{font-size:1.25rem;margin:0 0 2px}
+h2{font-size:1rem;margin:0 0 8px}
+h3{font-size:.92rem;margin:14px 0 6px;color:var(--navy)}
+.sub{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--bg)}
+.scene{background:var(--panel);border-radius:12px;padding:8px}
+svg{width:100%;height:auto;display:block}
+.brief{font-size:.92rem;background:#eef3fb;border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.brief b{color:var(--navy)}
+.hud{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 4px}
+.clock{font-variant-numeric:tabular-nums;font-size:1.6rem;font-weight:700;letter-spacing:-.02em}
+.phase{font-weight:600;padding:3px 10px;border-radius:999px;background:#eee;font-size:.85rem}
+.phase.live{background:#fdecec;color:var(--red)}
+.phase.post{background:#eef3fb;color:var(--navy)}
+.phase.done{background:#eaf6ec;color:var(--green)}
+.timeline{height:12px;border-radius:8px;background:#ececec;overflow:hidden;margin-top:6px}
+.timeline>div{height:100%;background:var(--purple);width:0;transition:width .25s}
+button{font:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.feed{margin-top:10px;font-size:.95rem;min-height:3.2em;border-left:3px solid var(--purple);
+      padding:8px 12px;background:var(--panel);border-radius:0 8px 8px 0}
+.feed.ok{border-color:var(--green)} .feed.no{border-color:var(--red)}
+.feed .who{display:block;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.event{margin-top:10px;font-size:.9rem;background:#fff4e5;border-radius:10px;padding:8px 12px;color:var(--amber);display:none}
+.event.show{display:block}
+.opts{display:grid;gap:8px;margin-top:10px}
+.act{display:flex;align-items:flex-start;gap:8px;text-align:left;padding:11px 13px;border:1.5px solid #ccc;
+     border-radius:10px;background:#fff;cursor:pointer;transition:.12s;width:100%}
+.act:hover:not(:disabled){border-color:var(--purple);background:#f7f3fb}
+.act:disabled{opacity:.72;cursor:default}
+.act.done{border-color:var(--green);background:#eaf6ec}
+.act.bad{border-color:var(--red);background:#fdecec}
+.act .k{display:inline-flex;color:var(--purple);flex:0 0 auto;margin-top:2px}
+.act.bad .k{color:var(--red)} .act.done .k{color:var(--green)}
+.primary{background:var(--red);color:#fff;border:none;padding:11px 18px;border-radius:9px;cursor:pointer;font-weight:600}
+.ghost{background:#fff;border:1.5px solid #bbb;padding:10px 16px;border-radius:9px;cursor:pointer;
+       text-decoration:none;color:var(--ink);display:inline-block}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pick{display:grid;gap:8px;margin-top:8px}
+.pick button{text-align:left;padding:11px 13px;border:1.5px solid #ccc;border-radius:10px;background:#fff;cursor:pointer}
+.pick button:hover{border-color:var(--red);background:#fdf3f4}
+.pick small{display:block;color:var(--muted);font-size:.78rem}
+.checks{margin:0;padding:0;list-style:none;font-size:.88rem}
+.checks li{display:flex;gap:8px;align-items:flex-start;padding:4px 0;border-bottom:1px dashed #eee;color:var(--muted)}
+.checks li.got{color:var(--ink)}
+.checks .mark{flex:0 0 auto;color:#cfcfcf;margin-top:2px}
+.checks li.got .mark{color:var(--green)}
+.log{margin:0;padding:0;list-style:none;font-size:.85rem;max-height:210px;overflow:auto}
+.log li{padding:4px 0;border-bottom:1px dashed #eee}
+.log .t{color:var(--muted);font-variant-numeric:tabular-nums;margin-right:6px}
+.log .w{font-weight:600}
+.log .you .w{color:var(--purple)} .log .disp .w{color:var(--navy)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+td,th{text-align:left;padding:5px 6px;border-bottom:1px solid #eee;vertical-align:top}
+.tag{font-size:.75rem;padding:1px 7px;border-radius:999px;white-space:nowrap}
+.tag.y{background:#eaf6ec;color:var(--green)} .tag.n{background:#fdecec;color:var(--red)}
+.tag.o{background:#fff4e5;color:var(--amber)}
+.score{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 12px}
+.score div{background:var(--panel);border-radius:10px;padding:8px 12px;font-size:.9rem}
+.score b{display:block;font-size:1.3rem}
+.report{display:none}.report.show{display:block}
+.note{font-size:.82rem;color:var(--muted);margin-top:10px}
+a{color:var(--red)}
+.printcard{border:2px solid var(--navy);border-radius:12px;padding:16px;margin-top:16px;background:#fff}
+.printcard h2{color:var(--navy);font-size:1.05rem;margin-bottom:2px}
+.printcard .cap{color:var(--muted);font-size:.82rem;margin:0 0 10px}
+.steps{margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #f0f0f0;font-size:.92rem}
+.steps li::before{content:counter(s);flex:0 0 22px;height:22px;border-radius:50%;background:var(--navy);
+  color:#fff;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps b{font-weight:600}
+.steps span{display:block;color:var(--muted);font-size:.84rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.after{margin:0;padding-left:18px;font-size:.9rem}
+.after li{padding:2px 0}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+@media print{
+  body{background:#fff}
+  .wrap>h1,.wrap>.sub,.grid,.note,.row{display:none!important}
+  .printcard{border-color:#000;page-break-inside:avoid}
+}
+</style></head>
+<body><div class="wrap">
+
+<h1>On the phone with 911</h1>
+<p class="sub">The seizure is one problem. The phone call is another. This is practice at saying the right thing, in the right order, to a dispatcher who is typing while you talk.</p>
+
+<div class="grid">
+  <div>
+    <div class="card">
+      <div class="brief" id="brief">Pick a call below. You will get the situation, then the dispatcher answers and starts asking questions.</div>
+
+      <div class="scene">
+        <svg viewBox="0 0 560 190" role="img" aria-label="Illustration of a caller on a phone connected to a 911 dispatcher at a console">
+          <rect x="0" y="0" width="560" height="190" fill="#faf8f6"/>
+          <g id="caller">
+            <circle cx="105" cy="78" r="21" fill="#f0c9a8" stroke="#d6a87f"/>
+            <rect x="79" y="104" width="52" height="54" rx="14" fill="#5b2d90"/>
+            <rect x="126" y="66" width="12" height="26" rx="5" fill="#2f3a4a"/>
+            <rect x="128" y="70" width="8" height="16" rx="3" fill="#8fa0b5"/>
+            <rect x="120" y="104" width="14" height="30" rx="7" fill="#f0c9a8"/>
+          </g>
+          <text x="105" y="178" text-anchor="middle" font-size="13" fill="#5f5f5f">You</text>
+          <g id="link">
+            <path d="M150 62 q130 -42 260 0" stroke="#cfcfcf" stroke-width="2" fill="none" stroke-dasharray="5 6"/>
+            <circle id="d1" cx="205" cy="49" r="4.5" fill="#cfcfcf"/>
+            <circle id="d2" cx="280" cy="41" r="4.5" fill="#cfcfcf"/>
+            <circle id="d3" cx="355" cy="49" r="4.5" fill="#cfcfcf"/>
+          </g>
+          <g id="dispatcher">
+            <rect x="392" y="146" width="130" height="10" rx="3" fill="#c9b79c"/>
+            <rect x="410" y="112" width="60" height="34" rx="4" fill="#2f3a4a"/>
+            <rect x="416" y="118" width="48" height="22" rx="2" fill="#4a6b8a"/>
+            <circle cx="455" cy="70" r="21" fill="#f0c9a8" stroke="#d6a87f"/>
+            <path d="M432 70 a23 23 0 0 1 46 0" stroke="#16244e" stroke-width="5" fill="none"/>
+            <rect x="428" y="68" width="8" height="14" rx="3" fill="#16244e"/>
+            <path d="M436 80 q10 8 14 2" stroke="#16244e" stroke-width="3" fill="none"/>
+            <rect x="429" y="96" width="52" height="34" rx="12" fill="#16244e"/>
+          </g>
+          <text x="455" y="178" text-anchor="middle" font-size="13" fill="#5f5f5f">Dispatcher</text>
+          <text id="sceneLabel" x="280" y="108" text-anchor="middle" font-size="14" fill="#5f5f5f">Line open</text>
+        </svg>
+      </div>
+
+      <div class="hud">
+        <span class="clock" id="clock">0:00</span>
+        <span class="phase" id="phase">not dialled</span>
+        <span id="qcount" style="font-size:.85rem;color:var(--muted)"></span>
+      </div>
+      <div class="timeline"><div id="bar"></div></div>
+
+      <div class="event" id="event"></div>
+
+      <div class="feed" id="feed" role="status" aria-live="polite" aria-atomic="true">
+        <span class="who">Dispatcher</span>
+        <span id="feedText">Choose a call to start. Dispatchers ask for location before anything else, so that is where the practice begins.</span>
+      </div>
+
+      <div class="opts" id="opts"></div>
+
+      <div class="pick" id="pick"></div>
+
+      <div class="row" id="controls">
+        <button class="primary" id="next" style="display:none">Next</button>
+        <button class="ghost" id="restart" style="display:none">Try a different call</button>
+      </div>
+    </div>
+
+    <div class="card report" id="report" style="margin-top:14px">
+      <h2>How the call went</h2>
+      <div class="score">
+        <div><b id="sFirst">0</b>right first time</div>
+        <div><b id="sRetry">0</b>needed a second try</div>
+        <div><b id="sTime">0:00</b>on the line</div>
+      </div>
+      <table id="checklist"></table>
+      <p class="note" id="verdict"></p>
+      <div class="row">
+        <button class="primary" id="again">Run another call</button>
+        <a class="ghost" href="https://www.epilepsyfoundationmn.org/get-support/seizure-smart-trainings/">Free Minnesota training</a>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="card">
+      <h2>What dispatch has so far</h2>
+      <ul class="checks" id="checks"></ul>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>Transcript</h2>
+      <ul class="log" id="log"><li>Nothing yet.</li></ul>
+    </div>
+    <div class="card" style="margin-top:14px">
+      <h2>The school part of the call</h2>
+      <ul style="margin:0;padding-left:18px;font-size:.88rem">
+        <li>Send someone to the nearest outside door. School doors lock, and a crew standing outside is a crew not treating the student.</li>
+        <li>Send a second person for the seizure action plan and any rescue medicine, including the box or label.</li>
+        <li>Clear the route: prop doors, move chairs and tables, hold the elevator, move the crowd of students out.</li>
+        <li>Write the times as they happen. Seizure start, seizure stop, medicine given, 911 dialled, crew on scene.</li>
+        <li>One person talks to the dispatcher. That person does not also do first aid.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="printcard" id="printcard">
+  <h2>Call card: what to say to 911, in order</h2>
+  <p class="cap">Print this and tape it inside a cupboard door in the office, the nurse's room, and the gym.</p>
+  <div class="two">
+    <div>
+      <ol class="steps">
+        <li><div><b>The address</b><span>Street number, street, city. Say it before anything else, even if you are interrupted.</span></div></li>
+        <li><div><b>Where in the building</b><span>Room number, floor, wing, and the nearest outside door for the crew.</span></div></li>
+        <li><div><b>What is happening</b><span>A seizure, whether the body is convulsing, and that the person is on the floor.</span></div></li>
+        <li><div><b>How long</b><span>The clock time it started. A number, not a feeling.</span></div></li>
+        <li><div><b>Breathing</b><span>Look, then say what you actually see. Colour of the lips counts.</span></div></li>
+      </ol>
+    </div>
+    <div>
+      <ol class="steps" start="6" style="counter-reset:s 5">
+        <li><div><b>Age and history</b><span>Age, whether they have had seizures before, and whether a plan is on file. If you do not know, say so.</span></div></li>
+        <li><div><b>Anything given</b><span>Which rescue medicine and the time it was given. If none, say none.</span></div></li>
+        <li><div><b>Who meets the crew</b><span>Name the person and the door. Say who is bringing the plan and the medicine.</span></div></li>
+        <li><div><b>Stay on the line</b><span>Until the dispatcher releases you. Someone else calls the family.</span></div></li>
+      </ol>
+    </div>
+  </div>
+  <h3>Write these down before you forget them</h3>
+  <div class="two">
+    <ul class="after">
+      <li>Time the seizure started and time it stopped</li>
+      <li>What the movements looked like and where they began</li>
+      <li>Whether the student answered to their name</li>
+      <li>Any injury, and how it happened</li>
+    </ul>
+    <ul class="after">
+      <li>Rescue medicine given, which one, and at what time</li>
+      <li>Time 911 was dialled and time the crew arrived</li>
+      <li>Who was told, and when the family was reached</li>
+      <li>How long until the student was back to normal</li>
+    </ul>
+  </div>
+  <div class="row"><button class="ghost" id="printbtn">Print this card</button></div>
+</div>
+
+<p class="note">This is practice, not medical advice or certification. Dispatch protocols vary between counties, so follow whatever your own dispatcher tells you on the day. A student's care is set by their healthcare provider and their seizure action plan.</p>
+
 <script>
-// a=true means "Call 911" is correct
-const Q=[
- {s:"A student has a convulsive seizure that stops on its own after about 2 minutes. They're now drowsy and slowly recovering. No known injuries.",a:false,
-  e:"Stay and monitor. A typical convulsive seizure that stops within a few minutes doesn't need 911 by itself, time it, keep them safe and on their side, and call if it passes 5 minutes."},
- {s:"A convulsive seizure has now lasted longer than 5 minutes and is still going.",a:true,
-  e:"Call 911. A convulsive seizure lasting over 5 minutes is an emergency (status epilepticus risk)."},
- {s:"A student has a seizure, starts to recover, then a second seizure begins before they've fully come back to normal.",a:true,
-  e:"Call 911. Repeated seizures without full recovery in between are an emergency."},
- {s:"During swim unit, a student has a seizure in the pool.",a:true,
-  e:"Call 911. Any seizure in water needs emergency care, even if brief, because of the drowning and aspiration risk."},
- {s:"A student with no known seizure history suddenly has their first-ever seizure.",a:true,
-  e:"Call 911. A first-ever seizure should be evaluated emergently."},
- {s:"A student with diagnosed absence seizures has a few seconds of blank staring, then resumes normally, as described in their seizure action plan.",a:false,
-  e:"Stay and monitor. Brief absence seizures in a student with a known diagnosis and action plan usually don't need 911. Note it and follow the plan."},
- {s:"After a seizure, the student hit their head hard on a desk and is bleeding, and their breathing seems off.",a:true,
-  e:"Call 911. Serious injury or trouble breathing after a seizure is an emergency."},
- {s:"A student's seizure action plan says to call 911 if a seizure lasts longer than 3 minutes. It has now been 3 minutes.",a:true,
-  e:"Call 911. The student's individual action plan takes priority, follow its specific instructions."},
+var ICON = {
+  ok:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12.5 9.5 18 20 6"/></svg>',
+  dot:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="7"/></svg>',
+  say:'<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-8 8H4l2.2-2.8A8 8 0 1 1 21 12z"/></svg>'
+};
+
+var SCENARIOS = [
+{
+  id:'ongoing',
+  name:'The seizure is still going',
+  setting:"Room 214 at Lincoln Middle School, 1400 Oak Street in Northfield. A 14 year old with epilepsy has been convulsing for four minutes. It started at 10:12 and a colleague has been timing it. The nurse gave his prescribed nasal rescue medicine at 10:15 because his plan says to at three minutes. You are the one holding the phone.",
+  open:"911, what is the address of your emergency?",
+  steps:[
+   {key:'Address',
+    opts:[
+     {t:"Lincoln Middle School, 1400 Oak Street, Northfield.", ok:true,
+      r:"Got it, 1400 Oak Street. Address first is exactly right. If this call drops now, I can still send a crew."},
+     {t:"A student is having a seizure, we need an ambulance right now.", ok:false,
+      r:"I hear you and I will get help moving. I still need the address first. Everything else is useless to me without a place to send it."},
+     {t:"We are at the middle school.", ok:false,
+      r:"Which middle school? There are two in this county. Give me the street address."}
+    ]},
+   {key:'Room and door', q:"What part of the building, and which door should my crew use?",
+    opts:[
+     {t:"Room 214, second floor, east wing. The closest door is the one on the bus loop off Elm Street.", ok:true,
+      r:"Room 214, east wing, Elm Street door. I am putting that in the notes so the crew reads it on the way."},
+     {t:"Upstairs in a classroom.", ok:false,
+      r:"A school is a big building. Without a room number my crew walks halls opening doors, and that is minutes you do not have."},
+     {t:"Just come to the main entrance, someone will sort it out.", ok:false,
+      r:"The main entrance may be the long way round with a stretcher. Tell me the room and the nearest door to it."}
+    ]},
+   {key:'What is happening', q:"Tell me exactly what is happening.",
+    opts:[
+     {t:"A 14 year old student is having a convulsive seizure. He is on the floor, still jerking, and he is not responding.", ok:true,
+      r:"Convulsive seizure, still active, not responding. That is what I needed. I am sending an ambulance now."},
+     {t:"A student is sick and he is on the floor.", ok:false,
+      r:"Sick covers a lot of ground. Describe the body. Is he stiff, is he jerking, is he awake?"},
+     {t:"He is having a seizure but it is under control, no rush.", ok:false,
+      r:"Do not talk me down. What you say sets how fast the crew comes, and a seizure that is still going is not under control."}
+    ]},
+   {key:'How long', q:"How long has this been going on?",
+    opts:[
+     {t:"Four minutes. It started at 10:12 and we have been timing it.", ok:true,
+      r:"Four minutes and running. Thank you for the clock time. That number changes what the crew gets ready on the way."},
+     {t:"A while. It feels like forever.", ok:false,
+      r:"Feels like is not a time. Look at a clock or a phone. Two minutes and ten minutes are different emergencies."},
+     {t:"Maybe a minute or so?", ok:false,
+      r:"Do not guess low. If you are unsure, tell me when you first noticed it and say that you are estimating."}
+    ]},
+   {key:'Breathing', q:"Is he breathing?",
+    opts:[
+     {t:"Yes. Noisy and irregular, but his chest is moving and his lips look normal.", ok:true,
+      r:"Breathing, noisy, colour normal. Noisy breathing during a seizure is common. Tell me straight away if that changes."},
+     {t:"I do not want to get that close to him.", ok:false,
+      r:"You do not have to touch him. Look at his chest from where you are and tell me if it is rising."},
+     {t:"I think so.", ok:false,
+      r:"Look now and tell me what you see. If he stops breathing I will talk you through what to do, and I cannot do that on a maybe."}
+    ]},
+   {key:'Age and history', q:"How old is he, and has he had seizures before?",
+    opts:[
+     {t:"He is 14. He has epilepsy and this is a known pattern for him. His seizure action plan is on file here.", ok:true,
+      r:"Fourteen, known epilepsy, plan on file. Have that plan in your hand when the crew walks in."},
+     {t:"He is one of our students.", ok:false,
+      r:"I need an age, even a rough one, because it changes the medication the crew can give. Has this happened to him before?"},
+     {t:"A kid, twelve or thirteen I think, and I am not sure about his history.", ok:false,
+      r:"Check rather than guess. A guess gets typed up and handed to the hospital as fact."}
+    ]},
+   {key:'Medicine given', q:"Has he been given any medication?",
+    opts:[
+     {t:"Yes. The nurse gave his prescribed nasal rescue medicine at 10:15, which is what his plan says to do at three minutes.", ok:true,
+      r:"Nasal rescue medicine at 10:15. Good. Keep the box and the label out so the crew can read it themselves."},
+     {t:"No, nothing.", ok:false,
+      r:"Check with the nurse before you answer that. If rescue medicine was given and we do not know, the crew may give more on top of it."},
+     {t:"Something up the nose, I am not sure when.", ok:false,
+      r:"Find the time. Somebody wrote it down or can remember the clock. The time is the part the hospital needs most."}
+    ]},
+   {key:'Who meets the crew', q:"Who is meeting my crew?",
+    opts:[
+     {t:"Our office manager is on her way to the Elm Street door with a radio, and the nurse is bringing his plan and the medicine box.", ok:true,
+      r:"Someone at the door with a radio and a plan in hand. That is the best answer I get all shift."},
+     {t:"Nobody needs to, the doors are open.", ok:false,
+      r:"School doors lock behind you. Send a person, and send them now rather than when you hear the siren."},
+     {t:"We are all busy with the student, nobody can leave.", ok:false,
+      r:"Split the jobs. One person on the phone, one with the student, one at the door. Pull someone from the next classroom."}
+    ]},
+   {key:'Staying on the line', q:"Stay on the line with me until the crew is with you.",
+    opts:[
+     {t:"I am staying on. Tell me what you want us to do while we wait.", ok:true,
+      r:"Stay where you are. Keep him on his side, keep the crowd back, and tell me the second anything changes."},
+     {t:"I need to hang up and call his mother.", ok:false,
+      r:"Do not hang up. Hand that job to someone else. If I lose you, I lose my eyes in that room."},
+     {t:"I will put the phone down on the desk and go help.", ok:false,
+      r:"Keep the phone at your ear. A phone on a desk cannot answer me, and I may need to talk you through his breathing."}
+    ]}
+  ],
+  close:"Crew is two minutes out. You did the thing that matters most: you gave me a place, a problem and a time, in that order."
+},
+{
+  id:'unknown',
+  name:"You do not know this student",
+  setting:"You are a substitute covering lunch duty at Prairie View High School, 2200 County Road 42 in Apple Valley. A student you have never met slides off the bench and starts convulsing on the cafeteria floor. You do not know her name, her age or her history. A lunch aide is beside you and the office has been radioed.",
+  open:"911, what is the address of your emergency?",
+  steps:[
+   {key:'Address',
+    opts:[
+     {t:"Prairie View High School, 2200 County Road 42, Apple Valley.", ok:true,
+      r:"2200 County Road 42. Thank you. I may see an approximate location on my screen, but hearing it from you is what I act on."},
+     {t:"I am a substitute, I have no idea where I am.", ok:false,
+      r:"Then read it off something. The fire evacuation map by the door has the address on it, and so does any letterhead in the office."},
+     {t:"Somewhere in Apple Valley, at a high school.", ok:false,
+      r:"That is a lot of ground. Get me a street address in the next few seconds; ask the nearest adult."}
+    ]},
+   {key:'Room and door', q:"Where in the building, and which door do we come to?",
+    opts:[
+     {t:"Hold on, I am asking someone who knows. She says the cafeteria, ground floor, north side, and the closest door is the loading dock off the back lot.", ok:true,
+      r:"Cafeteria, north side, loading dock. Handing my question to somebody who knows the building was the fastest move available to you."},
+     {t:"I think it is the west side, or maybe the south. The cafeteria, anyway.", ok:false,
+      r:"Do not guess a direction. A wrong side of a high school is a two minute walk with a stretcher. Ask the staff next to you."},
+     {t:"Send them to the front office and they can ask there.", ok:false,
+      r:"That adds a stop. Give me the door nearest to the patient and somebody standing at it."}
+    ]},
+   {key:'What is happening', q:"Tell me exactly what is happening.",
+    opts:[
+     {t:"A student is having a convulsive seizure on the cafeteria floor. She went stiff, then started jerking, and she does not answer to her name.", ok:true,
+      r:"Convulsive seizure, unresponsive. Ambulance is going out the door now."},
+     {t:"A girl fainted, I think.", ok:false,
+      r:"Fainting and a seizure look different and get a different response. Tell me about the body. Is it jerking?"},
+     {t:"Something is wrong with a student, I do not know what.", ok:false,
+      r:"You do not need a diagnosis. Describe what you can see happening to her right now."}
+    ]},
+   {key:'How long', q:"How long has she been seizing?",
+    opts:[
+     {t:"It started at 11:47, so a bit over two minutes. The aide is timing it on her watch now.", ok:true,
+      r:"11:47, so two minutes and counting. Somebody with a watch on it is worth more than the best guess in the room."},
+     {t:"Hard to say. It has felt like about ten minutes.", ok:false,
+      r:"It almost never is. Watching a seizure stretches time. Give me a clock time if anyone has one."},
+     {t:"Three, four, five minutes, somewhere in there.", ok:false,
+      r:"Three and five are on opposite sides of a line for us. Narrow it down or tell me when you first looked up."}
+    ]},
+   {key:'Breathing', q:"Is she breathing?",
+    opts:[
+     {t:"Yes. There is saliva at her mouth and we have turned her onto her side.", ok:true,
+      r:"Breathing, on her side. Keep her there. Do not put anything in her mouth and do not try to hold her still."},
+     {t:"She is not talking to us.", ok:false,
+      r:"Not talking and not breathing are different. Watch her chest and tell me whether it is rising."},
+     {t:"There is stuff coming out of her mouth, I think she is choking.", ok:false,
+      r:"Saliva during a seizure is normal and it drains if she is on her side. Look at her chest and tell me if it is moving."}
+    ]},
+   {key:'Age and history', q:"How old is she, and has this happened to her before?",
+    opts:[
+     {t:"I do not know. I am a substitute and I have never met her. The office is pulling her record and I will tell you the moment I have it.", ok:true,
+      r:"I do not know is a good answer. I would take it over a guess every time, and telling me who is finding out is even better."},
+     {t:"Fifteen or sixteen, and I think she has epilepsy.", ok:false,
+      r:"You are guessing on both. That goes into my notes, then into the hospital record, and nobody downstream knows it was a guess."},
+     {t:"I cannot answer that.", ok:false,
+      r:"Say what you do not know and who is going to find it. I do not know, the office is checking, is a complete answer."}
+    ]},
+   {key:'Medicine given', q:"Has anyone given her any medication?",
+    opts:[
+     {t:"No, nothing. We do not have her plan yet and nobody here has given her anything.", ok:true,
+      r:"Nothing given, no plan yet. Clear and honest. If somebody finds the plan before we arrive, tell me what it says."},
+     {t:"I do not think so.", ok:false,
+      r:"Ask the people around you out loud, then tell me. A soft maybe on medication is the worst answer I can carry."},
+     {t:"The nurse might have given her something, I am not sure.", ok:false,
+      r:"Find out. If a rescue medicine has been given, the crew needs to know which one and when before they give anything."}
+    ]},
+   {key:'Who meets the crew', q:"Who will meet us?",
+    opts:[
+     {t:"The lunch aide is heading to the loading dock now with her radio. The office is sending the nurse with her plan if there is one, and we are pulling tables back to clear a path.", ok:true,
+      r:"A person at the door, a plan on the way, a clear path. I will pass all of that to the crew."},
+     {t:"Somebody will probably hear the sirens and come out.", ok:false,
+      r:"Probably is not a plan. Name a person and a door, and send them now."},
+     {t:"I will go and meet them myself.", ok:false,
+      r:"Stay on the phone with me. Send somebody else to the door."}
+    ]},
+   {key:'Staying on the line', q:"Stay with me on the line.",
+    opts:[
+     {t:"Staying on. Say the word if you want us to do anything.", ok:true,
+      r:"Keep her on her side, keep the other students back, and shout if her breathing changes."},
+     {t:"I have to go and find out her name.", ok:false,
+      r:"Send someone else for the name. You are my eyes on her and I do not want to lose that."},
+     {t:"Can I call you back once we know more?", ok:false,
+      r:"No. Stay on and tell me things as you learn them. Calling back puts you at the end of the queue."}
+    ]}
+  ],
+  close:"Crew is rolling. You did not know this student and that turned out to be fine. What you did know, you gave me straight."
+},
+{
+  id:'stops',
+  name:'It stops while you are on the phone',
+  setting:"The gym at Riverside Elementary, 55 Third Avenue North in Brainerd. A 9 year old came off the bottom row of the bleachers, struck his head on the floor and began convulsing. Nobody here has ever seen him have a seizure and there is no plan on file. You dial while the PE teacher stays with him.",
+  open:"911, what is the address of your emergency?",
+  steps:[
+   {key:'Address',
+    opts:[
+     {t:"Riverside Elementary, 55 Third Avenue North, Brainerd.", ok:true,
+      r:"55 Third Avenue North. Address first, every time. Now tell me what is going on."},
+     {t:"A boy has hit his head and he is shaking, please hurry.", ok:false,
+      r:"I will hurry. I cannot send anyone anywhere until I have an address, so give me that and then tell me the rest."},
+     {t:"Riverside Elementary.", ok:false,
+      r:"Give me the street too. Names of buildings are not always what we have in the system."}
+    ]},
+   {key:'Room and door', q:"Where in the school, and which entrance?",
+    opts:[
+     {t:"The gym, at the back of the building. The gym has its own double doors off the parking lot on Fourth Street and we will have them propped.", ok:true,
+      r:"Gym doors off Fourth Street, propped. Good. Keep that lot clear so the ambulance can back in."},
+     {t:"The gym.", ok:false,
+      r:"Which side of the building is that on, and is there a door into it from outside? Doors save minutes at a school."},
+     {t:"Main office first, then they can walk through.", ok:false,
+      r:"If the gym has its own outside door, use it. Send someone to hold it open."}
+    ]},
+   {key:'What is happening', q:"Tell me what is happening.",
+    opts:[
+     {t:"A 9 year old fell off the bleachers, hit his head on the floor and is now convulsing. He has never had a seizure before that anyone here knows of.", ok:true,
+      r:"Head strike then a seizure, first one known. I am sending an ambulance on that alone. Both of those are reasons to be seen."},
+     {t:"A boy is having a seizure.", ok:false,
+      r:"Tell me about the fall as well. A head injury before a seizure changes what the crew prepares."},
+     {t:"He fell over and he is shaking, but he is a bit of a climber, he is always falling.", ok:false,
+      r:"How he usually behaves is not the point. Tell me what his body is doing now and whether he hit his head."}
+    ]},
+   {key:'How long', q:"How long has he been seizing?",
+    opts:[
+     {t:"About a minute and a half. The PE teacher called out the time when it started, 1:58.", ok:true,
+      r:"1:58, so ninety seconds. Keep watching the clock and tell me if it passes five minutes."},
+     {t:"Not long.", ok:false,
+      r:"Give me a number. Not long to you may be four minutes, and four minutes matters to me."},
+     {t:"Since I picked up the phone, so I suppose about thirty seconds.", ok:false,
+      r:"It started before you dialled. Ask the teacher who was with him when it began."}
+    ]},
+   {key:'Breathing', q:"Is he breathing?",
+    opts:[
+     {t:"Yes, he is breathing. His lips look normal and we have not moved him because of his head.", ok:true,
+      r:"Breathing and colour normal. Leave his head and neck alone unless he vomits or his breathing changes."},
+     {t:"He is going blue, I think.", ok:false,
+      r:"Look again and be sure. If he really is going blue I need to change what I am sending and what I tell you to do."},
+     {t:"He has not said a word since it started.", ok:false,
+      r:"Nobody talks during a convulsive seizure. I am asking about air. Is his chest moving?"}
+    ]},
+   {key:'Cancel or continue', event:"The jerking slows and stops. He goes limp, breathing heavily, eyes half open. He is not awake. The PE teacher says he has stopped.",
+    q:"You are telling me it has stopped. Do you still want the ambulance?",
+    opts:[
+     {t:"Yes, keep them coming. It was his first seizure and he hit his head, and I am not cancelling unless you tell me to.", ok:true,
+      r:"Agreed, and I would not cancel that one. A first seizure and a head strike both need somebody to lay eyes on him. Seizures stopping on their own is normal and it does not undo either reason."},
+     {t:"No, he seems alright now, you can cancel it.", ok:false,
+      r:"I am not going to. He has had a first seizure and a blow to the head, and neither of those is settled by the shaking stopping. Cancelling is not a call for the person on the phone to make alone."},
+     {t:"We will put him in a car and drive him to urgent care ourselves.", ok:false,
+      r:"Do not move him yourselves after a head injury. Let the crew come to him. They can assess him where he is lying."}
+    ]},
+   {key:'Age and history', q:"How old is he, and has anything like this ever happened before?",
+    opts:[
+     {t:"He is 9. Nobody here has seen this before and there is no seizure plan on file for him.", ok:true,
+      r:"Nine, first known seizure, no plan. That is the whole reason the crew is still coming."},
+     {t:"He is small, maybe seven?", ok:false,
+      r:"The office has his date of birth in thirty seconds. Age drives drug doses, so get it right rather than fast."},
+     {t:"He is 9 and I am sure he is epileptic, this is just what that looks like.", ok:false,
+      r:"Do not hand me a diagnosis nobody has made. Tell me what you know, which is that this is the first one anyone has seen."}
+    ]},
+   {key:'Who meets the crew', q:"Who is meeting us at those gym doors?",
+    opts:[
+     {t:"The custodian is there now holding them open, the office has called his parents, and the nurse is bringing our log with the times on it.", ok:true,
+      r:"Door held, family called, times written down. The times are the part the hospital will ask about first."},
+     {t:"The doors are propped, they can walk straight in.", ok:false,
+      r:"Put a person there anyway. Propped doors get closed by the next person through them."},
+     {t:"I will keep an eye out through the window.", ok:false,
+      r:"Send somebody outside. Watching from a window does not open a door or point at the right gym."}
+    ]},
+   {key:'Staying on the line', q:"Stay on the line. Tell me if anything changes before we get there.",
+    opts:[
+     {t:"Staying on. He is still not awake, still breathing, and we have him on his side.", ok:true,
+      r:"That is what I want to hear, and keep it coming. Being slow to wake after a seizure is expected. If he seizes again, say so straight away."},
+     {t:"He is fine now, I will hang up and meet you outside.", ok:false,
+      r:"He is not awake, so he is not fine yet. Stay on and keep watching his breathing."},
+     {t:"Should I wake him up?", ok:false,
+      r:"Leave him. Let him come round on his own on his side, and tell me when he does."}
+    ]}
+  ],
+  close:"Crew is close. The seizure stopping did not end the emergency, and you kept the ambulance coming. That was the decision of the call."
+}
 ];
-let i=0,score=0;
-const $=id=>document.getElementById(id);
-$("qt").textContent=Q.length;
-function render(){
- const q=Q[i]; $("qn").textContent=i+1; $("sc").textContent=score;
- $("bar").style.width=(i/Q.length*100)+"%";
- $("scenario").textContent=q.s; $("fb").className="fb"; $("next").style.display="none";
- ["call","monitor"].forEach(id=>{const b=$(id);b.disabled=false;b.className="opt";});
- $("call").style.display=""; $("monitor").style.display="";
+
+var $ = function(id){ return document.getElementById(id); };
+var S=null, step=0, firstTry=0, retries=0, secs=0, timer=null, results=[], wrongThisStep=false, ended=false;
+
+function fmt(s){ return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
+
+function say(who, text, kind){
+  $('feed').className = 'feed' + (kind ? ' '+kind : '');
+  $('feed').querySelector('.who').textContent = who;
+  $('feedText').textContent = text;
 }
-function pick(callChosen){
- const q=Q[i]; $("call").disabled=true; $("monitor").disabled=true;
- const correctBtn = q.a ? $("call") : $("monitor");
- correctBtn.classList.add("correct");
- const chosen = callChosen ? $("call") : $("monitor");
- const right = (callChosen===q.a);
- if(!right) chosen.classList.add("wrong");
- if(right) score++;
- $("sc").textContent=score;
- const fb=$("fb"); fb.className="fb show "+(right?"ok":"no");
- fb.textContent=(right?"Correct. ":"Reconsider. ")+q.e;
- $("next").style.display="inline-block";
- $("next").textContent=i<Q.length-1?"Next →":"See results";
+function logLine(who, text, cls){
+  var ul=$('log');
+  if(ul.dataset.empty!=='0'){ ul.innerHTML=''; ul.dataset.empty='0'; }
+  var li=document.createElement('li');
+  li.className=cls;
+  li.innerHTML='<span class="t">'+fmt(secs)+'</span><span class="w">'+who+':</span> ';
+  li.appendChild(document.createTextNode(text));
+  ul.appendChild(li);
+  ul.scrollTop=ul.scrollHeight;
 }
-$("call").onclick=()=>pick(true);
-$("monitor").onclick=()=>pick(false);
-function results(){
- $("bar").style.width="100%";
- $("scenario").innerHTML="<b>You scored "+score+" / "+Q.length+".</b><br>Call 911 when: a convulsive seizure lasts over 5 minutes; seizures repeat without recovery; it happens in water; there's serious injury or trouble breathing; it's a first-ever seizure; or the student's action plan says to. <b>When in doubt, call.</b>";
- $("call").style.display="none"; $("monitor").style.display="none"; $("fb").className="fb";
- $("next").textContent="Try again"; $("next").onclick=restart;
+function drawChecks(){
+  var ul=$('checks'); ul.innerHTML='';
+  if(!S){ ul.innerHTML='<li><span class="mark">'+ICON.dot+'</span><span>No call in progress.</span></li>'; return; }
+  S.steps.forEach(function(st,i){
+    var li=document.createElement('li');
+    var got = results[i] !== undefined;
+    li.className = got ? 'got' : '';
+    li.innerHTML='<span class="mark">'+(got?ICON.ok:ICON.dot)+'</span><span>'+st.key+'</span>';
+    ul.appendChild(li);
+  });
 }
-function restart(){i=0;score=0;render();$("next").onclick=advance;}
-function advance(){ if(i<Q.length-1){i++;render();} else results(); }
-$("next").onclick=advance;
-render();
-</script></div></body></html>
+function pulse(){
+  var ids=['d1','d2','d3'];
+  ids.forEach(function(id,i){
+    var el=$(id);
+    el.setAttribute('fill','#5b2d90');
+    setTimeout(function(){ el.setAttribute('fill','#cfcfcf'); }, 260+i*140);
+  });
+}
+
+function renderPicker(){
+  var p=$('pick'); p.innerHTML='';
+  var head=document.createElement('p');
+  head.style.cssText='margin:6px 0 0;font-size:.9rem;font-weight:600';
+  head.textContent='Pick a call:';
+  p.appendChild(head);
+  SCENARIOS.forEach(function(sc){
+    var b=document.createElement('button');
+    b.innerHTML='<span>'+sc.name+'</span><small>'+sc.setting.split('.')[0]+'.</small>';
+    b.onclick=function(){ startCall(sc); };
+    p.appendChild(b);
+  });
+}
+
+function startCall(sc){
+  S=sc; step=0; firstTry=0; retries=0; secs=0; results=[]; wrongThisStep=false; ended=false;
+  $('pick').innerHTML='';
+  $('brief').innerHTML='<b>'+S.name+'.</b> '+S.setting;
+  $('report').className='report';
+  $('log').innerHTML=''; $('log').dataset.empty='0';
+  $('restart').style.display='inline-block';
+  $('phase').textContent='line open'; $('phase').className='phase live';
+  $('clock').textContent='0:00';
+  $('sceneLabel').textContent='Connected';
+  logLine('You','Dialling 911.','you');
+  say('Dispatcher', S.open, null);
+  logLine('Dispatcher', S.open, 'disp');
+  pulse();
+  drawChecks();
+  renderStep();
+  clearInterval(timer);
+  timer=setInterval(function(){ secs++; $('clock').textContent=fmt(secs); },1000);
+}
+
+function renderStep(){
+  var st=S.steps[step];
+  wrongThisStep=false;
+  $('qcount').textContent='question '+(step+1)+' of '+S.steps.length;
+  $('bar').style.width=(step/S.steps.length*100)+'%';
+  if(st.event){ $('event').textContent=st.event; $('event').className='event show'; }
+  else { $('event').className='event'; }
+  if(st.q){ say('Dispatcher', st.q, null); logLine('Dispatcher', st.q, 'disp'); pulse(); }
+  var box=$('opts'); box.innerHTML='';
+  var order=[0,1,2];
+  for(var i=order.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var tmp=order[i]; order[i]=order[j]; order[j]=tmp; }
+  order.forEach(function(oi){
+    var o=st.opts[oi];
+    var b=document.createElement('button');
+    b.className='act'; b.type='button';
+    b.innerHTML='<span class="k">'+ICON.say+'</span><span></span>';
+    b.querySelector('span:last-child').textContent=o.t;
+    b.onclick=function(){ choose(b,o); };
+    box.appendChild(b);
+  });
+  $('next').style.display='none';
+}
+
+function choose(btn,o){
+  if(btn.disabled) return;
+  logLine('You', o.t, 'you'); pulse();
+  if(!o.ok){
+    btn.classList.add('bad'); btn.disabled=true;
+    wrongThisStep=true;
+    say('Dispatcher', o.r, 'no');
+    logLine('Dispatcher', o.r, 'disp');
+    return;
+  }
+  btn.classList.add('done');
+  var all=$('opts').querySelectorAll('.act');
+  for(var i=0;i<all.length;i++){ all[i].disabled=true; }
+  say('Dispatcher', o.r, 'ok');
+  logLine('Dispatcher', o.r, 'disp');
+  results[step]= wrongThisStep ? 'retry' : 'first';
+  if(wrongThisStep) retries++; else firstTry++;
+  drawChecks();
+  $('next').style.display='inline-block';
+  $('next').textContent = (step < S.steps.length-1) ? 'Next question' : 'End the call';
+  $('next').focus();
+}
+
+$('next').onclick=function(){
+  if(!S || ended) return;
+  if(step < S.steps.length-1){ step++; renderStep(); }
+  else finish();
+};
+$('restart').onclick=function(){ reset(); };
+$('again').onclick=function(){ reset(); };
+$('printbtn').onclick=function(){ window.print(); };
+
+function reset(){
+  clearInterval(timer);
+  S=null; step=0; secs=0; results=[]; ended=false;
+  $('opts').innerHTML=''; $('next').style.display='none'; $('restart').style.display='none';
+  $('event').className='event';
+  $('report').className='report';
+  $('brief').textContent='Pick a call below. You will get the situation, then the dispatcher answers and starts asking questions.';
+  $('phase').textContent='not dialled'; $('phase').className='phase';
+  $('clock').textContent='0:00'; $('bar').style.width='0'; $('qcount').textContent='';
+  $('sceneLabel').textContent='Line open';
+  say('Dispatcher','Choose a call to start. Dispatchers ask for location before anything else, so that is where the practice begins.',null);
+  $('log').innerHTML='<li>Nothing yet.</li>'; $('log').dataset.empty='1';
+  drawChecks();
+  renderPicker();
+}
+
+function finish(){
+  if(ended) return;
+  ended=true;
+  clearInterval(timer);
+  $('bar').style.width='100%';
+  $('phase').textContent='call ended'; $('phase').className='phase done'; $('qcount').textContent='';
+  $('sceneLabel').textContent='Crew dispatched';
+  $('opts').innerHTML=''; $('next').style.display='none'; $('event').className='event';
+  say('Dispatcher', S.close, 'ok');
+  logLine('Dispatcher', S.close, 'disp');
+  $('sFirst').textContent=firstTry;
+  $('sRetry').textContent=retries;
+  $('sTime').textContent=fmt(secs);
+  var rows='';
+  S.steps.forEach(function(st,i){
+    var r=results[i];
+    var tag = r==='first' ? '<span class="tag y">said it straight away</span>'
+            : r==='retry' ? '<span class="tag o">took a second try</span>'
+            : '<span class="tag n">never answered</span>';
+    rows += '<tr><td>'+(i+1)+'. '+st.key+'</td><td>'+tag+'</td></tr>';
+  });
+  $('checklist').innerHTML=rows;
+  var v;
+  if(S.id==='unknown'){
+    v = "The honest answer on this call was I do not know. A substitute who has never met the student cannot supply an age or a history, and inventing one is worse than admitting the gap. Say what you do not know, then say who is going to find out.";
+  } else if(S.id==='stops'){
+    v = "Seizures stop on their own, and this one stopped while you were still talking. That is not a reason to cancel. A first seizure and a head injury each need someone to examine him, and the decision to stand a crew down is made with the dispatcher, not by the person holding the phone.";
+  } else {
+    v = "Everything on this call had already been done right in the room: somebody timed it, somebody gave the rescue medicine the plan called for, somebody wrote the time down. Your job on the phone was to hand that over in an order the dispatcher can type.";
+  }
+  $('verdict').textContent = v + " The call card below is the order. Print it.";
+  $('report').className='report show';
+  $('report').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+reset();
+</script>
+</div></body></html>

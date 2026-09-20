@@ -1,21 +1,529 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pharmacy Problem Solver</title>
-<style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:18px;color:#232020;background:#fcfcfb;max-width:720px}h2{font-size:20px;margin:0 0 8px}.q{font-size:18px;margin:14px 0}.btn{display:inline-block;margin:6px 8px 6px 0;padding:10px 16px;border:2px solid #b3202c;border-radius:8px;background:#fff;color:#b3202c;font-size:16px;cursor:pointer}.btn:hover{background:#b3202c;color:#fff}.ans{margin-top:14px;padding:16px;background:#fff;border-left:5px solid #1a9850;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.08);line-height:1.5}.warn{border-left-color:#b3202c}.small{font-size:13px;color:#5d5851;margin-top:12px}a{color:#b3202c}</style></head><body>
-<h2>The pharmacy can't fill my seizure medicine. What now?</h2><div id="app"></div>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharmacy Problem Solver</title>
+<style>
+:root{
+  --ink:#1a1a1a; --muted:#5f5f5f; --line:#e3e3e3; --bg:#fff;
+  --red:#b3202c; --green:#1a7f37; --amber:#b26a00; --navy:#16244e; --purple:#5b2d90;
+  --panel:#faf8f6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);
+     background:var(--bg);line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:14px}
+h1{font-size:1.25rem;margin:0 0 2px}
+h2{font-size:1rem;margin:0 0 8px}
+h3{font-size:.95rem;margin:14px 0 4px}
+.sub{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--bg)}
+.scene{background:var(--panel);border-radius:12px;padding:8px;position:relative}
+svg{width:100%;height:auto;display:block}
+.alarm{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--red);border-radius:10px;
+       background:#fdecec;padding:10px 12px;margin:0 0 12px;font-size:.95rem}
+.alarm b{color:var(--red)}
+.alarm svg{flex:0 0 auto;color:var(--red);width:24px;height:24px}
+.brief{font-size:.92rem;background:#eef3fb;border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.brief b{color:var(--navy)}
+.q{font-size:1.05rem;font-weight:600;margin:4px 0 2px}
+.qhint{font-size:.86rem;color:var(--muted);margin:0 0 10px}
+.step{font-size:.78rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:6px}
+button{font:inherit}
+.act{display:flex;align-items:flex-start;gap:9px;text-align:left;padding:10px 12px;border:1.5px solid #ccc;
+     border-radius:10px;background:#fff;cursor:pointer;transition:.12s;width:100%}
+.act:hover:not(:disabled){border-color:var(--purple);background:#f7f3fb}
+.act:disabled{opacity:.6;cursor:default}
+.act.done{border-color:var(--green);background:#eaf6ec}
+.act .k{display:inline-flex;color:var(--purple);flex:0 0 auto;margin-top:2px}
+.act.done .k{color:var(--green)}
+.act small{display:block;color:var(--muted);font-size:.78rem}
+.act .n{flex:0 0 auto;font-weight:700;color:var(--purple);min-width:1.1em}
+.act.done .n{color:var(--green)}
+.primary{background:var(--red);color:#fff;border:none;padding:11px 18px;border-radius:9px;cursor:pointer;font-weight:600}
+.ghost{background:#fff;border:1.5px solid #bbb;padding:10px 16px;border-radius:9px;cursor:pointer;
+       display:inline-block;text-decoration:none;color:var(--ink)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.feed{margin-top:10px;font-size:.92rem;min-height:2.6em;border-left:3px solid var(--purple);padding:6px 10px;background:var(--panel);border-radius:0 8px 8px 0}
+.feed.ok{border-color:var(--green)} .feed.no{border-color:var(--red)} .feed.warn{border-color:var(--amber)}
+.tag{font-size:.75rem;padding:1px 7px;border-radius:999px;white-space:nowrap}
+.tag.y{background:#eaf6ec;color:var(--green)} .tag.n{background:#fdecec;color:var(--red)}
+.tag.o{background:#fff4e5;color:var(--amber)}
+.note{font-size:.82rem;color:var(--muted);margin-top:10px}
+.src{font-size:.75rem;color:var(--muted);margin:4px 0 0}
+.fig{display:none;background:var(--panel);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:.88rem}
+.fig.show{display:block}
+.fig h3{margin:0 0 4px;font-size:.92rem}
+.script{background:#f7f3fb;border-left:3px solid var(--purple);border-radius:0 8px 8px 0;
+        padding:8px 11px;font-size:.92rem;margin:6px 0}
+ul,ol{margin:6px 0 0;padding-left:19px;font-size:.92rem}
+li{margin-bottom:3px}
+table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:4px}
+td,th{text-align:left;padding:4px 6px;border-bottom:1px solid #eee;vertical-align:top}
+th{font-weight:600}
+a{color:var(--red)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--purple);outline-offset:2px}
+#detail:focus{outline:2px solid var(--purple);outline-offset:3px}
+/* diagram */
+.nd rect{fill:#fff;stroke:#c8c8c8;stroke-width:1.5}
+.nd text{font-size:12px;fill:#1a1a1a}
+.nd.dim{opacity:.22}
+.nd.pick rect{fill:#f7f3fb;stroke:#5b2d90;stroke-width:2.5}
+.nd.hide{display:none}
+.nd.on rect{fill:#eaf6ec;stroke:#1a7f37}
+.nd .mk{display:none}
+.nd.on .mk{display:block}
+.ln{stroke:#c8c8c8;stroke-width:2;fill:none}
+.ln.dim{opacity:.18}
+.ln.pick{stroke:#5b2d90}
+.ln.on{stroke:#1a7f37}
+.ln.hide{display:none}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style></head>
+<body><div class="wrap">
+
+<h1>The pharmacy cannot fill the seizure medicine</h1>
+<p class="sub">Five reasons that sound the same at the counter and need five different fixes. Pick the one you were told, and the branch draws itself.</p>
+
+<div class="alarm" role="note">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>
+  <div><b>Never stop, skip, stretch or change a seizure medicine on your own.</b> Stopping suddenly can cause seizures, including a seizure that will not stop. Every change goes through the prescriber. If a seizure will not stop, call 911.</div>
+</div>
+
+<div class="grid">
+  <div>
+    <div class="card">
+      <div class="brief" id="brief"><b>You are at the counter.</b> The medicine is not there, or the price is impossible. What did they tell you?</div>
+
+      <div class="scene">
+        <svg id="tree" viewBox="0 0 560 470" role="img" aria-labelledby="dTitle dDesc">
+          <title id="dTitle">Branch diagram of pharmacy problems</title>
+          <desc id="dDesc">One box at the top splits into five reasons a seizure medicine cannot be filled. Choosing one draws a chain of steps below it, and each step fills in as you mark it done.</desc>
+          <rect x="0" y="0" width="560" height="470" fill="#faf8f6"/>
+
+          <path class="ln" id="c0" d="M280 50 C280 74 56 70 56 96"/>
+          <path class="ln" id="c1" d="M280 50 C280 74 168 70 168 96"/>
+          <path class="ln" id="c2" d="M280 50 C280 74 280 70 280 96"/>
+          <path class="ln" id="c3" d="M280 50 C280 74 392 70 392 96"/>
+          <path class="ln" id="c4" d="M280 50 C280 74 504 70 504 96"/>
+
+          <g class="nd" id="root">
+            <rect x="180" y="8" width="200" height="42" rx="9"/>
+            <text x="280" y="34" text-anchor="middle" font-weight="600">At the counter</text>
+          </g>
+
+          <g class="nd" id="p0"><rect x="8" y="96" width="96" height="52" rx="9"/>
+            <text x="56" y="118" text-anchor="middle" font-size="11.5">Out of</text>
+            <text x="56" y="134" text-anchor="middle" font-size="11.5">stock</text></g>
+          <g class="nd" id="p1"><rect x="120" y="96" width="96" height="52" rx="9"/>
+            <text x="168" y="118" text-anchor="middle" font-size="11.5">Prior</text>
+            <text x="168" y="134" text-anchor="middle" font-size="11.5">authorization</text></g>
+          <g class="nd" id="p2"><rect x="232" y="96" width="96" height="52" rx="9"/>
+            <text x="280" y="118" text-anchor="middle" font-size="11.5">Costs too</text>
+            <text x="280" y="134" text-anchor="middle" font-size="11.5">much</text></g>
+          <g class="nd" id="p3"><rect x="344" y="96" width="96" height="52" rx="9"/>
+            <text x="392" y="118" text-anchor="middle" font-size="11.5">Brand not</text>
+            <text x="392" y="134" text-anchor="middle" font-size="11.5">covered</text></g>
+          <g class="nd" id="p4"><rect x="456" y="96" width="96" height="52" rx="9"/>
+            <text x="504" y="118" text-anchor="middle" font-size="11.5">Pharmacy</text>
+            <text x="504" y="134" text-anchor="middle" font-size="11.5">too far</text></g>
+
+          <path class="ln hide" id="drop" d="M280 148 L280 176"/>
+          <path class="ln hide" id="k1" d="M280 232 L280 250"/>
+          <path class="ln hide" id="k2" d="M280 306 L280 324"/>
+          <path class="ln hide" id="k3" d="M280 380 L280 398"/>
+
+          <g class="nd hide" id="s0"><rect x="80" y="176" width="400" height="56" rx="9"/>
+            <text x="104" y="200" id="s0a">.</text><text x="104" y="219" id="s0b" font-size="11" fill="#5f5f5f">.</text>
+            <path class="mk" d="M446 198 l6 7 l12 -14" stroke="#1a7f37" stroke-width="2.8" fill="none" stroke-linecap="round"/></g>
+          <g class="nd hide" id="s1"><rect x="80" y="250" width="400" height="56" rx="9"/>
+            <text x="104" y="274" id="s1a">.</text><text x="104" y="293" id="s1b" font-size="11" fill="#5f5f5f">.</text>
+            <path class="mk" d="M446 272 l6 7 l12 -14" stroke="#1a7f37" stroke-width="2.8" fill="none" stroke-linecap="round"/></g>
+          <g class="nd hide" id="s2"><rect x="80" y="324" width="400" height="56" rx="9"/>
+            <text x="104" y="348" id="s2a">.</text><text x="104" y="367" id="s2b" font-size="11" fill="#5f5f5f">.</text>
+            <path class="mk" d="M446 346 l6 7 l12 -14" stroke="#1a7f37" stroke-width="2.8" fill="none" stroke-linecap="round"/></g>
+          <g class="nd hide" id="s3"><rect x="80" y="398" width="400" height="56" rx="9"/>
+            <text x="104" y="422" id="s3a">.</text><text x="104" y="441" id="s3b" font-size="11" fill="#5f5f5f">.</text>
+            <path class="mk" d="M446 420 l6 7 l12 -14" stroke="#1a7f37" stroke-width="2.8" fill="none" stroke-linecap="round"/></g>
+        </svg>
+      </div>
+
+      <div class="fig" id="figPayer">
+        <h3>What a fill costs the person at the register</h3>
+        <svg viewBox="0 0 560 132" role="img" aria-label="Bar chart. Average member payment per antiseizure prescription in 2022: commercial 18 dollars 48 cents, Medicare 9 dollars 30 cents, Minnesota Health Care Programs 1 dollar 31 cents.">
+          <text x="0" y="22" font-size="13" fill="#1a1a1a">Commercial plan</text>
+          <rect x="196" y="10" width="290" height="18" rx="4" fill="#b3202c"/>
+          <text x="492" y="24" font-size="13" fill="#1a1a1a" font-weight="600">$18.48</text>
+          <text x="0" y="66" font-size="13" fill="#1a1a1a">Medicare</text>
+          <rect x="196" y="54" width="146" height="18" rx="4" fill="#16244e"/>
+          <text x="348" y="68" font-size="13" fill="#1a1a1a" font-weight="600">$9.30</text>
+          <text x="0" y="110" font-size="13" fill="#1a1a1a">Medical Assistance</text>
+          <rect x="196" y="98" width="21" height="18" rx="4" fill="#1a7f37"/>
+          <text x="223" y="112" font-size="13" fill="#1a1a1a" font-weight="600">$1.31</text>
+        </svg>
+        <p class="src">Member paid per antiseizure prescription, 2022. Source: Minnesota All Payer Claims Database public use files, EDAN pull (data/mn_apcd_rx_asm_summary.md).</p>
+      </div>
+
+      <div class="fig" id="figBrand">
+        <h3>What a month costs a pharmacy: generic against brand</h3>
+        <svg viewBox="0 0 560 218" role="img" aria-label="Paired bars comparing 30-day acquisition cost. Levetiracetam generic 4 dollars 43 cents against Keppra 594 dollars 93 cents. Lamotrigine generic 4 dollars 24 cents against Lamictal 688 dollars 16 cents. Lacosamide generic 12 dollars 76 cents against Vimpat 1178 dollars 68 cents. Clobazam generic 14 dollars 84 cents against Onfi 1794 dollars 87 cents.">
+          <g font-size="12" fill="#1a1a1a">
+          <text x="0" y="16">levetiracetam</text>
+          <rect x="150" y="6" width="3" height="13" fill="#1a7f37"/><text x="159" y="17" font-size="11">$4.43 generic</text>
+          <rect x="150" y="23" width="63" height="13" fill="#b3202c"/><text x="219" y="34" font-size="11">$594.93 Keppra</text>
+          <text x="0" y="66">lamotrigine</text>
+          <rect x="150" y="56" width="3" height="13" fill="#1a7f37"/><text x="159" y="67" font-size="11">$4.24 generic</text>
+          <rect x="150" y="73" width="73" height="13" fill="#b3202c"/><text x="229" y="84" font-size="11">$688.16 Lamictal</text>
+          <text x="0" y="116">lacosamide</text>
+          <rect x="150" y="106" width="3" height="13" fill="#1a7f37"/><text x="159" y="117" font-size="11">$12.76 generic</text>
+          <rect x="150" y="123" width="124" height="13" fill="#b3202c"/><text x="280" y="134" font-size="11">$1,178.68 Vimpat</text>
+          <text x="0" y="166">clobazam</text>
+          <rect x="150" y="156" width="3" height="13" fill="#1a7f37"/><text x="159" y="167" font-size="11">$14.84 generic</text>
+          <rect x="150" y="173" width="189" height="13" fill="#b3202c"/><text x="346" y="184" font-size="11">$1,794.87 Onfi</text>
+          </g>
+          <line x1="150" y1="196" x2="150" y2="202" stroke="#c8c8c8"/>
+          <line x1="150" y1="199" x2="340" y2="199" stroke="#c8c8c8"/>
+          <line x1="340" y1="196" x2="340" y2="202" stroke="#c8c8c8"/>
+          <text x="152" y="214" font-size="10.5" fill="#5f5f5f">$0</text>
+          <text x="320" y="214" font-size="10.5" fill="#5f5f5f">$1,800</text>
+        </svg>
+        <p class="src">Estimated 30-day acquisition cost at label doses, 2026Q3 snapshot. Source: CMS National Average Drug Acquisition Cost, EDAN pull (data/nadac_asm_30day_cost.csv).</p>
+      </div>
+
+      <div class="fig" id="figNoGen">
+        <h3>Six seizure medicines have no generic anywhere</h3>
+        <p style="margin:2px 0">Epidiolex (cannabidiol), Fintepla (fenfluramine), Xcopri (cenobamate), Nayzilam (nasal midazolam), Ztalmy (ganaxolone), Diacomit (stiripentol). For these there is nothing to switch to, so the fight is over coverage rather than substitution.</p>
+        <table>
+          <tr><th>Minnesota Medicaid, 2025</th><th>Share</th></tr>
+          <tr><td>Antiseizure prescriptions</td><td>1.5 percent</td></tr>
+          <tr><td>Antiseizure spending</td><td>32.2 percent</td></tr>
+        </table>
+        <p class="src">4,956 of 335,239 prescriptions and $14,300,380 of $44,455,568. Sources: FDA Orange Book products file dated 2026-09-11 and CMS Medicaid State Drug Utilization Data, EDAN pull (data/mn_brandonly_asm_summary.md).</p>
+      </div>
+
+      <div class="fig" id="figCover">
+        <h3>A plan that will not list a drug is a different problem from a copay</h3>
+        <p style="margin:2px 0">On three of the four Minnesota individual-market formularies we checked, brand Onfi does not appear at all. Xcopri and Epidiolex are marked non-formulary at HealthPartners, and Epidiolex does not appear on Medica's list. Where a plan does cover an expensive drug at coinsurance, the bill is still large: a UCare Gold member on Epidiolex faces about $748 a month once the deductible is met.</p>
+        <p class="src">Ten Minnesota plans priced against their own 2026 formularies and summaries of benefits. Source: EDAN pull (data/mn_plan_cost_sharing_summary.md).</p>
+      </div>
+
+      <div class="fig" id="figFar">
+        <h3>Distance is a Minnesota problem, and it is growing</h3>
+        <p style="margin:2px 0">About 13 percent of Minnesota's community pharmacies have closed since 2009. Roughly one in five residents now lives in an area with poor pharmacy access, and the share is still growing.</p>
+        <p class="src">Source: CDC, Preventing Chronic Disease, pharmacy access in Minnesota 2009 to 2024 (2026), as cited in the EDAN family guide "When the pharmacy can't fill your seizure medicine."</p>
+      </div>
+
+      <div class="feed" id="feed" aria-live="polite">Pick a reason on the right. Nothing you choose is stored or sent anywhere.</div>
+    </div>
+
+    <div class="card" id="detail" tabindex="-1" style="margin-top:14px">
+      <h2 id="dHead">What is going on</h2>
+      <p id="dText" style="font-size:.95rem;margin:0"></p>
+      <div id="dScript"></div>
+      <div id="dExtra"></div>
+      <h3>Numbers worth having in your phone</h3>
+      <ul>
+        <li>Epilepsy Foundation of Minnesota: 651-287-2300. Free care coordination, and they will help with a denial.</li>
+        <li>DHS Member Help Desk, for Medical Assistance and MinnesotaCare: 651-431-2670 or 800-657-3739.</li>
+        <li>NeedyMeds, for manufacturer assistance programs: 800-503-6897, needymeds.org.</li>
+        <li>Epilepsy Foundation national helpline: 1-800-332-1000.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <div class="card">
+      <span class="step" id="stepLabel">Start</span>
+      <p class="q" id="qText">What did the pharmacy tell you?</p>
+      <p class="qhint" id="qHint">Pick the one closest to what you heard. If two apply, start with the one stopping you today.</p>
+      <div class="actions" id="acts" role="group" aria-label="Choices"></div>
+      <div class="row">
+        <button class="ghost" id="back" disabled>Back</button>
+        <button class="ghost" id="reset">Start over</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h2>Two sentences that change the answer</h2>
+      <div class="script">"Is this a national shortage, or just your stock? Can you see another store's inventory and transfer it?"</div>
+      <div class="script">"Can you run a 72-hour emergency supply while the prior authorization is sorted out?"</div>
+      <p class="note">Say the words "emergency supply." Minnesota Medical Assistance and most plans allow a short emergency fill while a prior authorization is processed, and a pharmacist who is not asked may not offer it.</p>
+    </div>
+  </div>
+</div>
+
+<p class="note">A learning tool, not medical advice, legal advice or insurance advice. Coverage is decided by the health plan; the medicine is decided by the prescriber. Rescue medicine is a separate thing: check the expiry date every school year, keep one at school and one at home, and tell the school nurse if a refill is delayed so the seizure action plan can say what to do meanwhile.</p>
+
 <script>
-const T={
-start:{q:"What did the pharmacy tell you?",o:[["We're out of stock","stock"],["It needs prior authorization or the plan won't cover it","cover"],["It costs more than we can pay","cost"],["There's a national shortage","short"],["We're too far from any pharmacy","far"]]},
-stock:{q:"Is this your pharmacy's stock, or every pharmacy?",o:[["Just this store","xfer"],["They said it's everywhere","short"],["I don't know","askph"]]},
-askph:{a:"Ask the pharmacist two questions: \"Is this a national shortage or just your stock?\" and \"Can you see inventory at other stores in your chain?\" Most chains can transfer a prescription in a day. If they say national shortage, go to the shortage steps."},
-xfer:{a:"Ask the pharmacist to transfer the prescription to a nearby store that has it, or call an independent pharmacy. Independents often use a different wholesaler and have stock when chains do not. Find one through Minnesota Independent Pharmacists or call the Epilepsy Foundation of Minnesota, 651-287-2300."},
-cover:{q:"How many doses do you have left?",o:[["Three days or fewer","emerg"],["More than three days","pa"]]},
-emerg:{a:"Say the words \"emergency supply.\" Minnesota Medical Assistance and most plans allow a 72-hour emergency fill while prior authorization is sorted out. Then call the prescriber today so the authorization goes in. Do not skip doses while you wait.",w:1},
-pa:{a:"Call the prescriber's office and ask them to submit the prior authorization today; ask the pharmacy to note the date it was requested. Minnesota law gives you a step-therapy exception process if the plan wants you to try a different drug first. If you are on Medical Assistance, the DHS Member Help Desk (651-431-2670) can tell you the status."},
-cost:{q:"What kind of insurance?",o:[["Medical Assistance or MinnesotaCare","ma"],["Employer or marketplace plan","comm"],["None","none"]]},
-ma:{a:"Copays under Medical Assistance are $0 to a few dollars for most seizure drugs. If you were charged more, the claim may have run wrong; ask the pharmacist to rebill, and call the Member Help Desk, 651-431-2670. A child with a disability may qualify for MA through TEFRA regardless of parents' income."},
-comm:{a:"Three things to try today: a manufacturer assistance or copay program (search the drug name plus \"patient assistance,\" or use NeedyMeds, 800-503-6897); a discount card price on a generic (ask the pharmacist to compare); and a 90-day fill, which often costs less per month. Minnesota bill HF 3652 / SF 3786 would cap epilepsy drug cost-sharing at $25 a month starting 2027; it has not passed yet."},
-none:{a:"Apply for Medical Assistance or MinnesotaCare through MNsure or your county; coverage can be backdated. In the meantime, manufacturer patient assistance programs cover uninsured people for most brand-name seizure drugs, and NeedyMeds (needymeds.org) lists them. Ask the clinic social worker for help with the forms."},
-short:{a:"Call the prescriber the same day. Ask: \"Is there a different strength or form (liquid, tablet, sprinkle) you would accept, or a therapeutic alternative?\" Two strengths of the same drug can often be combined. Never substitute or split doses on your own. Check the FDA drug shortage list for the expected end date, and ask for a 90-day supply once it is back.",w:1},
-far:{a:"Use your plan's mail-order pharmacy and order two weeks early; seizure medicine should never run to the last pill. Ask the clinic whether a rural clinic dispensary or a chain's delivery service reaches you. Keep a five-day emergency supply if the prescriber and plan allow it, and tell the school nurse if a refill is delayed so the seizure action plan says what to do."}};
-const app=document.getElementById('app');function go(k){const n=T[k];let h='';if(n.q){h+=`<div class="q">${n.q}</div>`;n.o.forEach(([l,t])=>h+=`<span class="btn" onclick="go('${t}')">${l}</span>`);}
-if(n.a){h+=`<div class="ans ${n.w?'warn':''}">${n.a}</div>`;h+=`<span class="btn" style="margin-top:14px" onclick="go('start')">Start over</span>`;}
-h+=`<div class="small">A learning tool, not medical advice. Never stop or change a seizure medicine without talking to the prescriber; stopping suddenly can cause seizures. If a seizure will not stop, call 911.</div>`;app.innerHTML=h;}go('start');</script></body></html>
+const $=id=>document.getElementById(id);
+function cls(id,v){ $(id).setAttribute('class',v); }
+function say(m,k){ const f=$('feed'); f.textContent=m; f.className='feed'+(k?' '+k:''); }
+
+const ROOT=[
+ ['They are out of it','stock',0],
+ ['It needs prior authorization, or the plan will not cover it','pa',1],
+ ['It costs more than we can pay','cost',2],
+ ['The plan will not cover the brand we were given','brand',3],
+ ['The pharmacy is too far away to keep doing this','far',4]
+];
+
+const N={
+ stock:{b:0,q:"Is it only this pharmacy, or everywhere?",hint:"The fix is completely different, and the pharmacist knows which one it is.",
+   opts:[['Just this store','stock_local'],['They said it is a national shortage','stock_nat'],['They did not say','stock_ask']]},
+
+ stock_ask:{b:0,head:"Find out which problem you have before you drive anywhere",
+   text:"A store that is out of stock and a national shortage look identical from the customer side of the counter. One is solved in a day by a phone call, the other needs the prescriber. Ask, then come back and pick again.",
+   script:"“Is this a national shortage, or just your stock? Can you see another store's inventory and transfer it?”",
+   steps:[
+    {s:"Ask which of the two problems it is",t:"Ask the pharmacist straight out whether this is a national shortage or their own stock."},
+    {s:"Ask if they can see nearby inventory",t:"Most chains can see what nearby stores hold and can transfer a prescription in a day."}],
+   opts:[['It is just this store','stock_local'],['It is a national shortage','stock_nat']]},
+
+ stock_local:{b:0,head:"A local supply gap, usually fixed the same day",
+   text:"One store being empty says nothing about the others. Chains can transfer a prescription between their own stores, and independent pharmacies often buy from a different wholesaler, so they have stock when the chain does not.",
+   steps:[
+    {s:"Ask for a transfer to a store that has it",t:"Ask this pharmacy to transfer the prescription to a nearby store that has it in stock."},
+    {s:"Call an independent pharmacy",t:"Independents often use a different wholesaler. Find one at mnpharmacists.org, or call the Epilepsy Foundation of Minnesota at 651-287-2300 for the nearest."},
+    {s:"Tell the prescriber how many doses are left",t:"If you are down to a few days, the prescriber needs to know today so they can plan around it. Do not ration what is left on your own."},
+    {s:"Ask for a 90-day supply next time",t:"Once it is back in stock, ask whether the plan allows a 90-day fill so one bad week does not become a crisis."}]},
+
+ stock_nat:{b:0,head:"A national shortage is a prescriber problem, not a pharmacy problem",
+   text:"No amount of calling around fixes a drug that is not being made. The FDA has listed a valproate injection shortage since 2020, and several seizure products have been discontinued outright. What the prescriber can do is change the strength, the form, or the drug, and only the prescriber can do it.",
+   script:"“Is there a different strength, a different form, or a therapeutic alternative you would accept while this is short?”",
+   steps:[
+    {s:"Call the prescriber today, not tomorrow",t:"Call the same day, and say how many doses are left. This is the step people delay, and it is the one that matters."},
+    {s:"Ask about a different strength or form",t:"Two strengths of the same drug can often be combined to make the same dose. Liquid, sprinkle and tablet forms sometimes cover for each other. Never work this out yourself."},
+    {s:"Ask about a therapeutic equivalent",t:"If the molecule itself is unavailable, the prescriber may have an alternative they are comfortable with for this person."},
+    {s:"Check the FDA shortage list for an end date",t:"Search fda.gov for drug shortages. Once it is resolved, ask for a 90-day supply."}]},
+
+ pa:{b:1,q:"How many doses are left at home?",hint:"This decides whether today is an emergency or a paperwork week.",
+   opts:[['Three days or fewer','pa_now'],['More than three days','pa_soon']]},
+
+ pa_now:{b:1,head:"Ask for the emergency supply, now, at the counter",
+   text:"Minnesota Medical Assistance and most plans allow a short emergency fill while a prior authorization is processed. The pharmacist may not offer it unless you ask. This is the single most useful thing to know at a pharmacy counter, and it buys the three days the paperwork needs.",
+   script:"“Can you run a 72-hour emergency supply while the prior authorization is sorted out?”",
+   steps:[
+    {s:"Say the words: emergency supply",t:"Ask the pharmacist to run a 72-hour emergency supply. Say the words; the phrase maps to something in their system."},
+    {s:"Call the prescriber the same day",t:"The prior authorization has to be filed by the clinic. Call and ask for it to go in today, and say you are on an emergency supply."},
+    {s:"Ask the pharmacy to note the request date",t:"A dated record of when the authorization was requested is what you need if this drags on or has to be appealed."},
+    {s:"Do not skip or stretch doses while waiting",t:"Cutting doses to make the bottle last is the thing that causes harm here. Call the prescriber before changing anything."}]},
+
+ pa_soon:{b:1,head:"You have a few days, so use them on the paperwork",
+   text:"A prior authorization is a form the clinic sends the plan. Nothing moves until it is filed, and the most common reason a family runs out is that the form sat. If the plan wants a different drug tried first, Minnesota has a step therapy exception process for exactly that.",
+   steps:[
+    {s:"Ask the clinic to submit it today",t:"Call the prescriber's office and ask them to file the prior authorization today, not at the next visit."},
+    {s:"Ask the pharmacy to note the request date",t:"Ask the pharmacy to record the date the authorization was requested, and write it down yourself."},
+    {s:"Ask about a step therapy exception",t:"If the plan wants a different drug tried first, the prescriber can request an exception on the grounds that this person is stable on this drug."},
+    {s:"On MA, call the Member Help Desk for status",t:"The DHS Member Help Desk, 651-431-2670 or 800-657-3739, can tell you where a Medical Assistance authorization stands."}]},
+
+ cost:{b:2,q:"What is the coverage?",hint:"The route out of a price is different for each one.",
+   opts:[['Medical Assistance or MinnesotaCare','cost_ma'],['Employer or marketplace plan','cost_comm'],['No coverage right now','cost_none']]},
+
+ cost_ma:{b:2,fig:'figPayer',head:"On Medical Assistance a big number at the register is usually an error",
+   text:"Members of Minnesota Health Care Programs paid an average of $1.31 out of pocket per antiseizure prescription in 2022. If the register says far more than that, the claim most likely ran wrong, or it did not run through the right coverage at all.",
+   steps:[
+    {s:"Ask the pharmacist to rebill the claim",t:"Ask them to check the coverage on file and rebill. A stale card or a coordination-of-benefits mix-up produces exactly this."},
+    {s:"Call the DHS Member Help Desk",t:"651-431-2670 or 800-657-3739. They can see what the program should be paying."},
+    {s:"Ask about MA-TEFRA for a child",t:"A child with a certified disability can qualify for Medical Assistance on the child's own income rather than the parents'. Ask the county human services office."}]},
+
+ cost_comm:{b:2,fig:'figPayer',head:"Commercial coverage is where Minnesota families actually pay",
+   text:"Commercially insured Minnesotans paid $18.48 per antiseizure fill in 2022, against $9.30 on Medicare and $1.31 on Medical Assistance. The average hides the shape of it. For the expensive drugs the median payment is zero and the average runs to hundreds, which is what a deductible and a specialty tier produce: most fills cost nothing and one fill costs a fortune.",
+   steps:[
+    {s:"Look up the manufacturer's program",t:"Nearly every brand-name seizure drug has a copay or assistance program. Search the drug name plus “patient assistance”, or use NeedyMeds at needymeds.org or 800-503-6897."},
+    {s:"Ask the pharmacist to compare a discount card",t:"On a generic, a discount card price sometimes beats the copay. The pharmacist can run both."},
+    {s:"Ask about a 90-day fill",t:"Three months at once often costs less per month and means fewer trips."},
+    {s:"Ask the clinic social worker",t:"They fill out these forms every week and know which programs answer quickly."}]},
+
+ cost_none:{b:2,head:"Coverage first, and it can reach backwards",
+   text:"Apply for Medical Assistance or MinnesotaCare through MNsure or your county. Coverage can be backdated, so a bill you are looking at now may still be picked up. While the application runs, manufacturer programs cover uninsured people for most brand-name seizure drugs.",
+   steps:[
+    {s:"Apply through MNsure or the county",t:"Ask specifically whether coverage can be backdated to include the fills you are paying for now."},
+    {s:"Apply to manufacturer assistance programs",t:"Most brand-name seizure drugs have a program for uninsured patients. NeedyMeds and RxAssist list them."},
+    {s:"Ask the clinic social worker for the forms",t:"The forms want income documents and a prescriber signature. A social worker gets them through faster than a family working alone."}]},
+
+ brand:{b:3,q:"Is this medicine one of the six with no generic anywhere?",hint:"Epidiolex, Fintepla, Xcopri, Nayzilam, Ztalmy, Diacomit. If it is one of these, no pharmacist can substitute anything.",
+   opts:[['Yes, it is one of those six','brand_none'],['No, or the drug has a generic','brand_gen'],['Not sure','brand_ask']]},
+
+ brand_ask:{b:3,fig:'figNoGen',head:"Ask the pharmacist, because the answer changes everything",
+   text:"A pharmacist can substitute only a generic of the same drug in the same dosage form. Some drugs have none, and some have a generic tablet but no generic liquid, which is the version a child who cannot swallow a capsule needs.",
+   script:"“Is there a generic of this drug in this same form that you are allowed to substitute?”",
+   steps:[
+    {s:"Ask whether a substitutable generic exists",t:"Ask the pharmacist whether a generic of the same drug and the same dosage form is on the shelf."},
+    {s:"Ask which form the prescription is written for",t:"Tablet, capsule, liquid, sprinkle and film are different products. A generic of one is not a generic of another."}],
+   opts:[['There is no generic','brand_none'],['There is a generic','brand_gen']]},
+
+ brand_gen:{b:3,fig:'figBrand',head:"There is something to switch to, and the prescriber decides whether to",
+   text:"Where a generic exists the gap is enormous: a month of generic clobazam costs a pharmacy about $14.84 and brand Onfi about $1,794.87. For most people the generic works identically, which is why plans push it. For some people it does not, and that judgment belongs to the neurologist, not to the counter and not to the plan.",
+   script:"“The plan will not cover the brand. Is the generic safe for this person, or do you want to write it as brand necessary?”",
+   steps:[
+    {s:"Ask the pharmacist what can be substituted",t:"Ask which generic of the same form the plan will cover, and what it would cost today."},
+    {s:"Ask the prescriber before any switch happens",t:"Some people lose seizure control when the product changes. Never agree to a switch at the counter without the prescriber knowing."},
+    {s:"If brand is needed, ask for it in writing",t:"The prescriber can mark the prescription brand necessary and file a formulary exception explaining why this person cannot use the generic."},
+    {s:"Ask for an emergency supply meanwhile",t:"Ask the pharmacist for a 72-hour emergency supply so nothing is missed while the exception is decided."}]},
+
+ brand_none:{b:3,fig:'figNoGen',head:"There is nothing to substitute, so this is a coverage fight",
+   text:"Those six drugs have no generic anywhere in the United States, which is why the pharmacist has nothing else to offer you. A plan refusing one is not steering a family toward a cheaper version, because no cheaper version exists. The route out is an exception request, and the clinic is the one who files it.",
+   script:"“There is no generic of this drug. Will you file a formulary exception with a letter of medical necessity?”",
+   steps:[
+    {s:"Ask the clinic for a formulary exception",t:"The prescriber files it with a letter of medical necessity saying why this drug and no other."},
+    {s:"Ask for a 72-hour emergency supply",t:"Ask the pharmacist to run an emergency supply while the exception is decided, so no dose is missed."},
+    {s:"Apply to the manufacturer's program",t:"All six are brand products with manufacturer assistance programs. NeedyMeds, 800-503-6897, lists them."},
+    {s:"Call the Epilepsy Foundation of Minnesota",t:"651-287-2300. Their care coordinators have been through these appeals before."}],
+   extra:'figCover'},
+
+ far:{b:4,fig:'figFar',head:"Plan the distance, do not absorb it",
+   text:"The way distance hurts a family with epilepsy is rarely the drive itself. It is the day the bottle is empty, the next fill is forty miles away, and the road is closed. Everything below is about never reaching that day, so order early and keep a cushion the prescriber has agreed to.",
+   steps:[
+    {s:"Set up mail order and order two weeks early",t:"Use the plan's mail-order pharmacy and reorder with two weeks of pills still in the house. Seizure medicine should never run to the last pill."},
+    {s:"Ask about delivery or a clinic dispensary",t:"Some chains deliver, and some rural clinics dispense on site. Ask what reaches your address."},
+    {s:"Ask whether you can hold a five-day cushion",t:"Ask the prescriber and the plan whether you can keep an emergency supply of at least five days at home."},
+    {s:"Tell the school nurse about any delay",t:"If a refill is late, the school nurse needs to know so the seizure action plan can say what to do in the meantime."}]}
+};
+
+let key=null, histKeys=[], doneSteps={};
+
+function drawDiagram(){
+  cls('root','nd');
+  for(let p=0;p<5;p++){ cls('p'+p,'nd'); cls('c'+p,'ln'); }
+  const node=key?N[key]:null;
+  if(node){
+    for(let p=0;p<5;p++){
+      if(p===node.b){ cls('p'+p,'nd pick'); cls('c'+p,'ln pick'); }
+      else { cls('p'+p,'nd dim'); cls('c'+p,'ln dim'); }
+    }
+  }
+  const steps=(node&&node.steps)||[];
+  cls('drop', steps.length?'ln':'ln hide');
+  for(let k=0;k<4;k++){
+    const g='s'+k;
+    if(k<steps.length){
+      const on=doneSteps[key] && doneSteps[key][k];
+      cls(g,'nd'+(on?' on':''));
+      $(g+'a').textContent=(k+1)+'. '+steps[k].s;
+      $(g+'b').textContent=on?'done':'';
+    } else { cls(g,'nd hide'); $(g+'a').textContent=''; $(g+'b').textContent=''; }
+    if(k>0) cls('k'+k, k<steps.length?'ln':'ln hide');
+  }
+  if(steps.length){
+    const bx=[56,168,280,392,504][node.b];
+    $('drop').setAttribute('d','M'+bx+' 148 C '+bx+' 164, 280 160, 280 176');
+    $('tree').setAttribute('viewBox','0 0 560 '+(176+74*(steps.length-1)+72));
+  } else {
+    $('tree').setAttribute('viewBox','0 0 560 164');
+  }
+}
+
+function icon(kind){
+  if(kind==='check') return '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5 9.5 18 20 6"/></svg>';
+  return '<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>';
+}
+
+function showFigs(node){
+  ['figPayer','figBrand','figNoGen','figCover','figFar'].forEach(id=>cls(id,'fig'));
+  if(node&&node.fig) cls(node.fig,'fig show');
+  if(node&&node.extra) cls(node.extra,'fig show');
+}
+
+function renderStart(){
+  key=null; histKeys=[];
+  $('stepLabel').textContent='Start';
+  $('qText').textContent='What did the pharmacy tell you?';
+  $('qHint').textContent='Pick the one closest to what you heard. If two apply, start with the one stopping you today.';
+  const w=$('acts'); w.innerHTML='';
+  ROOT.forEach(([label,k])=>{
+    const b=document.createElement('button');
+    b.className='act'; b.type='button';
+    b.innerHTML='<span class="k">'+icon('arrow')+'</span><span>'+label+'</span>';
+    b.onclick=()=>go(k);
+    w.appendChild(b);
+  });
+  $('dHead').textContent='What is going on';
+  $('dText').textContent='Three different things empty a shelf, and a fourth thing empties a wallet. A national shortage, a local stock gap, a coverage rule, and a price. Each one has its own fix, and trying the wrong fix loses days a person taking seizure medicine does not have.';
+  $('dScript').innerHTML=''; $('dExtra').innerHTML='';
+  $('back').disabled=true;
+  showFigs(null); drawDiagram();
+}
+
+function render(){
+  const node=N[key];
+  $('back').disabled = false;
+  $('stepLabel').textContent = node.steps ? 'Do these, in order' : 'One more question';
+  const w=$('acts'); w.innerHTML='';
+
+  if(node.q){
+    $('qText').textContent=node.q;
+    $('qHint').textContent=node.hint||'';
+    node.opts.forEach(([label,k])=>{
+      const b=document.createElement('button');
+      b.className='act'; b.type='button';
+      b.innerHTML='<span class="k">'+icon('arrow')+'</span><span>'+label+'</span>';
+      b.onclick=()=>go(k);
+      w.appendChild(b);
+    });
+    $('dHead').textContent='What is going on';
+    $('dText').textContent='Answer the question on the right and the steps appear here.';
+    $('dScript').innerHTML=''; $('dExtra').innerHTML='';
+  } else {
+    $('qText').textContent=node.head;
+    $('qHint').textContent='Tick each one off as you do it. The branch on the left fills in as you go.';
+    if(!doneSteps[key]) doneSteps[key]=node.steps.map(()=>false);
+    node.steps.forEach((st,k)=>{
+      const b=document.createElement('button');
+      b.className='act'+(doneSteps[key][k]?' done':''); b.type='button';
+      b.setAttribute('aria-pressed', doneSteps[key][k]?'true':'false');
+      b.innerHTML='<span class="n">'+(k+1)+'</span><span class="k">'+icon(doneSteps[key][k]?'check':'arrow')+
+        '</span><span>'+st.s+'<small>'+st.t+'</small></span>';
+      b.onclick=()=>{
+        doneSteps[key][k]=!doneSteps[key][k];
+        const total=doneSteps[key].filter(Boolean).length;
+        say(doneSteps[key][k]
+          ? 'Step '+(k+1)+' marked done. '+total+' of '+node.steps.length+' on this branch.'
+          : 'Step '+(k+1)+' unmarked.', doneSteps[key][k]?'ok':null);
+        render();
+      };
+      w.appendChild(b);
+    });
+    if(node.opts){
+      const p=document.createElement('p');
+      p.className='qhint'; p.style.marginTop='10px';
+      p.textContent='Once you know the answer, pick it here:';
+      w.appendChild(p);
+      node.opts.forEach(([label,k])=>{
+        const b=document.createElement('button');
+        b.className='act'; b.type='button';
+        b.innerHTML='<span class="k">'+icon('arrow')+'</span><span>'+label+'</span>';
+        b.onclick=()=>go(k);
+        w.appendChild(b);
+      });
+    }
+    $('dHead').textContent=node.head;
+    $('dText').textContent=node.text;
+    $('dScript').innerHTML = node.script
+      ? '<h3>Say this</h3><div class="script">'+node.script+'</div>' : '';
+    $('dExtra').innerHTML='';
+  }
+  showFigs(node); drawDiagram();
+}
+
+function go(k){
+  if(key) histKeys.push(key);
+  key=k;
+  const node=N[key];
+  say(node.q ? 'One more thing to pin down.' : 'Branch drawn. Work down the steps.', node.q?null:'ok');
+  render();
+  $('detail').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+$('back').onclick=()=>{
+  if(!histKeys.length){ renderStart(); return; }
+  key=histKeys.pop();
+  render();
+  say('Went back one step.',null);
+};
+$('reset').onclick=()=>{ doneSteps={}; renderStart(); say('Pick a reason on the right. Nothing you choose is stored or sent anywhere.',null); };
+
+renderStart();
+</script>
+</div></body></html>

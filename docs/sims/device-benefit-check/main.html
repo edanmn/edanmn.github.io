@@ -1,19 +1,411 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Seizure detection device benefit check</title>
-<style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:18px;color:#232020;background:#fcfcfb;max-width:720px}h2{font-size:20px;margin:0 0 8px}.q{font-size:18px;margin:14px 0}.btn{display:inline-block;margin:6px 8px 6px 0;padding:10px 16px;border:2px solid #b3202c;border-radius:8px;background:#fff;color:#b3202c;font-size:16px;cursor:pointer}.btn:hover{background:#b3202c;color:#fff}.ans{margin-top:14px;padding:16px;background:#fff;border-left:5px solid #1a9850;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.08);line-height:1.5}.maybe{border-left-color:#fdae61}.small{font-size:13px;color:#5d5851;margin-top:12px}ol{margin:8px 0 0 18px}</style></head><body>
-<h2>Could a seizure detection device be covered for my child?</h2><div id="app"></div>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seizure Detection Device Benefit Check</title>
+<style>
+:root{
+  --ink:#1a1a1a; --muted:#5f5f5f; --line:#e3e3e3; --bg:#fff;
+  --red:#b3202c; --green:#1a7f37; --amber:#b26a00; --navy:#16244e; --purple:#5b2d90;
+  --panel:#faf8f6;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);
+     background:var(--bg);line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding:14px}
+h1{font-size:1.25rem;margin:0 0 2px}
+.sub{color:var(--muted);font-size:.9rem;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px}
+@media(max-width:820px){.grid{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--bg)}
+.scene{background:var(--panel);border-radius:12px;padding:8px;position:relative}
+svg{width:100%;height:auto;display:block}
+h2{font-size:1rem;margin:0 0 8px}
+h3{font-size:.95rem;margin:14px 0 4px}
+.brief{font-size:.92rem;background:#eef3fb;border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.brief b{color:var(--navy)}
+.q{font-size:1.05rem;font-weight:600;margin:4px 0 2px}
+.qhint{font-size:.86rem;color:var(--muted);margin:0 0 10px}
+.step{font-size:.78rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:6px}
+@media(max-width:520px){.actions{grid-template-columns:1fr}}
+button{font:inherit}
+.act{display:flex;align-items:center;gap:8px;text-align:left;padding:10px 12px;border:1.5px solid #ccc;
+     border-radius:10px;background:#fff;cursor:pointer;transition:.12s}
+.act:hover:not(:disabled){border-color:var(--purple);background:#f7f3fb}
+.act:disabled{opacity:.55;cursor:default}
+.act .k{display:inline-flex;color:var(--purple);flex:0 0 auto}
+.act small{display:block;color:var(--muted);font-size:.76rem}
+.primary{background:var(--red);color:#fff;border:none;padding:11px 18px;border-radius:9px;cursor:pointer;font-weight:600}
+.ghost{background:#fff;border:1.5px solid #bbb;padding:10px 16px;border-radius:9px;cursor:pointer;
+       display:inline-block;text-decoration:none;color:var(--ink)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.feed{margin-top:10px;font-size:.92rem;min-height:2.6em;border-left:3px solid var(--purple);padding:6px 10px;background:var(--panel);border-radius:0 8px 8px 0}
+.feed.ok{border-color:var(--green)} .feed.no{border-color:var(--red)} .feed.warn{border-color:var(--amber)}
+.tag{font-size:.75rem;padding:1px 7px;border-radius:999px;white-space:nowrap}
+.tag.y{background:#eaf6ec;color:var(--green)} .tag.n{background:#fdecec;color:var(--red)}
+.tag.o{background:#fff4e5;color:var(--amber)}
+.note{font-size:.82rem;color:var(--muted);margin-top:10px}
+.src{font-size:.75rem;color:var(--muted);margin:4px 0 0}
+.fact{background:var(--panel);border-radius:10px;padding:10px 12px;font-size:.88rem;margin-top:10px}
+.fact b{display:block;font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+.script{background:#f7f3fb;border-left:3px solid var(--purple);border-radius:0 8px 8px 0;
+        padding:8px 11px;font-size:.92rem;margin:6px 0}
+.report:focus{outline:2px solid var(--purple);outline-offset:3px}
+.report{display:none}
+.report.show{display:block}
+ul,ol{margin:6px 0 0;padding-left:19px;font-size:.92rem}
+li{margin-bottom:3px}
+a{color:var(--red)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--purple);outline-offset:2px}
+/* diagram */
+.nd rect{fill:#fff;stroke:#c8c8c8;stroke-width:1.5}
+.nd .lb{font-size:12px;fill:#5f5f5f;font-weight:600;letter-spacing:.03em}
+.nd .tx{font-size:13.5px;fill:#1a1a1a}
+.nd .mk{display:none}
+.nd.on rect{fill:#eaf6ec;stroke:#1a7f37}
+.nd.on .mk.check{display:block}
+.nd.flag rect{fill:#fff4e5;stroke:#b26a00}
+.nd.flag .mk.bang{display:block}
+.nd.cur rect{fill:#f7f3fb;stroke:#5b2d90;stroke-width:2.5}
+.nd.off{opacity:.28}
+.ln{stroke:#c8c8c8;stroke-width:2;fill:none}
+.ln.on{stroke:#1a7f37} .ln.flag{stroke:#b26a00} .ln.off{opacity:.25}
+.side{opacity:.25}
+.side.shown{opacity:1}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style></head>
+<body><div class="wrap">
+
+<h1>Could Medical Assistance pay for a seizure detection device?</h1>
+<p class="sub">Four questions, drawn as a path. Minnesota has covered FDA-cleared seizure detection devices under Medical Assistance since January 1, 2024, and most families who qualify have never been told.</p>
+
+<div class="grid">
+  <div>
+    <div class="card">
+      <div class="brief" id="brief"><b>Start at the top.</b> Each answer fills in one box on the path. Nothing you type is stored, and nothing here decides coverage.</div>
+
+      <div class="scene">
+        <svg viewBox="0 0 560 386" role="img" aria-labelledby="diagTitle diagDesc">
+          <title id="diagTitle">Coverage path for a seizure detection device</title>
+          <desc id="diagDesc">Four boxes down the left, one under the other: coverage, seizure type, reason on the record, and the five-year clock. A fifth box at the bottom is the plan decision. Each box on the right is the other route to try if an answer is no.</desc>
+          <rect x="0" y="0" width="560" height="386" fill="#faf8f6"/>
+
+          <path class="ln" id="l1" d="M112 62 L112 88"/>
+          <path class="ln" id="l2" d="M112 134 L112 160"/>
+          <path class="ln" id="l3" d="M112 206 L112 232"/>
+          <path class="ln" id="l4" d="M112 278 L112 304"/>
+
+          <path class="ln" id="s1" d="M208 36 L300 36"/>
+          <path class="ln" id="s2" d="M208 108 L300 108"/>
+          <path class="ln" id="s3" d="M208 180 L300 180"/>
+          <path class="ln" id="s4" d="M208 252 L300 252"/>
+
+          <g class="nd" id="n1">
+            <rect x="16" y="14" width="192" height="48" rx="9"/>
+            <text class="lb" x="30" y="32">STEP 1</text>
+            <text class="tx" x="30" y="50">On MA or MinnesotaCare</text>
+            <path class="mk check" d="M182 30 l5 6 l10 -12" stroke="#1a7f37" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <path class="mk bang" d="M190 26 v8 M190 39 v.5" stroke="#b26a00" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </g>
+          <g class="nd" id="n2">
+            <rect x="16" y="86" width="192" height="48" rx="9"/>
+            <text class="lb" x="30" y="104">STEP 2</text>
+            <text class="tx" x="30" y="122">Convulsive seizures</text>
+            <path class="mk check" d="M182 102 l5 6 l10 -12" stroke="#1a7f37" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <path class="mk bang" d="M190 98 v8 M190 111 v.5" stroke="#b26a00" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </g>
+          <g class="nd" id="n3">
+            <rect x="16" y="158" width="192" height="48" rx="9"/>
+            <text class="lb" x="30" y="176">STEP 3</text>
+            <text class="tx" x="30" y="194">A reason in the chart</text>
+            <path class="mk check" d="M182 174 l5 6 l10 -12" stroke="#1a7f37" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <path class="mk bang" d="M190 170 v8 M190 183 v.5" stroke="#b26a00" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </g>
+          <g class="nd" id="n4">
+            <rect x="16" y="230" width="192" height="48" rx="9"/>
+            <text class="lb" x="30" y="248">STEP 4</text>
+            <text class="tx" x="30" y="266">Five-year clock</text>
+            <path class="mk check" d="M182 246 l5 6 l10 -12" stroke="#1a7f37" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <path class="mk bang" d="M190 242 v8 M190 255 v.5" stroke="#b26a00" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </g>
+          <g class="nd" id="n5">
+            <rect x="16" y="302" width="280" height="62" rx="9"/>
+            <text class="lb" x="30" y="322">LAST STEP, AND NOT YOURS</text>
+            <text class="tx" x="30" y="340">Prescriber writes the order.</text>
+            <text class="tx" x="30" y="356">The plan decides.</text>
+            <path class="mk check" d="M268 318 l5 6 l10 -12" stroke="#1a7f37" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+            <path class="mk bang" d="M276 314 v8 M276 327 v.5" stroke="#b26a00" stroke-width="2.6" fill="none" stroke-linecap="round"/>
+          </g>
+
+          <g class="side" id="b1">
+            <rect x="300" y="14" width="244" height="48" rx="9" fill="#fff" stroke="#b26a00" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <text class="tx" x="313" y="34" font-size="13" fill="#1a1a1a">Other route: MA-TEFRA, or your</text>
+            <text class="tx" x="313" y="51" font-size="13" fill="#1a1a1a">plan's own equipment policy</text>
+          </g>
+          <g class="side" id="b2">
+            <rect x="300" y="86" width="244" height="48" rx="9" fill="#fff" stroke="#b26a00" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <text class="tx" x="313" y="106" font-size="13" fill="#1a1a1a">A wrist device may not sense</text>
+            <text class="tx" x="313" y="123" font-size="13" fill="#1a1a1a">this kind of seizure at all</text>
+          </g>
+          <g class="side" id="b3">
+            <rect x="300" y="158" width="244" height="48" rx="9" fill="#fff" stroke="#b26a00" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <text class="tx" x="313" y="178" font-size="13" fill="#1a1a1a">Ask if seizure counts would</text>
+            <text class="tx" x="313" y="195" font-size="13" fill="#1a1a1a">change the treatment plan</text>
+          </g>
+          <g class="side" id="b4">
+            <rect x="300" y="230" width="244" height="48" rx="9" fill="#fff" stroke="#b26a00" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <text class="tx" x="313" y="250" font-size="13" fill="#1a1a1a">Repair, warranty replacement,</text>
+            <text class="tx" x="313" y="267" font-size="13" fill="#1a1a1a">or an exception request</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="fact">
+        <b>One device every five years</b>
+        Minnesota Medical Assistance and MinnesotaCare have covered FDA-cleared seizure detection devices as durable medical equipment since January 1, 2024. Minnesota was the first state to write this into law.
+        <p class="src">Source: Minn. Stat. 256B.0625 subd. 31; DHS MHCP Provider Manual, Equipment and Supplies, Seizure Detection Devices.</p>
+      </div>
+
+      <div class="feed" id="feed" aria-live="polite">Answer the first question on the right. You can change an answer with the back button.</div>
+    </div>
+
+  </div>
+
+  <div>
+    <div class="card">
+      <span class="step" id="stepLabel">Question 1 of 4</span>
+      <p class="q" id="qText">Is the person covered by Minnesota Medical Assistance or MinnesotaCare?</p>
+      <p class="qhint" id="qHint">Medical Assistance is Minnesota's Medicaid program. The card in your wallet or the clinic's billing desk will tell you.</p>
+      <div class="actions" id="acts" role="group" aria-label="Answer"></div>
+      <div class="row">
+        <button class="ghost" id="back" disabled>Back</button>
+        <button class="ghost" id="reset">Start over</button>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h2>What these devices do</h2>
+      <ul style="font-size:.88rem">
+        <li>A wristband or bed sensor picks up the movement and skin changes of a convulsive seizure and sends an alert to a caregiver's phone.</li>
+        <li>Some also log seizure counts the neurologist can use to change treatment.</li>
+        <li>They do not detect absence seizures, most focal seizures, or any seizure without shaking.</li>
+        <li>An alert brings a person to the bedside faster. That is the whole claim, and it is a real one.</li>
+      </ul>
+      <p class="note">The cleared devices today are wrist-worn, and clearances carry age limits. EmbracePlus is cleared for ages 6 and up. Ask the clinic which are current.</p>
+    </div>
+  </div>
+</div>
+
+    <div class="card report" id="report" tabindex="-1" style="margin:14px 0">
+      <h2 id="verdictHead">Result</h2>
+      <p id="verdict" style="font-size:.95rem;margin:0"></p>
+      <div id="flagBox"></div>
+
+      <h3>What to ask the neurologist or the epilepsy clinic</h3>
+      <p style="font-size:.9rem;margin:0 0 4px">Say it in one sentence, at the next visit or through the clinic's message portal.</p>
+      <div class="script" id="askScript"></div>
+      <p style="font-size:.9rem;margin:6px 0 0">The order has to come from a licensed provider. A family cannot start this request alone, and a supplier cannot start it either.</p>
+
+      <h3>What usually has to be in the file</h3>
+      <ul id="docs">
+        <li>A written order from the prescriber for an FDA-cleared seizure detection device.</li>
+        <li>Chart notes showing active epilepsy and convulsive seizures, with how often they happen and when.</li>
+        <li>A sentence from the provider giving the reason the law asks for: the device is likely to reduce bodily harm or death from convulsive seizures, or it will give the provider data needed to diagnose or treat what is causing them.</li>
+        <li>The detail that usually carries the request: whether the seizures come at night, or when the person is alone, or with no warning.</li>
+        <li>A supplier enrolled with Minnesota Health Care Programs to bill it.</li>
+        <li>Prior authorization paperwork if the plan asks for it. The clinic or the supplier files this, not the family.</li>
+      </ul>
+
+      <h3>If it comes back denied</h3>
+      <ul>
+        <li>Read the denial notice before anything else. It gives the reason, the deadline to appeal, and where to send the appeal.</li>
+        <li>If the coverage runs through an MA managed care plan, that plan has its own appeal step first. The notice says how to start it.</li>
+        <li>Medical Assistance members can also ask the Minnesota Department of Human Services for a state appeal, which is a hearing in front of a human appeals referee. The notice carries the form and the date it is due.</li>
+        <li>Ask the clinic social worker to help. A denial for missing documentation is often fixed by one added letter of medical necessity, not by a hearing.</li>
+        <li>The Epilepsy Foundation of Minnesota, 651-287-2300, will help read a denial letter. The DHS Member Help Desk is 651-431-2670 or 800-657-3739.</li>
+      </ul>
+
+      <h3>What we do not know</h3>
+      <ul>
+        <li>How many Minnesota families have actually received a device under this benefit. We asked DHS for claim counts and have not received them, so we cannot say whether the law is reaching people or sitting unused.</li>
+        <li>Which specific models a given plan will approve. Ask the clinic which devices are current; FDA clearances change.</li>
+        <li>Whether a device would help in any one person's case. No device has been proven to prevent Sudden Unexpected Death in Epilepsy. Better seizure control and supervision at night lower the risk, and a device supports supervision rather than replacing it.</li>
+      </ul>
+
+      <div class="row">
+        <button class="primary" id="again">Start over</button>
+        <a class="ghost" href="https://www.epilepsyfoundationmn.org/">Epilepsy Foundation of Minnesota</a>
+      </div>
+    </div>
+
+<p class="note">This is a learning tool. It is not medical advice, not legal advice, and not an insurance decision. It cannot approve or deny anything. Only the health plan decides coverage, and only the prescriber decides whether a device fits a particular person.</p>
+
 <script>
-const S=[
-{q:"Is the person covered by Minnesota Medical Assistance (Medicaid) or MinnesotaCare?",y:1,n:"noma"},
-{q:"Do they have a diagnosis of epilepsy with convulsive (tonic-clonic) seizures?",y:2,n:"nonconv"},
-{q:"Do seizures happen at night, when alone, or without warning, so that a faster alert would reduce the chance of injury?",y:3,n:"data"},
-{q:"Have they received a covered seizure detection device in the last five years?",y:"five",n:"yes"}];
-const R={
-yes:{c:"",t:"<strong>This fits the coverage criteria.</strong> Since January 1, 2024, Minnesota Medical Assistance covers one FDA-cleared seizure detection device every five years for a member with convulsive seizures and active epilepsy when a provider documents that it is likely to reduce harm or provide data for treatment (Minn. Stat. 256B.0625, subd. 31). Next steps:<ol><li>Ask the neurologist or epilepsy clinic: \"Would a seizure detection device help, and will you write the order?\"</li><li>The clinic or a DHS-enrolled equipment supplier submits it, with prior authorization if the plan requires it.</li><li>If denied, appeal. The Epilepsy Foundation of Minnesota (651-287-2300) can help.</li><li>Tell the school nurse it exists so it goes in the seizure action plan.</li></ol>"},
-data:{c:"maybe",t:"<strong>Possibly.</strong> The benefit also covers a device that gives the provider data needed to diagnose or treat the seizures, even when injury risk is lower. Ask the neurologist whether seizure-count data would change treatment. If so, they can document that as the reason."},
-nonconv:{c:"maybe",t:"<strong>Probably not under this benefit, and the device may not help.</strong> Wrist devices detect convulsive seizures by movement and skin changes. They do not detect absence seizures or most focal seizures. Ask the neurologist what monitoring, if any, fits this seizure type."},
-five:{c:"maybe",t:"<strong>Coverage is one device every five years.</strong> If the current device is broken or outgrown, ask the supplier about repair or replacement under warranty, and ask the clinic whether an exception request is possible."},
-noma:{c:"maybe",t:"<strong>Not through Medical Assistance today, but two doors are open.</strong> A child with a certified disability may qualify for MA through TEFRA regardless of parents' income; ask your county human services office. Many employer plans cover devices with a letter of medical necessity; ask the clinic to write one and ask the plan for its durable medical equipment policy in writing."}};
-const app=document.getElementById('app');function step(i){const s=S[i];app.innerHTML=`<div class="q">${i+1}. ${s.q}</div><span class="btn" onclick="ans(${i},true)">Yes</span><span class="btn" onclick="ans(${i},false)">No</span><span class="btn" onclick="ans(${i},null)">Not sure</span>${foot()}`;}
-function ans(i,v){const s=S[i];const nx=v===true?s.y:(v===false?s.n:(typeof s.y==='number'?s.y:'yes'));typeof nx==='number'?step(nx):done(nx);}
-function done(k){const r=R[k];app.innerHTML=`<div class="ans ${r.c}">${r.t}</div><span class="btn" style="margin-top:14px" onclick="step(0)">Start over</span>${foot()}`;}
-function foot(){return `<div class="small">A learning tool, not medical advice or a coverage decision. Only the plan decides coverage; only the neurologist decides whether a device fits. No device has been proven to prevent SUDEP; good seizure control and nighttime supervision lower risk, and a device supports supervision.</div>`;}step(0);</script></body></html>
+const $=id=>document.getElementById(id);
+
+const Q=[
+ {id:'ma', node:1, side:'b1', line:'s1',
+  q:"Is the person covered by Minnesota Medical Assistance or MinnesotaCare?",
+  hint:"Medical Assistance is Minnesota's Medicaid program. The card in your wallet or the clinic's billing desk will tell you.",
+  yes:"Good. That is the coverage the 2024 benefit sits in.",
+  no:'noma'},
+ {id:'conv', node:2, side:'b2', line:'s2',
+  q:"Does the person have active epilepsy with convulsive seizures?",
+  hint:"Convulsive means tonic-clonic: stiffening and then rhythmic jerking. If you are unsure which type they have, the clinic note will name it.",
+  yes:"That is the seizure type these devices are built to sense.",
+  no:'nonconv'},
+ {id:'reason', node:3, side:'b3', line:'s3',
+  q:"Would an alert reduce the chance of harm, because seizures come at night, or when the person is alone, or with no warning?",
+  hint:"This is the reason the provider has to write down. A second reason also counts: the device gives the provider seizure data needed to diagnose or treat.",
+  yes:"That reason is the heart of the request. It has to be in the provider's own words.",
+  no:'noreason'},
+ {id:'five', node:4, side:'b4', line:'s4',
+  q:"Is this the first seizure detection device for this person, or has it been more than five years since the last covered one?",
+  hint:"The benefit pays for one device every five years.",
+  yes:"The five-year clock is clear.",
+  no:'fiveyear'}
+];
+
+const RESULTS={
+ fits:{head:"This matches the written criteria",
+  cls:'ok',
+  text:"Every criterion in the statute lines up: Medical Assistance coverage, active epilepsy with convulsive seizures, a reason a provider can document, and a clear five-year clock. That is not the same as approval. Matching the criteria is what makes the request worth making, and the plan still reviews it on the provider's documentation.",
+  ask:"“My child has convulsive seizures. Would a seizure detection device help, and will you write the order? Minnesota Medical Assistance has covered these as durable medical equipment since January 2024.”"},
+ noma:{head:"Not through this benefit, but two other doors are open",
+  cls:'warn',
+  text:"The 2024 benefit is written into the Medical Assistance statute, so it does not reach a commercial or employer plan. Two routes remain. MA-TEFRA lets a child with a certified disability qualify for Medical Assistance on the child's own income rather than the parents', which your county human services office can explain. Separately, many private plans do cover devices when the clinic writes a letter of medical necessity, so ask the plan for its durable medical equipment policy in writing.",
+  ask:"“Would a seizure detection device help my child? If it would, will you write a letter of medical necessity I can send to our plan?”"},
+ nonconv:{head:"This benefit probably does not apply, and the device may not help either",
+  cls:'warn',
+  text:"The criteria name convulsive seizures, and the hardware matches that: wrist devices sense movement and skin changes. Absence seizures and most focal seizures produce neither. Before pushing on coverage, ask what the seizure type actually is and whether any monitoring detects it, because a device that cannot sense the seizure is not worth appealing for.",
+  ask:"“What kind of seizures does my child have, and is there any monitoring that would actually detect them?”"},
+ noreason:{head:"There may still be a reason, and it is a clinical one",
+  cls:'warn',
+  text:"The statute gives a second reason beyond reducing harm: a device that provides data the provider needs to diagnose or treat what is causing the seizures. Families often do not know their seizure counts are unreliable until the neurologist says so. If counting the seizures at home would change a dose or a drug, the provider can document that and the request stands on it.",
+  ask:"“Would seizure-count data from a wearable change how you treat this? If it would, can you write that down as the reason?”"},
+ fiveyear:{head:"Coverage is one device every five years",
+  cls:'warn',
+  text:"A second device inside the five-year window is not automatic. Start with the supplier: a device that is broken may be repairable or replaceable under warranty at no cost. If the person has outgrown the device or the model has been discontinued, the clinic can ask the plan for an exception and explain why the current device no longer works.",
+  ask:"“Our device is broken or no longer fits. Can the clinic ask for a repair, a replacement, or an exception to the five-year limit?”"}
+};
+
+let i=0, hist=[], flags=[], done=false;
+
+function cls(id,v){ $(id).setAttribute('class',v); }
+function setNode(n,c){ cls('n'+n,'nd'+(c?' '+c:'')); }
+function resetDiagram(){
+  for(let n=1;n<=5;n++) setNode(n,'');
+  ['l1','l2','l3','l4','s1','s2','s3','s4'].forEach(id=>cls(id,'ln'));
+  ['b1','b2','b3','b4'].forEach(id=>cls(id,'side'));
+}
+function paint(){
+  for(let n=1;n<=5;n++) setNode(n,'');
+  ['l1','l2','l3','l4','s1','s2','s3','s4'].forEach(id=>cls(id,'ln'));
+  ['b1','b2','b3','b4'].forEach(id=>cls(id,'side'));
+  hist.forEach((h,k)=>{
+    const st=Q[k];
+    setNode(st.node, h==='yes'?'on':'flag');
+    if(h==='no'){
+      cls(st.line,'ln flag');
+      cls(st.side,'side shown');
+    } else {
+      if(k<4) cls('l'+(k+1),'ln '+(h==='maybe'?'flag':'on'));
+    }
+  });
+  if(hist.length && hist[hist.length-1]==='no'){
+    for(let n=hist.length+1;n<=5;n++) setNode(n,'off');
+    for(let k=hist.length+1;k<=4;k++) cls('l'+k,'ln off');
+  } else if(!done && i<Q.length){
+    setNode(Q[i].node,'cur');
+  } else if(done){
+    setNode(5,'on');
+  }
+}
+function say(msg,kind){ const f=$('feed'); f.textContent=msg; f.className='feed'+(kind?' '+kind:''); }
+
+const BTN=[
+ {v:'yes',  label:'Yes',      hint:'',                         k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5 9.5 18 20 6"/></svg>'},
+ {v:'no',   label:'No',       hint:'',                         k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6 18 18M18 6 6 18"/></svg>'},
+ {v:'maybe',label:'Not sure', hint:'',      k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 9a3 3 0 1 1 4 2.8c-.7.3-1 .9-1 1.7v.5"/><path d="M12 17.5v.5"/><circle cx="12" cy="12" r="9.5"/></svg>'}
+];
+
+function drawQ(){
+  const s=Q[i];
+  $('stepLabel').textContent='Question '+(i+1)+' of '+Q.length;
+  $('qText').textContent=s.q;
+  $('qHint').textContent=s.hint;
+  const wrap=$('acts'); wrap.innerHTML='';
+  BTN.forEach(b=>{
+    const el=document.createElement('button');
+    el.className='act'; el.type='button';
+    el.innerHTML='<span class="k">'+b.k+'</span><span>'+b.label+(b.hint?'<small>'+b.hint+'</small>':'')+'</span>';
+    el.onclick=()=>answer(b.v);
+    wrap.appendChild(el);
+  });
+  $('back').disabled = hist.length===0;
+  $('report').className='report';
+  paint();
+}
+
+function answer(v){
+  const s=Q[i];
+  hist.push(v);
+  if(v==='no'){ finish(s.no); return; }
+  if(v==='maybe'){ flags.push(s.id); say("Noted as unconfirmed. The clinic can check this one; keep going.",'warn'); }
+  else { say(s.yes,'ok'); }
+  i++;
+  if(i>=Q.length) finish('fits');
+  else drawQ();
+}
+
+const FLAGTEXT={
+ ma:"whether the coverage really is Medical Assistance or MinnesotaCare, which the clinic's billing desk can read off the card",
+ conv:"what type of seizures the clinic has on record, since the criteria name convulsive seizures",
+ reason:"whether the neurologist would document the reason as reducing harm, or as needing the data",
+ five:"whether Medical Assistance has paid for a device for this person in the last five years"
+};
+
+function finish(key){
+  done=true;
+  const r=RESULTS[key];
+  $('verdictHead').textContent=r.head;
+  $('verdict').textContent=r.text;
+  $('askScript').textContent=r.ask;
+  if(flags.length){
+    $('flagBox').innerHTML='<p style="font-size:.9rem;margin:10px 0 0"><span class="tag o">check first</span> You marked '+flags.length+
+      (flags.length===1?' answer':' answers')+' as not sure. Before the appointment, find out '+
+      flags.map(f=>FLAGTEXT[f]).join('; and ')+'.</p>';
+  } else { $('flagBox').innerHTML=''; }
+  $('acts').innerHTML='';
+  $('stepLabel').textContent='Done';
+  $('qText').textContent='You have an answer below.';
+  $('qHint').textContent='Read what it means, then take the one-sentence question to the clinic. Use back to change an answer.';
+  $('report').className='report show';
+  paint();
+  say("The path is filled in. The result is under the diagram.", r.cls==='ok'?'ok':'warn');
+  $('report').scrollIntoView({behavior:'smooth',block:'nearest'});
+  $('report').focus({preventScroll:true});
+}
+
+function back(){
+  if(!hist.length) return;
+  hist.pop();
+  if(done){ done=false; i=hist.length; }
+  else i=Math.max(0,i-1);
+  flags=flags.filter((f,idx)=>Q.findIndex(q=>q.id===f)<i);
+  $('report').className='report';
+  drawQ();
+  say("Answer changed. Pick again.",null);
+}
+function reset(){
+  i=0; hist=[]; flags=[]; done=false;
+  resetDiagram(); drawQ();
+  say("Answer the first question on the right. You can change an answer with the back button.",null);
+}
+
+$('back').onclick=back;
+$('reset').onclick=reset;
+$('again').onclick=()=>{reset();$('qText').scrollIntoView({behavior:'smooth',block:'nearest'});};
+reset();
+</script>
+</div></body></html>
