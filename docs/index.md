@@ -72,8 +72,6 @@ they help most. Then we count the people whose lives changed. Everything here is
 
 [Read the full initiatives page](initiatives/index.md), including how we measure impact.
 
-Every dataset behind this work is free to download on [the data page](data/index.md).
-
 ## Who this is for
 - **Families** of children with epilepsy: your child's rights, everyday safety, support, and how
   to ask a school for a plan.

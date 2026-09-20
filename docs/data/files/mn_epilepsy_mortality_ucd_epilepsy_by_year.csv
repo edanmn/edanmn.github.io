@@ -1,9 +1,0 @@
-group,deaths,population,crude_rate_per_100k,ci_95,codes_applied,query_criteria
-2018,60,"5,611,179",1.1,0.8 - 1.4,True,Query Criteria: States: Minnesota (27) UCD - ICD-10 Codes: G40.0 (Localization-related (focal)(partial) idiopathic epilepsy and epileptic syndromes with seizures of localized onset); G40.1 (Localization-related (focal)(partial) symptomatic epilepsy and epileptic syndromes with simple partial seizures); G40.2 (Localization-related (focal)(partial) symptomatic epilepsy and epileptic syndromes with complex partial seizures); G40.3 (Generalized idiopathic epilepsy and epileptic syndromes); G40.4 (Ot
-2019,55,"5,639,632",1.0,0.7 - 1.3,,
-2020,62,"5,657,342",1.1,0.8 - 1.4,,
-2021,65,"5,707,390",1.1,0.9 - 1.5,,
-2022,55,"5,717,184",1.0,0.7 - 1.3,,
-2023,63,"5,737,915",1.1,0.8 - 1.4,,
-2024,55,"5,793,151",0.9,0.7 - 1.2,,
-Total,415,"39,863,793",1.0,0.9 - 1.1,,
