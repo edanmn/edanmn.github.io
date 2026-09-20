@@ -98,26 +98,9 @@ neurologist can decide.
 
 [Open full screen](../sims/device-benefit-check/main.html){ .md-button }
 
-## Myth or fact
-??? quiz "1. SUDEP is common."
-    Myth. About 1 in 1,000 adults with epilepsy per year, and about 1 in 4,500 children. It
-    is rare, and rarer still when seizures are controlled.
-
-??? quiz "2. A seizure alert watch prevents SUDEP."
-    Myth. No device has been proven to prevent it. Devices detect convulsive seizures and
-    bring a caregiver faster, which supports nighttime supervision, a recognized risk reducer.
-
-??? quiz "3. Minnesota counts SUDEP deaths."
-    Myth, for now. SUDEP has no diagnostic code and Minnesota has no reporting rule, so the
-    number is unknown. Illinois, New Jersey, and North Carolina require examiners to report it.
-
-??? quiz "4. Taking medication as prescribed lowers the risk."
-    Fact. Uncontrolled generalized tonic-clonic seizures are the main risk factor; adherence
-    and good seizure control are the most consistent protective steps.
-
 ## Talking about SUDEP
 A calm explanation for families is in [Resources & Support](../resources/index.md).
 
 !!! note
-    Ask your neurologist about your own or your child's risk. Most people with epilepsy have
-    a low risk, and it is lower still when seizures are controlled.
+    Questions about your own or your child's risk belong with your neurologist. This page
+    publishes what the public data shows and what Minnesota does not currently record.
