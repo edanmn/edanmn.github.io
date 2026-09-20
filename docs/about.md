@@ -48,9 +48,12 @@ Our measure for 2026-27 is at least twenty people with epilepsy whose situation 
 document changing because of this work.
 
 ## Who we are
-EDAN was founded by Rishik Kondadadi, a junior at Eastview High School in Apple Valley, and is
-run by students. Aaryav Sharma, a sophomore at Eastview, is part of the team. We are
-non-commercial, and everything we produce is free to use and adapt.
+EDAN is run by students. We are non-commercial, and everything we produce is free to use and
+adapt.
+
+- Rishik Kondadadi, founder. Junior at Eastview High School, Apple Valley.
+- Aaryav Sharma, sophomore at Eastview High School.
+- Rikhil Kondadadi, eighth grader at Scott Highlands Middle School.
 
 ## Get involved or get in touch
 - Families and schools: see [How to Help](chapters/06-how-to-help/index.md).
