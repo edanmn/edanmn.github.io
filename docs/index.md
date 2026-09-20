@@ -11,6 +11,13 @@ families. Student-led, free, and open.*
 Someone having a seizure right now? [What to do, in four steps](now/index.md)
 </div>
 
+<div class="start-row" markdown>
+New to this? Start where you are:
+[I was just diagnosed](start/adult/index.md) &middot;
+[My child was just diagnosed](start/parent/index.md) &middot;
+[I am a teenager with epilepsy](start/teen/index.md)
+</div>
+
 !!! tip "For school districts: the free Seizure-Safe Schools packet"
     Everything a district needs to meet Minnesota's seizure-safety law (Minn. Stat. 121A.24)
     in one 7-page PDF: a seizure action plan template, drop-in Policy 516 language, a
