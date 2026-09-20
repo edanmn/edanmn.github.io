@@ -68,7 +68,6 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - 'Seizure happening now': now/index.md
   - About EDAN: about.md
   - 'Initiatives':
     - 'Overview': initiatives/index.md
