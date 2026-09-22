@@ -22,8 +22,11 @@ The full method, the charts, the county map and the reliability check are in
 - Asking each district one question once staff are back: do you now have a plan on file for
   each student with a seizure disorder and a trained adult at each school? A yes, with a
   count, is how we measure this initiative.
-- Asking the Minnesota School Boards Association to cite 121A.24 in its model medication
-  policy, the one most small districts adopt word for word. Today it does not.
+- Asking the Minnesota School Boards Association to cite 121A.24 in its model policy, the
+  one most small districts adopt word for word. Today it does not. MSBA's general counsel
+  replied in September 2026 that the association is deciding whether the language belongs in
+  the medication policy or the crisis-management policy that already covers cardiac response
+  plans, and is consulting the Department of Health. No date is set.
 - Adding a language layer: 25 no-plan districts have ten percent or more English learners,
   about 15,000 students. They get the Spanish, Hmong, and Somali templates first.
 - Re-auditing all 329 districts in spring 2027 and publishing the before-and-after map.
