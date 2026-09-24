@@ -31,7 +31,9 @@
 
     var blocks = Array.prototype.slice.call(root.children).filter(function (el) {
       var tag = el.tagName;
-      return tag !== "SCRIPT" && tag !== "STYLE" && tag !== "HR";
+      // Tables are skipped: Material and extra.css style tables only via
+      // table:not([class]), so adding any class strips their styling.
+      return tag !== "SCRIPT" && tag !== "STYLE" && tag !== "HR" && tag !== "TABLE";
     });
 
     if (prefersReduced || !("IntersectionObserver" in window)) {
@@ -67,8 +69,7 @@
   function initSpotlight() {
     var cards = document.querySelectorAll(
       ".md-content .md-typeset .admonition, " +
-        ".md-content .md-typeset details, " +
-        ".md-content .md-typeset table:not([class])"
+        ".md-content .md-typeset details"
     );
     cards.forEach(function (card) {
       card.classList.add("rb-spot");

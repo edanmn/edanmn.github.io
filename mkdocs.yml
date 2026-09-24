@@ -60,7 +60,7 @@ extra_css:
   - css/extra.css?v=2026-09-20b
 
 extra_javascript:
-  - js/reactbits.js
+  - js/reactbits.js?v=2026-09-24
 
 nav:
   - Home: index.md

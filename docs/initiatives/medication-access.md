@@ -96,15 +96,17 @@ market, so the true number of people affected is larger. MDH did not count how m
 people went over $25 in a year, only how many months did.
 
 | | 2021 | 2022 | 2023 | 2024 |
-|---|---|---|---|---|
-| Commercial members with an epilepsy or seizure diagnosis | 6,964 | 7,156 | 6,691 | 6,401 |
+|---|---:|---:|---:|---:|
+| Members with an epilepsy diagnosis | 6,964 | 7,156 | 6,691 | 6,401 |
 | Filled a seizure prescription | 4,630 | 4,749 | 4,434 | 4,341 |
-| Months with a fill where the patient paid over $25 per 30-day supply | 14.6% | 13.7% | 13.4% | 12.0% |
-| Patient cost sharing | $1,208,891 | $1,176,378 | $998,047 | $984,603 |
-| Of that, the amount above $25 per 30-day supply | $536,892 | $508,739 | $396,499 | $385,732 |
+| Months over $25 per 30-day supply | 14.6% | 13.7% | 13.4% | 12.0% |
+| Patient cost sharing | $1.21M | $1.18M | $998K | $985K |
+| Amount above $25 | $537K | $509K | $396K | $386K |
 
 *Minnesota Department of Health, Health Economics Program, MN APCD Extract 29. Commercial members
-with 12 months of medical and pharmacy coverage. Self-insured (ERISA) plans are not included.*
+with 12 months of medical and pharmacy coverage and an epilepsy or seizure diagnosis. "Months
+over $25" is the share of months with a fill in which the patient paid more than $25 per 30-day
+supply. Self-insured (ERISA) plans are not included.*
 
 Sources: Minnesota Department of Health (All Payer Claims Database and prescription drug price
 transparency reports); CMS National Average Drug Acquisition Cost; FDA Orange Book; 2026 plan
