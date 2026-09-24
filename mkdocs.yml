@@ -3,9 +3,6 @@ site_description: "Epilepsy data that nobody else has assembled. We find public 
 site_author: Rishik Kondadadi, Epilepsy Data & Advocacy Network (EDAN)
 # Set these two when you create the GitHub repo:
 site_url: https://edanmn.github.io/
-repo_url: https://github.com/edanmn/edanmn.github.io
-repo_name: edanmn/edanmn.github.io
-edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -35,7 +32,6 @@ theme:
     - navigation.footer
     - search.highlight
     - search.suggest
-    - content.action.edit
     - content.tooltips
     - toc.follow
 
