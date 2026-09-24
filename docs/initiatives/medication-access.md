@@ -85,7 +85,29 @@ $44.71 a month in 2027, with $17.35 of that above the $25 line, and prices the c
 per member per month. Both bills died with this legislature and would need to be reintroduced
 in 2027.
 
-Sources and methods: `data/mn_apcd_rx_asm_summary.md`, `data/nadac_asm_summary.md`,
+The Minnesota Department of Health ran the claims counts behind that estimate and shared them
+with EDAN in September 2026. In 2024, 4,341 commercially insured Minnesotans with epilepsy
+filled a seizure prescription. In 12 percent of the months they filled one, they paid more than
+$25 per 30-day supply, by $55 on average. What they paid above $25 came to $385,732 that year.
+Both measures have fallen since 2021, when 14.6 percent of months went over and the overage came
+to $536,892. These counts come from the Minnesota All Payer Claims Database, which does not
+receive claims from self-insured employer plans and holds about 40 percent of the commercial
+market, so the true number of people affected is larger. MDH did not count how many different
+people went over $25 in a year, only how many months did.
+
+| | 2021 | 2022 | 2023 | 2024 |
+|---|---|---|---|---|
+| Commercial members with an epilepsy or seizure diagnosis | 6,964 | 7,156 | 6,691 | 6,401 |
+| Filled a seizure prescription | 4,630 | 4,749 | 4,434 | 4,341 |
+| Months with a fill where the patient paid over $25 per 30-day supply | 14.6% | 13.7% | 13.4% | 12.0% |
+| Patient cost sharing | $1,208,891 | $1,176,378 | $998,047 | $984,603 |
+| Of that, the amount above $25 per 30-day supply | $536,892 | $508,739 | $396,499 | $385,732 |
+
+*Minnesota Department of Health, Health Economics Program, MN APCD Extract 29. Commercial members
+with 12 months of medical and pharmacy coverage. Self-insured (ERISA) plans are not included.*
+
+Sources and methods: `data/mdh_apcd_epilepsy_cost_sharing_summary.md`,
+`data/mn_apcd_rx_asm_summary.md`, `data/nadac_asm_summary.md`,
 `data/mn_brandonly_asm_summary.md`, `data/mn_plan_cost_sharing_summary.md` and
 `data/mn_rx_price_transparency_summary.md` in our public repository.
 

@@ -254,7 +254,10 @@ The Department of Commerce priced the change. Using Minnesota claims from 2021 t
 projected epilepsy cost sharing of $44.71 per member per month in 2027, of which $17.35 sits
 above the $25 line, and put the cost of the mandate at four cents per member per month
 ([Evaluation of Cost-Sharing Limitations for Epilepsy Medications and Supplies, February 11,
-2026](https://www.lrl.mn.gov/docs/2026/mandated/260390.pdf)).
+2026](https://www.lrl.mn.gov/docs/2026/mandated/260390.pdf)). The Minnesota Department of
+Health counts behind that estimate show that in 2024, commercially insured Minnesotans with
+epilepsy paid $385,732 above the $25 line, in a database that covers about 40 percent of the
+commercial market.
 
 ## What we could not confirm
 
@@ -270,8 +273,10 @@ above the $25 line, and put the cost of the mandate at four cents per member per
 - Whether commercial plans in Minnesota must offer the same 72-hour emergency supply that
   Minnesota Health Care Programs does. We found the rule for the state programs and the
   pharmacist refill law, and nothing that binds commercial plans.
-- Out-of-pocket figures more recent than 2022. That is the last year MDH has published in the
-  All Payer Claims Database public use files.
+- Out-of-pocket figures by drug for any year after 2022. That is the last year MDH has published
+  in the All Payer Claims Database public use files. MDH did share its 2021 to 2024 totals for
+  all seizure drugs combined, which are on our
+  [Medication Access](../../initiatives/medication-access.md) page.
 
 ---
 *Sources: [Minn. Stat. 256B.055](https://www.revisor.mn.gov/statutes/cite/256B.055),
@@ -302,7 +307,9 @@ Social Security Administration [SSI eligibility](https://www.ssa.gov/ssi/eligibi
 [Benefits for Children with Disabilities](https://www.ssa.gov/pubs/EN-05-10026.pdf);
 [NeedyMeds](https://www.needymeds.org/); [MNsure](https://www.mnsure.org/).
 Cost figures are EDAN's own, from `data/nadac_asm_30day_cost.csv`,
-`data/mn_brandonly_asm_summary.md` and `data/mn_apcd_rx_asm_summary.md`.
+`data/mn_brandonly_asm_summary.md` and `data/mn_apcd_rx_asm_summary.md`. The 2024 figure above
+$25 is from the Minnesota Department of Health, Health Economics Program, MN APCD Extract 29
+(`data/mdh_apcd_epilepsy_cost_sharing_summary.md`).
 Terms are defined in the [glossary](../../glossary.md). See also
 [Medicines for Epilepsy](../12-medicines-for-epilepsy/index.md) and
 [Resources & Support](../../resources/index.md).*
