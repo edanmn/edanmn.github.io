@@ -106,10 +106,10 @@ people went over $25 in a year, only how many months did.
 *Minnesota Department of Health, Health Economics Program, MN APCD Extract 29. Commercial members
 with 12 months of medical and pharmacy coverage. Self-insured (ERISA) plans are not included.*
 
-Sources and methods: `data/mdh_apcd_epilepsy_cost_sharing_summary.md`,
-`data/mn_apcd_rx_asm_summary.md`, `data/nadac_asm_summary.md`,
-`data/mn_brandonly_asm_summary.md`, `data/mn_plan_cost_sharing_summary.md` and
-`data/mn_rx_price_transparency_summary.md` in our public repository.
+Sources: Minnesota Department of Health (All Payer Claims Database and prescription drug price
+transparency reports); CMS National Average Drug Acquisition Cost; FDA Orange Book; 2026 plan
+benefit summaries and formularies from HealthPartners, Medica, UCare and the State Employee
+Group Insurance Program.
 
 ## Explore: which drugs, and what they cost
 Click a drug name in the legend to show or hide it. The most common drugs are cheap generics.

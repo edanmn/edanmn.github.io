@@ -306,10 +306,9 @@ Social Security Administration [SSI eligibility](https://www.ssa.gov/ssi/eligibi
 [Red Book](https://www.ssa.gov/redbook/eng/overview-disability.htm) and
 [Benefits for Children with Disabilities](https://www.ssa.gov/pubs/EN-05-10026.pdf);
 [NeedyMeds](https://www.needymeds.org/); [MNsure](https://www.mnsure.org/).
-Cost figures are EDAN's own, from `data/nadac_asm_30day_cost.csv`,
-`data/mn_brandonly_asm_summary.md` and `data/mn_apcd_rx_asm_summary.md`. The 2024 figure above
-$25 is from the Minnesota Department of Health, Health Economics Program, MN APCD Extract 29
-(`data/mdh_apcd_epilepsy_cost_sharing_summary.md`).
+Cost figures are EDAN's own analysis of CMS National Average Drug Acquisition Cost, the FDA
+Orange Book and Minnesota Department of Health All Payer Claims Database public use files. The
+2024 figure above $25 is from the Minnesota Department of Health, Health Economics Program.
 Terms are defined in the [glossary](../../glossary.md). See also
 [Medicines for Epilepsy](../12-medicines-for-epilepsy/index.md) and
 [Resources & Support](../../resources/index.md).*

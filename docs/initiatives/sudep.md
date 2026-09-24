@@ -43,8 +43,7 @@ problem. Only 27 of 87 counties had enough epilepsy-specific deaths in seven yea
 report a number at all. Fifty-seven are suppressed as fewer than 10, and three had none
 recorded. Those are
 the same counties with the smallest districts, the longest ambulance runs, and the farthest
-specialists. Source and method:
-`data/mn_epilepsy_mortality_summary.md`.
+specialists. Source: CDC WONDER, Multiple Cause of Death, 2018 to 2024.
 
 ## Where these deaths happen, and how Minnesota compares
 
@@ -75,8 +74,7 @@ states differ.
 
 One caution before reading too much into that gap. A state's rate depends partly on how often
 doctors write epilepsy on a death certificate, which varies. A higher rate may mean more
-deaths, better recording, or both. Source and method:
-`data/mn_epilepsy_mortality_place_summary.md`.
+deaths, better recording, or both. Source: CDC WONDER, Multiple Cause of Death, 2018 to 2024.
 
 ## What we are doing this year
 - A plain-language family guide to the seizure detection device benefit: who qualifies, how
