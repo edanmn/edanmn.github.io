@@ -4,9 +4,9 @@ Status: started September 2026.
 
 ## The gap
 Until 2025, no Minnesota agency was responsible for counting epilepsy. That changed with a
-law carried by the Epilepsy Foundation of Minnesota. Minn. Stat. 145.9231 created a Minnesota
-Epilepsy Program at the Department of Health and requires the commissioner to collect and
-report, every year, the number of diagnoses, clinical outcomes, mortality, and related
+2025 law championed by the Epilepsy Foundation of Minnesota, which created a Minnesota
+Epilepsy Program at the Department of Health. Its data section, Minn. Stat. 145.9231, requires
+the commissioner to collect and report, every year, the number of diagnoses, clinical outcomes, mortality, and related
 population health data, to make deidentified data public, and to identify areas of need.
 
 The program is new. It has not yet published. And the one dataset that shows need at the

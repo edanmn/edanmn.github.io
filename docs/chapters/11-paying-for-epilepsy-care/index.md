@@ -27,6 +27,7 @@ percentage of the federal poverty guidelines, and they differ a lot by group
 
 | Who | Income limit |
 |---|---|
+| Infants under 2 | up to 283% of federal poverty guidelines ([Minn. Stat. 256B.057, subd. 1](https://www.revisor.mn.gov/statutes/cite/256B.057)) |
 | Children under 19 | up to 275% of federal poverty guidelines |
 | Children ages 19 and 20 | up to 133% |
 | Parents and caretaker relatives | up to 133% |
@@ -35,7 +36,7 @@ percentage of the federal poverty guidelines, and they differ a lot by group
 
 Asset limits apply to some groups and not others. The statute sets no asset limit for children
 under 21 or for adults without children, and sets dollar limits for other groups
-([subd. 3](https://www.revisor.mn.gov/statutes/cite/256B.056)). The eligibility categories
+([subd. 3(b) and 3c(c)](https://www.revisor.mn.gov/statutes/cite/256B.056)). The eligibility categories
 themselves, including pregnancy, foster care, and disability, are listed in
 [Minn. Stat. 256B.055](https://www.revisor.mn.gov/statutes/cite/256B.055).
 
@@ -52,7 +53,8 @@ adults without children alike
 Medical Assistance, you are not eligible for MinnesotaCare, so one application sorts you into
 the right one.
 
-Most enrollees pay a monthly premium on a sliding scale set by the commissioner. Two groups pay
+Most enrollees pay a monthly premium on a sliding scale written into state law, which the
+commissioner adjusts. Two groups pay
 nothing: people 20 years old and younger, and people with household income below 35% of the
 federal poverty guidelines. American Indians enrolled in MinnesotaCare have their premiums
 waived ([Minn. Stat. 256L.15](https://www.revisor.mn.gov/statutes/cite/256L.15)).
@@ -89,8 +91,8 @@ These are two different Social Security programs, and people mix them up constan
 
 SSI, Supplemental Security Income, is based on need. It pays people who are 65 or older, blind,
 or have a disability, including children, and who have limited income and resources. It is paid
-out of general tax revenue, not out of anyone's work record. A child can be eligible from birth
-and can stay eligible until 18. If the child is under 18, unmarried, and living at home, Social
+out of general tax revenue, not out of anyone's work record. A child can be eligible from birth,
+and the child rules apply until 18, when adult rules take over. If the child is under 18, unmarried, and living at home, Social
 Security counts part of the parents' income and resources as if they belonged to the child
 ([SSA, who can get SSI](https://www.ssa.gov/ssi/eligibility);
 [SSI for children](https://www.ssa.gov/ssi/text-child-ussi.htm)).
@@ -123,16 +125,23 @@ include at least one business day
 Minnesota also bans prior authorization outright for some things, including emergency services
 ([Minn. Stat. 62M.07, subd. 2](https://www.revisor.mn.gov/statutes/cite/62M.07)).
 
-On Medical Assistance and MinnesotaCare, drug authorizations go to Prime Therapeutics, the
-state's prescription drug authorization agent, and the request comes from your pharmacy or
-prescriber rather than from you
-([DHS drug authorizations](https://www.dhs.state.mn.us/dhs16_156475/)).
+On Medical Assistance and MinnesotaCare, the request comes from your pharmacy or prescriber
+rather than from you. DHS names Prime Therapeutics as the prescription drug authorization agent
+for Minnesota Health Care Programs
+([DHS drug authorizations](https://www.dhs.state.mn.us/dhs16_156475/)). Most members are
+enrolled in a health plan, which may run its own review, so call the number on your plan card
+to find out who handles yours.
 
 ## How to appeal a denial
 
 Appeal. Denials get overturned often enough that not appealing is the expensive choice.
 
-If you have commercial insurance, there are two stages.
+If you have commercial insurance, there are two stages. These Minnesota rules cover plans the
+state regulates. Many large employers pay claims themselves (a self-funded plan), and state
+insurance mandates generally reach only fully insured plans
+([Commerce evaluation, 2026, p. 11](https://www.lrl.mn.gov/docs/2026/mandated/260390.pdf)). Ask
+your employer or read your plan documents to learn which kind you have and which appeal process
+applies.
 
 The first is the plan's own internal appeal. You and your treating clinician both have the right
 to file it. An expedited appeal gets an answer by telephone "no later than 72 hours after
@@ -155,11 +164,20 @@ If your coverage is from an insurance company rather than an HMO, the request go
 Minnesota Department of Commerce
 ([external review appeal](https://mn.gov/commerce-stat/pdfs/external-review-appeal.pdf)).
 
-If you are on Medical Assistance or MinnesotaCare, the route is a state appeal instead. You can
-appeal when an application is denied, when nothing happens in a reasonable time, or when
-coverage is cut, reduced, or ended. Ask for the hearing within 30 days of the written notice, or
-within 90 days if you can show good cause. Assistance ordered in the appeal keeps being paid
-while the case moves up
+If you are on Medical Assistance or MinnesotaCare, the route ends in a state appeal. Most members
+are in a health plan, and federal rules say a plan member appeals to the plan first. You can ask
+for a state fair hearing after the plan upholds its decision, or sooner if the plan misses its
+deadlines. Federal rules give you 90 to 120 days from the plan's decision to ask; the plan's
+letter states your deadline. If the plan is cutting or ending a service you already had approved,
+file within 10 calendar days of the notice to keep it going during the appeal
+([42 CFR 438.402](https://www.ecfr.gov/current/title-42/section-438.402),
+[438.408](https://www.ecfr.gov/current/title-42/section-438.408) and
+[438.420](https://www.ecfr.gov/current/title-42/section-438.420)). Call your plan to start.
+
+For decisions made by the state or county, such as a denied application, nothing happening in a
+reasonable time, or coverage being cut, reduced, or ended, ask for the hearing within 30 days of
+the written notice, or within 90 days if you can show good cause. Assistance ordered in the appeal
+keeps being paid while the case moves up
 ([Minn. Stat. 256.045, subd. 3 and 10](https://www.revisor.mn.gov/statutes/cite/256.045)).
 
 ## The emergency supply, and the words to say
@@ -204,8 +222,8 @@ Two numbers make sense of most pharmacy bills in Minnesota.
 
 The first is the gap between a generic and the brand. Below is the cost to a pharmacy of a
 30-day supply at a common adult dose, from the federal NADAC survey as of September 2026. This
-is what the pharmacy pays, not what you pay, but the ratio carries through to what a plan
-charges.
+is what the pharmacy pays, not what you pay. If your plan charges a percentage of the price
+(coinsurance), the gap passes through to your bill; a flat copay does not scale with price.
 
 | Medicine | Generic, 30 days | Brand, 30 days |
 |---|---|---|
@@ -216,10 +234,11 @@ charges.
 | clobazam / Onfi | $14.84 | $1,794.87 |
 | cenobamate / Xcopri | no generic exists | $1,196.05 |
 
-The second is that some medicines have no cheaper version at all. Six antiseizure medicines have
-no generic anywhere in the United States: Epidiolex, Fintepla, Xcopri, Nayzilam, Ztalmy, and
+The second is that some medicines have no cheaper version at all. Six antiseizure products have
+no generic version in the United States: Epidiolex, Fintepla, Xcopri, Nayzilam, Ztalmy, and
 Diacomit. In Minnesota Medicaid in 2025 they were 1.5% of antiseizure prescriptions and 32% of
-the spending on them. A family whose child needs one of those has nothing to switch to.
+the spending on them, before manufacturer rebates. A family whose child needs one of those has
+nothing to switch to.
 
 Who you are insured by changes the bill more than most people expect. In 2022, Minnesota members
 paid an average of $18.48 out of pocket per antiseizure prescription on a commercial plan,
@@ -232,32 +251,40 @@ published by MDH. The method and the row-level results are in our
 
 ## The $25 cap bill, and where it stands
 
-Two bills in the 2026 session would have capped what a commercially insured Minnesotan pays for
-epilepsy medicine at $25 for a one-month supply.
+Two bills in the 2026 session would have capped what Minnesotans in state-regulated health plans
+pay for epilepsy medicine at $25 for a one-month supply.
 
-Minnesota already does this for three other conditions.
+Minnesota already does this for three other conditions, and has since January 1, 2025.
 [Minn. Stat. 62Q.481](https://www.revisor.mn.gov/statutes/cite/62Q.481) requires a health plan to
 limit enrollee cost sharing for drugs treating a chronic disease to "no more than $25 per
 one-month supply for each prescription drug" and $50 a month for related supplies, and says the
-coverage is not subject to a deductible. The statute defines chronic disease as diabetes, asthma,
-and allergies needing epinephrine auto-injectors. Epilepsy is not in that list.
+coverage is not subject to a deductible, except where that would cost an enrollee eligibility for
+a health savings account (subd. 1(b)). The statute defines chronic disease as diabetes, asthma,
+and allergies needing epinephrine auto-injectors. Epilepsy is not in that list. Like most state
+insurance mandates, it reaches fully insured plans regulated by Minnesota, not plans that large
+employers fund themselves.
 
-[HF 3652](https://www.revisor.mn.gov/bills/bill.php?b=house&f=HF3652&ssn=0&y=2026), authored by
-Rep. Greene, and
-[SF 3786](https://www.revisor.mn.gov/bills/bill.php?b=senate&f=SF3786&ssn=0&y=2026), authored by
-Sen. Abeler with Sen. Boldon, would have added it. Both were introduced on February 23, 2026.
-HF 3652 went to House Commerce Finance and Policy and picked up eight more authors. SF 3786 went
-to Senate Commerce and Consumer Protection. Neither got a floor vote, so the idea has to be
-introduced again in 2027 to go anywhere.
+[HF 3652](https://www.revisor.mn.gov/bills/bill.php?b=house&f=HF3652&ssn=0&y=2026) and
+[SF 3786](https://www.revisor.mn.gov/bills/bill.php?b=senate&f=SF3786&ssn=0&y=2026) would have
+added it. HF 3652 has eight authors, Rep. Greene and seven co-authors. SF 3786 was authored by
+Sen. Abeler with Sen. Boldon. Both were introduced on February 23, 2026, and referred to House
+Commerce Finance and Policy and Senate Commerce and Consumer Protection. Neither bill had a
+hearing. Both must be reintroduced in 2027.
 
-The Department of Commerce priced the change. Using Minnesota claims from 2021 through 2024, it
-projected epilepsy cost sharing of $44.71 per member per month in 2027, of which $17.35 sits
-above the $25 line, and put the cost of the mandate at four cents per member per month
+The Department of Commerce had the change priced by outside actuaries, using commercial claims
+from 2021 through 2024. For each person filling an epilepsy drug, they projected cost sharing of
+$44.71 a month in 2027, of which $17.35 is above the $25 line. Spread across everyone with private
+coverage, the mandate would cost about four cents per member per month, rising to five cents by
+2036. Commerce says the change would also apply to Medical Assistance, MinnesotaCare and the state
+employee health plan
 ([Evaluation of Cost-Sharing Limitations for Epilepsy Medications and Supplies, February 11,
-2026](https://www.lrl.mn.gov/docs/2026/mandated/260390.pdf)). The Minnesota Department of
-Health counts behind that estimate show that in 2024, commercially insured Minnesotans with
-epilepsy paid $385,732 above the $25 line, in a database that covers about 40 percent of the
-commercial market.
+2026](https://www.lrl.mn.gov/docs/2026/mandated/260390.pdf)).
+
+The claims counts behind that estimate come from the Minnesota Department of Health, Health
+Economics Program, MN APCD Extract 29. They cover commercial members with 12 months of medical and
+pharmacy coverage and an epilepsy or seizure diagnosis. In 2024 those members paid $385,732 above
+$25 per 30-day supply. The database counts only insured claims. It excludes self-insured (ERISA)
+employer plans and holds roughly 40 percent of the commercial market.
 
 ## What we could not confirm
 
@@ -308,7 +335,10 @@ Social Security Administration [SSI eligibility](https://www.ssa.gov/ssi/eligibi
 [NeedyMeds](https://www.needymeds.org/); [MNsure](https://www.mnsure.org/).
 Cost figures are EDAN's own analysis of CMS National Average Drug Acquisition Cost, the FDA
 Orange Book and Minnesota Department of Health All Payer Claims Database public use files. The
-2024 figure above $25 is from the Minnesota Department of Health, Health Economics Program.
+2024 figure above $25 is from the Minnesota Department of Health, Health Economics Program, MN
+APCD Extract 29. Federal appeal rules for health plan members:
+[42 CFR 438.402, 438.408 and 438.420](https://www.ecfr.gov/current/title-42/part-438/subpart-F);
+[Minn. Stat. 256B.057](https://www.revisor.mn.gov/statutes/cite/256B.057).
 Terms are defined in the [glossary](../../glossary.md). See also
 [Medicines for Epilepsy](../12-medicines-for-epilepsy/index.md) and
 [Resources & Support](../../resources/index.md).*

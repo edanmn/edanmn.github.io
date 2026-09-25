@@ -26,7 +26,8 @@ that work, and our own resources, where they are needed most.
 ## Seizure-Safe Schools (Minnesota)
 Our flagship project applies this model to school safety. Minnesota law (Minn. Stat. 121A.24)
 requires every public and charter school to prepare an individualized seizure action plan for a
-student once a family notifies them of the diagnosis, and to train staff to respond. But we found
+student once a family notifies them of the diagnosis and that the student has prescribed seizure
+medication, and to give staff training materials on responding. But we found
 that about **70% of Minnesota school districts** do not post a seizure plan, or even a template a
 family could use to request one, with the gap largest in the smallest, least-resourced districts. See
 [The Data: Mapping the Gaps](chapters/05-the-data-case-study/index.md), look up your district
@@ -41,8 +42,8 @@ The *Minnesota Star Tribune* published EDAN founder Rishik Kondadadi's commentar
 families can actually find them.
 
 ## Where we are headed
-The same method now runs five initiatives: verified adoption of school seizure plans, a data
-partnership with the new Minnesota Epilepsy Program at MDH, medication access, distance to
+The same method now runs five initiatives: verified adoption of school seizure plans, an offer of
+our data to MDH's new epilepsy data work under Minn. Stat. 145.9231, medication access, distance to
 care, and SUDEP. Each has a page, a status, and a number, on [Initiatives](initiatives/index.md).
 Our measure for 2026-27 is at least twenty people with epilepsy whose situation we can
 document changing because of this work.

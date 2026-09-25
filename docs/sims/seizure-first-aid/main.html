@@ -180,7 +180,7 @@ const ACTIONS=[
  {id:'cushion',k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="5"/></svg>',label:'Cushion the head',  hint:'Something soft underneath',      good:true,  phase:'any'},
  {id:'glasses',k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="14" r="3.5"/><circle cx="18" cy="14" r="3.5"/><path d="M9.5 14h5M2.5 12 4 9M21.5 12 20 9"/></svg>',label:'Remove glasses',    hint:'And loosen anything tight',      good:true,  phase:'any'},
  {id:'stay',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></svg>',label:'Stay with them',     hint:'Speak calmly, keep others back', good:true,  phase:'any'},
- {id:'side',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 1 2.3 5.6"/><path d="M3 20v-5h5"/></svg>',  label:'Turn on their side',  hint:'Once the jerking eases',         good:true,  phase:'post'},
+ {id:'side',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 1 2.3 5.6"/><path d="M3 20v-5h5"/></svg>',  label:'Turn on their side',  hint:'Gently; do not force or hold',         good:true,  phase:'post'},
  {id:'call',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>',  label:'Call 911',            hint:'Only when it is needed',         good:null,  phase:'any'},
  {id:'rescue',k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20 9 15M8 12l4-4 4 4-4 4zM14 6l4 4M16 4l4 4"/></svg>',label:'Give rescue medicine',hint:'Only if the plan says so',      good:null,  phase:'any'},
  {id:'hold',  k:'<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 11V5a1.5 1.5 0 1 1 3 0v6M11 11V4a1.5 1.5 0 1 1 3 0v7M14 11V6a1.5 1.5 0 1 1 3 0v8a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6v-3a1.5 1.5 0 1 1 3 0"/></svg>',  label:'Hold them still',     hint:'',                               good:false, phase:'any'},
@@ -237,10 +237,6 @@ function doAction(a){
   if(a.good===false){
     harmful++; b.classList.add('bad'); say(BAD_FEEDBACK[a.id],'no'); addLog('Harmful: '+a.label.toLowerCase()); return;
   }
-  if(a.id==='side' && phaseAt(t)!=='post'){
-    say("Not yet. Turning someone while they are still convulsing is hard and can hurt them. Wait until the jerking eases, then roll them onto their side so saliva can drain.",'no');
-    addLog('Too early: turn on side'); return;
-  }
   if(acted[a.id]) return;
   acted[a.id]=t; b.classList.add('done');
   if(a.id==='time'){ startedTiming=true; say("Good. The clock is the whole decision. Five minutes of convulsing turns this into an emergency, and nobody can judge that by feel.",'ok'); }
@@ -248,7 +244,7 @@ function doAction(a){
   if(a.id==='cushion'){ $('cushion').style.display='block'; say("Something soft under the head prevents the injury that actually happens most: the head striking the floor over and over.",'ok'); }
   if(a.id==='glasses'){ say("Glasses off, collar loosened. Small things, quickly done.",'ok'); }
   if(a.id==='stay'){ $('helper').style.display='block'; say("Stay. Someone who is postictal wakes up confused and frightened, and a familiar calm voice matters more than anything else you will do.",'ok'); }
-  if(a.id==='side'){ $('sideArrow').style.display='block'; $('torso').setAttribute('height','22'); say("On their side, chin slightly up. This is the recovery position, and it keeps the airway clear while they come round.",'ok'); }
+  if(a.id==='side'){ $('sideArrow').style.display='block'; $('torso').setAttribute('height','22'); say(phaseAt(t)==='post' ? "On their side, chin slightly up. This is the recovery position, and it keeps the airway clear while they come round." : "Good. Roll them gently onto one side, mouth toward the floor, so saliva can drain and the airway stays clear. Do not force it or hold them there; let the movements happen.",'ok'); }
   if(a.id==='call'){ calledAt=t; $('calledTag').innerHTML='<span class="tag y">911 called at '+fmt(t)+'</span>'; say("911 called at "+fmt(t)+". Tell them: seizure, how long it has lasted, whether the person is breathing, and the age of the student.",'ok'); }
   if(a.id==='rescue'){ rescueAt=t;
     if(S.planRescue) say("Rescue medicine given at "+fmt(t)+". Only ever give it when the student's own plan authorises it, by the route and at the time the plan states.",'ok');
@@ -271,7 +267,7 @@ function tick(){
   const jerk = (ph==='clonic')? (Math.sin(t*6)*4) : (ph==='tonic'? 2 : 0);
   $('armL').setAttribute('x', 150+jerk); $('armR').setAttribute('x', 238-jerk);
   $('legL').setAttribute('x', 246+jerk); $('legR').setAttribute('x', 246-jerk);
-  if(ph==='post' && !acted.side) say("The jerking has stopped and they are not awake yet. Now turn them onto their side.",null);
+  if(ph==='post' && !acted.side) say("The jerking has stopped and they are not awake yet. Turn them onto their side now if you have not already.",null);
   if(t===300 && !calledAt) say("Five minutes. A convulsive seizure this long is a medical emergency. Call 911 now.",'no');
   if(ph==='recover'){ finish(); }
 }

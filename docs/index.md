@@ -23,8 +23,9 @@ see it. Minnesota first, other states next. Student-led, free, and sourced.*
 
 ---
 
-About 53,700 Minnesotans live with epilepsy, by the CDC's 2017 state estimates. Nobody counts
-it directly here. What goes wrong for them is usually visible in
+About 53,700 Minnesotans had active epilepsy in 2015, by
+[CDC estimates published in 2017](https://www.cdc.gov/mmwr/volumes/66/wr/mm6631a1.htm). The
+state has not yet published a direct count. What goes wrong for them is usually visible in
 data that exists but nobody has assembled: a district with no plan, a pharmacy that closed, a
 specialist three hours away, a drug whose price rose 15 percent in a year. We pull that
 information out of state filings, federal registries, one-PDF-per-district reports and web
@@ -56,12 +57,13 @@ built from federal sources or state filings that every state has. Other states a
 ## Five initiatives for 2026-27
 1. [Seizure-Safe Schools](initiatives/seizure-safe-schools.md): 7 in 10 Minnesota districts
    post no findable seizure plan. We are turning that finding into adoptions.
-2. [The state's epilepsy data](initiatives/state-epilepsy-data.md): a 2025 law makes MDH
-   count epilepsy every year. We are its first district-level data partner.
+2. [The state's epilepsy data](initiatives/state-epilepsy-data.md): a 2025 law requires MDH
+   to count epilepsy every year. We are offering MDH our district-level data as an input.
 3. [Medication access](initiatives/medication-access.md): shortages, prices, pharmacy
-   deserts, and a bill to cap what epilepsy drugs cost families.
-4. [Distance to care](initiatives/care-access.md): 101 districts are more than 60 miles from
-   a child neurologist. We mapped every one.
+   deserts, and support for reintroducing a cap on what epilepsy drugs cost families (HF 3652 /
+   SF 3786) in 2027.
+4. [Distance to care](initiatives/care-access.md): 101 districts are more than 60 miles, in a
+   straight line, from a child neurologist. We mapped every one.
 5. [SUDEP](initiatives/sudep.md): about 1,000 Minnesota deaths a year involve seizures and
    nobody counts SUDEP. Data, a missed benefit, and a reporting law.
 

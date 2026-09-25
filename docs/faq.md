@@ -7,7 +7,7 @@ emergencies, always call 911.
 
 ??? question "My child has epilepsy. What is my school required to do?"
     Under Minn. Stat. 121A.24, once you tell the school your child has a provider-diagnosed
-    seizure disorder and has prescribed rescue medication, the school must work with you on a
+    seizure disorder and has seizure rescue medication or other prescribed seizure medication, the school must work with you on a
     written **seizure action plan**, make sure a trained staff member is available at your
     child's building, tell the staff who work with your child, and keep the plan on file. See
     [The Minnesota Law](chapters/03-minnesota-law/index.md).
@@ -37,8 +37,8 @@ emergencies, always call 911.
 ??? question "We have Policy 516 already. Is that enough?"
     Often not. Many districts' Policy 516 (Student Medication) covers epinephrine and asthma
     but never mentions seizures. Check whether yours names seizures and a seizure action plan,
-    and whether it cites Minn. Stat. 121A.24. Drop-in language is in
-    [How to Help](chapters/06-how-to-help/index.md).
+    and whether it cites Minn. Stat. 121A.24. Drop-in language is in the
+    [free packet (PDF)](packet/EDAN-Seizure-Safe-Schools-Packet.pdf).
 
 ??? question "We have no school nurse. What do we do?"
     The law allows a trained designated individual at each site when a nurse is not available.
@@ -46,9 +46,13 @@ emergencies, always call 911.
     ready plan template.
 
 ??? question "Where do we get free training and templates?"
-    Epilepsy Foundation of Minnesota and the national Epilepsy Foundation offer free, on-demand
-    staff and nurse training; the Minnesota Department of Health has a free toolkit and
-    checklist. All are linked in [How to Help](chapters/06-how-to-help/index.md).
+    The Epilepsy Foundation of Minnesota offers free
+    [Seizure Smart trainings](https://www.epilepsyfoundationmn.org/get-support/seizure-smart-trainings/)
+    for school staff, on demand or by request. The Minnesota Department of Health has a
+    [seizure toolkit](https://www.health.state.mn.us/people/childrenyouth/schoolhealth/hco/seizurestoolkit.html)
+    with plan templates and an implementation checklist. EDAN's
+    [free packet (PDF)](packet/EDAN-Seizure-Safe-Schools-Packet.pdf) has a plan template and
+    Policy 516 language.
 
 ??? question "What is the single highest-impact thing we can do?"
     Post a seizure action plan template on your health-services web page so families can find
@@ -66,8 +70,10 @@ emergencies, always call 911.
     internal plan we could not see. We never label a district non-compliant.
 
 ??? question "How accurate is this?"
-    An independent re-check of 30 districts agreed 90% of the time (Cohen's kappa 0.82,
-    "almost perfect"), and disagreements usually found *more* seizure content, so the gap is, if
+    The first pass used AI-assisted web searches to find each district's pages, sorted into four
+    categories by a fixed rubric. A separate, blind re-check of a random sample of 30 districts
+    agreed 90% of the time (Cohen's kappa 0.82
+    across the four categories and 0.80 for plan versus no plan, which is substantial agreement), and disagreements usually found *more* seizure content, so the gap is, if
     anything, slightly overstated.
 
 ??? question "My district's entry is wrong or out of date. Can you fix it?"

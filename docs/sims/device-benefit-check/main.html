@@ -77,7 +77,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--purple);outline-off
 <body><div class="wrap">
 
 <h1>Could Medical Assistance pay for a seizure detection device?</h1>
-<p class="sub">Four questions, drawn as a path. Minnesota has covered FDA-cleared seizure detection devices under Medical Assistance since January 1, 2024, and most families who qualify have never been told.</p>
+<p class="sub">Four questions, drawn as a path. Minnesota has covered FDA-cleared seizure detection devices under Medical Assistance since January 1, 2024. How many families have used it is not yet public.</p>
 
 <div class="grid">
   <div>
@@ -269,7 +269,7 @@ const Q=[
 const RESULTS={
  fits:{head:"This matches the written criteria",
   cls:'ok',
-  text:"Every criterion in the statute lines up: Medical Assistance coverage, active epilepsy with convulsive seizures, a reason a provider can document, and a clear five-year clock. That is not the same as approval. Matching the criteria is what makes the request worth making, and the plan still reviews it on the provider's documentation.",
+  text:"Every criterion in the statute and the DHS provider manual lines up: Medical Assistance coverage, active epilepsy with convulsive seizures, a reason a provider can document, and a clear five-year clock. That is not the same as approval. Matching the criteria is what makes the request worth making, and the plan still reviews it on the provider's documentation.",
   ask:"“My child has convulsive seizures. Would a seizure detection device help, and will you write the order? Minnesota Medical Assistance has covered these as durable medical equipment since January 2024.”"},
  noma:{head:"Not through this benefit, but two other doors are open",
   cls:'warn',
@@ -277,7 +277,7 @@ const RESULTS={
   ask:"“Would a seizure detection device help my child? If it would, will you write a letter of medical necessity I can send to our plan?”"},
  nonconv:{head:"This benefit probably does not apply, and the device may not help either",
   cls:'warn',
-  text:"The criteria name convulsive seizures, and the hardware matches that: wrist devices sense movement and skin changes. Absence seizures and most focal seizures produce neither. Before pushing on coverage, ask what the seizure type actually is and whether any monitoring detects it, because a device that cannot sense the seizure is not worth appealing for.",
+  text:"The DHS provider manual names convulsive seizures, and the hardware matches that: wrist devices sense movement and skin changes. Absence seizures and most focal seizures produce neither. Before pushing on coverage, ask what the seizure type actually is and whether any monitoring detects it, because a device that cannot sense the seizure is not worth appealing for.",
   ask:"“What kind of seizures does my child have, and is there any monitoring that would actually detect them?”"},
  noreason:{head:"There may still be a reason, and it is a clinical one",
   cls:'warn',
@@ -360,7 +360,7 @@ function answer(v){
 
 const FLAGTEXT={
  ma:"whether the coverage really is Medical Assistance or MinnesotaCare, which the clinic's billing desk can read off the card",
- conv:"what type of seizures the clinic has on record, since the criteria name convulsive seizures",
+ conv:"what type of seizures the clinic has on record, since the DHS provider manual names convulsive seizures",
  reason:"whether the neurologist would document the reason as reducing harm, or as needing the data",
  five:"whether Medical Assistance has paid for a device for this person in the last five years"
 };

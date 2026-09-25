@@ -1,9 +1,9 @@
 # Initiatives
 
 ## The vision
-About 53,700 Minnesotans live with active epilepsy, 46,300 adults and 7,400 children, by the
-CDC's [2017 state estimates](https://www.cdc.gov/mmwr/volumes/66/wr/mm6631a1.htm). Nobody
-counts it directly in Minnesota, so that figure is a national rate applied to the state's
+About 53,700 Minnesotans had active epilepsy in 2015, 46,300 adults and 7,400 children, by
+CDC [estimates published in 2017](https://www.cdc.gov/mmwr/volumes/66/wr/mm6631a1.htm). The
+state has not yet published a direct count, so that figure is a national rate applied to the state's
 population, and every county-level number anywhere is the same kind of estimate. Most of what
 goes wrong for them is not medical. It is a school with no plan, a pharmacy that closed, a
 neurologist three hours away, a benefit nobody told the family about, a death nobody counted.
@@ -37,8 +37,8 @@ not page views. Progress is reported on this page.
 
     ---
 
-    A 2025 law makes MDH count epilepsy in Minnesota every year. We are offering our data as
-    the first district-level input, and we will translate what the state publishes.
+    A 2025 law requires MDH to count epilepsy in Minnesota every year. We are offering our
+    district-level data as an input, and we will translate what the state publishes.
 
     [:octicons-arrow-right-24: Read more](state-epilepsy-data.md)
 
@@ -47,7 +47,7 @@ not page views. Progress is reported on this page.
     ---
 
     A missed dose can mean a seizure. We track shortages, prices, and pharmacy deserts, and
-    we are backing a bill to cap what epilepsy drugs cost families.
+    we support reintroducing a cap on what epilepsy drugs cost families in 2027.
 
     [:octicons-arrow-right-24: Read more](medication-access.md)
 
@@ -72,7 +72,7 @@ not page views. Progress is reported on this page.
 </div>
 
 ## How the five fit together
-The school work found the gap and built the tools. The state data partnership gives that
+The school work found the gap and built the tools. Offering our data to MDH could give that
 work a permanent home in a public agency. Medication access and distance to care are the two
 things a family still faces after school is handled. SUDEP is the reason all of it matters.
 

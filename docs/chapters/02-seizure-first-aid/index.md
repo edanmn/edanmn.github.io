@@ -27,7 +27,9 @@ nurse to keep a student safe during a seizure. Practice it in the
 Call 911 if **any** of these are true:
 
 - A convulsive seizure lasts **longer than 5 minutes**.
-- Seizures **repeat** without the person fully recovering in between.
+- Another seizure starts **soon after** the first (a cluster), even if the person recovered in
+  between.
+- The person is **pregnant** or has **diabetes**.
 - The person has **trouble breathing** or does not return to normal.
 - The seizure happens **in water**, or there is a serious **injury**.
 - It is the person's **first known seizure**, or you are unsure.
@@ -48,8 +50,8 @@ Call 911 if **any** of these are true:
 - Let the student rest; offer privacy and reassurance.
 - Notify the school nurse and follow your school's reporting process.
 
-## Get certified (free)
-Free, on-demand training and a 2-year Seizure First Aid Certification are available from the
-Epilepsy Foundation: https://www.epilepsy.com/programs/training-education
+## Get certified
+On-demand training and a 2-year Seizure First Aid Certification are available from the
+Epilepsy Foundation: https://learn.epilepsy.com/courses/seizure-first-aid-cert-ondemand-v1-1
 
 [Continue to the quiz](quiz.md){ .md-button } [Try the simulator](../../sims/seizure-first-aid/index.md){ .md-button } [Practice the 911 call](../../sims/call-911/index.md){ .md-button }

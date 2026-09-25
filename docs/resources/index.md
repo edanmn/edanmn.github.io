@@ -17,19 +17,20 @@ Phone **651-287-2300** · info@efmn.org. Free, statewide support:
 - **Connect Groups** (support groups): adult, parent/caregiver, young adult, teen, and Spanish
 - **Camps:** Camp Oz (overnight, ages 9-17), Day Camp (ages 6-12), and Family Camp
 - **Seizure Smart trainings** (free, for schools, workplaces, and community groups)
-- **Advocacy** on prescription costs and SUDEP awareness
+- **Public policy advocacy**; its 2026 priorities included limits on epilepsy medication cost
+  sharing and SUDEP
 
 **Minnesota Department of Health, "Managing Seizures in School"**, 
 https://www.health.state.mn.us/people/childrenyouth/schoolhealth/hco/seizurestoolkit.html
-The state's seizure toolkit: action-plan templates in multiple languages, training tools, and the
-law behind it all.
+The state's seizure toolkit: links to seizure action plan templates, a training validation
+tool, and an implementation checklist.
 
 **Pediatric epilepsy centers in Minnesota** *(informational listing, not a recommendation)*
 
 - Children's Minnesota, Pediatric Epilepsy, https://www.childrensmn.org/services/care-specialties-departments/epilepsy/
 - M Health Fairview / University of Minnesota, Pediatric Epilepsy, https://www.mhealthfairviewpeds.org/condition/epilepsy
 - Gillette Children's, Pediatric Neurology, https://www.gillettechildrens.org/conditions-care/pediatric-neurology
-- Mayo Clinic (Rochester), Epilepsy, https://www.mayoclinic.org/diseases-conditions/epilepsy
+- Mayo Clinic (Rochester), epilepsy information, https://www.mayoclinic.org/diseases-conditions/epilepsy
 
 ## National
 
@@ -50,7 +51,8 @@ Families often ask about SUDEP and rarely get a straight, calm answer. Here is o
 cause found. It is **rare**, and for most people with epilepsy the risk is low.
 
 **How common:** roughly **1 in 1,000 adults** with epilepsy per year, and notably lower in
-children (about **1 in 4,500** per year). It is rare in people whose seizures are well controlled.
+children (about **1 in 4,500** per year), per the 2017 American Academy of Neurology and American
+Epilepsy Society guideline (Harden et al., *Neurology* 2017;88:1674-1680). It is rare in people whose seizures are well controlled.
 
 **What raises risk:** mainly **frequent, uncontrolled seizures**, especially generalized
 tonic-clonic ("grand mal") seizures, and missing medication.
@@ -69,8 +71,6 @@ control, not alarm; ask your doctor what applies to your child.
 - **NeedyMeds**, https://www.needymeds.org (helpline 800-503-6897): free directory of patient
   assistance programs and a discount card.
 - **RxAssist**, https://www.rxassist.org: directory of manufacturer assistance programs.
-- **Medicine Assistance Tool**, https://medicineassistancetool.org (industry assistance search;
-  this program is transitioning in 2026, confirm the live link).
 - **GoodRx**, https://www.goodrx.com: free coupon/price-comparison tool (a discount tool, not
   insurance or charity).
 - **Manufacturer programs:** most brand-name epilepsy drugs have their own assistance programs;
@@ -78,8 +78,10 @@ control, not alarm; ask your doctor what applies to your child.
 
 **Minnesota Medical Assistance (Medicaid):** https://mn.gov/dhs (DHS 651-297-3862 / 800-657-3672).
 Ask specifically about **MA-TEFRA**, which can qualify a child with a certified disability for
-Medical Assistance based on the child's income regardless of the parents'
-(https://disabilityhubmn.org).
+Medical Assistance based on the child's own income, without counting the parents'. The child must
+be under 19, live with a parent, and need a level of care similar to a hospital, nursing home, or
+intermediate care facility
+(https://disabilityhubmn.org/top-topics/health/medical-assistance/ma-tefra/).
 
 ## If you are in crisis
 
@@ -110,11 +112,12 @@ and they are often missed. Talking to a clinician about it is worth doing early.
 - Your own clinician, your pediatrician, or your school counselor
 
 ## Teens, driving, and seizures in Minnesota
-In Minnesota, to get or keep a driver's license after a seizure or loss of consciousness, a person
-generally must be **seizure-free for about 3 months** and provide a physician's certification of a
-favorable prognosis. Drivers report episodes to the state; Minnesota does not require physicians to
-report. Exceptions can apply (for example, a seizure caused by a temporary illness or a
-doctor-ordered medication change).
+In Minnesota, after a seizure or other loss of consciousness, the state generally cancels or denies
+driving privileges until three months have passed since the episode and a physician reports a
+favorable prognosis. Drivers must report an episode in writing within 30 days; Minnesota does not
+require physicians to report. Exceptions can apply, for example a first episode, a doctor-ordered
+medication change, or a first episode in four or more years caused by a short illness or a missed
+dose, when the physician's statement supports it.
 
 This is a general summary, rules change and details matter, so **confirm current requirements with
 Minnesota Driver and Vehicle Services and your physician.** See EFMN's driving page
@@ -123,5 +126,5 @@ Minnesota Driver and Vehicle Services and your physician.** See EFMN's driving p
 
 ---
 *This directory is informational and not medical, legal, or financial advice. Links and phone
-numbers were verified in June 2026; if you find something out of date, please tell us via
-[LinkedIn](https://www.linkedin.com/in/krishikk/).*
+numbers were last checked in September 2026; if you find something out of date, please email
+<edanmnorg@gmail.com>.*

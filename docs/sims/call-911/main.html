@@ -241,7 +241,7 @@ a{color:var(--red)}
   <div class="row"><button class="ghost" id="printbtn">Print this card</button></div>
 </div>
 
-<p class="note">This is practice, not medical advice or certification. Dispatch protocols vary between counties, so follow whatever your own dispatcher tells you on the day. A student's care is set by their healthcare provider and their seizure action plan.</p>
+<p class="note">Schools and addresses are fictional. This is practice, not medical advice or certification. Dispatch protocols vary between counties, so follow whatever your own dispatcher tells you on the day. A student's care is set by their healthcare provider and their seizure action plan.</p>
 
 <script>
 var ICON = {
@@ -254,12 +254,12 @@ var SCENARIOS = [
 {
   id:'ongoing',
   name:'The seizure is still going',
-  setting:"Room 214 at Lincoln Middle School, 1400 Oak Street in Northfield. A 14 year old with epilepsy has been convulsing for four minutes. It started at 10:12 and a colleague has been timing it. The nurse gave his prescribed nasal rescue medicine at 10:15 because his plan says to at three minutes. You are the one holding the phone.",
+  setting:"Room 214 at Birch Hollow Middle School, 1400 Oak Street in Pine Hollow. A 14 year old with epilepsy has been convulsing for four minutes. It started at 10:12 and a colleague has been timing it. The nurse gave his prescribed nasal rescue medicine at 10:15 because his plan says to at three minutes. You are the one holding the phone.",
   open:"911, what is the address of your emergency?",
   steps:[
    {key:'Address',
     opts:[
-     {t:"Lincoln Middle School, 1400 Oak Street, Northfield.", ok:true,
+     {t:"Birch Hollow Middle School, 1400 Oak Street, Pine Hollow.", ok:true,
       r:"Got it, 1400 Oak Street. Address first is exactly right. If this call drops now, I can still send a crew."},
      {t:"A student is having a seizure, we need an ambulance right now.", ok:false,
       r:"I hear you and I will get help moving. I still need the address first. Everything else is useless to me without a place to send it."},
@@ -344,16 +344,16 @@ var SCENARIOS = [
 {
   id:'unknown',
   name:"You do not know this student",
-  setting:"You are a substitute covering lunch duty at Prairie View High School, 2200 County Road 42 in Apple Valley. A student you have never met slides off the bench and starts convulsing on the cafeteria floor. You do not know her name, her age or her history. A lunch aide is beside you and the office has been radioed.",
+  setting:"You are a substitute covering lunch duty at Stone Creek High School, 2200 County Road 99 in Stone Creek. A student you have never met slides off the bench and starts convulsing on the cafeteria floor. You do not know her name, her age or her history. A lunch aide is beside you and the office has been radioed.",
   open:"911, what is the address of your emergency?",
   steps:[
    {key:'Address',
     opts:[
-     {t:"Prairie View High School, 2200 County Road 42, Apple Valley.", ok:true,
-      r:"2200 County Road 42. Thank you. I may see an approximate location on my screen, but hearing it from you is what I act on."},
+     {t:"Stone Creek High School, 2200 County Road 99, Stone Creek.", ok:true,
+      r:"2200 County Road 99. Thank you. I may see an approximate location on my screen, but hearing it from you is what I act on."},
      {t:"I am a substitute, I have no idea where I am.", ok:false,
       r:"Then read it off something. The fire evacuation map by the door has the address on it, and so does any letterhead in the office."},
-     {t:"Somewhere in Apple Valley, at a high school.", ok:false,
+     {t:"Somewhere in Stone Creek, at a high school.", ok:false,
       r:"That is a lot of ground. Get me a street address in the next few seconds; ask the nearest adult."}
     ]},
    {key:'Room and door', q:"Where in the building, and which door do we come to?",
@@ -434,16 +434,16 @@ var SCENARIOS = [
 {
   id:'stops',
   name:'It stops while you are on the phone',
-  setting:"The gym at Riverside Elementary, 55 Third Avenue North in Brainerd. A 9 year old came off the bottom row of the bleachers, struck his head on the floor and began convulsing. Nobody here has ever seen him have a seizure and there is no plan on file. You dial while the PE teacher stays with him.",
+  setting:"The gym at Willow Bend Elementary, 55 Third Avenue North in Loon Harbor. A 9 year old came off the bottom row of the bleachers, struck his head on the floor and began convulsing. Nobody here has ever seen him have a seizure and there is no plan on file. You dial while the PE teacher stays with him.",
   open:"911, what is the address of your emergency?",
   steps:[
    {key:'Address',
     opts:[
-     {t:"Riverside Elementary, 55 Third Avenue North, Brainerd.", ok:true,
+     {t:"Willow Bend Elementary, 55 Third Avenue North, Loon Harbor.", ok:true,
       r:"55 Third Avenue North. Address first, every time. Now tell me what is going on."},
      {t:"A boy has hit his head and he is shaking, please hurry.", ok:false,
       r:"I will hurry. I cannot send anyone anywhere until I have an address, so give me that and then tell me the rest."},
-     {t:"Riverside Elementary.", ok:false,
+     {t:"Willow Bend Elementary.", ok:false,
       r:"Give me the street too. Names of buildings are not always what we have in the system."}
     ]},
    {key:'Room and door', q:"Where in the school, and which entrance?",
@@ -476,7 +476,7 @@ var SCENARIOS = [
    {key:'Breathing', q:"Is he breathing?",
     opts:[
      {t:"Yes, he is breathing. His lips look normal and we have not moved him because of his head.", ok:true,
-      r:"Breathing and colour normal. Leave his head and neck alone unless he vomits or his breathing changes."},
+      r:"Breathing and colour normal. Leave his head and neck alone. If he vomits, roll him onto his side all in one piece, head and body together, and tell me."},
      {t:"He is going blue, I think.", ok:false,
       r:"Look again and be sure. If he really is going blue I need to change what I am sending and what I tell you to do."},
      {t:"He has not said a word since it started.", ok:false,
@@ -512,12 +512,12 @@ var SCENARIOS = [
     ]},
    {key:'Staying on the line', q:"Stay on the line. Tell me if anything changes before we get there.",
     opts:[
-     {t:"Staying on. He is still not awake, still breathing, and we have him on his side.", ok:true,
+     {t:"Staying on. He is still not awake, still breathing, and we have kept him still as you told us.", ok:true,
       r:"That is what I want to hear, and keep it coming. Being slow to wake after a seizure is expected. If he seizes again, say so straight away."},
      {t:"He is fine now, I will hang up and meet you outside.", ok:false,
       r:"He is not awake, so he is not fine yet. Stay on and keep watching his breathing."},
      {t:"Should I wake him up?", ok:false,
-      r:"Leave him. Let him come round on his own on his side, and tell me when he does."}
+      r:"Leave him. Let him come round on his own, and tell me when he does."}
     ]}
   ],
   close:"Crew is close. The seizure stopping did not end the emergency, and you kept the ambulance coming. That was the decision of the call."

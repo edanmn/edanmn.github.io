@@ -13,8 +13,7 @@ not all end the same way.
    seizure action plan.
 2. Watch the figure and the clock. The seizure moves through stiffening, convulsing, and then
    the groggy period afterwards when they are not yet awake.
-3. Click the actions you would actually take. Some are right, some are wrong, and one of them
-   is only right once the jerking stops.
+3. Click the actions you would actually take. Some are right and some are wrong.
 4. Decide about 911 yourself. The simulator will not prompt you.
 5. When it ends you get a report: what you did, when you did it, what you missed, and what to
    write down afterwards.
@@ -22,11 +21,13 @@ not all end the same way.
 ## What it teaches
 - Timing is the decision. Five minutes of convulsing makes a seizure an emergency, and nobody
   can judge five minutes by feel.
-- Most seizures do not need an ambulance. Three of the seven scenarios do not, and calling
+- Most seizures do not need an ambulance. Two of the seven scenarios do not, and calling
   anyway costs a family money without helping the student.
-- Four things make it an emergency regardless of the clock: a first seizure, water, injury, or
-  a second seizure before the person recovers.
-- The recovery position comes after the jerking eases, not during.
+- Several things make it an emergency regardless of the clock, including a first seizure, a
+  seizure in water, an injury, trouble breathing or waking afterward, and a second seizure
+  before the person recovers.
+- Turn the person gently onto one side, mouth toward the floor, to keep the airway clear. Do
+  not force them or hold them there.
 - Restraining someone, putting anything in their mouth, or giving water are all wrong, and the
   simulator will tell you why if you try them.
 - Rescue medicine is only ever given when that student's own plan says so.

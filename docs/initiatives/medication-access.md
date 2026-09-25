@@ -6,28 +6,34 @@ Status: data published September 2026; family guide in review.
 For most conditions a missed dose is a nuisance. For epilepsy, going without medicine for a
 stretch is what causes harm. In a study of 33,658 adults with epilepsy on Medicaid, the
 periods when people were not taking their medicine carried about three times the death rate,
-one and a half times the emergency visits, and twice the rate of injury-causing crashes. A
-single forgotten dose is a different thing, and a 2026 study found that missing a dose the day
-before did not raise seizure risk. Nationally, among adults with active epilepsy, about 13 percent say
+one and a half times the emergency visits, and twice the rate of injury-causing crashes
+(Faught et al., Neurology 2008, PMID 18565827). A single forgotten dose is a different thing.
+A 2026 study of adults with frequent, drug-resistant seizures found that an occasional missed
+dose did not measurably raise seizure risk the next day (Goldenholz et al., Annals of
+Neurology 2026); the authors still stress taking medicine as prescribed. Nationally, among
+adults with active epilepsy, about 13 percent say
 they could not afford their prescription and about 9 percent skip doses to save money. Adults
-without epilepsy report about 6 percent on both of those questions. Two other things stand between a Minnesota family and
-the pill: supply problems (FDA currently lists a valproate injection shortage open since
-2020, and discontinuations of several other seizure products) and distance.
+without epilepsy report about 6 percent on both of those questions (CDC, MMWR 2022;71(21),
+survey years 2015 and 2017). Two other things stand between a Minnesota family and
+the pill: supply problems (FDA lists discontinuations of several oral seizure products, and a
+shortage of the hospital IV form of valproate open since 2020) and distance.
 Minnesota has lost 13 percent of its community pharmacies since 2009, and about one in five
 residents now lives in a low-access area.
 
 ## What the data shows
-We pulled every Minnesota Medicaid antiseizure prescription from 2019 through early 2026
-from the federal State Drug Utilization Data.
+We pulled Minnesota Medicaid antiseizure prescriptions from 2019 through early 2026 from the
+federal State Drug Utilization Data. CMS hides any cell under 11 prescriptions, so the totals
+run slightly low, and gabapentin, pregabalin and clonazepam are left out because most of their
+use is for other conditions. The 2026 figures cover only part of the year.
 
-![Minnesota Medicaid antiseizure prescriptions and spending, 2019 to 2026](../img/medicaid_asm_trend.png)
+![Minnesota Medicaid antiseizure prescriptions and spending, 2019 to 2025, with a partial 2026](../img/medicaid_asm_trend.png)
 
 | 2025 | Value |
 |---|---|
 | Antiseizure prescriptions paid by Minnesota Medicaid | about 335,000 |
 | Total reimbursed | $44 million |
 | Average cost, lamotrigine (most common) | $24 per prescription |
-| Average cost, rescue diazepam | $1,444 |
+| Average cost, nasal diazepam (Valtoco) | $1,444 |
 | Average cost, cannabidiol (Epidiolex) | $3,739 |
 | Average cost, vigabatrin | $13,724 |
 
@@ -35,11 +41,11 @@ Clobazam prescriptions fell 34 percent between the first and second quarters of 
 first read that as a shortage, and we were wrong. We checked both national shortage trackers
 as they stood during 2024, using archived snapshots of the FDA list and the ASHP list, and
 neither recorded a clobazam shortage that year. The only clobazam entry anywhere is one
-company discontinuing its 20 mg tablet. Sixteen other seizure medicines fell by a fifth or
+company discontinuing its 20 mg tablet. Fifteen other seizure medicines fell by a fifth or
 more in the same quarter, and a shortage hits one drug at a time. Minnesota's Medicaid
-renewals after the pandemic ran through mid-2024, which fits the pattern better. Medicaid covers
-at most a third of Minnesotans with epilepsy; commercial claims are held by MDH and we have
-asked for them.
+renewals after the pandemic ran through mid-2024, which fits the pattern better. Medicaid
+covers only part of the Minnesotans with epilepsy; commercial claims are held by MDH and we
+have asked for them.
 
 ## What a Minnesota family actually pays
 
@@ -47,15 +53,19 @@ Medicaid prices are not what a working family sees. In September 2026 we pulled 
 drug pricing file, checked which seizure medicines have a generic, priced ten real Minnesota
 insurance plans, and read the state's own claims data. Four things stand out.
 
-Six seizure medicines have no generic at all: Epidiolex, Fintepla, Xcopri, Ztalmy,
-Diacomit and nasal midazolam. In Minnesota Medicaid they are 1.5 percent of seizure
-prescriptions and 32 percent of the spending.
+Six seizure products have no generic version: Epidiolex, Fintepla, Xcopri, Ztalmy,
+Diacomit and nasal midazolam (Nayzilam). In Minnesota Medicaid in 2025 they were 1.5 percent
+of seizure prescriptions and 32 percent of the spending, before manufacturer rebates.
 
-![Six seizure medicines have no generic and take a third of the spending](../img/asm_brandonly_share.png)
+![Six seizure products with no generic version take about a third of Medicaid seizure-drug spending before rebates](../img/asm_brandonly_share.png)
 
 Where a generic does exist, the gap is enormous. A month of generic clobazam costs a pharmacy
 about $15. The brand, Onfi, costs about $1,795. Generic levetiracetam is $4.43 against $595
-for Keppra. Some children cannot switch between versions without losing seizure control.
+for Keppra. A controlled trial that switched adults between two very different generic
+versions of lamotrigine found no detectable difference in drug levels or seizures (EQUIGEN,
+Lancet Neurology 2016, PMID 26875743). A change in pill color between refills did make people
+somewhat more likely to stop filling the prescription (Kesselheim et al., JAMA Internal
+Medicine 2013, PMID 23277164), so it helps to ask the pharmacy before a switch.
 
 ![What a month of seizure medicine costs a pharmacy](../img/asm_brand_vs_generic.png)
 
@@ -78,9 +88,9 @@ filings, and the median two-year increase for the class went from 15 percent to 
 though the number of products behind that median also fell. The reasons manufacturers give are boilerplate, and in two cases the reason was
 withheld as a trade secret.
 
-Bills before the legislature (HF 3652 and SF 3786) would add epilepsy to Minn. Stat. 62Q.481,
-which since 2023 has capped what a Minnesotan pays for diabetes, asthma and severe allergy
-medicine at $25 a month. The Department of Commerce, using claims from 2021 to 2024, projects epilepsy cost sharing of
+Two 2026 bills (HF 3652 and SF 3786) would have added epilepsy to Minn. Stat. 62Q.481,
+which since January 2025 has capped what a Minnesotan pays for diabetes, asthma and severe
+allergy medicine at $25 a month, for plans that state law regulates. The Department of Commerce, using claims from 2021 to 2024, projects epilepsy cost sharing of
 $44.71 a month in 2027, with $17.35 of that above the $25 line, and prices the change at four cents
 per member per month. Both bills died with this legislature and would need to be reintroduced
 in 2027.
@@ -134,8 +144,9 @@ Answer three questions and get the next step for today.
     or an independent pharmacy; a national shortage needs the prescriber the same day.
 
 ??? quiz "2. You have two days of pills left and the plan wants prior authorization. What do you say?"
-    "Emergency supply." Medical Assistance and most plans allow a 72-hour fill while the
-    authorization is processed. Never skip doses while waiting.
+    "Emergency supply." Medical Assistance allows a 72-hour fill while the authorization is
+    processed. Many commercial plans do too, but it is not guaranteed, so ask. Never skip
+    doses while waiting.
 
 ??? quiz "3. Why does a broad drop across many drugs in one quarter probably not mean a shortage?"
     Shortages hit one molecule. A drop across unrelated drugs at once points to fewer people
@@ -150,10 +161,11 @@ Answer three questions and get the next step for today.
 - Publishing a one-page family guide, "When the pharmacy can't fill your seizure medicine,"
   in English, Spanish, Hmong, and Somali, distributed through the Epilepsy Foundation of
   Minnesota's care coordinators and the pediatric epilepsy clinics.
-- Supporting HF 3652 / SF 3786, which would cap what commercial plans can charge for
-  epilepsy drugs at $25 a month, the same protection diabetes and asthma already have. The
-  state's own actuaries priced it at four cents per member per month. Students are ready to
-  testify when it is heard.
+- Supporting reintroduction of the HF 3652 / SF 3786 cap in the 2027 session. It would limit
+  what a patient pays for epilepsy drugs to $25 a month in state-regulated plans, the same
+  protection diabetes and asthma already have. Actuaries working for the Department of
+  Commerce (Actuarial Research Corporation) priced it at four cents per member per month.
+  Students are ready to testify when a new bill is heard.
 
 ## Help affording medication now
 See [Resources & Support](../resources/index.md) for assistance programs, Medical

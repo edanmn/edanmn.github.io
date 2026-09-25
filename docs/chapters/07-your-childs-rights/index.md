@@ -13,8 +13,9 @@ Families hear several plan names and understandably get confused. There are two 
 
 **Health/nursing documents** (the "what to do" for the body):
 
-- **Seizure Action Plan (SAP):** a first-aid document completed with your child's healthcare
-  provider, contacts, first aid, and rescue medication. (See [seizure action plans](../04-seizure-action-plans/index.md).)
+- **Seizure Action Plan (SAP):** a first-aid document with your child's contacts, first aid, and
+  rescue medication. The medical parts come from your child's healthcare provider; the school
+  nurse adds the school's parts. (See [seizure action plans](../04-seizure-action-plans/index.md).)
 - **Individual Health Plan (IHP):** written by the school nurse to communicate your child's
   nursing needs to staff.
 - **Emergency Care Plan (ECP):** the short, action-step version of the IHP for frontline staff.
@@ -85,20 +86,21 @@ standard in practice but should be tailored with your team.
 - **Make-up work and attendance:** make up missed work without penalty; no penalty for
   epilepsy-related absences or appointments; flexibility for late arrival if mornings are hard.
 - **Testing:** retake a test taken during/around a seizure; extra time if medication affects focus;
-  breaking long tests into parts; afternoon scheduling if mornings bring drowsiness.
+  *(commonly requested)* breaking long tests into parts or afternoon scheduling if mornings bring
+  drowsiness.
 - **PE and sports:** full participation per the child's physician, with PE staff and coaches
   trained and rescue medication available at practices and games.
-- **Avoiding triggers:** help the student avoid identified triggers such as flashing lights;
-  *(commonly requested)* screen/lighting adjustments for photosensitivity.
+- **Avoiding triggers:** *(commonly requested)* help the student avoid identified triggers such
+  as flashing lights, with screen/lighting adjustments for photosensitivity.
 - **Transportation:** anyone who drives the student must be able to recognize and respond to a
   seizure; *(commonly requested)* seating or supervision specifics.
 - **Field trips and activities:** participate with supervision and the plan; a parent is not
   required to attend; rescue medication travels with the student.
 - **Rescue medication:** a trained primary and backup staff member available whenever the student
   is at school or a school activity.
-- **Note-taking and instructional supports:** copies of notes, recordings, extra processing time,
+- **Note-taking and instructional supports:** *(commonly requested)* copies of notes, recordings, extra processing time,
   organizers for memory.
-- **Emotional support and anti-bullying:** monitor for mood concerns, prevent bullying, and give
+- **Emotional support and anti-bullying:** *(commonly requested)* monitor for mood concerns, prevent bullying, and give
   classmates age-appropriate, factual information.
 - **Daily communication:** written notice to you of any seizure at school; the plan stays in
   effect during drills, evacuation, and shelter-in-place.

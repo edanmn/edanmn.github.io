@@ -20,7 +20,8 @@ different fix. Pick what you were told and the branch draws itself, step by step
 - Out of stock. A transfer or an independent pharmacy fixes a local gap in a day. A national
   shortage needs the prescriber the same day, because only they can change a strength, a form
   or a drug.
-- Prior authorization. Ask for a 72-hour emergency supply while the clinic files the form. Say
+- Prior authorization. Ask for a 72-hour emergency supply while the clinic files the form.
+  Medical Assistance allows it; many commercial plans do too, but it is not guaranteed. Say
   the words "emergency supply"; a pharmacist who is not asked may not offer it.
 - Costs too much. The route depends on the coverage. On Medical Assistance a large number at
   the register usually means the claim ran wrong.
@@ -35,9 +36,9 @@ different fix. Pick what you were told and the branch draws itself, step by step
 - A month of generic clobazam costs a pharmacy about $14.84. Brand Onfi costs about $1,794.87.
   Generic levetiracetam is $4.43 against $594.93 for Keppra (CMS National Average Drug
   Acquisition Cost, 2026Q3 snapshot).
-- Six seizure medicines have no generic anywhere in the United States: Epidiolex, Fintepla,
+- Six seizure products have no generic version in the United States: Epidiolex, Fintepla,
   Xcopri, Nayzilam, Ztalmy and Diacomit. In Minnesota Medicaid they are 1.5 percent of
-  antiseizure prescriptions and 32.2 percent of the spending (FDA Orange Book and CMS State
+  antiseizure prescriptions and 32.2 percent of the spending before manufacturer rebates (FDA Orange Book and CMS State
   Drug Utilization Data, 2025).
 - Minnesota has lost about 13 percent of its community pharmacies since 2009, and roughly one
   in five residents lives in an area with poor pharmacy access (CDC, Preventing Chronic

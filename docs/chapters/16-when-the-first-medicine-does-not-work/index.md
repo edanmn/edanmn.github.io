@@ -41,17 +41,20 @@ is one page and designed for exactly this.
 
 ## If the first medicines are not working
 
-About a third of people with epilepsy keep having seizures on medication. There is a name for
-that, and there is a referral that should happen. Many families wait years before anyone says
-so.
+About a third of people with epilepsy keep having seizures on medication. In a Glasgow study
+that followed 1,795 people for up to 30 years, 63.7% were seizure free at the end, and more than
+a third were not ([Chen et al., JAMA Neurology, 2018](https://pubmed.ncbi.nlm.nih.gov/29279892/)).
+There is a name for that, and there is a referral that should happen.
 
-Epilepsy is called drug resistant when two suitable antiseizure medicines, properly chosen and
-properly taken, have failed to stop the seizures. That definition comes from the International
-League Against Epilepsy and it is widely used.
+Epilepsy is called drug resistant when adequate trials of two tolerated, appropriately chosen
+and used antiseizure medicines, alone or together, have failed to bring lasting seizure freedom.
+That definition comes from the International League Against Epilepsy and it is widely used
+([Kwan et al., Epilepsia, 2010](https://pubmed.ncbi.nlm.nih.gov/19889013/)).
 
-It matters because it is the point at which guidance says to look beyond another prescription.
-If you have tried two and you are still having seizures, that is the moment to ask about a
-referral, not after the fifth.
+It matters because each new medicine helps less. In the same Glasgow study, 50.5% became seizure
+free on the first medicine. The second regimen added 11.6%, the third 4.4%, and all later ones
+together about 2%. If you have tried two and you are still having seizures, that is the moment
+to ask about a referral, not after the fifth.
 
 A question that costs nothing to ask: "Would you consider me drug resistant, and should I be
 evaluated at an epilepsy center?"
@@ -81,9 +84,10 @@ Our own data on how far people live from that care:
 - 101 school districts, about 70,400 students, are more than 60 straight-line miles from the
   nearest child neurologist
 - 11 districts, 4,613 students, are more than 100 miles away
-- The farthest districts are in Kittson, Marshall and Big Stone counties, where the nearest
-  accredited center is nearly 300 miles away
-- 80 of those 101 distant districts also post no seizure plan, so the families with the least
+- The farthest districts are in Kittson, Marshall and Big Stone counties, 108 to 130 miles
+  from the nearest child neurologist
+- In Kittson, Marshall and Roseau counties, the nearest Level 4 center is 290 to 317 miles away
+- 80 of those 101 distant districts also post no seizure-specific plan we could find, so the families with the least
   access to specialists are also in the schools least likely to be ready
 
 Look up any district: [distance to care](../../initiatives/care-access.md).

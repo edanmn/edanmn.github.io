@@ -53,7 +53,7 @@ There is a published number, and it is three months. Here is the rule in its own
 > vehicle on the public roads, except as provided in items A to D.
 > ([Minn. R. 7410.2500, subp. 3](https://www.revisor.mn.gov/rules/7410.2500/))
 
-Read the last five words. The three months is the default, not a wall that everyone hits. The
+Read the last clause. The three months is the default, not a wall that everyone hits. The
 rule writes down four situations where it works differently:
 
 - Your doctor states the episode happened because they changed or removed a medication, and
@@ -78,9 +78,9 @@ DVS decides, not your neurologist. The form says so on its face:
 > responsible for determining eligibility to drive.
 > ([DVS form PS31015](https://assets.dps.mn.gov/files/dvs/DL_LossofConsciousness_VoluntaryControlWaiver.pdf))
 
-The legal authority sits with the commissioner of public safety, who may refuse a license to a
-person with a physical or mental condition "that will affect the person in a manner as to
-prevent the person from exercising reasonable and ordinary control over a motor vehicle"
+The legal authority sits with the Department of Public Safety, which must not issue a license to
+a person with a physical or mental disability or disease "that will affect the person in a manner
+as to prevent the person from exercising reasonable and ordinary control over a motor vehicle"
 ([Minn. Stat. 171.04, subd. 1](https://www.revisor.mn.gov/statutes/cite/171.04)). Day to day,
 the work is done by the DVS Driver Evaluation Unit, 651-296-2025.
 
@@ -155,13 +155,14 @@ The rule then sets shorter and longer cycles depending on your history
 - Every four years, once you have been four years free of episodes, unless your doctor asks for
   more frequent reports.
 
-The rule also now has two ways out of reporting altogether. One covers a driver whose episode
-came from a single non-epileptic seizure, who has been five years free of episodes, has not been
-prescribed or taken antiseizure medication for those five years, and whose physician says no
-further review is needed. The other covers ten years free of episodes with ten years off
-antiseizure medication and the same physician statement. Those two paths were added by a recent
-rule amendment, so the printed PS31015 form, which dates from 2016, still lists only the older
-options.
+The rule also now has two ways to stop sending the periodic physician's statements. One covers a
+driver whose episode came from a single non-epileptic seizure, who has been five years free of
+episodes, has not been prescribed or taken antiseizure medication for those five years, and whose
+physician says no further review is needed. The other covers ten years free of episodes with ten
+years off antiseizure medication and the same physician statement (subp. 5, items F and G). Neither
+removes the duty to report a new episode within 30 days. Both paths came from a recent rule
+amendment (50 SR 647; the rule as published April 2, 2026), so the printed PS31015 form, which
+dates from 2016, still lists only the older options.
 
 ## Commercial licenses
 
@@ -185,8 +186,10 @@ certified medical examiner
 For driving only inside Minnesota, MnDOT can waive some federal physical standards under
 [Minn. Stat. 221.0314](https://www.revisor.mn.gov/statutes/cite/221.0314). Its
 [waivers page](https://www.dot.state.mn.us/cvo/waivers.html) lists four: hearing, insulin-treated
-diabetes, physical or limb impairment, and vision. Seizures are not on that list, so ask MnDOT
-directly before you assume anything. The DVS form adds that "Additional waivers are required for
+diabetes, physical or limb impairment, and vision. The statute matches that list: it lets MnDOT
+waive only the federal standards in 49 CFR 391.41(b)(1), (b)(2), (b)(3), (b)(10) and (b)(11)
+(subd. 3 and 3a). The epilepsy standard is (b)(8), which the statute does not name, so we found
+no state waiver route for a seizure disorder. The DVS form adds that "Additional waivers are required for
 commercial driving privileges."
 
 ## If you are told you cannot drive
@@ -205,10 +208,11 @@ people miss appointments and school.
 - Outside the metro, MnDOT keeps a county-by-county directory of transit providers with phone
   numbers and service types at
   [find your transit provider](https://www.dot.state.mn.us/transit/find-your-transit-provider.html).
-- If you are on Medical Assistance, it covers rides to covered appointments. Minnesota law puts
-  "transportation services to and from medical, surgical, dental, and mental health treatment
-  facilities" in the benefit set
-  ([Minn. Stat. 256B.0625, subd. 17](https://www.revisor.mn.gov/statutes/cite/256B.0625)). Ask
+- If you are on Medical Assistance, it covers rides to covered appointments. Minnesota law says
+  "Medical assistance covers medical transportation costs incurred solely for obtaining emergency
+  medical care or transportation costs incurred by eligible persons in obtaining emergency or
+  nonemergency medical care"
+  ([Minn. Stat. 256B.0625, subd. 17(c)](https://www.revisor.mn.gov/statutes/cite/256B.0625)). Ask
   your county or your health plan how to arrange it.
 - Rideshare and taxis work anywhere there is coverage, and they add up fast. Price a month of
   them before you build a plan around them.
@@ -232,8 +236,6 @@ drives the student can recognize a seizure and knows what to do.
 - The exact seizure-free interval FMCSA requires of exemption applicants. The FMCSA criteria
   page refused our requests, so we link it rather than quote a number. Ask FMCSA or a certified
   medical examiner.
-- Whether MnDOT will consider an intrastate commercial waiver for a seizure disorder at all. Its
-  published list does not include one.
 - How long DVS takes to process a reinstatement. We found no published processing time.
 - Whether the PS31015 form can be filed online. DVS describes mail and fax for the form, and a
   separate online upload route at drive.mn.gov for at-risk driver referrals.

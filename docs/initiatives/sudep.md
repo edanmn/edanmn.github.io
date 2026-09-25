@@ -6,7 +6,8 @@ Minnesota; we are seeking that review. Nothing here is medical advice.
 
 ## The gap
 Sudden Unexpected Death in Epilepsy is rare, about one in a thousand adults with epilepsy a
-year and far lower in children, and it is the outcome every family fears. The Minnesota
+year and lower in children (American Academy of Neurology guideline, Harden et al. 2017), and
+it is the outcome every family fears. The Minnesota
 Department of Health reports around 1,000 deaths a year in the state related to epilepsy or
 seizures; our own pull of 2018 to 2024 death certificates gives about 870 a year that mention
 epilepsy or seizures, and about 200 a year that mention epilepsy specifically. How many are SUDEP, nobody knows: it has no diagnostic code, and death certificates
@@ -16,7 +17,7 @@ medical examiners to look for it and report it. Minnesota does not.
 The best-supported ways to lower risk are good seizure control, taking medication as
 prescribed, and supervision at night. Since January 2024 Minnesota Medical Assistance has
 covered seizure detection devices, wearables that alert a caregiver to a convulsive seizure.
-Minnesota was the first state to do this. Most eligible families have not heard of it.
+Minnesota was the first state to do this. We do not yet know how many families use it.
 
 ## What the death data shows
 We pulled every Minnesota death certificate from 2018 to 2024 that mentions epilepsy or

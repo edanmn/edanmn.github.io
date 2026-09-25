@@ -4,10 +4,10 @@ Status: map published September 2026; clinical review of the guidance page in pr
 
 ## The gap
 Everyone in Minnesota epilepsy care knows the specialists are in Rochester and the Twin
-Cities. Nobody had put a number on what that means for a child in Kittson County. Delays
-in reaching an epilepsy specialist are documented to be worst for families far from a
-center, and the same families face the slowest ambulances: in 31 of 87 counties the slowest
-tenth of 911 calls take more than 20 minutes to reach the scene.
+Cities. Nobody had put a number on what that means for a child in Kittson County. Families
+far from a center also tend to face the slowest ambulances: in 31 of 87 counties the slowest
+tenth of ambulance runs take 20 minutes or more from dispatch to the scene (Minnesota Office
+of Emergency Medical Services, 2023).
 
 ## What the data shows
 We located every neurologist, child neurologist, and epilepsy subspecialist with a practice
@@ -30,8 +30,8 @@ federal provider registry, and measured the distance from every school district 
 | Of the 101 far districts, those also without a findable seizure plan | 80 |
 | Districts more than 15 miles from any retail pharmacy | 15 (14 without a findable plan) |
 
-Kittson, Roseau, Cook, and Big Stone counties are farthest. Distances are straight-line; rural
-drive time runs about a third longer. Minnesota's Level 4 epilepsy centers, the highest
+Kittson, Roseau, Cook, and Big Stone counties are farthest. Distances are straight-line, so
+the drive is longer. Minnesota's Level 4 epilepsy centers, the highest
 designation, are Mayo Clinic in Rochester, the University of Minnesota Medical Center and
 Abbott Northwestern in Minneapolis, and Minnesota Epilepsy Group with Children's Minnesota in
 the Twin Cities.
@@ -60,4 +60,4 @@ the Twin Cities.
 
 ## For families far from care
 The [Resources & Support](../resources/index.md) page lists Minnesota's pediatric epilepsy
-programs. Ask your clinic whether it offers video visits; most do.
+programs. Ask your clinic whether it offers video visits.

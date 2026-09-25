@@ -43,7 +43,7 @@ Full detail is in [Your Child's Rights](../../chapters/07-your-childs-rights/ind
     Only your school's evaluation team can decide what your child is eligible for. For free
     legal help in Minnesota, contact the
     [Minnesota Disability Law Center](https://mylegalaid.org/disability-law-center/) at
-    Mid-Minnesota Legal Aid, 612-334-5970 or 1-800-292-4150. Confirm current Minnesota
+    Mid-Minnesota Legal Aid: intake 1-877-696-6529, Disability Law Center 1-800-292-4150. Confirm current Minnesota
     evaluation timelines at education.mn.gov.
 
 ## About this tool

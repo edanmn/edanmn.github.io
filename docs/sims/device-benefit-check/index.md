@@ -1,8 +1,8 @@
 # Seizure Detection Device Benefit Check
 
 Since January 1, 2024, Minnesota Medical Assistance has covered FDA-cleared seizure detection
-devices as durable medical equipment. Minnesota was the first state to write that into law, and
-most families who qualify have never been told it exists. Four questions walk the real criteria,
+devices as durable medical equipment. Minnesota was the first state to write that into law. How
+many families have used it is not yet public. Four questions walk the real criteria,
 drawing the path as you answer, and end with the sentence to take to the neurologist.
 
 <iframe src="main.html" width="100%" height="1150" class="microsim" title="Seizure detection device benefit check" loading="lazy"></iframe>

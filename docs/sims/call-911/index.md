@@ -53,7 +53,7 @@ For deciding *whether* a seizure needs 911 at all, use the
 [Seizure First Aid](../../chapters/02-seizure-first-aid/index.md).
 
 !!! warning
-    A learning tool, not medical advice or certification. Dispatch protocols vary between
+    Schools and addresses in the scenarios are fictional. A learning tool, not medical advice or certification. Dispatch protocols vary between
     counties, so follow what your own dispatcher tells you on the day. For free training in
     Minnesota, see the
     [Epilepsy Foundation of Minnesota](https://www.epilepsyfoundationmn.org/get-support/seizure-smart-trainings/).

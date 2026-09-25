@@ -193,12 +193,12 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--purple);outline-off
       </div>
 
       <div class="fig" id="figNoGen">
-        <h3>Six seizure medicines have no generic anywhere</h3>
+        <h3>Six seizure products have no generic version</h3>
         <p style="margin:2px 0">Epidiolex (cannabidiol), Fintepla (fenfluramine), Xcopri (cenobamate), Nayzilam (nasal midazolam), Ztalmy (ganaxolone), Diacomit (stiripentol). For these there is nothing to switch to, so the fight is over coverage rather than substitution.</p>
         <table>
           <tr><th>Minnesota Medicaid, 2025</th><th>Share</th></tr>
           <tr><td>Antiseizure prescriptions</td><td>1.5 percent</td></tr>
-          <tr><td>Antiseizure spending</td><td>32.2 percent</td></tr>
+          <tr><td>Antiseizure spending, before manufacturer rebates</td><td>32.2 percent</td></tr>
         </table>
         <p class="src">4,956 of 335,239 prescriptions and $14,300,380 of $44,455,568. Sources: FDA Orange Book products file dated 2026-09-11 and CMS Medicaid State Drug Utilization Data, EDAN pull (data/mn_brandonly_asm_summary.md).</p>
       </div>
@@ -249,7 +249,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--purple);outline-off
       <h2>Two sentences that change the answer</h2>
       <div class="script">"Is this a national shortage, or just your stock? Can you see another store's inventory and transfer it?"</div>
       <div class="script">"Can you run a 72-hour emergency supply while the prior authorization is sorted out?"</div>
-      <p class="note">Say the words "emergency supply." Minnesota Medical Assistance and most plans allow a short emergency fill while a prior authorization is processed, and a pharmacist who is not asked may not offer it.</p>
+      <p class="note">Say the words "emergency supply." Minnesota Medical Assistance allows a 72-hour emergency fill while a prior authorization is processed. Many commercial plans do too, but it is not guaranteed, so ask. A pharmacist who is not asked may not offer it.</p>
     </div>
   </div>
 </div>
@@ -285,12 +285,12 @@ const N={
    text:"One store being empty says nothing about the others. Chains can transfer a prescription between their own stores, and independent pharmacies often buy from a different wholesaler, so they have stock when the chain does not.",
    steps:[
     {s:"Ask for a transfer to a store that has it",t:"Ask this pharmacy to transfer the prescription to a nearby store that has it in stock."},
-    {s:"Call an independent pharmacy",t:"Independents often use a different wholesaler. Find one at mnpharmacists.org, or call the Epilepsy Foundation of Minnesota at 651-287-2300 for the nearest."},
+    {s:"Call an independent pharmacy",t:"Independents often use a different wholesaler. Call the Epilepsy Foundation of Minnesota at 651-287-2300 for the nearest."},
     {s:"Tell the prescriber how many doses are left",t:"If you are down to a few days, the prescriber needs to know today so they can plan around it. Do not ration what is left on your own."},
     {s:"Ask for a 90-day supply next time",t:"Once it is back in stock, ask whether the plan allows a 90-day fill so one bad week does not become a crisis."}]},
 
  stock_nat:{b:0,head:"A national shortage is a prescriber problem, not a pharmacy problem",
-   text:"No amount of calling around fixes a drug that is not being made. The FDA has listed a valproate injection shortage since 2020, and several seizure products have been discontinued outright. What the prescriber can do is change the strength, the form, or the drug, and only the prescriber can do it.",
+   text:"No amount of calling around fixes a drug that is not being made. Several seizure products have been discontinued outright. What the prescriber can do is change the strength, the form, or the drug, and only the prescriber can do it.",
    script:"“Is there a different strength, a different form, or a therapeutic alternative you would accept while this is short?”",
    steps:[
     {s:"Call the prescriber today, not tomorrow",t:"Call the same day, and say how many doses are left. This is the step people delay, and it is the one that matters."},
@@ -302,7 +302,7 @@ const N={
    opts:[['Three days or fewer','pa_now'],['More than three days','pa_soon']]},
 
  pa_now:{b:1,head:"Ask for the emergency supply, now, at the counter",
-   text:"Minnesota Medical Assistance and most plans allow a short emergency fill while a prior authorization is processed. The pharmacist may not offer it unless you ask. This is the single most useful thing to know at a pharmacy counter, and it buys the three days the paperwork needs.",
+   text:"Minnesota Medical Assistance allows a 72-hour emergency fill while a prior authorization is processed. Many commercial plans do too, but it is not guaranteed, so ask. The pharmacist may not offer it unless you ask. This is the single most useful thing to know at a pharmacy counter, and it buys the three days the paperwork needs.",
    script:"“Can you run a 72-hour emergency supply while the prior authorization is sorted out?”",
    steps:[
     {s:"Say the words: emergency supply",t:"Ask the pharmacist to run a 72-hour emergency supply. Say the words; the phrase maps to something in their system."},
@@ -343,7 +343,7 @@ const N={
     {s:"Apply to manufacturer assistance programs",t:"Most brand-name seizure drugs have a program for uninsured patients. NeedyMeds and RxAssist list them."},
     {s:"Ask the clinic social worker for the forms",t:"The forms want income documents and a prescriber signature. A social worker gets them through faster than a family working alone."}]},
 
- brand:{b:3,q:"Is this medicine one of the six with no generic anywhere?",hint:"Epidiolex, Fintepla, Xcopri, Nayzilam, Ztalmy, Diacomit. If it is one of these, no pharmacist can substitute anything.",
+ brand:{b:3,q:"Is this medicine one of the six with no generic version?",hint:"Epidiolex, Fintepla, Xcopri, Nayzilam, Ztalmy, Diacomit. If it is one of these, no pharmacist can substitute anything.",
    opts:[['Yes, it is one of those six','brand_none'],['No, or the drug has a generic','brand_gen'],['Not sure','brand_ask']]},
 
  brand_ask:{b:3,fig:'figNoGen',head:"Ask the pharmacist, because the answer changes everything",
@@ -355,20 +355,20 @@ const N={
    opts:[['There is no generic','brand_none'],['There is a generic','brand_gen']]},
 
  brand_gen:{b:3,fig:'figBrand',head:"There is something to switch to, and the prescriber decides whether to",
-   text:"Where a generic exists the gap is enormous: a month of generic clobazam costs a pharmacy about $14.84 and brand Onfi about $1,794.87. For most people the generic works identically, which is why plans push it. For some people it does not, and that judgment belongs to the neurologist, not to the counter and not to the plan.",
+   text:"Where a generic exists the gap is enormous: a month of generic clobazam costs a pharmacy about $14.84 and brand Onfi about $1,794.87. Studies find the generic works the same for most people, which is why plans push it. Whether a switch suits this person is the neurologist's call.",
    script:"“The plan will not cover the brand. Is the generic safe for this person, or do you want to write it as brand necessary?”",
    steps:[
     {s:"Ask the pharmacist what can be substituted",t:"Ask which generic of the same form the plan will cover, and what it would cost today."},
-    {s:"Ask the prescriber before any switch happens",t:"Some people lose seizure control when the product changes. Never agree to a switch at the counter without the prescriber knowing."},
+    {s:"Ask the prescriber before any switch happens",t:"A change in how the pill looks can make people more likely to stop taking it. Let the prescriber know before a switch happens."},
     {s:"If brand is needed, ask for it in writing",t:"The prescriber can mark the prescription brand necessary and file a formulary exception explaining why this person cannot use the generic."},
     {s:"Ask for an emergency supply meanwhile",t:"Ask the pharmacist for a 72-hour emergency supply so nothing is missed while the exception is decided."}]},
 
  brand_none:{b:3,fig:'figNoGen',head:"There is nothing to substitute, so this is a coverage fight",
-   text:"Those six drugs have no generic anywhere in the United States, which is why the pharmacist has nothing else to offer you. A plan refusing one is not steering a family toward a cheaper version, because no cheaper version exists. The route out is an exception request, and the clinic is the one who files it.",
+   text:"Those six products have no generic version in the United States, which is why the pharmacist has nothing else to offer you. A plan refusing one is not steering a family toward a cheaper version, because no cheaper version exists. The route out is an exception request, and the clinic is the one who files it.",
    script:"“There is no generic of this drug. Will you file a formulary exception with a letter of medical necessity?”",
    steps:[
     {s:"Ask the clinic for a formulary exception",t:"The prescriber files it with a letter of medical necessity saying why this drug and no other."},
-    {s:"Ask for a 72-hour emergency supply",t:"Ask the pharmacist to run an emergency supply while the exception is decided, so no dose is missed."},
+    {s:"Ask the prescriber for a bridge supply",t:"A plan's emergency supply rules usually do not cover a drug the plan never covers. Ask the clinic for samples or a short bridge supply while the exception is decided, so no dose is missed."},
     {s:"Apply to the manufacturer's program",t:"All six are brand products with manufacturer assistance programs. NeedyMeds, 800-503-6897, lists them."},
     {s:"Call the Epilepsy Foundation of Minnesota",t:"651-287-2300. Their care coordinators have been through these appeals before."}],
    extra:'figCover'},

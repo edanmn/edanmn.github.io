@@ -8,7 +8,7 @@
 
 ??? quiz "3. How long does a convulsive seizure last before you should call 911?"
     Longer than **5 minutes** (or sooner if the student's action plan says so, if breathing is
-    affected, if seizures repeat, if it happens in water, or if there is injury).
+    affected, if another seizure follows soon after, if it happens in water, or if there is injury).
 
 ??? quiz "4. Why turn the person onto their side?"
     To help them **breathe** and let saliva drain.

@@ -16,12 +16,12 @@ These are our own numbers, from public data, with the working shown.
 
 | What the data shows | Source |
 |---|---|
-| Minnesotans on commercial insurance paid $18.48 out of pocket per prescription fill in 2022, against $9.30 on Medicare and $1.31 on Medical Assistance | Minnesota All Payer Claims Database |
-| For the costliest drugs, the median fill costs the member nothing and the average is $96 to $267, which is the deductible pattern | Same |
-| Across a year, commercial members taking fenfluramine paid about $1,822, eslicarbazepine $1,460, cannabidiol $1,073 | Same, small numbers of people |
-| Six seizure medicines have no generic at all. They are 1.5 percent of Minnesota Medicaid prescriptions and 32 percent of the spending | CMS Medicaid data and the FDA Orange Book |
-| A month of generic clobazam costs a pharmacy about $15. The brand, Onfi, costs about $1,795 | CMS national drug acquisition cost |
-| Manufacturers have reported 50 price increases on seizure drugs to the state since 2022. Sabril rose about 15 percent in a year, to $20,182 a bottle | Minnesota drug price transparency reporting |
+| Minnesotans on commercial insurance paid $18.48 out of pocket per prescription fill in 2022, against $9.30 on Medicare and $1.31 on Minnesota Health Care Programs (Medical Assistance and MinnesotaCare) | Minnesota All Payer Claims Database |
+| In 2022, for the costliest drugs, the median fill costs the member nothing and the average is $96 to $267, which is the deductible pattern | Same |
+| Across 2022, commercial members taking fenfluramine paid about $1,822, eslicarbazepine $1,460, cannabidiol $1,073 | Same, small numbers of people |
+| Six seizure products have no generic version. In 2025 they were 1.5 percent of Minnesota Medicaid prescriptions and 32 percent of the spending, before manufacturer rebates | CMS Medicaid data and the FDA Orange Book |
+| As of September 2026, a month of generic clobazam costs a pharmacy about $15. The brand, Onfi, costs about $1,795 | CMS national drug acquisition cost |
+| The state's public files show at least 50 price increases on seizure drugs, effective 2022 to 2025; MDH withheld other reports over trade secret claims. Sabril's list price rose about 15 percent between January 2022 and January 2023, to $20,182 for a bottle of 100 tablets | Minnesota drug price transparency reporting |
 
 Full methods and files: [medication access](../../initiatives/medication-access.md).
 

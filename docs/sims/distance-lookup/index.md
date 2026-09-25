@@ -9,4 +9,4 @@ ambulance response time and whether the district posts a seizure plan.
 [Open full screen](main.html){ .md-button }
 
 Part of the [Distance to Care](../../initiatives/care-access.md) initiative. Straight-line
-miles; rural drive time runs about a third longer.
+miles, so the drive is longer.
