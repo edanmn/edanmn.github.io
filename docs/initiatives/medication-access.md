@@ -53,11 +53,12 @@ Medicaid prices are not what a working family sees. In September 2026 we pulled 
 drug pricing file, checked which seizure medicines have a generic, priced ten real Minnesota
 insurance plans, and read the state's own claims data. Four things stand out.
 
-Six seizure products have no generic version: Epidiolex, Fintepla, Xcopri, Ztalmy,
-Diacomit and nasal midazolam (Nayzilam). In Minnesota Medicaid in 2025 they were 1.5 percent
+Six seizure medicines have no generic version: Epidiolex, Fintepla, Xcopri, Ztalmy,
+Diacomit and nasal midazolam (Nayzilam). Other products, such as Valtoco nasal diazepam, have no
+generic in their own form. In Minnesota Medicaid in 2025 the six were 1.5 percent
 of seizure prescriptions and 32 percent of the spending, before manufacturer rebates.
 
-![Six seizure products with no generic version take about a third of Medicaid seizure-drug spending before rebates](../img/asm_brandonly_share.png)
+![Six seizure medicines with no generic version take about a third of Medicaid seizure-drug spending before rebates](../img/asm_brandonly_share.png)
 
 Where a generic does exist, the gap is enormous. A month of generic clobazam costs a pharmacy
 about $15. The brand, Onfi, costs about $1,795. Generic levetiracetam is $4.43 against $595
@@ -71,7 +72,7 @@ Medicine 2013, PMID 23277164), so it helps to ask the pharmacy before a switch.
 
 Minnesotans on commercial insurance pay far more than people on public programs. From the
 Minnesota All Payer Claims Database for 2022: $18.48 out of pocket per fill on a commercial
-plan, against $9.30 on Medicare and $1.31 on Medical Assistance. For the expensive drugs the
+plan, against $9.30 on Medicare and $1.31 on Minnesota Health Care Programs (Medical Assistance and MinnesotaCare). For the expensive drugs the
 median payment is $0.00 while the average runs from about $96 to $267 a fill, which is the
 deductible pattern. Across a
 year, commercial members taking fenfluramine paid $1,822 on average, eslicarbazepine $1,460,
@@ -80,8 +81,8 @@ respectively, and the database holds roughly 40 percent of Minnesota's commercia
 read them as the shape of the problem rather than a statewide count.
 
 Prices keep rising, and the state knows it. Minnesota's drug price transparency law requires
-manufacturers to report large increases, and since January 2022 they have reported 50 on
-seizure drugs. Sabril rose about 15 percent in twelve months, to $20,182 for a bottle of 100
+manufacturers to report large increases. The state's public files show at least 50 on seizure
+drugs, effective 2022 to 2025; MDH withheld other reports over trade secret claims. Sabril rose about 15 percent in twelve months, to $20,182 for a bottle of 100
 tablets. Onfi rose about 24 percent over three January increases. In each of the three annual
 reports we tabulated, anticonvulsants were a top-ten class by number of price increase
 filings, and the median two-year increase for the class went from 15 percent to 31 percent,
@@ -90,9 +91,10 @@ withheld as a trade secret.
 
 Two 2026 bills (HF 3652 and SF 3786) would have added epilepsy to Minn. Stat. 62Q.481,
 which since January 2025 has capped what a Minnesotan pays for diabetes, asthma and severe
-allergy medicine at $25 a month, for plans that state law regulates. The Department of Commerce, using claims from 2021 to 2024, projects epilepsy cost sharing of
-$44.71 a month in 2027, with $17.35 of that above the $25 line, and prices the change at four cents
-per member per month. Both bills died with this legislature and would need to be reintroduced
+allergy medicine at $25 a month, for plans that state law regulates. The Department of Commerce, using claims from 2021 to 2024, projects that people filling an
+epilepsy drug will pay an average of $44.71 a month in cost sharing in 2027, with $17.35 of that above the $25
+line. Spread across everyone with private coverage, the change costs about four cents per member
+per month. Both bills died with this legislature and would need to be reintroduced
 in 2027.
 
 The Minnesota Department of Health ran the claims counts behind that estimate and shared them
@@ -163,8 +165,9 @@ Answer three questions and get the next step for today.
   Minnesota's care coordinators and the pediatric epilepsy clinics.
 - Supporting reintroduction of the HF 3652 / SF 3786 cap in the 2027 session. It would limit
   what a patient pays for epilepsy drugs to $25 a month in state-regulated plans, the same
-  protection diabetes and asthma already have. Actuaries working for the Department of
-  Commerce (Actuarial Research Corporation) priced it at four cents per member per month.
+  protection diabetes and asthma already have. Actuaries from Actuarial Research
+  Corporation, in an evaluation done for the Department of Commerce, priced it at four cents per
+  member per month.
   Students are ready to testify when a new bill is heard.
 
 ## Help affording medication now

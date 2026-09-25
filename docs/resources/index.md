@@ -30,7 +30,7 @@ tool, and an implementation checklist.
 - Children's Minnesota, Pediatric Epilepsy, https://www.childrensmn.org/services/care-specialties-departments/epilepsy/
 - M Health Fairview / University of Minnesota, Pediatric Epilepsy, https://www.mhealthfairviewpeds.org/condition/epilepsy
 - Gillette Children's, Pediatric Neurology, https://www.gillettechildrens.org/conditions-care/pediatric-neurology
-- Mayo Clinic (Rochester), epilepsy information, https://www.mayoclinic.org/diseases-conditions/epilepsy
+- Mayo Clinic (Rochester), epilepsy information, https://www.mayoclinic.org/diseases-conditions/epilepsy/symptoms-causes/syc-20350093
 
 ## National
 
@@ -79,8 +79,8 @@ control, not alarm; ask your doctor what applies to your child.
 **Minnesota Medical Assistance (Medicaid):** https://mn.gov/dhs (DHS 651-297-3862 / 800-657-3672).
 Ask specifically about **MA-TEFRA**, which can qualify a child with a certified disability for
 Medical Assistance based on the child's own income, without counting the parents'. The child must
-be under 19, live with a parent, and need a level of care similar to a hospital, nursing home, or
-intermediate care facility
+be under 19, live with a parent, and need a level of care comparable to a hospital, nursing home, or
+group home for people with disabilities
 (https://disabilityhubmn.org/top-topics/health/medical-assistance/ma-tefra/).
 
 ## If you are in crisis

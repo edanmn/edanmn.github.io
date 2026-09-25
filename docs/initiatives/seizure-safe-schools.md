@@ -4,8 +4,10 @@ Status: active since 2026. Flagship initiative.
 
 ## The gap
 
-Minnesota law (Minn. Stat. 121A.24) has required every public and charter school to have a
-seizure action plan and trained staff since the 2022-23 school year. Nobody checks. We reviewed
+Since the 2022-23 school year, Minnesota law (Minn. Stat. 121A.24) has required public and
+charter schools to set up a seizure action plan, with a trained person at each site, for each
+student whose family reports a diagnosed seizure disorder and prescribed seizure medication.
+Nobody checks. We reviewed
 the public websites of all 329 regular school districts and found that about 7 in 10 post no
 seizure-specific plan a family or a substitute teacher could find. The gap tracks district size
 rather than rurality, which makes it a capacity problem.
@@ -45,8 +47,8 @@ the [Seizure First Aid Simulator](../sims/seizure-first-aid/index.md), and the
 | Measure | Value |
 |---|---|
 | Districts audited | 329 of 329 |
-| Districts with a findable seizure plan | 97 (29.5%) |
-| Districts contacted directly | 41 (July 2026), all others in progress |
+| Districts with a findable seizure plan | 98 (29.8%) |
+| Districts emailed | 144 (as of September 7, 2026) |
 | Districts that confirmed a plan and trained staff by email | 13 (as of September 16, 2026) |
 | Districts that adopted a plan after our outreach | 1 |
 | Reliability of the audit (blind re-check of 30 districts) | 90% agreement, kappa 0.82 |
@@ -72,7 +74,7 @@ health office used the packet to put one in place, and wrote back:
 
 ## Check yourself
 ??? quiz "1. What share of Minnesota districts post a findable seizure plan?"
-    About 30 percent (97 of 329). About 70 percent post none, most of them only a general
+    About 30 percent (98 of 329). About 70 percent post none, most of them only a general
     medication policy that never mentions seizures. Posting and having are different things:
     many districts keep individual plans on file and train staff without putting anything
     online, as most districts that answered our follow-up emails told us.
@@ -88,4 +90,5 @@ health office used the packet to put one in place, and wrote back:
 ## For schools
 The free packet is at [For Schools: In Practice](../chapters/08-for-schools-in-practice/index.md).
 If your district already has plans and trained staff in place,
-[tell us](../programs/report-your-district/index.md) and we will correct your entry on the map.
+[tell us](../programs/report-your-district/index.md) and we will correct your entry in
+[Find Your District](../find-your-district/index.md).

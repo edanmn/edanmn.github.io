@@ -4,7 +4,7 @@
 A **Seizure Action Plan** is a short, written document that tells school staff exactly what to
 do for one specific student. The family and the student's healthcare provider supply the
 medical content. The school, usually the school nurse, completes the parts the law assigns to
-the school: the trained person at the building, where medication is kept, and where the plan is
+the school: the trained person at the building, that person's training, and where the plan is
 filed. It is then shared with the staff responsible for that student.
 
 A SAP turns "someone is having a seizure, what do we do?" into "follow Maria's plan: it lasts
@@ -26,8 +26,10 @@ about a minute, give rescue med if over 4 minutes, call mom at this number."
 !!! warning "The medical parts come from the provider"
     School staff should never fill in medications, doses, or emergency thresholds generically.
     Those come from the student's licensed healthcare provider. The school names the trained
-    person, trains them, and files the plan. A separate medication authorization from the
-    provider may still be needed for the school to give medicine.
+    person, trains them, and files the plan. Minnesota law (Minn. Stat. 121A.22) also
+    requires a parent's request before school staff give prescription medicine (an oral request
+    must be put in writing within two school days), and many districts ask for a provider's
+    medication order form too.
 
 ## Use an official, ready-made form (including translations)
 You do not need to design your own. Free, official templates exist, several in multiple

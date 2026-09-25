@@ -38,8 +38,9 @@ audit method to the words a school nurse or a neurologist will use.
 **Licensed school nurse (LSN)**
 : A registered nurse with additional school-nurse licensure. Districts with 1,000 or more
   students must provide a licensed school nurse or an approved alternative (Minn. Stat. 121A.21).
-  MDH's 2022 data show about half of Minnesota districts and charter schools (242 of 474) had no
-  licensed school nurse.
+  About half of Minnesota school districts and charter schools have no licensed school nurse.
+  Among regular public districts more than 1 in 3 have none, and in public districts under 500
+  students it is 79% (MDH, School Nurse Workforce: A 2022 Snapshot).
 
 **Logistic regression**
 : A statistical method used to find which factors predict a yes/no outcome, such as whether a

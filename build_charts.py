@@ -55,7 +55,7 @@ fig = go.Figure(go.Bar(
     marker_color=[LAB[k][1] for k in keys][::-1],
     text=[f"{cnt[k]} ({round(100*cnt[k]/len(rows))}%)" for k in keys][::-1], textposition="outside",
     hovertemplate="%{y}: %{x} districts<extra></extra>"))
-fig.update_xaxes(title="Number of districts (of 328)", gridcolor="#eee", range=[0, max(cnt.values())*1.2])
+fig.update_xaxes(title=f"Number of districts (of {len(rows)})", gridcolor="#eee", range=[0, max(cnt.values())*1.2])
 fig.update_layout(title="What Minnesota districts actually post")
 save(fig, "classification_breakdown.html")
 

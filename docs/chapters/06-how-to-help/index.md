@@ -12,7 +12,7 @@ You have the right to ask, and the law is on your side.
    requirement does not apply, but you can still ask for a plan or a 504 plan.
 2. Have your child's healthcare provider complete the medical parts of the plan.
 3. Ask who the trained staff member is at your child's specific building.
-4. Ask that staff who work with your child be told and given a copy.
+4. Ask that staff responsible for your child's supervision or care be told and given a copy.
 5. Ask for a yearly review.
 
 ### Copy-paste email
@@ -22,7 +22,7 @@ Fill in the brackets and send it to your school nurse, with the principal copied
 >
 > Dear [nurse or principal],
 >
-> My child, [name], is in [grade] at [school]. [He/She/They] has a diagnosed seizure disorder
+> My child, [name], is in [grade] at [school]. [Name] has a diagnosed seizure disorder
 > and a prescription for [medication]. Under Minnesota Statutes 121A.24, I am notifying the
 > school and asking to set up a seizure action plan before [date].
 >

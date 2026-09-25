@@ -31,13 +31,14 @@ different fix. Pick what you were told and the branch draws itself, step by step
 
 ## The Minnesota numbers behind it
 - Commercially insured Minnesotans paid $18.48 out of pocket per antiseizure fill in 2022,
-  against $9.30 on Medicare and $1.31 on Medical Assistance
+  against $9.30 on Medicare and $1.31 on Minnesota Health Care Programs (Medical Assistance and MinnesotaCare)
   (Minnesota All Payer Claims Database public use files).
 - A month of generic clobazam costs a pharmacy about $14.84. Brand Onfi costs about $1,794.87.
   Generic levetiracetam is $4.43 against $594.93 for Keppra (CMS National Average Drug
   Acquisition Cost, 2026Q3 snapshot).
-- Six seizure products have no generic version in the United States: Epidiolex, Fintepla,
-  Xcopri, Nayzilam, Ztalmy and Diacomit. In Minnesota Medicaid they are 1.5 percent of
+- Epidiolex, Fintepla, Xcopri, Nayzilam, Ztalmy and Diacomit have no generic version in the
+  United States; some other products, such as Valtoco, have no generic in their own form. In
+  Minnesota Medicaid the six are 1.5 percent of
   antiseizure prescriptions and 32.2 percent of the spending before manufacturer rebates (FDA Orange Book and CMS State
   Drug Utilization Data, 2025).
 - Minnesota has lost about 13 percent of its community pharmacies since 2009, and roughly one

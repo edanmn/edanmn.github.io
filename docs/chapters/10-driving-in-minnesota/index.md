@@ -53,8 +53,8 @@ There is a published number, and it is three months. Here is the rule in its own
 > vehicle on the public roads, except as provided in items A to D.
 > ([Minn. R. 7410.2500, subp. 3](https://www.revisor.mn.gov/rules/7410.2500/))
 
-Read the last clause. The three months is the default, not a wall that everyone hits. The
-rule writes down four situations where it works differently:
+Read the last clause. The three months is a default, and the rule lists exceptions. It
+writes down four situations where it works differently:
 
 - Your doctor states the episode happened because they changed or removed a medication, and
   does not recommend that you stop driving. DVS does not cancel (item A).
@@ -79,7 +79,7 @@ DVS decides, not your neurologist. The form says so on its face:
 > ([DVS form PS31015](https://assets.dps.mn.gov/files/dvs/DL_LossofConsciousness_VoluntaryControlWaiver.pdf))
 
 The legal authority sits with the Department of Public Safety, which must not issue a license to
-a person with a physical or mental disability or disease "that will affect the person in a manner
+a person who, in the commissioner's opinion, has a physical or mental disability or disease "that will affect the person in a manner
 as to prevent the person from exercising reasonable and ordinary control over a motor vehicle"
 ([Minn. Stat. 171.04, subd. 1](https://www.revisor.mn.gov/statutes/cite/171.04)). Day to day,
 the work is done by the DVS Driver Evaluation Unit, 651-296-2025.
@@ -189,7 +189,8 @@ For driving only inside Minnesota, MnDOT can waive some federal physical standar
 diabetes, physical or limb impairment, and vision. The statute matches that list: it lets MnDOT
 waive only the federal standards in 49 CFR 391.41(b)(1), (b)(2), (b)(3), (b)(10) and (b)(11)
 (subd. 3 and 3a). The epilepsy standard is (b)(8), which the statute does not name, so we found
-no state waiver route for a seizure disorder. The DVS form adds that "Additional waivers are required for
+no state waiver route for a seizure disorder. A driver who holds a federal FMCSA exemption does
+not need a separate Minnesota waiver for driving inside the state (subd. 3b). The DVS form adds that "Additional waivers are required for
 commercial driving privileges."
 
 ## If you are told you cannot drive

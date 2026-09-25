@@ -14,12 +14,25 @@ PLAN_LABEL = {
     "NOT_FOUND":              ("Nothing found online", "#d73027", "no"),
     "NOT_VERIFIABLE":         ("Could not check",      "#999999", "unk"),
 }
+# Licensed school nurse (LSN) estimate from district size (MDH 2022 statewide rates).
 NURSE_LABEL = {
-    "ZERO_SUPPORT_STAFF":  ("Likely no nurse",  "#b71c1c"),
-    "HIGH_RISK_SMALL":     ("Likely no nurse",  "#e65100"),
-    "ELEVATED_RISK_MID":   ("Possibly no nurse","#f57f17"),
-    "LOW_RISK_LARGE":      ("Likely yes",       "#2e7d32"),
+    "ZERO_SUPPORT_STAFF":  ("Likely none",   "#b71c1c"),
+    "HIGH_RISK_SMALL":     ("Likely none",   "#e65100"),
+    "ELEVATED_RISK_MID":   ("Possibly none", "#f57f17"),
+    "LOW_RISK_LARGE":      ("Likely yes",    "#2e7d32"),
 }
+
+def short_month(m):
+    return m.replace("September", "Sept")
+
+def nurse_reply(rec):
+    """If the district's email reply came from a nurse, say so instead of the size estimate."""
+    if not rec: return None
+    role = rec.get("respondent_role", "").lower()
+    when = short_month(rec.get("confirmed_month", ""))
+    if "licensed school nurse" in role: return (f"Licensed school nurse replied ({when})", "#2e7d32")
+    if "nurs" in role: return (f"School nurse replied ({when}); license not stated", "#1a73e8")
+    return None
 
 def ems_label(val):
     try:
@@ -63,12 +76,18 @@ for r in rows:
     c   = composite.get(isd, {})
     pl, pc, ptag = PLAN_LABEL.get(r["classification"], ("Unknown","#999","unk"))
     nl, nc = NURSE_LABEL.get(c.get("nurse_risk_tier",""), ("Unknown","#999"))
+    nurse_rep = nurse_reply(confirmed.get(isd) or responded.get(isd))
+    if nurse_rep: nl, nc = nurse_rep
     el, ec = ems_label(c.get("ems_avg_min",""))
     url  = ev.get(isd, "")
     link = f'<a href="{html.escape(url)}" target="_blank" rel="noopener">source</a>' if url.startswith("http") else "&ndash;"
     name   = html.escape(r["district"].title())
     county = html.escape((r.get("county") or "").replace(" County",""))
-    dual   = str(c.get("dual_risk","")).lower() == "true"
+    # Dual risk only for districts we could check that post no plan, and not once a district
+    # confirms plans or a nurse has replied.
+    dual   = (str(c.get("dual_risk","")).lower() == "true"
+              and r["classification"] in ("FOUND_MED_POLICY_ONLY", "NOT_FOUND")
+              and isd not in confirmed and not nurse_rep and isd not in {"345", "2898"})
     dual_tag = ' <span style="background:#fce4ec;color:#880e4f;font-size:.72rem;padding:1px 6px;border-radius:10px;font-weight:600">DUAL RISK</span>' if dual else ""
     cf = confirmed.get(isd)
     conf_tag = (f'<br><span style="background:#e6f4ea;color:#1b5e20;font-size:.72rem;padding:1px 6px;'
@@ -90,7 +109,7 @@ for r in rows:
 
 n = len(rows)
 n_plan = sum(1 for r in rows if r["classification"] == "FOUND_SEIZURE_SPECIFIC")
-n_conf = sum(1 for r in rows if str(r["isd"]) in confirmed)
+n_conf = sum(1 for r in rows if str(r["isd"]) in confirmed and r["classification"] != "FOUND_SEIZURE_SPECIFIC")
 
 page = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
@@ -113,11 +132,11 @@ page = f"""<!doctype html>
 </style></head><body><div class="wrap">
 <div class="freshness">
   <span>Seizure plan audit: <b>June 2026</b></span>
-  <span>Nurse coverage: <b>NCES 2023-24 est.</b></span>
+  <span>Licensed school nurse: <b>estimate from district size</b></span>
   <span>EMS times: <b>2023 county data</b></span>
 </div>
 <p class="muted">{n} Minnesota districts. {n_plan} post a seizure-specific plan publicly online.
-{n_conf} more have told us by email that they keep plans on file and train staff.
+{n_conf} more have told us by email that they have seizure plans in place (each entry in Find Your District shows what they said).
 "Not found" does not mean no plan; always contact your school directly.</p>
 <div class="filters">
   <input id="q" placeholder="Filter by district or county…">
@@ -137,7 +156,7 @@ page = f"""<!doctype html>
 <table><thead><tr>
   <th>District</th><th>County</th><th>Type</th>
   <th>Seizure plan <span style="font-weight:400">(June 2026)</span></th>
-  <th>School nurse <span style="font-weight:400">(est. 2023-24)</span></th>
+  <th>Licensed school nurse <span style="font-weight:400">(estimate from district size)</span></th>
   <th>EMS response <span style="font-weight:400">(2023 county avg)</span></th>
   <th>Source</th>
 </tr></thead>

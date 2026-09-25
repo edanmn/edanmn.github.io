@@ -10,7 +10,11 @@ facts, and exactly what to do next, whether you are a parent or you work for the
     of how safe a school is. Always contact your school directly.
 
     Some districts have since told us by email that they keep seizure action plans on file
-    and train staff. Their entries show a green "Confirmed by district" tag.
+    and train staff. Their entries say so in green, with the month they told us.
+
+    The licensed school nurse column is an estimate from district size, based on statewide
+    rates from the Minnesota Department of Health. It is not a count for your district, except
+    where a district nurse has written to us.
 
 ## Search your district
 Start typing your district or county name, pick it from the list, and you will get a full

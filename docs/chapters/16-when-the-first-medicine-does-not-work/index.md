@@ -54,7 +54,7 @@ That definition comes from the International League Against Epilepsy and it is w
 It matters because each new medicine helps less. In the same Glasgow study, 50.5% became seizure
 free on the first medicine. The second regimen added 11.6%, the third 4.4%, and all later ones
 together about 2%. If you have tried two and you are still having seizures, that is the moment
-to ask about a referral, not after the fifth.
+to ask about a referral.
 
 A question that costs nothing to ask: "Would you consider me drug resistant, and should I be
 evaluated at an epilepsy center?"
@@ -86,7 +86,8 @@ Our own data on how far people live from that care:
 - 11 districts, 4,613 students, are more than 100 miles away
 - The farthest districts are in Kittson, Marshall and Big Stone counties, 108 to 130 miles
   from the nearest child neurologist
-- In Kittson, Marshall and Roseau counties, the nearest Level 4 center is 290 to 317 miles away
+- In the farthest districts of Kittson, Marshall and Roseau counties, the nearest Level 4 center
+  is 290 to 317 straight-line miles away
 - 80 of those 101 distant districts also post no seizure-specific plan we could find, so the families with the least
   access to specialists are also in the schools least likely to be ready
 

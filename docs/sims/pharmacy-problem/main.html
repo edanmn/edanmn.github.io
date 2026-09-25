@@ -193,7 +193,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--purple);outline-off
       </div>
 
       <div class="fig" id="figNoGen">
-        <h3>Six seizure products have no generic version</h3>
+        <h3>Six seizure medicines with no generic version</h3>
         <p style="margin:2px 0">Epidiolex (cannabidiol), Fintepla (fenfluramine), Xcopri (cenobamate), Nayzilam (nasal midazolam), Ztalmy (ganaxolone), Diacomit (stiripentol). For these there is nothing to switch to, so the fight is over coverage rather than substitution.</p>
         <table>
           <tr><th>Minnesota Medicaid, 2025</th><th>Share</th></tr>
@@ -302,7 +302,7 @@ const N={
    opts:[['Three days or fewer','pa_now'],['More than three days','pa_soon']]},
 
  pa_now:{b:1,head:"Ask for the emergency supply, now, at the counter",
-   text:"Minnesota Medical Assistance allows a 72-hour emergency fill while a prior authorization is processed. Many commercial plans do too, but it is not guaranteed, so ask. The pharmacist may not offer it unless you ask. This is the single most useful thing to know at a pharmacy counter, and it buys the three days the paperwork needs.",
+   text:"Minnesota Medical Assistance allows a 72-hour emergency fill while a prior authorization is processed. Many commercial plans do too, but it is not guaranteed. The pharmacist may not offer it unless you ask. This is the single most useful thing to know at a pharmacy counter, and it buys the three days the paperwork needs.",
    script:"“Can you run a 72-hour emergency supply while the prior authorization is sorted out?”",
    steps:[
     {s:"Say the words: emergency supply",t:"Ask the pharmacist to run a 72-hour emergency supply. Say the words; the phrase maps to something in their system."},
@@ -321,7 +321,7 @@ const N={
  cost:{b:2,q:"What is the coverage?",hint:"The route out of a price is different for each one.",
    opts:[['Medical Assistance or MinnesotaCare','cost_ma'],['Employer or marketplace plan','cost_comm'],['No coverage right now','cost_none']]},
 
- cost_ma:{b:2,fig:'figPayer',head:"On Medical Assistance a big number at the register is usually an error",
+ cost_ma:{b:2,fig:'figPayer',head:"On Medical Assistance a big number at the register is usually an error (MinnesotaCare copays are capped at $25 for a brand-name drug)",
    text:"Members of Minnesota Health Care Programs paid an average of $1.31 out of pocket per antiseizure prescription in 2022. If the register says far more than that, the claim most likely ran wrong, or it did not run through the right coverage at all.",
    steps:[
     {s:"Ask the pharmacist to rebill the claim",t:"Ask them to check the coverage on file and rebill. A stale card or a coordination-of-benefits mix-up produces exactly this."},
@@ -329,7 +329,7 @@ const N={
     {s:"Ask about MA-TEFRA for a child",t:"A child with a certified disability can qualify for Medical Assistance on the child's own income rather than the parents'. Ask the county human services office."}]},
 
  cost_comm:{b:2,fig:'figPayer',head:"Commercial coverage is where Minnesota families actually pay",
-   text:"Commercially insured Minnesotans paid $18.48 per antiseizure fill in 2022, against $9.30 on Medicare and $1.31 on Medical Assistance. The average hides the shape of it. For the expensive drugs the median payment is zero and the average runs to hundreds, which is what a deductible and a specialty tier produce: most fills cost nothing and one fill costs a fortune.",
+   text:"Commercially insured Minnesotans paid $18.48 per antiseizure fill in 2022, against $9.30 on Medicare and $1.31 on Minnesota Health Care Programs. The average hides the shape of it. For the expensive drugs the median payment is zero and the average runs to hundreds, which is what a deductible and a specialty tier produce: most fills cost nothing and one fill costs a fortune.",
    steps:[
     {s:"Look up the manufacturer's program",t:"Nearly every brand-name seizure drug has a copay or assistance program. Search the drug name plus “patient assistance”, or use NeedyMeds at needymeds.org or 800-503-6897."},
     {s:"Ask the pharmacist to compare a discount card",t:"On a generic, a discount card price sometimes beats the copay. The pharmacist can run both."},
@@ -343,8 +343,8 @@ const N={
     {s:"Apply to manufacturer assistance programs",t:"Most brand-name seizure drugs have a program for uninsured patients. NeedyMeds and RxAssist list them."},
     {s:"Ask the clinic social worker for the forms",t:"The forms want income documents and a prescriber signature. A social worker gets them through faster than a family working alone."}]},
 
- brand:{b:3,q:"Is this medicine one of the six with no generic version?",hint:"Epidiolex, Fintepla, Xcopri, Nayzilam, Ztalmy, Diacomit. If it is one of these, no pharmacist can substitute anything.",
-   opts:[['Yes, it is one of those six','brand_none'],['No, or the drug has a generic','brand_gen'],['Not sure','brand_ask']]},
+ brand:{b:3,q:"Does this medicine have no generic version?",hint:"For example Epidiolex, Fintepla, Xcopri, Nayzilam, Ztalmy, Diacomit or Valtoco. If it has no generic, no pharmacist can substitute anything.",
+   opts:[['Yes, it has no generic','brand_none'],['No, or the drug has a generic','brand_gen'],['Not sure','brand_ask']]},
 
  brand_ask:{b:3,fig:'figNoGen',head:"Ask the pharmacist, because the answer changes everything",
    text:"A pharmacist can substitute only a generic of the same drug in the same dosage form. Some drugs have none, and some have a generic tablet but no generic liquid, which is the version a child who cannot swallow a capsule needs.",
@@ -364,12 +364,12 @@ const N={
     {s:"Ask for an emergency supply meanwhile",t:"Ask the pharmacist for a 72-hour emergency supply so nothing is missed while the exception is decided."}]},
 
  brand_none:{b:3,fig:'figNoGen',head:"There is nothing to substitute, so this is a coverage fight",
-   text:"Those six products have no generic version in the United States, which is why the pharmacist has nothing else to offer you. A plan refusing one is not steering a family toward a cheaper version, because no cheaper version exists. The route out is an exception request, and the clinic is the one who files it.",
+   text:"This medicine has no generic version in the United States, which is why the pharmacist has nothing else to offer you. A plan refusing one is not steering a family toward a cheaper version, because no cheaper version exists. The route out is an exception request, and the clinic is the one who files it.",
    script:"“There is no generic of this drug. Will you file a formulary exception with a letter of medical necessity?”",
    steps:[
     {s:"Ask the clinic for a formulary exception",t:"The prescriber files it with a letter of medical necessity saying why this drug and no other."},
-    {s:"Ask the prescriber for a bridge supply",t:"A plan's emergency supply rules usually do not cover a drug the plan never covers. Ask the clinic for samples or a short bridge supply while the exception is decided, so no dose is missed."},
-    {s:"Apply to the manufacturer's program",t:"All six are brand products with manufacturer assistance programs. NeedyMeds, 800-503-6897, lists them."},
+    {s:"Ask for a 72-hour emergency supply, and a bridge if refused",t:"On Medical Assistance, federal law requires at least a 72-hour emergency supply of a covered drug that is waiting on prior authorization. A commercial plan may refuse one for a drug it excludes, so also ask the clinic for samples or a short bridge supply while the exception is decided."},
+    {s:"Apply to the manufacturer's program",t:"Many brand-name drug makers run patient assistance programs. NeedyMeds, 800-503-6897, lists them."},
     {s:"Call the Epilepsy Foundation of Minnesota",t:"651-287-2300. Their care coordinators have been through these appeals before."}],
    extra:'figCover'},
 

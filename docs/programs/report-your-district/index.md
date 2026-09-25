@@ -17,7 +17,8 @@ Email <edanmnorg@gmail.com> from a school address and answer these:
 2. Is there at least one trained staff member at each school who can carry it out, including
    rescue medication if prescribed?
 
-If the answer to both is yes, we mark your district as confirmed on our public map, alongside
+If the answer to both is yes, we mark your district as confirmed in
+[Find Your District](../../find-your-district/index.md), alongside
 what the website check found. If the work is in progress, tell us that and we will say so
 rather than leaving your district looking empty.
 

@@ -6,8 +6,8 @@ Training and Action Plan."
 
 !!! note "When it was passed"
     The law was enacted in **2021** in the E-12 education bill (H.F. 2, First Special Session;
-    Laws of Minnesota 2021, First Special Session, Chapter 13, Article 6, Section 2). The same
-    language first appeared as HF 469 / SF 654. It was signed June 30, 2021, and applies starting
+    Laws of Minnesota 2021, First Special Session, Chapter 13, Article 6, Section 2). An earlier
+    version of the provision was introduced as HF 469 / SF 654. The law was signed June 30, 2021, and applies starting
     the **2022-23 school year**. The official text: https://www.revisor.mn.gov/statutes/cite/121A.24
 
 ## Who it covers

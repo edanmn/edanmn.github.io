@@ -18,7 +18,7 @@ nurse to keep a student safe during a seizure. Practice it in the
 - Cushion the head with something soft. Loosen anything tight around the neck.
 
 ### SIDE
-- Once the movements allow, gently turn the student onto their **side**. This helps them
+- Gently turn the student onto their **side**, without forcing or holding them. This helps them
   breathe and lets saliva drain.
 - Stay with them through the recovery (postictal) phase. They may be confused, tired, or
   embarrassed. Reassure them calmly until they are fully aware.
@@ -27,8 +27,7 @@ nurse to keep a student safe during a seizure. Practice it in the
 Call 911 if **any** of these are true:
 
 - A convulsive seizure lasts **longer than 5 minutes**.
-- Another seizure starts **soon after** the first (a cluster), even if the person recovered in
-  between.
+- Another seizure starts **soon after** the first one.
 - The person is **pregnant** or has **diabetes**.
 - The person has **trouble breathing** or does not return to normal.
 - The seizure happens **in water**, or there is a serious **injury**.

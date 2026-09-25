@@ -65,10 +65,11 @@ fig.update_yaxes(title="Prescriptions per year", gridcolor="#eee"); fig.update_x
 save(fig, "asm_by_molecule.html")
 c25 = [(r["molecule"], f(r["total_reimbursed_usd"]) / f(r["prescriptions"]), f(r["prescriptions"])) for r in yr if r["year"] == "2025" and f(r["prescriptions"])]
 c25 = sorted(c25, key=lambda x: x[1])
-fig = go.Figure(go.Bar(x=[round(x[1]) for x in c25], y=[x[0].replace("_", " ") for x in c25], orientation="h", marker_color=[RED if x[1] > 500 else AMBER if x[1] > 100 else GREEN for x in c25],
+LABEL = {"rescue_diazepam": "nasal diazepam (Valtoco)", "rescue_midazolam": "nasal midazolam (Nayzilam)"}  # 2025 SDUD rows are these brands only
+fig = go.Figure(go.Bar(x=[round(x[1]) for x in c25], y=[LABEL.get(x[0], x[0].replace("_", " ")) for x in c25], orientation="h", marker_color=[RED if x[1] > 500 else AMBER if x[1] > 100 else GREEN for x in c25],
     customdata=[x[2] for x in c25], hovertemplate="%{y}: $%{x:,} per prescription (%{customdata:,.0f} prescriptions in 2025)<extra></extra>"))
 fig.update_xaxes(type="log", title="Average Medicaid reimbursement per prescription, 2025 (log scale)", gridcolor="#eee")
-fig.update_layout(title="What a month of each seizure medicine costs", height=680, margin=dict(l=150, r=20, t=50, b=50))
+fig.update_layout(title="Average Minnesota Medicaid payment per prescription, by drug, 2025", height=680, margin=dict(l=150, r=20, t=50, b=50))
 save(fig, "asm_cost_per_rx.html")
 
 # ---------- Initiative 4: interactive map + lookup ----------
@@ -100,7 +101,7 @@ html = """<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport"
 function show(r){const far=x=>x!==''&&parseFloat(x)>60?' class="far"':'';O.innerHTML=`<div class="card"><h3 style="margin:0 0 6px">${r.d}</h3><div style="color:#5d5851">${r.c} · ${Number(r.en||0).toLocaleString()} students</div>
 <div class="row"><span>Nearest child neurologist</span><b${far(r.cn)}>${r.cn} mi</b></div><div class="row"><span>Nearest epilepsy subspecialist</span><b${far(r.ep)}>${r.ep} mi</b></div><div class="row"><span>Nearest Level 4 epilepsy center</span><b${far(r.na)}>${r.na} mi</b></div>
 ${r.ph!==''?`<div class="row"><span>Nearest retail pharmacy</span><b${parseFloat(r.ph)>15?' class="far"':''}>${r.ph} mi</b></div>`:''}<div class="row"><span>Ambulance, slowest 10% of calls</span><b${parseFloat(r.ems)>20?' class="far"':''}>${r.ems} min</b></div><div class="row"><span>Findable seizure plan posted</span><b>${r.plan}</b></div>
-<div class="note">Straight-line miles from the district office; rural drive time is about a third longer. Red means more than 60 miles to a specialist, 15 to a pharmacy, or 20 minutes for ambulances. Nearest Level 4 center: ${r.nan}. Sources: NPPES, NCES, MN OEMS, EDAN audit.</div></div>`;L.innerHTML='';}
+<div class="note">Straight-line miles from the district office, so the drive is longer. Red means more than 60 miles to a specialist, 15 to a pharmacy, or 20 minutes for ambulances. Nearest Level 4 center: ${r.nan}. Sources: NPPES, NCES, MN OEMS, EDAN audit.</div></div>`;L.innerHTML='';}
 q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();L.innerHTML='';if(v.length<2)return;D.filter(r=>r.d.toLowerCase().includes(v)||r.c.toLowerCase().includes(v)).slice(0,12).forEach(r=>{const e=document.createElement('div');e.textContent=r.d+' ('+r.c+')';e.onclick=()=>{q.value=r.d;show(r)};L.appendChild(e)})});</script></body></html>""".replace("__DATA__", json.dumps(rows))
 os.makedirs(os.path.join(HERE, "docs", "sims", "distance-lookup"), exist_ok=True)
 open(os.path.join(HERE, "docs", "sims", "distance-lookup", "main.html"), "w").write(html); print("wrote sims/distance-lookup/main.html")

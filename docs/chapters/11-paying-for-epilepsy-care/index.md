@@ -61,8 +61,7 @@ waived ([Minn. Stat. 256L.15](https://www.revisor.mn.gov/statutes/cite/256L.15))
 
 ## TEFRA, for a child whose family earns too much
 
-Ask about TEFRA by name. It is the option most families have never heard of, and it exists
-precisely for the household that was turned down on income.
+Ask about TEFRA by name. It exists for the household that was turned down on income.
 
 TEFRA is Medical Assistance for a child under 19 who has a disability and who needs a level of
 care usually given in a hospital, a nursing facility, or an intermediate care facility for
@@ -167,9 +166,10 @@ Minnesota Department of Commerce
 If you are on Medical Assistance or MinnesotaCare, the route ends in a state appeal. Most members
 are in a health plan, and federal rules say a plan member appeals to the plan first. You can ask
 for a state fair hearing after the plan upholds its decision, or sooner if the plan misses its
-deadlines. Federal rules give you 90 to 120 days from the plan's decision to ask; the plan's
-letter states your deadline. If the plan is cutting or ending a service you already had approved,
-file within 10 calendar days of the notice to keep it going during the appeal
+deadlines. Federal rules require the state to give you 90 to 120 days from the plan's decision to
+ask; the plan's letter states your deadline. If the plan is cutting or ending a service you
+already had approved, file the appeal and ask to keep the service within 10 calendar days of the
+notice (or by the date the change takes effect, if later) to keep it going during the appeal
 ([42 CFR 438.402](https://www.ecfr.gov/current/title-42/section-438.402),
 [438.408](https://www.ecfr.gov/current/title-42/section-438.408) and
 [438.420](https://www.ecfr.gov/current/title-42/section-438.420)). Call your plan to start.
@@ -234,9 +234,10 @@ is what the pharmacy pays, not what you pay. If your plan charges a percentage o
 | clobazam / Onfi | $14.84 | $1,794.87 |
 | cenobamate / Xcopri | no generic exists | $1,196.05 |
 
-The second is that some medicines have no cheaper version at all. Six antiseizure products have
-no generic version in the United States: Epidiolex, Fintepla, Xcopri, Nayzilam, Ztalmy, and
-Diacomit. In Minnesota Medicaid in 2025 they were 1.5% of antiseizure prescriptions and 32% of
+The second is that some medicines have no cheaper version at all. Epidiolex, Fintepla, Xcopri,
+Nayzilam, Ztalmy, and Diacomit have no generic version in the United States, and other products,
+such as Valtoco nasal diazepam, have no generic in their own form. In Minnesota Medicaid in 2025
+those six were 1.5% of antiseizure prescriptions and 32% of
 the spending on them, before manufacturer rebates. A family whose child needs one of those has
 nothing to switch to.
 
@@ -259,7 +260,8 @@ Minnesota already does this for three other conditions, and has since January 1,
 limit enrollee cost sharing for drugs treating a chronic disease to "no more than $25 per
 one-month supply for each prescription drug" and $50 a month for related supplies, and says the
 coverage is not subject to a deductible, except where that would cost an enrollee eligibility for
-a health savings account (subd. 1(b)). The statute defines chronic disease as diabetes, asthma,
+a health savings account or a catastrophic plan, in which case the cap starts once the deductible
+is met (subd. 1(b)). The statute defines chronic disease as diabetes, asthma,
 and allergies needing epinephrine auto-injectors. Epilepsy is not in that list. Like most state
 insurance mandates, it reaches fully insured plans regulated by Minnesota, not plans that large
 employers fund themselves.
@@ -268,23 +270,24 @@ employers fund themselves.
 [SF 3786](https://www.revisor.mn.gov/bills/bill.php?b=senate&f=SF3786&ssn=0&y=2026) would have
 added it. HF 3652 has eight authors, Rep. Greene and seven co-authors. SF 3786 was authored by
 Sen. Abeler with Sen. Boldon. Both were introduced on February 23, 2026, and referred to House
-Commerce Finance and Policy and Senate Commerce and Consumer Protection. Neither bill had a
-hearing. Both must be reintroduced in 2027.
+Commerce Finance and Policy and Senate Commerce and Consumer Protection. Neither bill received committee
+action. Both must be reintroduced in 2027.
 
 The Department of Commerce had the change priced by outside actuaries, using commercial claims
 from 2021 through 2024. For each person filling an epilepsy drug, they projected cost sharing of
 $44.71 a month in 2027, of which $17.35 is above the $25 line. Spread across everyone with private
 coverage, the mandate would cost about four cents per member per month, rising to five cents by
 2036. Commerce says the change would also apply to Medical Assistance, MinnesotaCare and the state
-employee health plan
+employee health plan, though Medical Assistance has no cost sharing now and MinnesotaCare already
+caps a brand-name prescription at $25
 ([Evaluation of Cost-Sharing Limitations for Epilepsy Medications and Supplies, February 11,
 2026](https://www.lrl.mn.gov/docs/2026/mandated/260390.pdf)).
 
 The claims counts behind that estimate come from the Minnesota Department of Health, Health
 Economics Program, MN APCD Extract 29. They cover commercial members with 12 months of medical and
 pharmacy coverage and an epilepsy or seizure diagnosis. In 2024 those members paid $385,732 above
-$25 per 30-day supply. The database counts only insured claims. It excludes self-insured (ERISA)
-employer plans and holds roughly 40 percent of the commercial market.
+$25 per 30-day supply. Self-insured (ERISA) employer
+plans are not required to report to it, and it holds roughly 40 percent of the commercial market.
 
 ## What we could not confirm
 

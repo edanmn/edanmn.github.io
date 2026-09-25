@@ -10,7 +10,8 @@ actually find?** The charts below are interactive, hover, zoom, and explore.
 ## How we measured it
 For all **329 of Minnesota's regular public school districts**, we reviewed the official
 district website: the school-board policy page (MSBA Policy 516, Student Medication), the
-health-services page, and the student/parent handbook. We classified each district into one of
+health-services page, and the student/parent handbook. The first pass used AI-assisted web
+searches to find these pages, applying a fixed rubric. We classified each district into one of
 four categories:
 
 | Category | Meaning |
@@ -27,8 +28,12 @@ four categories:
 
 ## What we found
 <span class="edan-stat">~70%</span> of districts post **no** publicly findable seizure-specific
-plan (232 of 329). Only about 30% do. Most districts post only a general medication policy that
-never mentions seizures.
+plan (231 of 329, including 18 we could not check). Only about 30% do (98 of 329). Most
+districts post only a general medication policy that never mentions seizures.
+
+*Corrected September 25, 2026: a re-check found a seizure action plan form on Paynesville Area
+Schools' health services page that the June check missed. The count of districts with a posted
+plan moved from 97 to 98.*
 
 <iframe src="../../charts/classification_breakdown.html" class="microsim" width="100%" height="380" title="What Minnesota districts post" loading="lazy"></iframe>
 
@@ -54,8 +59,10 @@ size effect directly:
 
 The honest interpretation: this is a **capacity** problem. Small districts, most of which are
 rural, simply do not have the nursing and administrative staff to write and post a current
-plan. Minnesota's own data backs this up: about **half of districts have no licensed school
-nurse**, and the smallest districts are worst off.
+plan. Minnesota's own data backs this up. About half of Minnesota school districts and charter
+schools have no licensed school nurse. Among regular public districts more than 1 in 3 have none,
+and in public districts under 500 students it is 79% (MDH, School Nurse Workforce: A 2022
+Snapshot).
 
 And the gap tends to be largest exactly where community health needs are highest, hover the
 bubbles (size = number of districts in that county):
@@ -80,9 +87,10 @@ ready-to-use packet.
     **posting a seizure action plan template on your health-services page**.
 
 ## How reliable is this?
-We re-checked a random sample of 30 districts with independent reviewers who did not see the
-first ratings. They agreed **90% of the time** (Cohen's kappa = 0.82, "almost perfect"). When
-they disagreed, the second reviewer usually found *more* seizure content, which means our 70%
+We re-checked a stratified random sample of 30 districts in a separate pass that did not see the
+first ratings. The two passes agreed **90% of the time** (Cohen's kappa 0.82 across the four
+categories, "almost perfect", and 0.80 for plan versus no plan, "substantial"). When
+they disagreed, the second pass usually found *more* seizure content, which means our 70%
 figure may slightly **overstate** the gap, an error in the safe direction.
 
 ---

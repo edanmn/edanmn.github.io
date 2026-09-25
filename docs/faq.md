@@ -9,7 +9,7 @@ emergencies, always call 911.
     Under Minn. Stat. 121A.24, once you tell the school your child has a provider-diagnosed
     seizure disorder and has seizure rescue medication or other prescribed seizure medication, the school must work with you on a
     written **seizure action plan**, make sure a trained staff member is available at your
-    child's building, tell the staff who work with your child, and keep the plan on file. See
+    child's building, tell the staff responsible for your child's supervision or care, and keep the plan on file. See
     [The Minnesota Law](chapters/03-minnesota-law/index.md).
 
 ??? question "How do I actually ask for a plan?"
@@ -73,7 +73,8 @@ emergencies, always call 911.
     The first pass used AI-assisted web searches to find each district's pages, sorted into four
     categories by a fixed rubric. A separate, blind re-check of a random sample of 30 districts
     agreed 90% of the time (Cohen's kappa 0.82
-    across the four categories and 0.80 for plan versus no plan, which is substantial agreement), and disagreements usually found *more* seizure content, so the gap is, if
+    across the four categories, "almost perfect" agreement, and 0.80 for plan versus no plan,
+    "substantial"), and disagreements usually found *more* seizure content, so the gap is, if
     anything, slightly overstated.
 
 ??? question "My district's entry is wrong or out of date. Can you fix it?"

@@ -28,8 +28,8 @@ Our flagship project applies this model to school safety. Minnesota law (Minn. S
 requires every public and charter school to prepare an individualized seizure action plan for a
 student once a family notifies them of the diagnosis and that the student has prescribed seizure
 medication, and to give staff training materials on responding. But we found
-that about **70% of Minnesota school districts** do not post a seizure plan, or even a template a
-family could use to request one, with the gap largest in the smallest, least-resourced districts. See
+that about **70% of Minnesota school districts** do not post a seizure plan a family
+could find, with the gap largest in the smallest, least-resourced districts. See
 [The Data: Mapping the Gaps](chapters/05-the-data-case-study/index.md), look up your district
 in [Find Your District](find-your-district/index.md), and find free resources in
 [How to Help](chapters/06-how-to-help/index.md). This interactive textbook is part of that

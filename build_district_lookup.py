@@ -32,12 +32,30 @@ if os.path.exists(cp):
     for r in csv.DictReader(open(cp)):
         composite[str(r["isd"])] = r
 
+# Licensed school nurse (LSN) estimate from district size (MDH 2022 statewide rates).
+# It is an estimate, not a count for the district.
 NURSE_LABEL = {
-    "ZERO_SUPPORT_STAFF": ("Likely no nurse",  "#b71c1c"),
-    "HIGH_RISK_SMALL":    ("Likely no nurse",  "#e65100"),
-    "ELEVATED_RISK_MID":  ("Possibly no nurse","#f57f17"),
-    "LOW_RISK_LARGE":     ("Likely yes",       "#2e7d32"),
+    "ZERO_SUPPORT_STAFF": ("Likely none",   "#b71c1c"),
+    "HIGH_RISK_SMALL":    ("Likely none",   "#e65100"),
+    "ELEVATED_RISK_MID":  ("Possibly none", "#f57f17"),
+    "LOW_RISK_LARGE":     ("Likely yes",    "#2e7d32"),
 }
+
+def short_month(m):
+    return m.replace("September", "Sept")
+
+# Districts whose September 2026 re-check found a seizure plan form or handbook section posted
+# after the June audit. Their June classification stays, but they are not shown as dual risk.
+RECHECK_FOUND = {"345", "2898"}
+
+def nurse_reply(rec):
+    """If the district's email reply came from a nurse, say so instead of the size estimate."""
+    if not rec: return None
+    role = rec.get("respondent_role", "").lower()
+    when = short_month(rec.get("confirmed_month", ""))
+    if "licensed school nurse" in role: return (f"Licensed school nurse replied ({when})", "#2e7d32")
+    if "nurs" in role: return (f"School nurse replied ({when}); license not stated", "#1a73e8")
+    return None
 
 def ems_text(val):
     try:
@@ -76,7 +94,15 @@ for r in csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))):
     url, note = ev.get(isd, ("", ""))
     comp = composite.get(isd, {})
     nl, nc = NURSE_LABEL.get(comp.get("nurse_risk_tier",""), ("Unknown","#999"))
+    rec = confirmed.get(isd) or responded.get(isd)
+    nurse_rep = nurse_reply(rec)
+    if nurse_rep: nl, nc = nurse_rep
     et, ec = ems_text(comp.get("ems_avg_min",""))
+    # Dual risk: no plan posted AND a small district likely without an LSN. Only for districts we
+    # could check, and dropped once a district confirms plans or a nurse has replied.
+    dual = (str(comp.get("dual_risk","")).lower() == "true"
+            and r["classification"] in ("FOUND_MED_POLICY_ONLY", "NOT_FOUND")
+            and isd not in confirmed and not nurse_rep and isd not in RECHECK_FOUND)
     rows.append({
         "isd":   isd,
         "name":  (r["district"] or "").title(),
@@ -94,7 +120,9 @@ for r in csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))):
         "cemail":(c["email"] if c and c.get("email", "").count("@") else ""),
         "nl": nl, "nc": nc,
         "et": et, "ec": ec,
-        "dual": str(comp.get("dual_risk","")).lower() == "true",
+        "dual": dual,
+        "recheck": isd in RECHECK_FOUND,
+        "cmonth": short_month(confirmed[isd]["confirmed_month"]) if isd in confirmed else "",
         "conf": (f'{confirmed[isd]["respondent_role"]} confirmed by email in {confirmed[isd]["confirmed_month"]}: '
                  f'{confirmed[isd]["what_confirmed"]}') if isd in confirmed else "",
         "resp": (f'{responded[isd]["respondent_role"]} told us by email in {responded[isd]["confirmed_month"]} that '
@@ -151,32 +179,47 @@ const q=document.getElementById('q'), list=document.getElementById('list'),
 let matches=[], ai=-1;
 
 function render(d){{
- const [label,color,meaning]=LAB[d.cls]||["Unknown","#888",""];
+ const [label0,color0,meaning]=LAB[d.cls]||["Unknown","#888",""];
+ // A district that confirmed by email gets a badge that says so, unless it also posts a plan.
+ const confBadge = d.conf && d.cls!=="FOUND_SEIZURE_SPECIFIC";
+ const label = !confBadge ? label0
+   : d.cls==="NOT_VERIFIABLE" ? `Confirmed by district email, ${{d.cmonth}}`
+   : `Not posted online; confirmed by district email, ${{d.cmonth}}`;
+ const color = confBadge ? "#1a9850" : color0;
  const enroll=d.enroll&&d.enroll!=="None"?Number(d.enroll).toLocaleString()+" students":"enrollment n/a";
  let contactLine = d.cemail ? `<a href="mailto:${{d.cemail}}">${{d.contact||d.cemail}}</a>`
                    : (d.contact||"");
  const dualBadge = d.dual ? `<span style="display:inline-block;margin-left:8px;background:#fce4ec;color:#880e4f;font-size:.78rem;padding:2px 9px;border-radius:12px;font-weight:600">DUAL RISK</span>` : "";
- const ctaText = d.dual
-   ? `Your district has two gaps: no public seizure plan and likely no licensed nurse. Use the <a href="../chapters/06-how-to-help/index.md" target="_top">template letter</a> to request a seizure action plan and ask about a <b>504 plan</b> for stronger legal protections.`
-   : d.conf
-     ? `This district told us it keeps individual seizure action plans and trains staff. Ask the school nurse to set up or review your child's plan. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide</a> for a checklist.`
+ const guide = (t)=>`<a href="../chapters/06-how-to-help/" target="_top">${{t}}</a>`;
+ const ctaText = d.conf
+   ? `This district replied to us by email about its seizure plans; its reply is summarized above. Ask the school nurse to set up or review your child's plan. See the ${{guide("family guide")}} for a checklist.`
+   : d.rstat==="in_progress"
+     ? `This district told us it is working on its seizure plans. Ask the school nurse whether your child's plan is in place for this school year. See the ${{guide("family guide")}} for a checklist.`
+   : d.rstat==="pending"
+     ? `This district told us a plan was on file last school year and has not yet confirmed this year. Ask the school nurse to confirm your child's plan for 2026-27. See the ${{guide("family guide")}} for a checklist.`
+   : d.recheck
+     ? `Since our June check, this district has posted a seizure action plan form or handbook section. Ask the school nurse to set up your child's plan. See the ${{guide("family guide")}} for a checklist.`
+   : d.cls==="NOT_VERIFIABLE"
+     ? `We could not check this district's site. Ask your school how it sets up a seizure action plan; the law (Minn. Stat. 121A.24) requires one for each student who needs it. See the ${{guide("family guide and copy-paste email")}}.`
+   : d.dual
+     ? `Your district posts no seizure plan online, and districts its size often have no licensed school nurse. Use the ${{guide("template letter")}} to request a seizure action plan and ask about a <b>504 plan</b> for stronger legal protections.`
    : d.cls!=="FOUND_SEIZURE_SPECIFIC"
-     ? `No public seizure plan found. You can ask your school to create one; the law (Minn. Stat. 121A.24) is on your side. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide and copy-paste email</a>.`
-     : `A seizure plan is posted. Confirm it covers your child specifically and ask when it was last updated. See the <a href="../chapters/06-how-to-help/index.md" target="_top">family guide</a> for a checklist.`;
+     ? `No public seizure plan found. You can ask your school to create one; the law (Minn. Stat. 121A.24) is on your side. See the ${{guide("family guide and copy-paste email")}}.`
+     : `A seizure plan is posted. Confirm it covers your child specifically and ask when it was last updated. See the ${{guide("family guide")}} for a checklist.`;
  card.innerHTML = `
   <span class="badge" style="background:${{color}}">${{label}}</span>${{dualBadge}}
   <h2 style="margin:10px 0 2px">${{d.name}}</h2>
   <div class="muted">${{d.isd==="30001"?"SSD 1":"ISD "+d.isd}} &middot; ${{d.city?d.city+", ":""}}${{d.county}} County &middot; ${{d.type}}</div>
-  ${{d.conf?`<div class="mean" style="background:#e6f4ea;border-left:3px solid #1a9850"><b>&#10003; Confirmed by the district.</b> ${{d.conf}} The badge above still shows what is posted online.</div>`:""}}
+  ${{d.conf?`<div class="mean" style="background:#e6f4ea;border-left:3px solid #1a9850"><b>&#10003; Confirmed by the district.</b> ${{d.conf}}. Our website check found: ${{label0.toLowerCase()}}.</div>`:""}}
   ${{d.resp?`<div class="mean" style="background:#e8f0fe;border-left:3px solid #1a73e8"><b>${{d.rstat==="in_progress"?"District update: working on a plan.":"District update: awaiting confirmation."}}</b> ${{d.resp}} We will update this entry when the district confirms a plan is in place.</div>`:""}}
   <div class="mean">${{meaning}}${{d.note?`<br><span class="muted">What we saw: ${{d.note}}</span>`:""}}</div>
   <table style="width:100%;font-size:.88rem;border-collapse:collapse;margin:12px 0">
    <tr style="border-bottom:1px solid #eee">
     <td style="padding:6px 4px;color:#555;font-size:.76rem">SEIZURE PLAN POSTED<br><span style="color:#aaa;font-size:.7rem">Checked June 2026</span></td>
-    <td style="padding:6px 4px"><span class="badge" style="background:${{color}};font-size:.8rem">${{label}}</span></td>
+    <td style="padding:6px 4px"><span class="badge" style="background:${{color0}};font-size:.8rem">${{label0}}</span></td>
    </tr>
    <tr style="border-bottom:1px solid #eee">
-    <td style="padding:6px 4px;color:#555;font-size:.76rem">SCHOOL NURSE ON SITE<br><span style="color:#aaa;font-size:.7rem">Est. NCES 2023-24 + MDH 2022</span></td>
+    <td style="padding:6px 4px;color:#555;font-size:.76rem">LICENSED SCHOOL NURSE<br><span style="color:#aaa;font-size:.7rem">Estimate from district size (MDH 2022)</span></td>
     <td style="padding:6px 4px"><span style="display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600;color:#fff;background:${{d.nc}}">${{d.nl}}</span></td>
    </tr>
    <tr>
@@ -197,9 +240,9 @@ function render(d){{
    ${{d.cls==="FOUND_SEIZURE_SPECIFIC"
       ?"You already post a plan, thank you. A yearly review keeps it current."
       :d.conf
-      ?"Thank you for confirming. Posting a blank plan template or a short seizure page online helps families and substitute staff find it; the free <a href='../chapters/06-how-to-help/index.md' target='_top'>packet</a> has one ready."
-      :"Use the free <a href='../chapters/06-how-to-help/index.md' target='_top'>drop-in packet</a> (plan template + Policy 516 language + poster). Note: the current MSBA Model Policy 516 does not reference Minn. Stat. 121A.24, and the drop-in language fixes this."}}</div>
-  <div class="disc">Seizure plan reflects what was <b>publicly findable as of ${{CHECK}}</b>. Nurse coverage is estimated from NCES 2023-24 support staff data and MDH 2022 statistics, not a confirmed count. EMS times are 2023 county averages, not school-specific. Not a measure of legal compliance. Wrong or out of date? <a href="mailto:edanmnorg@gmail.com">edanmnorg@gmail.com</a></div>`;
+      ?"Thank you for confirming. Posting a blank plan template or a short seizure page online helps families and substitute staff find it; the free <a href='../chapters/06-how-to-help/' target='_top'>packet</a> has one ready."
+      :"Use the free <a href='../chapters/06-how-to-help/' target='_top'>drop-in packet</a> (plan template + Policy 516 language + poster). Note: the current MSBA Model Policy 516 does not reference Minn. Stat. 121A.24, and the drop-in language fixes this."}}</div>
+  <div class="disc">Seizure plan reflects what was <b>publicly findable as of ${{CHECK}}</b>. Licensed school nurse status is an estimate from district size, based on MDH 2022 statewide rates and NCES 2023-24 staffing data, not a count for this district, unless a district nurse has replied to us. EMS times are 2023 county averages, not school-specific. Not a measure of legal compliance. Wrong or out of date? <a href="mailto:edanmnorg@gmail.com">edanmnorg@gmail.com</a></div>`;
  card.style.display="block";
 }}
 
