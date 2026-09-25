@@ -59,7 +59,7 @@ web page** so families can find it.
 - Replicate or extend the audit in another state.
 - Help keep the [district finder](../../find-your-district/index.md) current by
   [reporting districts](../../programs/report-your-district/index.md) that have adopted a plan.
-- Build a MicroSim or translate a chapter into another language.
+- Build an interactive simulation or translate a chapter into another language.
 
 ## How EDAN works (the model)
 1. **Map** where seizure plans are missing, using public data.

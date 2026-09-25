@@ -16,7 +16,7 @@ see it. Minnesota first, other states next. Student-led, free, and sourced.*
     [Download the packet (PDF)](packet/EDAN-Seizure-Safe-Schools-Packet.pdf){ .md-button .md-button--primary download="EDAN-Seizure-Safe-Schools-Packet.pdf" }
     [How to put it into practice](chapters/08-for-schools-in-practice/index.md){ .md-button }
 
-!!! quote "📣 In the news: Minnesota Star Tribune"
+!!! quote "In the news: Minnesota Star Tribune"
     EDAN founder Rishik Kondadadi's commentary, **["If a student had a seizure in the classroom, would your school be prepared?"](https://www.startribune.com/seizure-first-aid-training-mn-schools-epilepsy-awareness/601870213)**, ran in the *Minnesota Star Tribune* on July 23, 2026. It makes the case that more Minnesota schools should post seizure action plans where families can actually find them.
 
 > **New here?** [Read about EDAN](about.md), what we do and why.
@@ -77,8 +77,8 @@ built from federal sources or state filings that every state has. Other states a
 - **Anyone affected by epilepsy** who wants plain-language information and recent research,
   translated.
 
-## What makes this "intelligent"
-- **Interactive MicroSims** let you practice, like the [Seizure First Aid Simulator](sims/seizure-first-aid/index.md).
+## Learn by doing
+- **Interactive simulations** let you practice, like the [Seizure First Aid Simulator](sims/seizure-first-aid/index.md).
 - **Quizzes** at the end of key chapters check understanding (and can serve as the staff
   "self-study" the law asks for).
 - A **glossary** translates clinical terms into plain English.
