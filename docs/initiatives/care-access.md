@@ -1,6 +1,9 @@
-# 4. Distance to care
+# Distance to care
 
-Status: map published September 2026; clinical review of the guidance page in progress.
+Status: map published September 2026. This is a data page that supports two of our
+initiatives: 80 of the districts farthest from a child neurologist also post no findable
+seizure plan ([Seizure-Safe Schools](seizure-safe-schools.md)), and the pharmacy distances
+feed [Medication access](medication-access.md).
 
 ## The gap
 Everyone in Minnesota epilepsy care knows the specialists are in Rochester and the Twin
@@ -36,11 +39,8 @@ designation, are Mayo Clinic in Rochester, the University of Minnesota Medical C
 Abbott Northwestern in Minneapolis, and Minnesota Epilepsy Group with Children's Minnesota in
 the Twin Cities.
 
-## What we are doing this year
+## What comes next
 - Giving the map to the Minnesota Epilepsy Program at MDH as a candidate "area of need."
-- Writing a plain-language page for families: what a Level 4 center is, when to ask for a
-  referral, which Minnesota systems offer tele-neurology and remote EEG, and how Medical
-  Assistance covers travel. We are seeking a clinician to review it before it is promoted.
 - Pharmacy distance is now in the same file and the lookup tool, so one map shows the
   whole picture. The next pass swaps the federal registry for the Minnesota Board of
   Pharmacy list to drop closed stores.
@@ -56,8 +56,9 @@ the Twin Cities.
 
 ??? quiz "3. Does 'nearest child neurologist' mean they are taking new patients?"
     No. The federal registry shows who holds the credential and a practice address, not
-    availability. Treat distances as the best case and ask the clinic about wait times.
+    availability, so the distances are a best case.
 
-## For families far from care
-The [Resources & Support](../resources/index.md) page lists Minnesota's pediatric epilepsy
-programs. Ask your clinic whether it offers video visits.
+## Who uses this data
+The map is meant for the Minnesota Department of Health, the Epilepsy Foundation of Minnesota
+and legislators working on rural care. Families looking for a specialist can find
+Minnesota's pediatric epilepsy programs in [Resources & Support](../resources/index.md).

@@ -4,8 +4,7 @@ title: Epilepsy Data & Advocacy Network
 
 # ![Epilepsy Data & Advocacy Network (EDAN): data, education, advocacy](img/brand/edan-logo.png){ .edan-hero-logo }
 
-*We find epilepsy data that is buried, scattered or unpublished, and we put it where anyone can
-see it. Minnesota first, other states next. Student-led, free, and sourced.*
+*Empowering the Epilepsy community through data-driven advocacy*
 
 !!! tip "For school districts: the free Seizure-Safe Schools packet"
     Everything a district needs to meet Minnesota's seizure-safety law (Minn. Stat. 121A.24)
@@ -14,7 +13,6 @@ see it. Minnesota first, other states next. Student-led, free, and sourced.*
     copy, adapt, and use.
 
     [Download the packet (PDF)](packet/EDAN-Seizure-Safe-Schools-Packet.pdf){ .md-button .md-button--primary download="EDAN-Seizure-Safe-Schools-Packet.pdf" }
-    [How to put it into practice](chapters/08-for-schools-in-practice/index.md){ .md-button }
 
 !!! quote "In the news: Minnesota Star Tribune"
     EDAN founder Rishik Kondadadi's commentary, **["If a student had a seizure in the classroom, would your school be prepared?"](https://www.startribune.com/seizure-first-aid-training-mn-schools-epilepsy-awareness/601870213)**, ran in the *Minnesota Star Tribune* on July 23, 2026. It makes the case that more Minnesota schools should post seizure action plans where families can actually find them.
@@ -54,46 +52,38 @@ built from federal sources or state filings that every state has. Other states a
 
 </div>
 
-## Five initiatives for 2026-27
+## Three initiatives for 2026-27
 1. [Seizure-Safe Schools](initiatives/seizure-safe-schools.md): 7 in 10 Minnesota districts
    post no findable seizure plan. We are turning that finding into adoptions.
-2. [The state's epilepsy data](initiatives/state-epilepsy-data.md): a 2025 law requires MDH
-   to count epilepsy every year. We are offering MDH our district-level data as an input.
-3. [Medication access](initiatives/medication-access.md): shortages, prices, pharmacy
+2. [Medication access](initiatives/medication-access.md): shortages, prices, pharmacy
    deserts, and support for reintroducing a cap on what epilepsy drugs cost families (HF 3652 /
    SF 3786) in 2027.
-4. [Distance to care](initiatives/care-access.md): 101 districts are more than 60 miles, in a
-   straight line, from a child neurologist. We mapped every one.
-5. [SUDEP](initiatives/sudep.md): about 1,000 Minnesota deaths a year involve seizures and
+3. [SUDEP](initiatives/sudep.md): about 1,000 Minnesota deaths a year involve seizures and
    nobody counts SUDEP. Data, a missed benefit, and a reporting law.
 
 [Read the full initiatives page](initiatives/index.md), including how we measure impact.
 
-## Who this is for
-- **Families** of children with epilepsy: your child's rights, everyday safety, support, and how
-  to ask a school for a plan.
-- **Teachers, school staff, and nurses:** clear seizure first aid, the Minnesota law, and a free
-  drop-in packet.
-- **Anyone affected by epilepsy** who wants plain-language information and recent research,
-  translated.
+## Who we work for
+We collect the data and publish it with the method attached. The organizations that serve
+people with epilepsy, and the lawmakers who set the rules, decide what to do with it.
 
-## Learn by doing
-- **Interactive simulations** let you practice, like the [Seizure First Aid Simulator](sims/seizure-first-aid/index.md).
-- **Quizzes** at the end of key chapters check understanding (and can serve as the staff
-  "self-study" the law asks for).
-- A **glossary** translates clinical terms into plain English.
+- The Epilepsy Foundation of Minnesota, the Danny Did Foundation and other groups serving
+  families: where the gaps are, by county and school district, for their programs and grants.
+- Legislators and their staff: sourced numbers for bills such as the epilepsy drug cost cap
+  (HF 3652 / SF 3786) and a Minnesota SUDEP reporting law.
+- The Minnesota Department of Health's Epilepsy Program: district-level data the state does
+  not collect itself.
+- School districts: the audit result for their own district and the free packet above.
 
 ## Start here
-- New here? Start with [what the law requires](chapters/03-minnesota-law/index.md) and [what our audit found](chapters/05-the-data-case-study/index.md).
-- Need to know what to do in a seizure right now? Go to [Seizure First Aid](chapters/02-seizure-first-aid/index.md).
-- Want to check your own district? Use [Find Your District](find-your-district/index.md).
+- [What the law requires](chapters/03-minnesota-law/index.md) and [what our audit found](chapters/05-the-data-case-study/index.md).
+- Check a district in [Find Your District](find-your-district/index.md).
 - A school that already has a plan? [Tell us, so the map is right](programs/report-your-district/index.md).
-- A parent wanting to know your child's rights? See [504 Plans, IEPs & Accommodations](chapters/07-your-childs-rights/index.md).
-- A school putting a plan into practice? See [For Schools: In Practice](chapters/08-for-schools-in-practice/index.md).
-- Want the research story and interactive charts? See [The Data: Mapping the Gaps](chapters/05-the-data-case-study/index.md).
-- Looking for support, helplines, or financial help? See [Resources & Support](resources/index.md).
+- Families looking for help: contact the
+  [Epilepsy Foundation of Minnesota](https://www.epilepsyfoundationmn.org/), or see the
+  organizations listed in [Resources & Support](resources/index.md).
 - Quick answers? See the [FAQ](faq.md).
 
 !!! warning "Important"
-    This textbook is informational and is not legal or medical advice. A child's seizure care
-    must be set by their licensed healthcare provider. In an emergency, call 911.
+    EDAN publishes data. Nothing on this site is legal or medical advice. In an emergency,
+    call 911.

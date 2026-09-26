@@ -1,36 +1,15 @@
 # Frequently Asked Questions
 
-Practical answers for families, school staff, and anyone curious about the data. For
-emergencies, always call 911.
+Answers about our data, for school staff and anyone checking our work. For emergencies,
+call 911.
 
 ## For families
 
-??? question "My child has epilepsy. What is my school required to do?"
-    Under Minn. Stat. 121A.24, once you tell the school your child has a provider-diagnosed
-    seizure disorder and has seizure rescue medication or other prescribed seizure medication, the school must work with you on a
-    written **seizure action plan**, make sure a trained staff member is available at your
-    child's building, tell the staff responsible for your child's supervision or care, and keep the plan on file. See
-    [The Minnesota Law](chapters/03-minnesota-law/index.md).
-
-??? question "How do I actually ask for a plan?"
-    Email your school nurse or principal (a short note is enough), have your child's provider
-    complete the medical parts, and ask who the trained staff member is. There is a
-    copy-paste email in [How to Help](chapters/06-how-to-help/index.md).
-
-??? question "My district shows 'no plan posted' in your finder. Should I worry?"
-    Not necessarily. We measured whether a plan is posted publicly online; some districts keep
-    plans internal. It does mean it is worth asking. Use the finder in
-    [Find Your District](find-your-district/index.md), then contact your school.
-
-??? question "Are the action plan forms available in other languages?"
-    Yes. Official templates exist in English, Spanish, Hmong, and Somali. Links are in
-    [Seizure Action Plans](chapters/04-seizure-action-plans/index.md).
-
-??? question "What should a babysitter, coach, or bus driver know?"
-    The basics of seizure first aid: Stay and time it, keep them Safe, turn them on their
-    Side, and call 911 if it lasts over 5 minutes (or as the plan says). See
-    [Seizure First Aid](chapters/02-seizure-first-aid/index.md) and try the
-    [simulator](sims/seizure-first-aid/index.md).
+??? question "I have a question about my own or my child's epilepsy, or my child's school plan."
+    EDAN publishes data and does not advise individual families. The
+    [Epilepsy Foundation of Minnesota](https://www.epilepsyfoundationmn.org/) helps families
+    directly. You can still look up any district's audit result in
+    [Find Your District](find-your-district/index.md).
 
 ## For schools and staff
 

@@ -1,7 +1,8 @@
 # Resources & Support
 
-A curated directory of free, trustworthy help for people affected by epilepsy in Minnesota and
-nationally. Listings of clinics are informational, not endorsements.
+EDAN publishes data and does not advise individuals. These are the organizations that help
+people with epilepsy directly, in Minnesota and nationally. Listing a clinic is not an
+endorsement.
 
 !!! note "In an emergency, call 911."
     For mental-health crisis support, call or text **988** (Suicide & Crisis Lifeline), free and
@@ -44,28 +45,14 @@ Monday to Friday, 8am-8pm ET; outside those hours it's self-service (online form
 
 **CDC Epilepsy**, https://www.cdc.gov/epilepsy/index.html (family and school guidance, first aid).
 
-## Understanding SUDEP (Sudden Unexpected Death in Epilepsy)
-Families often ask about SUDEP and rarely get a straight, calm answer. Here is one.
+## SUDEP (Sudden Unexpected Death in Epilepsy)
+Questions about SUDEP risk belong with a neurologist. For information and support:
 
-**What it is:** SUDEP is when a person with epilepsy dies suddenly and unexpectedly with no other
-cause found. It is **rare**, and for most people with epilepsy the risk is low.
+- Epilepsy Foundation SUDEP Program, https://www.epilepsy.com/programs/sudep-program
+- Danny Did Foundation, https://www.dannydid.org
+- Epilepsy Foundation of Minnesota, https://www.epilepsyfoundationmn.org, 651-287-2300
 
-**How common:** roughly **1 in 1,000 adults** with epilepsy per year, and notably lower in
-children (about **1 in 4,500** per year), per the 2017 American Academy of Neurology and American
-Epilepsy Society guideline (Harden et al., *Neurology* 2017;88:1674-1680). It is rare in people whose seizures are well controlled.
-
-**What raises risk:** mainly **frequent, uncontrolled seizures**, especially generalized
-tonic-clonic ("grand mal") seizures, and missing medication.
-
-**What can help (discuss with your doctor):** the most important step is the best possible seizure
-control, taking medicine exactly as prescribed, telling your provider if seizures continue, getting
-enough sleep, and asking an epilepsy specialist about options if seizures persist. Some families
-also discuss nighttime monitoring with their care team.
-
-**Where to get support:** your child's neurology/epilepsy team, the Epilepsy Foundation Helpline
-(1-800-332-1000), EFMN, and the Epilepsy Foundation's SUDEP program
-(https://www.epilepsy.com/programs/sudep-program). The goal here is awareness and good seizure
-control, not alarm; ask your doctor what applies to your child.
+EDAN's own Minnesota death data is on the [SUDEP initiative page](../initiatives/sudep.md).
 
 ## Help affording medication
 - **NeedyMeds**, https://www.needymeds.org (helpline 800-503-6897): free directory of patient
@@ -75,13 +62,8 @@ control, not alarm; ask your doctor what applies to your child.
   insurance or charity).
 - **Manufacturer programs:** most brand-name epilepsy drugs have their own assistance programs;
   search the maker's site, or use NeedyMeds/RxAssist to find it.
-
-**Minnesota Medical Assistance (Medicaid):** https://mn.gov/dhs (DHS 651-297-3862 / 800-657-3672).
-Ask specifically about **MA-TEFRA**, which can qualify a child with a certified disability for
-Medical Assistance based on the child's own income, without counting the parents'. The child must
-be under 19, live with a parent, and need a level of care comparable to a hospital, nursing home, or
-group home for people with disabilities
-(https://disabilityhubmn.org/top-topics/health/medical-assistance/ma-tefra/).
+- **Minnesota Medical Assistance and MA-TEFRA**, https://mn.gov/dhs (651-297-3862 or
+  800-657-3672) and https://disabilityhubmn.org/top-topics/health/medical-assistance/ma-tefra/
 
 ## If you are in crisis
 
@@ -101,9 +83,6 @@ If someone is in immediate danger, call 911.
 
 ## Mental health support
 
-Depression and anxiety are more common in people with epilepsy than in the general population,
-and they are often missed. Talking to a clinician about it is worth doing early.
-
 - Epilepsy Foundation of Minnesota, free Connect Groups for teens, adults and caregivers, plus
   one to one support: <https://www.epilepsyfoundationmn.org/connect/>, 651-287-2300
 - Fast-Tracker, a free Minnesota search for mental health providers with current openings:
@@ -111,18 +90,11 @@ and they are often missed. Talking to a clinician about it is worth doing early.
 - Epilepsy Foundation, related conditions in children: <https://www.epilepsy.com/parents-and-caregivers/talking-kids-about-epilepsy/related-conditions>
 - Your own clinician, your pediatrician, or your school counselor
 
-## Teens, driving, and seizures in Minnesota
-In Minnesota, after a seizure or other loss of consciousness, the state generally cancels or denies
-driving privileges until three months have passed since the episode and a physician reports a
-favorable prognosis. Drivers must report an episode in writing within 30 days; Minnesota does not
-require physicians to report. Exceptions can apply, for example a first episode, a doctor-ordered
-medication change, or a first episode in four or more years caused by a short illness or a missed
-dose, when the physician's statement supports it.
-
-This is a general summary, rules change and details matter, so **confirm current requirements with
-Minnesota Driver and Vehicle Services and your physician.** See EFMN's driving page
-(https://www.epilepsyfoundationmn.org/about-epilepsy/epilepsy-and-driving/) and Minn. Rules
-7410.2500 (https://www.revisor.mn.gov/rules/7410.2500/).
+## Driving in Minnesota
+- Epilepsy Foundation of Minnesota, driving page:
+  https://www.epilepsyfoundationmn.org/about-epilepsy/epilepsy-and-driving/
+- Minnesota Driver and Vehicle Services, the agency that decides: https://dps.mn.gov/divisions/dvs
+- The rule itself, Minn. R. 7410.2500: https://www.revisor.mn.gov/rules/7410.2500/
 
 ---
 *This directory is informational and not medical, legal, or financial advice. Links and phone

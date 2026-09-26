@@ -51,5 +51,5 @@ Epilepsy Foundation, who are the right people for that work:
   tracking who has completed training:
   <https://www.health.state.mn.us/people/childrenyouth/schoolhealth/hco/seizures.html>
 
-What a district does after it decides to act is in
-[For Schools: In Practice](../../chapters/08-for-schools-in-practice/index.md).
+A district that decides to act can start with the free
+[district packet](../../packet/EDAN-Seizure-Safe-Schools-Packet.pdf).

@@ -1,7 +1,7 @@
 # Find Your District
 
 Look up your Minnesota school district to see whether a seizure plan is posted, key district
-facts, and exactly what to do next, whether you are a parent or you work for the district.
+facts, and, if you work for the district, the free packet.
 
 !!! warning "Please read first"
     This shows whether a seizure plan is **posted publicly online** for each district, as of
@@ -26,15 +26,13 @@ your next steps.
 ## What to do next
 
 === "Parents and guardians"
-    1. Find your district above.
-    2. Whether or not a plan is posted, you can ask your school to set one up for your child.
-    3. Use the [family guide](../chapters/06-how-to-help/index.md), it includes a copy-paste
-       email and the official action-plan forms (including Spanish, Hmong, and Somali).
+    EDAN does not advise individual families. For help with a child's plan, contact the
+    [Epilepsy Foundation of Minnesota](https://www.epilepsyfoundationmn.org/).
 
 === "Schools and districts"
     1. Check your entry above. If it says "medication policy only" or "nothing found," a plan
        may simply not be posted yet.
-    2. Use the free [drop-in packet](../chapters/06-how-to-help/index.md) to post a seizure
+    2. Use the free [drop-in packet](../packet/EDAN-Seizure-Safe-Schools-Packet.pdf) to post a seizure
        action plan template and update your policy with ready-to-use materials.
     3. Tell us once you have adopted a plan so we can update your entry.
 

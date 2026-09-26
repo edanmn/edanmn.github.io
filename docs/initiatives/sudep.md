@@ -1,6 +1,6 @@
-# 5. SUDEP
+# 3. SUDEP
 
-Status: started September 2026. This page and the device guide are student-written from
+Status: started September 2026. This page is student-written from
 public sources and have not yet been reviewed by a clinician or the Epilepsy Foundation of
 Minnesota; we are seeking that review. Nothing here is medical advice.
 
@@ -14,10 +14,9 @@ epilepsy or seizures, and about 200 a year that mention epilepsy specifically. H
 record it as "epilepsy" or "undetermined." Illinois, New Jersey, and North Carolina require
 medical examiners to look for it and report it. Minnesota does not.
 
-The best-supported ways to lower risk are good seizure control, taking medication as
-prescribed, and supervision at night. Since January 2024 Minnesota Medical Assistance has
-covered seizure detection devices, wearables that alert a caregiver to a convulsive seizure.
-Minnesota was the first state to do this. We do not yet know how many families use it.
+Since January 2024 Minnesota Medical Assistance has covered seizure detection devices,
+wearables that alert a caregiver to a convulsive seizure. Minnesota was the first state to do
+this. Nobody has published how many families use it.
 
 ## What the death data shows
 We pulled every Minnesota death certificate from 2018 to 2024 that mentions epilepsy or
@@ -78,9 +77,6 @@ doctors write epilepsy on a death certificate, which varies. A higher rate may m
 deaths, better recording, or both. Source: CDC WONDER, Multiple Cause of Death, 2018 to 2024.
 
 ## What we are doing this year
-- A plain-language family guide to the seizure detection device benefit: who qualifies, how
-  to ask, what to do if denied. Distributed through EFMN care coordinators and the pediatric
-  epilepsy clinics.
 - A public-records request to find out how many devices Medical Assistance has covered, so
   the benefit can be measured.
 - Keeping the death analysis above current each year as CDC releases data, and adding
@@ -89,16 +85,12 @@ deaths, better recording, or both. Source: CDC WONDER, Multiple Cause of Death, 
   Epilepsy Foundation of Minnesota and the authors of the 2025 epilepsy program law. Its
   data would feed the mortality count the state is now required to publish.
 
-## Try it: could a seizure detection device be covered?
-Four yes-or-no questions. It explains the Medical Assistance criteria; only the plan and the
-neurologist can decide.
-
-<iframe src="../../sims/device-benefit-check/main.html" class="microsim" width="100%" height="480" title="Seizure detection device benefit check" loading="lazy"></iframe>
-
-[Open full screen](../sims/device-benefit-check/main.html){ .md-button }
-
-## Talking about SUDEP
-A calm explanation for families is in [Resources & Support](../resources/index.md).
+## Who uses this data
+The death counts and device claims are meant for the Epilepsy Foundation of Minnesota, the Danny Did
+Foundation and the legislators who wrote the 2025 epilepsy program law. Families with
+questions about SUDEP or seizure alert devices can reach the
+[Epilepsy Foundation of Minnesota](https://www.epilepsyfoundationmn.org/) or the
+[Danny Did Foundation](https://www.dannydid.org/).
 
 !!! note
     Questions about your own or your child's risk belong with your neurologist. This page

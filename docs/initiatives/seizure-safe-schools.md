@@ -15,6 +15,11 @@ rather than rurality, which makes it a capacity problem.
 A plan that is not posted can still exist, and most districts that answered our follow-up said
 theirs do. The audit measures whether a family can find one, which is a different question.
 
+The law stops at public and charter schools. Minnesota also had 467 nonpublic schools in
+2024-25, with 72,871 students in kindergarten through grade 12 (Minnesota Department of
+Education). At the CDC's rate of about 0.6 percent of children, roughly 440 of those students
+have epilepsy, and no Minnesota law requires their school to have a seizure plan.
+
 The full method, the charts, the county map and the reliability check are in
 [The Audit: Mapping the Gaps](../chapters/05-the-data-case-study/index.md).
 
@@ -32,6 +37,8 @@ The full method, the charts, the county map and the reliability check are in
 - Adding a language layer: 25 no-plan districts have ten percent or more English learners,
   about 15,000 students. They get the Spanish, Hmong, and Somali templates first.
 - Re-auditing all 329 districts in spring 2027 and publishing the before-and-after map.
+- Running the same audit on the 467 nonpublic schools and offering them the same free
+  packet. Nothing requires them to have a plan, so a plan gets written only if someone asks.
 
 ## Explore: which no-plan districts need translated plans first
 Hover a bar for the county and the number of English learners. These 25 districts, all
@@ -39,16 +46,15 @@ without a findable seizure plan, get the Spanish, Hmong, and Somali templates fi
 
 <iframe src="../../charts/el_noplan_districts.html" class="microsim" width="100%" height="740" title="No-plan districts by English learner share" loading="lazy"></iframe>
 
-More interactive tools for this initiative: [Find Your District](../find-your-district/index.md),
-the [Seizure First Aid Simulator](../sims/seizure-first-aid/index.md), and the
-[Call 911? Decision Trainer](../sims/call-911/index.md).
+Look up any district in [Find Your District](../find-your-district/index.md).
 
 ## Numbers so far
 | Measure | Value |
 |---|---|
 | Districts audited | 329 of 329 |
 | Districts with a findable seizure plan | 98 (29.8%) |
-| Districts emailed | 144 (as of September 7, 2026) |
+| Districts emailed | 147 (June 18 to September 16, 2026) |
+| Districts that replied | 18 |
 | Districts that confirmed a plan and trained staff by email | 13 (as of September 16, 2026) |
 | Districts that adopted a plan after our outreach | 1 |
 | Reliability of the audit (blind re-check of 30 districts) | 90% agreement, kappa 0.82 |
@@ -88,7 +94,7 @@ health office used the packet to put one in place, and wrote back:
     That is why we ask each district directly before counting anything.
 
 ## For schools
-The free packet is at [For Schools: In Practice](../chapters/08-for-schools-in-practice/index.md).
+The free packet is a [7-page PDF](../packet/EDAN-Seizure-Safe-Schools-Packet.pdf).
 If your district already has plans and trained staff in place,
 [tell us](../programs/report-your-district/index.md) and we will correct your entry in
 [Find Your District](../find-your-district/index.md).

@@ -1,11 +1,7 @@
 # Glossary
 
-Plain-language definitions of the terms used across this site, from the statute and the
-audit method to the words a school nurse or a neurologist will use.
-
-**Absence seizure**
-: A type of generalized seizure that looks like a brief staring spell with loss of awareness,
-  often mistaken for daydreaming. (Older term: "petit mal.")
+Definitions of the legal, school and statistical terms used on this site. For medical terms,
+see the [Epilepsy Foundation](https://www.epilepsy.com/).
 
 **Charter school**
 : A publicly funded school that operates independently of a traditional district. Covered by
@@ -18,18 +14,6 @@ audit method to the words a school nurse or a neurologist will use.
 **EDAN (Epilepsy Data & Advocacy Network)**
 : The student-led project behind this site. We assemble public epilepsy data that is buried or
   scattered and publish it in one place. See [About EDAN](about.md).
-
-**Epilepsy**
-: A medical condition in which a person tends to have repeated, unprovoked seizures. Diagnosed
-  by a healthcare provider, usually after two or more such seizures.
-
-**Focal seizure**
-: A seizure that begins in one area of the brain. The person may stay aware or may seem
-  confused or unresponsive for a short time.
-
-**Generalized seizure**
-: A seizure that involves both sides of the brain from the start, such as a tonic-clonic or
-  absence seizure.
 
 **Individualized health plan (IHP)**
 : A written plan kept by the school nurse describing how to manage a student's health
@@ -54,10 +38,6 @@ audit method to the words a school nurse or a neurologist will use.
 : The Minnesota School Boards Association model policy on "Student Medication." Most districts
   use it; many versions never mention seizures.
 
-**Postictal phase**
-: The recovery period right after a seizure, when a person may be tired, confused, or
-  emotional.
-
 **Public findability**
 : Whether a resource (here, a seizure plan) can be found by the public on a district's
   website. Not the same as legal compliance.
@@ -66,13 +46,6 @@ audit method to the words a school nurse or a neurologist will use.
 : Medication prescribed to stop a seizure that lasts too long or repeats, given according to a
   student's seizure action plan.
 
-**Seizure**
-: A sudden, temporary burst of abnormal electrical activity in the brain.
-
 **Seizure Action Plan (SAP)**
 : A short written document, completed by family and healthcare provider, telling school staff
   exactly how to respond to a specific student's seizures.
-
-**Tonic-clonic seizure**
-: A generalized seizure with stiffening (tonic) and rhythmic jerking (clonic). The most
-  recognizable seizure type. (Older term: "grand mal.")

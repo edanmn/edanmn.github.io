@@ -1,6 +1,6 @@
-# 3. Medication access
+# 2. Medication access
 
-Status: data published September 2026; family guide in review.
+Status: data published September 2026.
 
 ## The gap
 For most conditions a missed dose is a nuisance. For epilepsy, going without medicine for a
@@ -66,7 +66,7 @@ for Keppra. A controlled trial that switched adults between two very different g
 versions of lamotrigine found no detectable difference in drug levels or seizures (EQUIGEN,
 Lancet Neurology 2016, PMID 26875743). A change in pill color between refills did make people
 somewhat more likely to stop filling the prescription (Kesselheim et al., JAMA Internal
-Medicine 2013, PMID 23277164), so it helps to ask the pharmacy before a switch.
+Medicine 2013, PMID 23277164).
 
 ![What a month of seizure medicine costs a pharmacy](../img/asm_brand_vs_generic.png)
 
@@ -133,22 +133,14 @@ The drugs a child with hard-to-control epilepsy needs are the expensive ones.
 
 <iframe src="../../charts/asm_cost_per_rx.html" class="microsim" width="100%" height="700" title="Cost per prescription by drug" loading="lazy"></iframe>
 
-## Try it: the pharmacy problem solver
-Answer three questions and get the next step for today.
-
-<iframe src="../../sims/pharmacy-problem/main.html" class="microsim" width="100%" height="520" title="Pharmacy problem solver" loading="lazy"></iframe>
-
-[Open full screen](../sims/pharmacy-problem/main.html){ .md-button }
-
 ## Check yourself
-??? quiz "1. A pharmacy is out of your seizure medicine. What is the first question to ask?"
-    "Is this a national shortage or just your stock?" A stock problem is fixed by a transfer
-    or an independent pharmacy; a national shortage needs the prescriber the same day.
+??? quiz "1. Six seizure medicines have no generic. What share of Minnesota Medicaid seizure-drug spending did they take in 2025?"
+    About 32 percent, before manufacturer rebates, while making up 1.5 percent of the
+    prescriptions.
 
-??? quiz "2. You have two days of pills left and the plan wants prior authorization. What do you say?"
-    "Emergency supply." Medical Assistance allows a 72-hour fill while the authorization is
-    processed. Many commercial plans do too, but it is not guaranteed, so ask. Never skip
-    doses while waiting.
+??? quiz "2. In 2024, in what share of months did commercially insured Minnesotans filling a seizure prescription pay more than $25?"
+    12 percent, down from 14.6 percent in 2021, in the All Payer Claims Database counts MDH
+    ran for EDAN. The database leaves out self-insured employer plans.
 
 ??? quiz "3. Why does a broad drop across many drugs in one quarter probably not mean a shortage?"
     Shortages hit one molecule. A drop across unrelated drugs at once points to fewer people
@@ -160,9 +152,6 @@ Answer three questions and get the next step for today.
   September 2026: 15 districts are more than 15 miles from any retail pharmacy, and 14 of
   those also post no findable seizure plan. Grygla, Red Lake, Floodwood, and Nett Lake are
   farthest. Look up any district in the [Distance to Care Lookup](../sims/distance-lookup/index.md).
-- Publishing a one-page family guide, "When the pharmacy can't fill your seizure medicine,"
-  in English, Spanish, Hmong, and Somali, distributed through the Epilepsy Foundation of
-  Minnesota's care coordinators and the pediatric epilepsy clinics.
 - Supporting reintroduction of the HF 3652 / SF 3786 cap in the 2027 session. It would limit
   what a patient pays for epilepsy drugs to $25 a month in state-regulated plans, the same
   protection diabetes and asthma already have. Actuaries from Actuarial Research
@@ -170,6 +159,7 @@ Answer three questions and get the next step for today.
   member per month.
   Students are ready to testify when a new bill is heard.
 
-## Help affording medication now
-See [Resources & Support](../resources/index.md) for assistance programs, Medical
-Assistance, and MA-TEFRA.
+## Who uses this data
+The cost and claims numbers on this page are meant for the legislators carrying the cost-sharing cap
+and for the Epilepsy Foundation of Minnesota. Families who need help paying for medicine now
+should contact the [Epilepsy Foundation of Minnesota](https://www.epilepsyfoundationmn.org/).

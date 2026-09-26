@@ -11,16 +11,9 @@ Those are information problems, and information problems can be mapped.
 
 EDAN is a student-led organization with one method. We use public data to find where the
 needs of people with epilepsy are not being met. We translate what we find into plain
-language. Then we put free resources in the hands of the people who can act, and we count
-the people whose lives changed. Everything we make is free and open.
+language. Then we put it in the hands of the organizations and lawmakers who can act on it. Everything we make is free and open.
 
-## The measure
-By August 2027 we will document at least twenty people with epilepsy whose situation
-changed because of something EDAN did: a student now covered by a seizure plan, a family
-that got a covered alert device, a teen who found an adult neurologist. We count people,
-not page views. Progress is reported on this page.
-
-## Five initiatives for 2026-27
+## Three initiatives for 2026-27
 
 <div class="grid cards" markdown>
 
@@ -33,16 +26,7 @@ not page views. Progress is reported on this page.
 
     [:octicons-arrow-right-24: Read more](seizure-safe-schools.md)
 
--   :material-chart-box:{ .lg .middle } __2. The state's epilepsy data__
-
-    ---
-
-    A 2025 law requires MDH to count epilepsy in Minnesota every year. We are offering our
-    district-level data as an input, and we will translate what the state publishes.
-
-    [:octicons-arrow-right-24: Read more](state-epilepsy-data.md)
-
--   :material-pill:{ .lg .middle } __3. Medication access__
+-   :material-pill:{ .lg .middle } __2. Medication access__
 
     ---
 
@@ -51,16 +35,7 @@ not page views. Progress is reported on this page.
 
     [:octicons-arrow-right-24: Read more](medication-access.md)
 
--   :material-map-marker-distance:{ .lg .middle } __4. Distance to care__
-
-    ---
-
-    101 districts sit more than 60 miles from a child neurologist. We mapped every
-    district's distance to specialists, epilepsy centers, and pharmacies.
-
-    [:octicons-arrow-right-24: Read more](care-access.md)
-
--   :material-heart-pulse:{ .lg .middle } __5. SUDEP__
+-   :material-heart-pulse:{ .lg .middle } __3. SUDEP__
 
     ---
 
@@ -71,14 +46,18 @@ not page views. Progress is reported on this page.
 
 </div>
 
-## How the five fit together
-The school work found the gap and built the tools. Offering our data to MDH could give that
-work a permanent home in a public agency. Medication access and distance to care are the two
-things a family still faces after school is handled. SUDEP is the reason all of it matters.
+## How the three fit together
+The school work found the gap and built the tools. Medication access is what a family still
+faces after school is handled. SUDEP is the reason all of it matters.
+
+The data behind all three goes to the Minnesota Epilepsy Program at the Department of
+Health, which a 2025 law (Minn. Stat. 145.9231) requires to report on epilepsy every year.
+Our [distance to care](care-access.md) map is part of that package: 101 districts sit more
+than 60 miles from a child neurologist.
 
 ## Get involved
 Students, nurses, clinicians, and families can help with every one of these. Write to
-edanmnorg@gmail.com, or start with [How to Help](../chapters/06-how-to-help/index.md).
+edanmnorg@gmail.com.
 
 !!! note "What we do not do, and what to know about these pages"
     We are not a medical or legal service. We measure what is publicly findable and never

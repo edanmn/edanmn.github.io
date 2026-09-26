@@ -31,9 +31,8 @@ medication, and to give staff training materials on responding. But we found
 that about **70% of Minnesota school districts** do not post a seizure plan a family
 could find, with the gap largest in the smallest, least-resourced districts. See
 [The Data: Mapping the Gaps](chapters/05-the-data-case-study/index.md), look up your district
-in [Find Your District](find-your-district/index.md), and find free resources in
-[How to Help](chapters/06-how-to-help/index.md). This interactive textbook is part of that
-project.
+in [Find Your District](find-your-district/index.md), and download the free
+[district packet](packet/EDAN-Seizure-Safe-Schools-Packet.pdf).
 
 ## In the news
 The *Minnesota Star Tribune* published EDAN founder Rishik Kondadadi's commentary,
@@ -42,11 +41,8 @@ The *Minnesota Star Tribune* published EDAN founder Rishik Kondadadi's commentar
 families can actually find them.
 
 ## Where we are headed
-The same method now runs five initiatives: verified adoption of school seizure plans, an offer of
-our data to MDH's new epilepsy data work under Minn. Stat. 145.9231, medication access, distance to
-care, and SUDEP. Each has a page, a status, and a number, on [Initiatives](initiatives/index.md).
-Our measure for 2026-27 is at least twenty people with epilepsy whose situation we can
-document changing because of this work.
+The same method now runs three initiatives: verified adoption of school seizure plans,
+medication access, and SUDEP. Each has a page, a status, and a number, on [Initiatives](initiatives/index.md).
 
 ## Who we are
 EDAN is run by students. We are non-commercial, and everything we produce is free to use and
@@ -57,7 +53,9 @@ adapt.
 - Rikhil Kondadadi, eighth grader at Scott Highlands Middle School.
 
 ## Get involved or get in touch
-- Families and schools: see [How to Help](chapters/06-how-to-help/index.md).
+- Families: the [Epilepsy Foundation of Minnesota](https://www.epilepsyfoundationmn.org/)
+  helps families directly. EDAN publishes data and does not advise individuals.
+- Schools: the free [district packet](packet/EDAN-Seizure-Safe-Schools-Packet.pdf).
 - Ideas, corrections, partnerships, or to tell us your district adopted a plan: reach out below.
 
 **Contact:** Rishik Kondadadi, Epilepsy Data & Advocacy Network (EDAN).

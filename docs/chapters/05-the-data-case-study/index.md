@@ -75,14 +75,14 @@ ready-to-use packet.
 ## What this means for you
 
 === "If you are a parent"
-    Your district showing "no plan posted" does not mean your child cannot get one, it means
-    you may need to ask. The law (Minn. Stat. 121A.24) is on your side. Look up your district
-    in [Find Your District](../../find-your-district/index.md), then use the
-    [family guide and copy-paste email](../06-how-to-help/index.md) to request a plan.
+    "No plan posted" measures what a family can find online. A district may still have a
+    plan on file. Look up your district in [Find Your District](../../find-your-district/index.md).
+    For help with a child's plan, contact the
+    [Epilepsy Foundation of Minnesota](https://www.epilepsyfoundationmn.org/).
 
 === "If you are a school or district"
     If your district is in the ~70%, closing the gap is straightforward with ready-to-use materials. See the free
-    [drop-in packet](../06-how-to-help/index.md): a seizure action plan template, policy
+    [drop-in packet](../../packet/EDAN-Seizure-Safe-Schools-Packet.pdf): a seizure action plan template, policy
     language that cites 121A.24, and a printable poster. The single biggest step is simply
     **posting a seizure action plan template on your health-services page**.
 
