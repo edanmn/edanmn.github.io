@@ -11,8 +11,9 @@ it is the outcome every family fears. The Minnesota
 Department of Health reports around 1,000 deaths a year in the state related to epilepsy or
 seizures; our own pull of 2018 to 2024 death certificates gives about 870 a year that mention
 epilepsy or seizures, and about 200 a year that mention epilepsy specifically. How many are SUDEP, nobody knows: it has no diagnostic code, and death certificates
-record it as "epilepsy" or "undetermined." Illinois, New Jersey, and North Carolina require
-medical examiners to look for it and report it. Minnesota does not.
+record it as "epilepsy" or "undetermined." Illinois and New York require
+medical examiners to look for it and report cases to the North American SUDEP Registry, and
+Colorado changed its death certificate rules for it in 2026. Minnesota does neither.
 
 Since January 2024 Minnesota Medical Assistance has covered seizure detection devices,
 wearables that alert a caregiver to a convulsive seizure. Minnesota was the first state to do
