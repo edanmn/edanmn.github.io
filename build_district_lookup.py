@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Build a self-contained district lookup: search a MN district -> profile card.
-Outputs textbook/docs/explore/district_lookup.html (embedded JSON + vanilla JS)."""
-import csv, json, os, html
+Reads ../data/*. Writes docs/find-your-district/district_lookup.html (embedded JSON + vanilla
+JS) and the public data file docs/data/mn_seizure_plan_audit.csv, and keeps the reply counts
+on the report page in step with the data."""
+import csv, json, os, re, html
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
@@ -132,32 +134,94 @@ for r in csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))):
 rows.sort(key=lambda x: x["name"])
 payload = json.dumps(rows, separators=(",", ":"))
 
+# ---- Public data file, linked from the Data and methods page ----
+# One row per district with the audit result. Phone numbers and named contacts stay out of it.
+CSV_OUT = os.path.join(HERE, "docs", "data", "mn_seizure_plan_audit.csv")
+CLS_LABEL = {
+    "FOUND_SEIZURE_SPECIFIC": "Seizure plan posted",
+    "FOUND_MED_POLICY_ONLY":  "Medication policy only",
+    "NOT_FOUND":              "Nothing found",
+    "NOT_VERIFIABLE":         "Could not check",
+}
+
+def write_public_csv(rows, path=CSV_OUT, check_date=CHECK_DATE):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh, lineterminator="\n")
+        w.writerow(["isd", "district", "county", "city", "locale", "enrollment", "classification",
+                    "classification_label", "what_we_saw", "source_url", "checked",
+                    "posted_since_check", "district_reply", "district_reply_summary"])
+        for r in rows:
+            w.writerow([r["isd"], r["name"], r["county"], r["city"], r["type"],
+                        "" if r["enroll"] in ("", "None") else r["enroll"], r["cls"],
+                        CLS_LABEL.get(r["cls"], ""), r["note"], r["url"], check_date,
+                        "yes" if r["recheck"] else "",
+                        "confirmed" if r["conf"] else r["rstat"], r["conf"] or r["resp"]])
+    print("wrote", os.path.relpath(path, HERE), "with", len(rows), "districts")
+
+# ---- Reply counts on the report page ----
+# The sentence is typed into the page, so its two numbers are rewritten whenever the data changes.
+REPORT_MD = os.path.join(HERE, "docs", "programs", "report-your-district", "index.md")
+
+def update_reply_counts(rows, path=REPORT_MD):
+    replied = sum(1 for r in rows if r["conf"] or r["resp"])
+    confirmed = sum(1 for r in rows if r["conf"])
+    text = open(path, encoding="utf-8").read()
+    new, n = re.subn(r"So far \d+ districts have replied and \d+ are confirmed\.",
+                     f"So far {replied} districts have replied and {confirmed} are confirmed.", text)
+    if n != 1:
+        print("WARNING: reply-count sentence not found in", os.path.relpath(path, HERE))
+    elif new != text:
+        open(path, "w", encoding="utf-8").write(new)
+        print("updated reply counts:", replied, "replied,", confirmed, "confirmed")
+
 page = f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en" data-autoheight><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minnesota District Lookup</title>
 <style>
- body{{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#1a1a1a;line-height:1.55}}
+ :root{{--fg:#1a1a1a;--muted:#666;--line:#e3e3e3;--soft:#f7f7f7;--field:#fff;--link:#b3202c;--hover:#fbeaec;--ok:#e6f4ea;--info:#e8f0fe}}
+ [data-theme=dark]{{--fg:#e6e1d9;--muted:#aaa39a;--line:#3a352e;--soft:#231f19;--field:#1d1a15;--link:#ff8088;--hover:#3a2326;--ok:#16301f;--info:#17263f}}
+ *{{box-sizing:border-box}}
+ body{{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:var(--fg);line-height:1.55}}
  .wrap{{max-width:760px;margin:0 auto;padding:8px 4px}}
- #q{{width:100%;padding:12px 14px;font-size:1.05rem;border:1.5px solid #bbb;border-radius:10px}}
- #list{{border:1px solid #eee;border-radius:8px;margin-top:4px;max-height:240px;overflow:auto;display:none}}
- #list div{{padding:9px 12px;cursor:pointer;border-bottom:1px solid #f2f2f2;font-size:.95rem}}
- #list div:hover,#list div.active{{background:#fbeaec}}
- .muted{{color:#666;font-size:.85rem}}
- .card{{margin-top:14px;border:1px solid #e3e3e3;border-radius:12px;padding:18px;display:none}}
- .badge{{display:inline-block;padding:5px 12px;border-radius:999px;color:#fff;font-weight:600;font-size:.9rem}}
+ label{{display:block;font-weight:600;font-size:.95rem;margin:0 0 6px}}
+ #q{{width:100%;padding:12px 14px;font-size:1.05rem;border:1.5px solid #999;border-radius:10px;background:var(--field);color:var(--fg)}}
+ #q:focus-visible{{outline:3px solid var(--link);outline-offset:1px}}
+ #list{{border:1px solid var(--line);border-radius:8px;margin-top:4px;max-height:240px;overflow:auto;display:none}}
+ #list div{{padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--line);font-size:.95rem}}
+ #list div:hover,#list div.active{{background:var(--hover)}}
+ .muted{{color:var(--muted);font-size:.85rem}}
+ .card{{margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:18px;display:none}}
+ .badge{{display:inline-block;padding:5px 12px;border-radius:999px;font-weight:600;font-size:.9rem}}
+ .pill{{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600}}
+ .dual{{display:inline-block;margin-left:8px;background:#fce4ec;color:#880e4f;font-size:.78rem;padding:2px 9px;border-radius:12px;font-weight:600}}
+ .layers{{width:100%;font-size:.88rem;border-collapse:collapse;margin:12px 0}}
+ .layers tr+tr{{border-top:1px solid var(--line)}}
+ .layers td{{padding:6px 4px}}
+ .layers .k{{color:var(--muted);font-size:.76rem}}
+ .layers .k span{{font-size:.7rem}}
  .facts{{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin:14px 0;font-size:.95rem}}
- .facts b{{color:#444;font-weight:600}}
- .mean{{background:#f7f7f7;border-radius:8px;padding:10px 14px;margin:10px 0;font-size:.95rem}}
+ .facts b{{font-weight:600}}
+ .mean{{background:var(--soft);border-radius:8px;padding:10px 14px;margin:10px 0;font-size:.95rem}}
+ .mean.ok{{background:var(--ok);border-left:3px solid #1a9850}}
+ .mean.info{{background:var(--info);border-left:3px solid #1a73e8}}
  .cta{{border-left:3px solid #b3202c;padding:8px 0 8px 14px;margin:10px 0}}
  .cta h4{{margin:0 0 4px;font-size:1rem}}
- a{{color:#b3202c}}
- .disc{{color:#777;font-size:.82rem;margin-top:14px}}
+ a{{color:var(--link)}}
+ .share{{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0 0}}
+ .share button{{font:inherit;font-size:.88rem;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--fg);cursor:pointer}}
+ .share button:hover{{border-color:var(--link)}}
+ .share span{{word-break:break-all}}
+ .disc{{color:var(--muted);font-size:.82rem;margin-top:14px}}
+ @media(max-width:480px){{.card{{padding:14px}}.facts{{grid-template-columns:1fr}}}}
 </style></head><body><div class="wrap">
 
-<input id="q" placeholder="Type your school district or county (e.g. Worthington, St. Louis)..." autocomplete="off">
-<div id="list"></div>
-<p class="muted" id="hint">{len(rows)} Minnesota districts. Start typing to find yours.</p>
+<label for="q">Search by district or county</label>
+<input id="q" placeholder="e.g. Worthington, St. Louis" autocomplete="off"
+       role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="list">
+<div id="list" role="listbox" aria-label="Matching districts"></div>
+<p class="muted" id="hint" aria-live="polite">{len(rows)} Minnesota districts. Start typing to find yours.</p>
 
 <div class="card" id="card"></div>
 
@@ -174,9 +238,33 @@ const LAB = {{
  NOT_VERIFIABLE: ["Could not check","#888",
    "We could not access this district's policies online (site down, login required, or no policy section)."]
 }};
+const HINT = "{len(rows)} Minnesota districts. Start typing to find yours.";
 const q=document.getElementById('q'), list=document.getElementById('list'),
       card=document.getElementById('card'), hint=document.getElementById('hint');
 let matches=[], ai=-1;
+
+// Readable text on any badge colour: white where it has the contrast, dark ink where it does not.
+function lum(h){{
+ h=h.replace("#",""); if(h.length===3)h=h.replace(/./g,"$&$&");
+ const c=[0,2,4].map(i=>parseInt(h.substr(i,2),16)/255).map(v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4));
+ return .2126*c[0]+.7152*c[1]+.0722*c[2];
+}}
+function ink(bg){{const L=lum(bg)+.05; return 1.05/L>=L/.0603?"#fff":"#1a1a1a";}}
+const paint=(bg)=>`background:${{bg}};color:${{ink(bg)}}`;
+
+// Shareable links. Inside the Find Your District page the address bar belongs to the parent
+// page, so it is read and written there: ?district=<ISD number> opens that district and
+// ?find=<text> pre-fills the search (the home page search box sends this).
+const page=(()=>{{try{{return parent.location.href?parent:window;}}catch(e){{return window;}}}})();
+function linkFor(isd){{
+ const u=new URL(page.location.href); u.hash=""; u.search=""; u.searchParams.set("district",isd); return u.href;
+}}
+function remember(isd){{
+ try{{
+  const u=new URL(page.location.href); u.searchParams.delete("find"); u.searchParams.set("district",isd);
+  page.history.replaceState(page.history.state,"",u.href);
+ }}catch(e){{}}
+}}
 
 function render(d){{
  const [label0,color0,meaning]=LAB[d.cls]||["Unknown","#888",""];
@@ -189,42 +277,42 @@ function render(d){{
  const enroll=d.enroll&&d.enroll!=="None"?Number(d.enroll).toLocaleString()+" students":"enrollment n/a";
  let contactLine = d.cemail ? `<a href="mailto:${{d.cemail}}">${{d.contact||d.cemail}}</a>`
                    : (d.contact||"");
- const dualBadge = d.dual ? `<span style="display:inline-block;margin-left:8px;background:#fce4ec;color:#880e4f;font-size:.78rem;padding:2px 9px;border-radius:12px;font-weight:600">DUAL RISK</span>` : "";
- const guide = (t)=>`<a href="../chapters/06-how-to-help/" target="_top">${{t}}</a>`;
- const ctaText = d.conf
-   ? `This district replied to us by email about its seizure plans; its reply is summarized above. Ask the school nurse to set up or review your child's plan. See the ${{guide("family guide")}} for a checklist.`
+ const dualBadge = d.dual ? `<span class="dual">DUAL RISK</span>` : "";
+ const efmn = `For help with a child's plan, contact the <a href="https://www.epilepsyfoundationmn.org/" target="_blank" rel="noopener">Epilepsy Foundation of Minnesota</a>.`;
+ const ctaText = (d.conf
+   ? `This district replied to us by email about its seizure plans; its reply is summarized above.`
    : d.rstat==="in_progress"
-     ? `This district told us it is working on its seizure plans. Ask the school nurse whether your child's plan is in place for this school year. See the ${{guide("family guide")}} for a checklist.`
+     ? `This district told us it is working on its seizure plans.`
    : d.rstat==="pending"
-     ? `This district told us a plan was on file last school year and has not yet confirmed this year. Ask the school nurse to confirm your child's plan for 2026-27. See the ${{guide("family guide")}} for a checklist.`
+     ? `This district told us a plan was on file last school year and has not yet confirmed this year.`
    : d.recheck
-     ? `Since our June check, this district has posted a seizure action plan form or handbook section. Ask the school nurse to set up your child's plan. See the ${{guide("family guide")}} for a checklist.`
+     ? `Since our June check, this district has posted a seizure action plan form or handbook section.`
    : d.cls==="NOT_VERIFIABLE"
-     ? `We could not check this district's site. Ask your school how it sets up a seizure action plan; the law (Minn. Stat. 121A.24) requires one for each student who needs it. See the ${{guide("family guide and copy-paste email")}}.`
+     ? `We could not check this district's site.`
    : d.dual
-     ? `Your district posts no seizure plan online, and districts its size often have no licensed school nurse. Use the ${{guide("template letter")}} to request a seizure action plan and ask about a <b>504 plan</b> for stronger legal protections.`
+     ? `This district posts no seizure plan online, and districts its size often have no licensed school nurse.`
    : d.cls!=="FOUND_SEIZURE_SPECIFIC"
-     ? `No public seizure plan found. You can ask your school to create one; the law (Minn. Stat. 121A.24) is on your side. See the ${{guide("family guide and copy-paste email")}}.`
-     : `A seizure plan is posted. Confirm it covers your child specifically and ask when it was last updated. See the ${{guide("family guide")}} for a checklist.`;
+     ? `We found no public seizure plan. A district may still have one on file.`
+     : `A seizure plan is posted.`) + " " + efmn;
  card.innerHTML = `
-  <span class="badge" style="background:${{color}}">${{label}}</span>${{dualBadge}}
+  <span class="badge" style="${{paint(color)}}">${{label}}</span>${{dualBadge}}
   <h2 style="margin:10px 0 2px">${{d.name}}</h2>
   <div class="muted">${{d.isd==="30001"?"SSD 1":"ISD "+d.isd}} &middot; ${{d.city?d.city+", ":""}}${{d.county}} County &middot; ${{d.type}}</div>
-  ${{d.conf?`<div class="mean" style="background:#e6f4ea;border-left:3px solid #1a9850"><b>&#10003; Confirmed by the district.</b> ${{d.conf}}. Our website check found: ${{label0.toLowerCase()}}.</div>`:""}}
-  ${{d.resp?`<div class="mean" style="background:#e8f0fe;border-left:3px solid #1a73e8"><b>${{d.rstat==="in_progress"?"District update: working on a plan.":"District update: awaiting confirmation."}}</b> ${{d.resp}} We will update this entry when the district confirms a plan is in place.</div>`:""}}
+  ${{d.conf?`<div class="mean ok"><b>&#10003; Confirmed by the district.</b> ${{d.conf}}. Our website check found: ${{label0.toLowerCase()}}.</div>`:""}}
+  ${{d.resp?`<div class="mean info"><b>${{d.rstat==="in_progress"?"District update: working on a plan.":"District update: awaiting confirmation."}}</b> ${{d.resp}} We will update this entry when the district confirms a plan is in place.</div>`:""}}
   <div class="mean">${{meaning}}${{d.note?`<br><span class="muted">What we saw: ${{d.note}}</span>`:""}}</div>
-  <table style="width:100%;font-size:.88rem;border-collapse:collapse;margin:12px 0">
-   <tr style="border-bottom:1px solid #eee">
-    <td style="padding:6px 4px;color:#555;font-size:.76rem">SEIZURE PLAN POSTED<br><span style="color:#aaa;font-size:.7rem">Checked June 2026</span></td>
-    <td style="padding:6px 4px"><span class="badge" style="background:${{color0}};font-size:.8rem">${{label0}}</span></td>
-   </tr>
-   <tr style="border-bottom:1px solid #eee">
-    <td style="padding:6px 4px;color:#555;font-size:.76rem">LICENSED SCHOOL NURSE<br><span style="color:#aaa;font-size:.7rem">Estimate from district size (MDH 2022)</span></td>
-    <td style="padding:6px 4px"><span style="display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600;color:#fff;background:${{d.nc}}">${{d.nl}}</span></td>
+  <table class="layers">
+   <tr>
+    <td class="k">SEIZURE PLAN POSTED<br><span>Checked ${{CHECK}}</span></td>
+    <td><span class="badge" style="${{paint(color0)}};font-size:.8rem">${{label0}}</span></td>
    </tr>
    <tr>
-    <td style="padding:6px 4px;color:#555;font-size:.76rem">EMS RESPONSE TIME<br><span style="color:#aaa;font-size:.7rem">2023 county average</span></td>
-    <td style="padding:6px 4px"><span style="display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600;color:#fff;background:${{d.ec}}">${{d.et}}</span></td>
+    <td class="k">LICENSED SCHOOL NURSE<br><span>Estimate from district size (MDH 2022)</span></td>
+    <td><span class="pill" style="${{paint(d.nc)}}">${{d.nl}}</span></td>
+   </tr>
+   <tr>
+    <td class="k">EMS RESPONSE TIME<br><span>2023 county average</span></td>
+    <td><span class="pill" style="${{paint(d.ec)}}">${{d.et}}</span></td>
    </tr>
   </table>
   <div class="facts">
@@ -235,25 +323,41 @@ function render(d){{
   </div>
   ${{d.url?`<div style="margin:6px 0"><b>Source we checked:</b> <a href="${{d.url}}" target="_blank" rel="noopener">view district page</a></div>`:""}}
   ${{contactLine?`<div style="margin:6px 0"><b>Known health contact:</b> ${{contactLine}}</div>`:""}}
-  <div class="cta"><h4>What to do as a parent</h4>${{ctaText}}</div>
+  <div class="cta"><h4>For parents</h4>${{ctaText}}</div>
   <div class="cta"><h4>If you work for this district</h4>
    ${{d.cls==="FOUND_SEIZURE_SPECIFIC"
       ?"You already post a plan, thank you. A yearly review keeps it current."
       :d.conf
-      ?"Thank you for confirming. Posting a blank plan template or a short seizure page online helps families and substitute staff find it; the free <a href='../chapters/06-how-to-help/' target='_top'>packet</a> has one ready."
-      :"Use the free <a href='../chapters/06-how-to-help/' target='_top'>drop-in packet</a> (plan template + Policy 516 language + poster). Note: the current MSBA Model Policy 516 does not reference Minn. Stat. 121A.24, and the drop-in language fixes this."}}</div>
+      ?"Thank you for confirming. Posting a blank plan template or a short seizure page online helps families and substitute staff find it; the free <a href='../packet/EDAN-Seizure-Safe-Schools-Packet.pdf' target='_top'>packet</a> has one ready."
+      :"Use the free <a href='../packet/EDAN-Seizure-Safe-Schools-Packet.pdf' target='_top'>drop-in packet</a> (plan template + Policy 516 language + poster). Note: the current MSBA Model Policy 516 does not reference Minn. Stat. 121A.24, and the drop-in language fixes this."}}</div>
+  <div class="share"><button type="button" id="copy">Copy link to this result</button><span class="muted" id="copied" aria-live="polite"></span></div>
   <div class="disc">Seizure plan reflects what was <b>publicly findable as of ${{CHECK}}</b>. Licensed school nurse status is an estimate from district size, based on MDH 2022 statewide rates and NCES 2023-24 staffing data, not a count for this district, unless a district nurse has replied to us. EMS times are 2023 county averages, not school-specific. Not a measure of legal compliance. Wrong or out of date? <a href="mailto:edanmnorg@gmail.com">edanmnorg@gmail.com</a></div>`;
  card.style.display="block";
+ document.getElementById('copy').onclick=()=>{{
+  const link=linkFor(d.isd), out=document.getElementById('copied');
+  const done=()=>{{out.textContent="Link copied.";}}, show=()=>{{out.textContent=link;}};
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(link).then(done,show); else show();
+ }};
 }}
 
+function close(){{list.style.display="none";q.setAttribute("aria-expanded","false");q.removeAttribute("aria-activedescendant");}}
 function search(){{
  const s=q.value.toLowerCase().trim(); ai=-1;
- if(!s){{list.style.display="none";return;}}
- matches=D.filter(d=>(d.name+" "+d.county+" "+d.city+" "+d.isd).toLowerCase().includes(s)).slice(0,12);
- list.innerHTML=matches.map((d,i)=>`<div data-i="${{i}}">${{d.name}} <span class="muted">&middot; ${{d.county}} County</span></div>`).join("");
- list.style.display=matches.length?"block":"none";
+ if(!s){{close();hint.textContent=HINT;return;}}
+ // Names that start with what was typed come first, then any word that starts with it.
+ // Otherwise "st" lists every "...School District" before St. Cloud.
+ const hay=d=>(d.name+" "+d.county+" "+d.city+" "+d.isd).toLowerCase();
+ const rank=h=>h.startsWith(s)?0:h.includes(" "+s)?1:2;
+ matches=D.filter(d=>hay(d).includes(s)).sort((a,b)=>rank(hay(a))-rank(hay(b))).slice(0,12);
+ list.innerHTML=matches.map((d,i)=>`<div role="option" id="opt-${{i}}" data-i="${{i}}">${{d.name}} <span class="muted">&middot; ${{d.county}} County</span></div>`).join("");
+ if(!matches.length){{close();hint.textContent=`No district or county matches "${{q.value.trim()}}".`;return;}}
+ list.style.display="block"; q.setAttribute("aria-expanded","true"); hint.textContent=HINT;
 }}
-function pick(i){{ if(!matches[i])return; q.value=matches[i].name; list.style.display="none"; render(matches[i]); }}
+function pick(i){{
+ if(!matches[i])return;
+ q.value=matches[i].name; close(); render(matches[i]); remember(matches[i].isd);
+ hint.textContent="Showing "+matches[i].name+".";
+}}
 
 q.addEventListener('input',search);
 q.addEventListener('keydown',e=>{{
@@ -262,13 +366,26 @@ q.addEventListener('keydown',e=>{{
  if(e.key==="ArrowDown"){{ai=Math.min(ai+1,items.length-1);e.preventDefault();}}
  else if(e.key==="ArrowUp"){{ai=Math.max(ai-1,0);e.preventDefault();}}
  else if(e.key==="Enter"){{pick(ai<0?0:ai);return;}}
+ else if(e.key==="Escape"){{close();return;}}
  else return;
- items.forEach((el,i)=>el.classList.toggle('active',i===ai));
+ items.forEach((el,i)=>{{el.classList.toggle('active',i===ai);el.setAttribute("aria-selected",i===ai?"true":"false");}});
+ q.setAttribute("aria-activedescendant","opt-"+ai);
  items[ai].scrollIntoView({{block:"nearest"}});
 }});
 list.addEventListener('click',e=>{{const d=e.target.closest('[data-i]');if(d)pick(+d.dataset.i);}});
+
+// Open straight to a district, or to a search, when the address asks for one.
+(()=>{{
+ const p=new URLSearchParams(page.location.search), isd=p.get("district"), find=p.get("find");
+ const d=isd&&D.find(x=>x.isd===isd);
+ if(d){{q.value=d.name;render(d);hint.textContent="Showing "+d.name+".";}}
+ else if(find){{q.value=find;search();if(matches.length===1)pick(0);}}
+}})();
 </script>
+<script src="../js/embed.js"></script>
 </div></body></html>"""
 
 open(OUT, "w").write(page)
 print("wrote", os.path.relpath(OUT, HERE), "with", len(rows), "districts")
+write_public_csv(rows)
+update_reply_counts(rows)

@@ -493,3 +493,33 @@ button:focus-visible {
 
 /* Keep side-by-side buttons from touching when they wrap on narrow screens. */
 .md-typeset .md-button { margin: 0 0.4rem 0.6rem 0; }
+
+/* ---- Home page: headline finding and district search ---------------------
+   Sits between the tagline and the packet callout. The form sends what was
+   typed to Find Your District as ?find=..., which pre-fills the lookup. */
+.edan-hero { margin: 1.4rem 0 1.6rem; }
+.md-typeset .edan-hero p { max-width: 30rem; font-size: 0.95rem; line-height: 1.5; }
+.md-typeset .edan-hero .edan-stat { display: block; margin-bottom: 0.35rem; }
+.edan-find {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-width: 30rem;
+  margin-top: 1rem;
+}
+.edan-find label { flex: 1 0 100%; font-size: 0.72rem; font-weight: 700; }
+.edan-find input {
+  flex: 1 1 11rem;
+  min-width: 0;
+  padding: 0.5rem 0.65rem;
+  font: inherit;
+  color: var(--md-default-fg-color);
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--light);
+  border-radius: 0.2rem;
+}
+.edan-find input:focus-visible { outline: 3px solid var(--edan-red); outline-offset: 2px; }
+.md-typeset .edan-find .md-button { margin: 0; font-family: inherit; font-size: 0.72rem; cursor: pointer; }
+
+/* Embedded lookups and charts sit on the page colour in dark mode. */
+[data-md-color-scheme="slate"] .md-typeset iframe { border-color: rgba(255, 255, 255, 0.14) !important; }

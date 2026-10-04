@@ -57,10 +57,14 @@ plugins:
 
 extra_css:
   # Bump the version after CSS changes so browsers fetch the new file right away.
-  - css/extra.css?v=2026-09-25
+  - css/extra.css?v=2026-10-04
 
 extra_javascript:
-  - js/reactbits.js?v=2026-09-24
+  - js/reactbits.js?v=2026-10-04
+
+# The quiz is reached from the button at the end of the law page, not from the menu.
+not_in_nav: |
+  chapters/03-minnesota-law/quiz.md
 
 nav:
   - Home: index.md
@@ -79,6 +83,7 @@ nav:
   - 'The Law and the Audit':
     - 'The Minnesota Law (121A.24)': chapters/03-minnesota-law/index.md
     - 'The Audit: Mapping the Gaps': chapters/05-the-data-case-study/index.md
+    - 'Data and Methods': data/index.md
   - Resources & Support: resources/index.md
   - FAQ: faq.md
   - Glossary: glossary.md

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Generate interactive Plotly charts for the textbook from the EDAN dataset.
-Outputs self-contained HTML into textbook/docs/charts/ for iframe embedding."""
+"""Generate the interactive Plotly charts for the audit page from the EDAN dataset.
+Reads ../data/*, writes self-contained HTML into docs/charts/ for iframe embedding."""
 import csv, json, math, os
 from collections import defaultdict
 from urllib.request import urlopen
@@ -99,15 +99,20 @@ for c, (has, tot) in cagg.items():
         txt.append(f"{c.title()} County ({tot} districts)")
 with urlopen("https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json") as fh:
     counties = json.load(fh)
+# The file holds every US county. Keep Minnesota's 87 (FIPS 27xxx), or the page ships 3 MB
+# of shapes it never draws.
+counties["features"] = [ft for ft in counties["features"] if ft["id"].startswith("27")]
 fig = go.Figure(go.Choropleth(geojson=counties, locations=fips, z=z, text=txt,
     colorscale="Reds", zmin=0, zmax=100, marker_line_color="white", marker_line_width=0.5,
     colorbar_title="% no plan",
     hovertemplate="%{text}<br>%{z}% of districts post no plan<extra></extra>"))
-fig.update_geos(fitbounds="locations", visible=False)
+# Mercator keeps Minnesota's shape; the default projection stretches it sideways.
+fig.update_geos(fitbounds="locations", visible=False, projection_type="mercator")
+# Hover only: with pan and scroll-zoom left on, scrolling the page over the map zooms the map.
 fig.update_layout(title="% of districts with NO public seizure plan, by county",
-                  margin=dict(l=0, r=0, t=50, b=0))
+                  margin=dict(l=0, r=0, t=50, b=0), dragmode=False)
 fig.write_html(os.path.join(OUT, "gap_map.html"), include_plotlyjs="cdn", full_html=True,
-               config={"displayModeBar": False, "responsive": True})
+               config={"displayModeBar": False, "responsive": True, "scrollZoom": False})
 print("wrote charts/gap_map.html")
 
 # ---------- 5. County need vs gap scatter ----------
@@ -128,12 +133,7 @@ fig.update_yaxes(title="% of districts with no public plan", gridcolor="#eee", r
 fig.update_layout(title="Higher-need counties tend to have bigger gaps")
 save(fig, "county_need_vs_gap.html")
 
-# Plotly's full_html output omits a mobile viewport tag; inject it so charts
-# render responsively inside their iframes on phones.
-import glob
-VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1">'
-for fp in glob.glob(os.path.join(OUT, "*.html")):
-    t = open(fp, encoding="utf-8").read()
-    if 'name="viewport"' not in t and "<head>" in t:
-        open(fp, "w", encoding="utf-8").write(t.replace("<head>", "<head>" + VIEWPORT, 1))
-print("\nAll charts written to", OUT, "(viewport injected)")
+# Viewport tag and the light/dark + narrow-screen helper (docs/js/embed.js).
+from postprocess_charts import finish_charts
+finish_charts(OUT)
+print("\nAll charts written to", OUT)

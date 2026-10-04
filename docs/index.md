@@ -6,6 +6,20 @@ title: Epilepsy Data & Advocacy Network
 
 *Empowering the Epilepsy community through data-driven advocacy*
 
+<div class="edan-hero" markdown>
+
+<span class="edan-stat edan-stat--static">7 in 10</span>
+Minnesota school districts post no findable seizure plan. We audited all 329.
+[See what we found](chapters/05-the-data-case-study/index.md).
+
+<form class="edan-find" action="find-your-district/" method="get" role="search">
+<label for="edan-find-q">Check your district</label>
+<input id="edan-find-q" name="find" type="search" placeholder="District or county, e.g. Worthington" autocomplete="off">
+<button class="md-button md-button--primary" type="submit">Find your district</button>
+</form>
+
+</div>
+
 !!! tip "For school districts: the free Seizure-Safe Schools packet"
     Everything a district needs to meet Minnesota's seizure-safety law (Minn. Stat. 121A.24)
     in one 7-page PDF: a seizure action plan template, drop-in Policy 516 language, a

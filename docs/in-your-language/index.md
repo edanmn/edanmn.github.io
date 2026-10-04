@@ -34,4 +34,4 @@ Cov phiaj xwm rau thaum muaj qaug dab peg muaj ua lus Hmoob ntawm cov xov saum t
 ---
 *The short lines above are for navigation and are machine-assisted; the linked seizure action
 plans are published by the organizations named above. Want to help us add reviewed
-translations of more EDAN pages? Reach out on [LinkedIn](https://www.linkedin.com/in/krishikk/).*
+translations of more EDAN pages? Write to <edanmnorg@gmail.com>.*

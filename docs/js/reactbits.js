@@ -114,7 +114,8 @@
   }
 
   function initCount() {
-    var stats = document.querySelectorAll(".md-content .edan-stat");
+    // .edan-stat--static opts out: "7 in 10" must never read "3 in 10" on the way up.
+    var stats = document.querySelectorAll(".md-content .edan-stat:not(.edan-stat--static)");
     if (!stats.length) return;
     if (!("IntersectionObserver" in window) || prefersReduced) return;
 

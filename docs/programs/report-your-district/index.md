@@ -17,6 +17,10 @@ Email <edanmnorg@gmail.com> from a school address and answer these:
 2. Is there at least one trained staff member at each school who can carry it out, including
    rescue medication if prescribed?
 
+[Start the email](mailto:edanmnorg@gmail.com?subject=Seizure%20plans%20in%20our%20district&body=District%20name:%0D%0AYour%20role:%0D%0A%0D%0A1.%20Does%20your%20district%20have%20a%20seizure%20action%20plan%20on%20file%20for%20each%20student%20with%20a%20diagnosed%20seizure%20disorder?%0D%0A%0D%0A%0D%0A2.%20Is%20there%20at%20least%20one%20trained%20staff%20member%20at%20each%20school%20who%20can%20carry%20it%20out,%20including%20rescue%20medication%20if%20prescribed?%0D%0A%0D%0A){ .md-button .md-button--primary }
+
+The button opens a new message with both questions already in it.
+
 If the answer to both is yes, we mark your district as confirmed in
 [Find Your District](../../find-your-district/index.md), alongside
 what the website check found. If the work is in progress, tell us that and we will say so
@@ -38,7 +42,7 @@ entry and say that we did.
 
 ## If you are not there yet
 
-The free [Seizure-Safe Schools packet](https://edanmn.org/packet/EDAN-Seizure-Safe-Schools-Packet.pdf)
+The free [Seizure-Safe Schools packet](../../packet/EDAN-Seizure-Safe-Schools-Packet.pdf)
 has a plan template, drop-in Policy 516 language, a first-aid poster and an observation log.
 Free training for staff and nurses is run by the Epilepsy Foundation of Minnesota and the
 Epilepsy Foundation, who are the right people for that work:

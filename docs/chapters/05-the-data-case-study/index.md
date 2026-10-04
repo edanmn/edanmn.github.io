@@ -37,17 +37,36 @@ plan moved from 97 to 98.*
 
 <iframe src="../../charts/classification_breakdown.html" class="microsim" width="100%" height="380" title="What Minnesota districts post" loading="lazy"></iframe>
 
+??? note "The numbers in this chart"
+    | What the district posts | Districts | Share of 329 |
+    |-------------------------|-----------|--------------|
+    | Seizure plan posted | 98 | 30% |
+    | Medication policy only (no seizure mention) | 195 | 59% |
+    | Nothing relevant found online | 18 | 5% |
+    | Could not check | 18 | 5% |
+
 ## The gap follows a strong gradient by district type
 City and suburban districts are far more likely to post a plan than town and rural districts.
 A statistical test confirms this is not chance (chi-square p < 0.0001).
 
 <iframe src="../../charts/gap_by_locale.html" class="microsim" width="100%" height="430" title="Plan rate by district type" loading="lazy"></iframe>
 
+??? note "The numbers in this chart"
+    | District type | Districts | Post a seizure plan |
+    |---------------|-----------|---------------------|
+    | City | 14 | 71% |
+    | Suburb | 33 | 58% |
+    | Town | 56 | 41% |
+    | Rural | 226 | 20% |
+
 ## Where the gaps are, county by county
 Darker counties have a higher share of districts with no public seizure plan. Hover any county
 for its numbers. The gap covers most of Greater Minnesota, with the metro area lighter.
 
 <iframe src="../../charts/gap_map.html" class="microsim" width="100%" height="540" title="Interactive map of seizure-plan gaps by county" loading="lazy"></iframe>
+
+The district-level data behind the map, with each district's county, is in the
+[downloadable audit file](../../data/index.md).
 
 ## The real driver is size, not "rural"
 We built a logistic regression to ask what predicts a public plan. The dominant factor was
@@ -56,6 +75,15 @@ accounted for size, "rural" was no longer a significant predictor on its own. Yo
 size effect directly:
 
 <iframe src="../../charts/size_effect.html" class="microsim" width="100%" height="430" title="Plan rate by enrollment" loading="lazy"></iframe>
+
+??? note "The numbers in this chart"
+    | District enrollment | Districts | Post a seizure plan |
+    |---------------------|-----------|---------------------|
+    | Under 500 | 82 | 11% |
+    | 500-999 | 96 | 19% |
+    | 1,000-2,499 | 76 | 29% |
+    | 2,500-9,999 | 58 | 67% |
+    | 10,000+ | 15 | 67% |
 
 The honest interpretation: this is a **capacity** problem. Small districts, most of which are
 rural, simply do not have the nursing and administrative staff to write and post a current

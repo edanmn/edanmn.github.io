@@ -17,10 +17,10 @@ We located every neurologist, child neurologist, and epilepsy subspecialist with
 address in Minnesota or the border areas of the Dakotas, Wisconsin, and Iowa, using the
 federal provider registry, and measured the distance from every school district office.
 
-<iframe src="../../charts/care_access_map.html" class="microsim" width="100%" height="660" title="Interactive distance-to-care map" loading="lazy"></iframe>
+<iframe src="../../charts/care_access_map.html" class="microsim" width="100%" height="600" title="Map: distance from each school district to the nearest child neurologist" loading="lazy"></iframe>
 
 ## Try it: look up your district
-<iframe src="../../sims/distance-lookup/main.html" class="microsim" width="100%" height="520" title="Distance to care lookup" loading="lazy"></iframe>
+<iframe src="../../sims/distance-lookup/main.html" class="microsim" width="100%" height="130" title="Distance to care lookup" loading="lazy"></iframe>
 
 [Open full screen](../sims/distance-lookup/main.html){ .md-button }
 

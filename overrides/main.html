@@ -3,6 +3,19 @@
 {% block extrahead %}
   {{ super() }}
   <link rel="apple-touch-icon" href="{{ 'img/brand/apple-touch-icon.png' | url }}">
+  {#- Link previews: what chat apps, social sites and email show when a page is shared. -#}
+  {% set share_title = config.site_name if not page or page.is_homepage else page.title ~ " | " ~ config.site_name %}
+  {% set share_text = page.meta.description if page and page.meta and page.meta.description else config.site_description %}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ config.site_name | e }}">
+  <meta property="og:title" content="{{ share_title | e }}">
+  <meta property="og:description" content="{{ share_text | e }}">
+  {% if page and page.canonical_url %}<meta property="og:url" content="{{ page.canonical_url }}">{% endif %}
+  <meta property="og:image" content="{{ config.site_url }}img/brand/edan-social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Epilepsy Data &amp; Advocacy Network (EDAN): data, education, advocacy">
+  <meta name="twitter:card" content="summary_large_image">
   <!-- GoatCounter analytics: privacy-friendly, no cookies, instant-navigation aware -->
   <script>window.goatcounter = { no_onload: true }</script>
   <script data-goatcounter="https://edanmn.goatcounter.com/count"

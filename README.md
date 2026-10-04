@@ -1,47 +1,59 @@
-# Seizure-Safe Schools: An Intelligent Textbook
+# Epilepsy Data & Advocacy Network (EDAN)
 
-A plain-language, interactive textbook from the Epilepsy Data & Advocacy Network (EDAN). It
-explains epilepsy, seizure first aid, and Minnesota's seizure-safety law (Minn. Stat. 121A.24),
-and presents the data behind seizure-plan gaps in Minnesota schools. Built in the MkDocs
-Material "intelligent textbook" style (interactive p5.js MicroSims, quizzes, glossary).
+The source for <https://edanmn.org/>. EDAN is a student-led project that assembles public data
+about epilepsy in Minnesota and publishes it with the method attached: a seizure-plan audit of
+all 329 school districts, medication access, distance to care, and SUDEP.
+
+The site is built with [MkDocs](https://www.mkdocs.org/) and
+[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
 ## Run it locally
 ```bash
-pip install mkdocs mkdocs-material
-cd textbook
-mkdocs serve
+python3 -m venv .venv
+.venv/bin/pip install "mkdocs>=1.6,<2" "mkdocs-material>=9,<10"
+.venv/bin/mkdocs serve
 # open http://127.0.0.1:8000
 ```
 
-## Build a static site
-```bash
-mkdocs build      # outputs to ./site
-```
+## Publish
+Every push to `main` runs `.github/workflows/deploy.yml`, which builds the site and deploys it
+to GitHub Pages.
 
-## Publish to your personal github.io
-1. Create a GitHub repo, e.g. `seizure-safe-schools`.
-2. Push this `textbook/` folder as the repo root (mkdocs.yml is already set to your username).
-3. Deploy either way:
-   - One command: `mkdocs gh-deploy` (pushes the built site to the `gh-pages` branch), or
-   - Automatic on every push: keep `.github/workflows/deploy.yml` (already included).
-4. In the repo Settings > Pages, set the source to the `gh-pages` branch (if using gh-deploy)
-   or to GitHub Actions (if using the workflow). Your site appears at
-   `https://edanmn.github.io/`.
-
-## Structure (mirrors the intelligent-textbooks pattern)
+## Structure
 ```
-mkdocs.yml
+mkdocs.yml                     site config and navigation
 docs/
-  index.md
-  chapters/00..06/index.md     (each chapter; some include quiz.md)
-  sims/seizure-first-aid/       (p5.js MicroSim: main.html, sketch.js, index.md)
-  glossary.md
-  css/extra.css
-.github/workflows/deploy.yml
+  index.md                     home page
+  initiatives/                 the three initiatives, plus distance to care
+  chapters/                    the Minnesota law, and the audit write-up
+  find-your-district/          the district lookup and the full district table
+  data/                        Data and Methods page, and the audit as a CSV
+  charts/                      interactive Plotly charts, embedded in pages as iframes
+  sims/distance-lookup/        distance-to-care lookup
+  packet/                      the Seizure-Safe Schools packet (PDF)
+  css/extra.css                site styling
+  js/reactbits.js              page animations
+  js/embed.js                  dark mode, auto height and phone layout for the embedded pages
+overrides/                     theme overrides: analytics, link previews, home page sidebar
+press/                         press release and outreach kit (not part of the site)
 ```
 
-## Source of the data
-The chapter "The Data: Mapping the Gaps" is built from EDAN's audit of 328 Minnesota
-districts (see the parent project's FINDINGS.md, RELIABILITY.md, and data/ folder).
+## Rebuilding the lookups and charts
+The lookups, the district table and the charts are generated files. The scripts read EDAN's
+working data from `../data/`, which is not in this repository, so they run from the parent
+project:
+
+| Script | Writes |
+|--------|--------|
+| `build_district_lookup.py` | `docs/find-your-district/district_lookup.html`, `docs/data/mn_seizure_plan_audit.csv`, and the reply counts on the report page |
+| `build_district_table.py` | `docs/find-your-district/district_table.html` |
+| `build_charts.py` | the audit charts in `docs/charts/` |
+| `build_initiative_charts.py` | the initiative charts in `docs/charts/` and `docs/sims/distance-lookup/main.html` |
+| `postprocess_charts.py` | adds the viewport tag and `embed.js` to every chart (the two chart scripts call it) |
+
+Edit the script, not the generated file, or the next rebuild will undo the change.
+
+The chart scripts also download public shape files each time they run: US county outlines, and
+the Census Bureau's Minnesota school district boundaries for the distance-to-care map.
 
 This material is informational, not legal or medical advice.

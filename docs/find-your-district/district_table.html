@@ -3,19 +3,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>All Minnesota districts: seizure readiness</title>
 <style>
- body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#1a1a1a}
+ :root{--fg:#1a1a1a;--muted:#666;--line:#eee;--soft:#f5f5f5;--head:#fafafa;--field:#fff;--link:#b3202c}
+ [data-theme=dark]{--fg:#e6e1d9;--muted:#aaa39a;--line:#3a352e;--soft:#231f19;--head:#1d1a15;--field:#1d1a15;--link:#ff8088}
+ *{box-sizing:border-box}
+ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:var(--fg)}
  .wrap{max-width:980px;margin:0 auto;padding:6px}
  .filters{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;align-items:center}
- #q{flex:1;min-width:180px;padding:9px 12px;font-size:.95rem;border:1px solid #bbb;border-radius:8px}
- select{padding:8px 10px;border:1px solid #bbb;border-radius:8px;font-size:.88rem}
- .freshness{font-size:.78rem;color:#666;margin:4px 0 8px;display:flex;gap:12px;flex-wrap:wrap}
- .freshness span{background:#f5f5f5;border-radius:20px;padding:2px 9px}
+ #q{flex:1;min-width:180px;padding:9px 12px;font-size:.95rem;border:1px solid #999;border-radius:8px;background:var(--field);color:var(--fg)}
+ select{padding:8px 10px;border:1px solid #999;border-radius:8px;font-size:.88rem;background:var(--field);color:var(--fg)}
+ .freshness{font-size:.78rem;color:var(--muted);margin:4px 0 8px;display:flex;gap:12px;flex-wrap:wrap}
+ .freshness span{background:var(--soft);border-radius:20px;padding:2px 9px}
  table{border-collapse:collapse;width:100%;font-size:.86rem;margin-top:4px}
- th,td{text-align:left;padding:6px 8px;border-bottom:1px solid #eee}
- th{position:sticky;top:0;background:#fafafa;font-size:.8rem;white-space:nowrap}
+ th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+ th{position:sticky;top:0;background:var(--head);font-size:.8rem;white-space:nowrap}
  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}
- .muted{color:#666;font-size:.8rem} a{color:#b3202c}
- @media(max-width:600px){td:nth-child(6),th:nth-child(6){display:none}}
+ .muted{color:var(--muted);font-size:.8rem} a{color:var(--link)}
+ /* On a phone seven columns do not fit: show each district as a labelled block instead. */
+ @media(max-width:600px){
+  thead{display:none}
+  tr{display:block;padding:8px 0;border-bottom:1px solid var(--line)}
+  td{display:block;border:0;padding:1px 6px}
+  td:first-child{font-weight:600;font-size:.95rem}
+  td:nth-child(n+2)::before{color:var(--muted)}
+  td:nth-child(2)::before{content:"County: "}
+  td:nth-child(3)::before{content:"Type: "}
+  td:nth-child(4)::before{content:"Seizure plan (June 2026): "}
+  td:nth-child(5)::before{content:"Licensed school nurse (estimate): "}
+  td:nth-child(6)::before{content:"EMS response (2023 county avg): "}
+  td:nth-child(7)::before{content:"Source: "}
+ }
 </style></head><body><div class="wrap">
 <div class="freshness">
   <span>Seizure plan audit: <b>June 2026</b></span>
@@ -26,15 +42,15 @@
 12 more have told us by email that they have seizure plans in place (each entry in Find Your District shows what they said).
 "Not found" does not mean no plan; always contact your school directly.</p>
 <div class="filters">
-  <input id="q" placeholder="Filter by district or county…">
-  <select id="f-plan" onchange="filt()">
+  <input id="q" placeholder="Filter by district or county…" aria-label="Filter by district or county">
+  <select id="f-plan" onchange="filt()" aria-label="Filter by seizure plan status">
     <option value="">All seizure plans</option>
     <option value="yes">Plan posted</option>
     <option value="med">Medication policy only</option>
     <option value="no">Nothing found</option>
     <option value="conf">Confirmed by district</option>
   </select>
-  <select id="f-dual" onchange="filt()">
+  <select id="f-dual" onchange="filt()" aria-label="Filter by dual risk">
     <option value="">All districts</option>
     <option value="dual">Dual risk only</option>
   </select>
@@ -395,4 +411,5 @@ function filt(){
 document.getElementById('q').addEventListener('input',filt);
 filt();
 </script>
+<script src="../js/embed.js"></script>
 </div></body></html>

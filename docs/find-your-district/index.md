@@ -3,6 +3,10 @@
 Look up your Minnesota school district to see whether a seizure plan is posted, key district
 facts, and, if you work for the district, the free packet.
 
+## Search your district
+
+<iframe src="district_lookup.html" width="100%" height="150" style="border:1px solid #e0e0e0;border-radius:8px" title="Minnesota district lookup"></iframe>
+
 !!! warning "Please read first"
     This shows whether a seizure plan is **posted publicly online** for each district, as of
     June 2026. A result of "not found" does **not** mean a district has no plan, many keep
@@ -15,13 +19,6 @@ facts, and, if you work for the district, the free packet.
     The licensed school nurse column is an estimate from district size, based on statewide
     rates from the Minnesota Department of Health. It is not a count for your district, except
     where a district nurse has written to us.
-
-## Search your district
-Start typing your district or county name, pick it from the list, and you will get a full
-profile: the seizure-plan status, district facts, county context, the source we checked, and
-your next steps.
-
-<iframe src="district_lookup.html" width="100%" height="560" style="border:1px solid #e0e0e0;border-radius:8px" title="Minnesota district lookup" loading="lazy"></iframe>
 
 ## What to do next
 
@@ -44,4 +41,4 @@ A searchable list of all Minnesota districts with the source we checked.
 ---
 *Want the map and the analysis behind the gap (by district type, size, and county health need)?
 See [The Data: Mapping the Gaps](../chapters/05-the-data-case-study/index.md). Found an error or
-out-of-date entry? Reach out via [LinkedIn](https://www.linkedin.com/in/krishikk/).*
+out-of-date entry? Write to <edanmnorg@gmail.com>.*

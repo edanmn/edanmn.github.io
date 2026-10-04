@@ -4,7 +4,7 @@ Type a Minnesota school district and see how far it is to the nearest child neur
 epilepsy subspecialist, Level 4 epilepsy center, and retail pharmacy, plus the county's
 ambulance response time and whether the district posts a seizure plan.
 
-<iframe src="main.html" width="100%" height="520" class="microsim" title="Distance to care lookup" loading="lazy"></iframe>
+<iframe src="main.html" width="100%" height="130" class="microsim" title="Distance to care lookup" loading="lazy"></iframe>
 
 [Open full screen](main.html){ .md-button }
 
