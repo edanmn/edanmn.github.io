@@ -27,6 +27,12 @@ same data behind [Find Your District](../find-your-district/index.md) and
 
 The file leaves out phone numbers and the names of district contacts.
 
+## Legislative district profiles
+
+[Epilepsy by Legislative District](../legislative-districts/index.md) has an estimate for each of
+the 134 House and 67 Senate districts, with the school districts that serve each one. Both
+files can be downloaded there, with the method.
+
 ## What the categories mean
 
 | `classification` | `classification_label` | Meaning |

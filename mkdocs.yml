@@ -75,7 +75,9 @@ nav:
     - '2. Medication Access': initiatives/medication-access.md
     - '3. SUDEP': initiatives/sudep.md
   - In Your Language: in-your-language/index.md
-  - Find Your District: find-your-district/index.md
+  - 'Find Your District':
+    - 'School District': find-your-district/index.md
+    - 'Legislative District': legislative-districts/index.md
   - 'Distance to Care':
     - 'Map': initiatives/care-access.md
     - 'Lookup': sims/distance-lookup/index.md

@@ -1,0 +1,1400 @@
+chamber,district,school_district,isd,population_2020_in_legislative_district,share_of_legislative_district_pct,seizure_plan_classification,plan_posted,confirmation_status,nearest_child_neurology_miles
+House,01A,Thief River Falls School District,564,13467,31.6,FOUND_SEIZURE_SPECIFIC,yes,,74.2
+House,01A,Roseau Public School District,682,6680,15.7,NOT_FOUND,no,,101.2
+House,01A,Warroad Public School District,690,5701,13.4,FOUND_MED_POLICY_ONLY,no,,99.0
+House,01A,Warren-Alvarado-Oslo School District,2176,3033,7.1,FOUND_MED_POLICY_ONLY,no,,92.5
+House,01A,Greenbush-Middle River School Dist.,2683,2554,6.0,FOUND_MED_POLICY_ONLY,no,,102.1
+House,01A,Tri-County School District,2358,1970,4.6,NOT_FOUND,no,,106.4
+House,01A,Marshall County Central Schools,441,1905,4.5,NOT_VERIFIABLE,no,,89.9
+House,01A,Kittson Central School District,2171,1828,4.3,FOUND_MED_POLICY_ONLY,no,confirmed,130.2
+House,01A,Stephen-Argyle Central Schools,2856,1763,4.1,FOUND_MED_POLICY_ONLY,no,,110.2
+House,01A,Badger Public School District,676,1099,2.6,FOUND_MED_POLICY_ONLY,no,,102.7
+House,01A,Lancaster Public School District,356,852,2.0,NOT_VERIFIABLE,no,,129.0
+House,01A,Goodridge Public School District,561,841,2.0,FOUND_MED_POLICY_ONLY,no,confirmed,62.2
+House,01A,Grygla Public School District,447,666,1.6,NOT_FOUND,no,in_progress,65.0
+House,01A,Red Lake County Central Public Schools,2906,211,0.5,FOUND_MED_POLICY_ONLY,no,,51.7
+House,01B,East Grand Forks Public School Dist,595,10590,24.9,FOUND_SEIZURE_SPECIFIC,yes,,75.4
+House,01B,Crookston Public School District,593,9194,21.6,FOUND_MED_POLICY_ONLY,no,,65.4
+House,01B,Ada-Borup-West,2910,3913,9.2,NOT_VERIFIABLE,no,,33.5
+House,01B,Win-E-Mac School District,2609,3250,7.6,FOUND_SEIZURE_SPECIFIC,yes,,53.5
+House,01B,Fosston Public School District,601,3155,7.4,FOUND_MED_POLICY_ONLY,no,,41.8
+House,01B,Fertile-Beltrami School District,599,2790,6.5,FOUND_MED_POLICY_ONLY,no,,53.2
+House,01B,Red Lake Falls Public School Dist.,630,2189,5.1,NOT_FOUND,no,,70.7
+House,01B,Norman County East School District,2215,2029,4.8,FOUND_MED_POLICY_ONLY,no,,38.4
+House,01B,Red Lake County Central Public Schools,2906,1780,4.2,FOUND_MED_POLICY_ONLY,no,,51.7
+House,01B,Fisher Public School District,600,1005,2.4,FOUND_MED_POLICY_ONLY,no,in_progress,65.1
+House,01B,Climax-Shelly Public Schools,592,768,1.8,FOUND_MED_POLICY_ONLY,no,,51.9
+House,01B,Ulen-Hitterdal Public School Dist,914,757,1.8,FOUND_MED_POLICY_ONLY,no,,30.6
+House,01B,Warren-Alvarado-Oslo School District,2176,584,1.4,FOUND_MED_POLICY_ONLY,no,,92.5
+House,01B,Dilworth-Glyndon-Felton,2164,251,0.6,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,01B,Clearbrook-Gonvick School District,2311,227,0.5,FOUND_SEIZURE_SPECIFIC,yes,,30.0
+House,01B,Thief River Falls School District,564,47,0.1,FOUND_SEIZURE_SPECIFIC,yes,,74.2
+House,01B,Waubun-Ogema-White Earth Schools,435,46,0.1,FOUND_MED_POLICY_ONLY,no,,47.2
+House,01B,Mahnomen Public School District,432,30,0.1,FOUND_MED_POLICY_ONLY,no,,51.0
+House,02A,Bemidji Public School District,31,30856,72.0,NOT_VERIFIABLE,no,,3.0
+House,02A,Red Lake Public School District,38,5509,12.9,NOT_VERIFIABLE,no,,26.3
+House,02A,Lake of the Woods School District,390,3385,7.9,FOUND_MED_POLICY_ONLY,no,,83.3
+House,02A,Clearbrook-Gonvick School District,2311,2000,4.7,FOUND_SEIZURE_SPECIFIC,yes,,30.0
+House,02A,Warroad Public School District,690,378,0.9,FOUND_MED_POLICY_ONLY,no,,99.0
+House,02A,Grygla Public School District,447,284,0.7,NOT_FOUND,no,in_progress,65.0
+House,02A,Kelliher Public School District,36,271,0.6,FOUND_MED_POLICY_ONLY,no,pending,35.3
+House,02A,Blackduck Public School District,32,188,0.4,FOUND_MED_POLICY_ONLY,no,,20.9
+House,02B,Bemidji Public School District,31,8125,19.1,NOT_VERIFIABLE,no,,3.0
+House,02B,Bagley Public School District,162,5815,13.7,FOUND_MED_POLICY_ONLY,no,,25.4
+House,02B,Cass Lake-Bena Public Schools,115,4602,10.8,FOUND_MED_POLICY_ONLY,no,,15.0
+House,02B,Walker-Hackensack-Akeley School District,113,3968,9.3,FOUND_MED_POLICY_ONLY,no,,31.5
+House,02B,Blackduck Public School District,32,3765,8.8,FOUND_MED_POLICY_ONLY,no,,20.9
+House,02B,Mahnomen Public School District,432,3754,8.8,FOUND_MED_POLICY_ONLY,no,,51.0
+House,02B,Waubun-Ogema-White Earth Schools,435,3287,7.7,FOUND_MED_POLICY_ONLY,no,,47.2
+House,02B,Deer River Public School District,317,2814,6.6,FOUND_MED_POLICY_ONLY,no,,51.3
+House,02B,Northland Community Schools,118,1855,4.4,FOUND_MED_POLICY_ONLY,no,,54.3
+House,02B,Detroit Lakes Public School District,22,1042,2.4,FOUND_SEIZURE_SPECIFIC,yes,,46.2
+House,02B,Kelliher Public School District,36,763,1.8,FOUND_MED_POLICY_ONLY,no,pending,35.3
+House,02B,Clearbrook-Gonvick School District,2311,639,1.5,FOUND_SEIZURE_SPECIFIC,yes,,30.0
+House,02B,Grand Rapids Public School District,318,617,1.4,FOUND_SEIZURE_SPECIFIC,yes,,64.8
+House,02B,Fosston Public School District,601,501,1.2,FOUND_MED_POLICY_ONLY,no,,41.8
+House,02B,Laporte Public School District,306,461,1.1,FOUND_MED_POLICY_ONLY,no,,21.3
+House,02B,Pine Point Public School District,25,276,0.6,FOUND_MED_POLICY_ONLY,no,,44.7
+House,02B,Park Rapids Public School District,309,274,0.6,FOUND_SEIZURE_SPECIFIC,yes,,41.8
+House,02B,Lake Park Audubon School District,2889,27,0.1,FOUND_MED_POLICY_ONLY,no,,34.1
+House,02B,Frazee-Vergas Public School District,23,5,0.0,FOUND_MED_POLICY_ONLY,no,,53.9
+House,03A,International Falls School District,361,9177,21.6,FOUND_MED_POLICY_ONLY,no,,99.8
+House,03A,St. Louis County School District,2142,8034,18.9,FOUND_MED_POLICY_ONLY,no,,55.2
+House,03A,Lake Superior Public School Dist.,381,5636,13.3,FOUND_MED_POLICY_ONLY,no,,26.6
+House,03A,Cook County Public Schools,166,5593,13.2,FOUND_MED_POLICY_ONLY,no,,105.7
+House,03A,Ely Public School District,696,4820,11.4,FOUND_MED_POLICY_ONLY,no,,76.8
+House,03A,Grand Rapids Public School District,318,2775,6.5,FOUND_SEIZURE_SPECIFIC,yes,,64.8
+House,03A,Mesabi East School District,2711,2020,4.8,FOUND_MED_POLICY_ONLY,no,,50.9
+House,03A,Littlefork-Big Falls School Dist.,362,1479,3.5,NOT_VERIFIABLE,no,,86.0
+House,03A,South Koochiching School District,363,1279,3.0,NOT_VERIFIABLE,no,,38.1
+House,03A,Deer River Public School District,317,637,1.5,FOUND_MED_POLICY_ONLY,no,,51.3
+House,03A,Nashwauk-Keewatin School District,319,609,1.4,NOT_VERIFIABLE,no,in_progress,64.2
+House,03A,Nett Lake Public School District,707,319,0.8,FOUND_MED_POLICY_ONLY,no,,91.6
+House,03A,Blackduck Public School District,32,25,0.1,FOUND_MED_POLICY_ONLY,no,,20.9
+House,03A,Kelliher Public School District,36,7,0.0,FOUND_MED_POLICY_ONLY,no,pending,35.3
+House,03B,Hermantown Public School District,700,12337,29.1,FOUND_MED_POLICY_ONLY,no,confirmed,6.9
+House,03B,Proctor Public School District,704,10869,25.7,FOUND_MED_POLICY_ONLY,no,,7.8
+House,03B,Duluth Public School District,709,10843,25.6,FOUND_SEIZURE_SPECIFIC,yes,,1.1
+House,03B,Lake Superior Public School Dist.,381,7854,18.6,FOUND_MED_POLICY_ONLY,no,,26.6
+House,03B,St. Louis County School District,2142,342,0.8,FOUND_MED_POLICY_ONLY,no,,55.2
+House,03B,Mesabi East School District,2711,92,0.2,FOUND_MED_POLICY_ONLY,no,,50.9
+House,04A,Moorhead Area Public School District,152,42472,100.0,FOUND_MED_POLICY_ONLY,no,,3.1
+House,04B,Detroit Lakes Public School District,22,14817,34.8,FOUND_SEIZURE_SPECIFIC,yes,,46.2
+House,04B,Dilworth-Glyndon-Felton,2164,6342,14.9,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,04B,Lake Park Audubon School District,2889,5617,13.2,FOUND_MED_POLICY_ONLY,no,,34.1
+House,04B,Moorhead Area Public School District,152,5553,13.1,FOUND_MED_POLICY_ONLY,no,,3.1
+House,04B,Hawley Public School District,150,4688,11.0,FOUND_MED_POLICY_ONLY,no,,23.8
+House,04B,Barnesville Public School District,146,4216,9.9,FOUND_MED_POLICY_ONLY,no,,23.9
+House,04B,Ulen-Hitterdal Public School Dist,914,834,2.0,FOUND_MED_POLICY_ONLY,no,,30.6
+House,04B,Pelican Rapids Public School District,548,406,1.0,FOUND_MED_POLICY_ONLY,no,,40.3
+House,04B,Ada-Borup-West,2910,57,0.1,NOT_VERIFIABLE,no,,33.5
+House,05A,Park Rapids Public School District,309,12092,28.4,FOUND_SEIZURE_SPECIFIC,yes,,41.8
+House,05A,Pine River-Backus School District,2174,5959,14.0,FOUND_MED_POLICY_ONLY,no,,58.3
+House,05A,Frazee-Vergas Public School District,23,5809,13.7,FOUND_MED_POLICY_ONLY,no,,53.9
+House,05A,Menahga Public School District,821,4049,9.5,FOUND_MED_POLICY_ONLY,no,,53.7
+House,05A,Walker-Hackensack-Akeley School District,113,3091,7.3,FOUND_MED_POLICY_ONLY,no,,31.5
+House,05A,Nevis Public School District,308,2655,6.2,FOUND_MED_POLICY_ONLY,no,,37.8
+House,05A,Detroit Lakes Public School District,22,2125,5.0,FOUND_SEIZURE_SPECIFIC,yes,,46.2
+House,05A,Brainerd Public School District,181,1602,3.8,FOUND_SEIZURE_SPECIFIC,yes,,53.7
+House,05A,Pillager Public School District,116,1361,3.2,FOUND_SEIZURE_SPECIFIC,yes,,53.5
+House,05A,Sebeka Public School District,820,1315,3.1,FOUND_SEIZURE_SPECIFIC,yes,,61.9
+House,05A,Laporte Public School District,306,1255,2.9,FOUND_MED_POLICY_ONLY,no,,21.3
+House,05A,Pequot Lakes Public Schools,186,910,2.1,FOUND_SEIZURE_SPECIFIC,yes,,68.0
+House,05A,Staples-Motley School District,2170,265,0.6,FOUND_SEIZURE_SPECIFIC,yes,,61.3
+House,05A,New York Mills Public School Dist.,553,55,0.1,FOUND_MED_POLICY_ONLY,no,,72.2
+House,05A,Verndale Public School District,818,7,0.0,FOUND_MED_POLICY_ONLY,no,,68.6
+House,05A,Perham-Dent Public School District,549,2,0.0,FOUND_MED_POLICY_ONLY,no,,61.5
+House,05A,Pine Point Public School District,25,1,0.0,FOUND_MED_POLICY_ONLY,no,,44.7
+House,05B,Staples-Motley School District,2170,9812,22.9,FOUND_SEIZURE_SPECIFIC,yes,,61.3
+House,05B,Long Prairie-Grey Eagle School District,2753,8824,20.6,FOUND_MED_POLICY_ONLY,no,,41.7
+House,05B,Wadena-Deer Creek School District,2155,5667,13.2,FOUND_MED_POLICY_ONLY,no,,75.0
+House,05B,Pillager Public School District,116,4315,10.1,FOUND_SEIZURE_SPECIFIC,yes,,53.5
+House,05B,Browerville Public School District,787,3795,8.9,NOT_FOUND,no,,47.5
+House,05B,Bertha-Hewitt Public School District,786,3359,7.8,FOUND_MED_POLICY_ONLY,no,,62.8
+House,05B,Verndale Public School District,818,1674,3.9,FOUND_MED_POLICY_ONLY,no,,68.6
+House,05B,Sauk Centre Public School District,743,1630,3.8,FOUND_MED_POLICY_ONLY,no,,37.0
+House,05B,Osakis Public School District,213,1589,3.7,NOT_VERIFIABLE,no,confirmed,49.6
+House,05B,Sebeka Public School District,820,1127,2.6,FOUND_SEIZURE_SPECIFIC,yes,,61.9
+House,05B,Swanville Public School District,486,829,1.9,NOT_FOUND,no,,31.2
+House,05B,Melrose Public School District,740,150,0.4,FOUND_MED_POLICY_ONLY,no,,29.7
+House,05B,Pine River-Backus School District,2174,42,0.1,FOUND_MED_POLICY_ONLY,no,,58.3
+House,05B,Upsala Public School District,487,30,0.1,NOT_VERIFIABLE,no,,23.5
+House,05B,Little Falls Public School District,482,6,0.0,FOUND_MED_POLICY_ONLY,no,,28.2
+House,06A,Grand Rapids Public School District,318,18136,42.9,FOUND_SEIZURE_SPECIFIC,yes,,64.8
+House,06A,Crosby-Ironton Public School District,182,9959,23.5,FOUND_MED_POLICY_ONLY,no,,63.6
+House,06A,Brainerd Public School District,181,3718,8.8,FOUND_SEIZURE_SPECIFIC,yes,,53.7
+House,06A,Pequot Lakes Public Schools,186,3380,8.0,FOUND_SEIZURE_SPECIFIC,yes,,68.0
+House,06A,Northland Community Schools,118,2711,6.4,FOUND_MED_POLICY_ONLY,no,,54.3
+House,06A,Pine River-Backus School District,2174,1711,4.0,FOUND_MED_POLICY_ONLY,no,,58.3
+House,06A,Greenway Public School District,316,1390,3.3,FOUND_MED_POLICY_ONLY,no,,68.5
+House,06A,Walker-Hackensack-Akeley School District,113,510,1.2,FOUND_MED_POLICY_ONLY,no,,31.5
+House,06A,Aitkin Public School District,1,462,1.1,FOUND_MED_POLICY_ONLY,no,,70.5
+House,06A,Onamia Public School District,480,235,0.6,FOUND_SEIZURE_SPECIFIC,yes,,42.4
+House,06A,Deer River Public School District,317,86,0.2,FOUND_MED_POLICY_ONLY,no,,51.3
+House,06B,Brainerd Public School District,181,34859,82.5,FOUND_SEIZURE_SPECIFIC,yes,,53.7
+House,06B,Pequot Lakes Public Schools,186,6659,15.8,FOUND_SEIZURE_SPECIFIC,yes,,68.0
+House,06B,Crosby-Ironton Public School District,182,652,1.5,FOUND_MED_POLICY_ONLY,no,,63.6
+House,06B,Pine River-Backus School District,2174,95,0.2,FOUND_MED_POLICY_ONLY,no,,58.3
+House,07A,Hibbing Public School District,701,16593,39.1,NOT_FOUND,no,,58.4
+House,07A,Greenway Public School District,316,7083,16.7,FOUND_MED_POLICY_ONLY,no,,68.5
+House,07A,Grand Rapids Public School District,318,6048,14.2,FOUND_SEIZURE_SPECIFIC,yes,,64.8
+House,07A,Nashwauk-Keewatin School District,319,3123,7.4,NOT_VERIFIABLE,no,in_progress,64.2
+House,07A,McGregor Public School District,4,2899,6.8,FOUND_MED_POLICY_ONLY,no,,58.9
+House,07A,Deer River Public School District,317,1906,4.5,FOUND_MED_POLICY_ONLY,no,,51.3
+House,07A,Hill City Public School District,2,1616,3.8,FOUND_MED_POLICY_ONLY,no,,68.8
+House,07A,Floodwood Public School District,698,1391,3.3,FOUND_MED_POLICY_ONLY,no,,39.8
+House,07A,Aitkin Public School District,1,1365,3.2,FOUND_MED_POLICY_ONLY,no,,70.5
+House,07A,St. Louis County School District,2142,445,1.0,FOUND_MED_POLICY_ONLY,no,,55.2
+House,07A,Cromwell-Wright Public Schools,95,3,0.0,FOUND_MED_POLICY_ONLY,no,,38.3
+House,07B,Rock Ridge Public Schools,2909,18806,44.5,FOUND_SEIZURE_SPECIFIC,yes,,51.0
+House,07B,St. Louis County School District,2142,7164,17.0,FOUND_MED_POLICY_ONLY,no,,55.2
+House,07B,Chisholm Public School District,695,5573,13.2,FOUND_MED_POLICY_ONLY,no,,60.1
+House,07B,Mesabi East School District,2711,5352,12.7,FOUND_MED_POLICY_ONLY,no,,50.9
+House,07B,Mountain Iron-Buhl School District,712,4571,10.8,FOUND_MED_POLICY_ONLY,no,,54.9
+House,07B,Hibbing Public School District,701,792,1.9,NOT_FOUND,no,,58.4
+House,08A,Duluth Public School District,709,40733,95.7,FOUND_SEIZURE_SPECIFIC,yes,,1.1
+House,08A,Proctor Public School District,704,1820,4.3,FOUND_MED_POLICY_ONLY,no,,7.8
+House,08B,Duluth Public School District,709,42602,100.0,FOUND_SEIZURE_SPECIFIC,yes,,1.1
+House,09A,Fergus Falls Public School District,544,19791,46.7,FOUND_SEIZURE_SPECIFIC,yes,,53.1
+House,09A,Pelican Rapids Public School District,548,4936,11.7,FOUND_MED_POLICY_ONLY,no,,40.3
+House,09A,Breckenridge Public School District,846,4888,11.5,FOUND_MED_POLICY_ONLY,no,,42.1
+House,09A,West Central Area,2342,4285,10.1,FOUND_MED_POLICY_ONLY,no,,79.0
+House,09A,Wheaton Area Public School District,803,2115,5.0,FOUND_MED_POLICY_ONLY,no,,74.5
+House,09A,Ashby Public School District,261,1286,3.0,FOUND_MED_POLICY_ONLY,no,,71.1
+House,09A,Rothsay Public School District,850,1055,2.5,FOUND_MED_POLICY_ONLY,no,,36.3
+House,09A,Herman-Norcross School District,264,802,1.9,FOUND_MED_POLICY_ONLY,no,,79.2
+House,09A,Browns Valley Public School District,801,746,1.8,NOT_FOUND,no,,87.3
+House,09A,Underwood Public School District,550,732,1.7,NOT_FOUND,no,,60.1
+House,09A,Campbell-Tintah Public School District,852,711,1.7,FOUND_MED_POLICY_ONLY,no,,56.2
+House,09A,Barnesville Public School District,146,497,1.2,FOUND_MED_POLICY_ONLY,no,,23.9
+House,09A,Clinton-Graceville-Beardsley,2888,292,0.7,FOUND_MED_POLICY_ONLY,no,confirmed,98.0
+House,09A,Brandon-Evansville Public Schools,2908,180,0.4,FOUND_MED_POLICY_ONLY,no,,72.2
+House,09A,Battle Lake Public School District,542,25,0.1,FOUND_MED_POLICY_ONLY,no,confirmed,65.6
+House,09A,Chokio-Alberta Public Schools,771,4,0.0,FOUND_MED_POLICY_ONLY,no,,93.9
+House,09B,Perham-Dent Public School District,549,11542,27.2,FOUND_MED_POLICY_ONLY,no,,61.5
+House,09B,Alexandria Public School District,206,4134,9.7,FOUND_SEIZURE_SPECIFIC,yes,,59.0
+House,09B,Battle Lake Public School District,542,4066,9.6,FOUND_MED_POLICY_ONLY,no,confirmed,65.6
+House,09B,New York Mills Public School Dist.,553,3789,8.9,FOUND_MED_POLICY_ONLY,no,,72.2
+House,09B,Brandon-Evansville Public Schools,2908,3463,8.2,FOUND_MED_POLICY_ONLY,no,,72.2
+House,09B,Henning Public School District,545,3040,7.2,FOUND_SEIZURE_SPECIFIC,yes,,75.1
+House,09B,Parkers Prairie Public School Dist.,547,2811,6.6,FOUND_MED_POLICY_ONLY,no,,66.8
+House,09B,Wadena-Deer Creek School District,2155,2305,5.4,FOUND_MED_POLICY_ONLY,no,,75.0
+House,09B,Pelican Rapids Public School District,548,2292,5.4,FOUND_MED_POLICY_ONLY,no,,40.3
+House,09B,Underwood Public School District,550,1717,4.0,NOT_FOUND,no,,60.1
+House,09B,Frazee-Vergas Public School District,23,1178,2.8,FOUND_MED_POLICY_ONLY,no,,53.9
+House,09B,West Central Area,2342,716,1.7,FOUND_MED_POLICY_ONLY,no,,79.0
+House,09B,Sebeka Public School District,820,573,1.3,FOUND_SEIZURE_SPECIFIC,yes,,61.9
+House,09B,Bertha-Hewitt Public School District,786,404,1.0,FOUND_MED_POLICY_ONLY,no,,62.8
+House,09B,Ashby Public School District,261,181,0.4,FOUND_MED_POLICY_ONLY,no,,71.1
+House,09B,Detroit Lakes Public School District,22,179,0.4,FOUND_SEIZURE_SPECIFIC,yes,,46.2
+House,09B,Menahga Public School District,821,47,0.1,FOUND_MED_POLICY_ONLY,no,,53.7
+House,09B,Lake Park Audubon School District,2889,24,0.1,FOUND_MED_POLICY_ONLY,no,,34.1
+House,09B,Fergus Falls Public School District,544,4,0.0,FOUND_SEIZURE_SPECIFIC,yes,,53.1
+House,09B,Minnewaska School District,2149,2,0.0,FOUND_SEIZURE_SPECIFIC,yes,,60.2
+House,10A,Little Falls Public School District,482,16743,39.0,FOUND_MED_POLICY_ONLY,no,,28.2
+House,10A,Aitkin Public School District,1,7665,17.8,FOUND_MED_POLICY_ONLY,no,,70.5
+House,10A,Onamia Public School District,480,5072,11.8,FOUND_SEIZURE_SPECIFIC,yes,,42.4
+House,10A,Brainerd Public School District,181,4741,11.0,FOUND_SEIZURE_SPECIFIC,yes,,53.7
+House,10A,Isle Public School District,473,3292,7.7,FOUND_MED_POLICY_ONLY,no,,52.5
+House,10A,Pierz Public School District,484,1770,4.1,NOT_VERIFIABLE,no,,28.5
+House,10A,Mora Public School District,332,1442,3.4,FOUND_MED_POLICY_ONLY,no,,49.1
+House,10A,McGregor Public School District,4,1023,2.4,FOUND_MED_POLICY_ONLY,no,,58.9
+House,10A,Ogilvie Public School District,333,445,1.0,FOUND_MED_POLICY_ONLY,no,,41.4
+House,10A,Hinckley-Finlayson School District,2165,350,0.8,FOUND_MED_POLICY_ONLY,no,,61.8
+House,10A,Swanville Public School District,486,300,0.7,NOT_FOUND,no,,31.2
+House,10A,Willow River Public School District,577,49,0.1,FOUND_MED_POLICY_ONLY,no,,48.4
+House,10A,East Central School District,2580,39,0.1,FOUND_MED_POLICY_ONLY,no,,55.6
+House,10A,Staples-Motley School District,2170,12,0.0,FOUND_SEIZURE_SPECIFIC,yes,,61.3
+House,10A,Pillager Public School District,116,7,0.0,FOUND_SEIZURE_SPECIFIC,yes,,53.5
+House,10B,Milaca Public School District,912,11972,27.9,FOUND_SEIZURE_SPECIFIC,yes,,29.4
+House,10B,Foley Public School District,51,9200,21.5,FOUND_MED_POLICY_ONLY,no,,16.0
+House,10B,Sauk Rapids-Rice Public Schools,47,6698,15.6,FOUND_SEIZURE_SPECIFIC,yes,,4.8
+House,10B,Royalton Public School District,485,3986,9.3,FOUND_SEIZURE_SPECIFIC,yes,,17.9
+House,10B,Pierz Public School District,484,3663,8.5,NOT_VERIFIABLE,no,,28.5
+House,10B,Ogilvie Public School District,333,2114,4.9,FOUND_MED_POLICY_ONLY,no,,41.4
+House,10B,Upsala Public School District,487,1903,4.4,NOT_VERIFIABLE,no,,23.5
+House,10B,Princeton Public School District,477,1088,2.5,FOUND_SEIZURE_SPECIFIC,yes,,30.4
+House,10B,Little Falls Public School District,482,956,2.2,FOUND_MED_POLICY_ONLY,no,,28.2
+House,10B,Swanville Public School District,486,649,1.5,NOT_FOUND,no,,31.2
+House,10B,Cambridge-Isanti Public School District,911,231,0.5,FOUND_SEIZURE_SPECIFIC,yes,,29.2
+House,10B,Holdingford Public School District,738,207,0.5,FOUND_MED_POLICY_ONLY,no,,16.5
+House,10B,Onamia Public School District,480,134,0.3,FOUND_SEIZURE_SPECIFIC,yes,,42.4
+House,10B,Long Prairie-Grey Eagle School District,2753,36,0.1,FOUND_MED_POLICY_ONLY,no,,41.7
+House,10B,Mora Public School District,332,32,0.1,FOUND_MED_POLICY_ONLY,no,,49.1
+House,11A,Cloquet Public School District,94,14738,34.6,FOUND_SEIZURE_SPECIFIC,yes,,17.7
+House,11A,Moose Lake Public School District,97,5869,13.8,FOUND_MED_POLICY_ONLY,no,,40.6
+House,11A,Esko Public School District,99,5487,12.9,FOUND_SEIZURE_SPECIFIC,yes,,14.2
+House,11A,Carlton Public School District,93,4448,10.5,FOUND_MED_POLICY_ONLY,no,,18.1
+House,11A,Barnum Public School District,91,3899,9.2,NOT_VERIFIABLE,no,,34.3
+House,11A,Willow River Public School District,577,2003,4.7,FOUND_MED_POLICY_ONLY,no,,48.4
+House,11A,Wrenshall Public School District,100,1861,4.4,FOUND_MED_POLICY_ONLY,no,,18.6
+House,11A,Cromwell-Wright Public Schools,95,1814,4.3,FOUND_MED_POLICY_ONLY,no,,38.3
+House,11A,St. Louis County School District,2142,1503,3.5,FOUND_MED_POLICY_ONLY,no,,55.2
+House,11A,East Central School District,2580,841,2.0,FOUND_MED_POLICY_ONLY,no,,55.6
+House,11A,Floodwood Public School District,698,83,0.2,FOUND_MED_POLICY_ONLY,no,,39.8
+House,11B,Pine City Public School District,578,10741,25.2,FOUND_MED_POLICY_ONLY,no,,47.9
+House,11B,Mora Public School District,332,9533,22.4,FOUND_MED_POLICY_ONLY,no,,49.1
+House,11B,Hinckley-Finlayson School District,2165,6558,15.4,FOUND_MED_POLICY_ONLY,no,,61.8
+House,11B,East Central School District,2580,5624,13.2,FOUND_MED_POLICY_ONLY,no,,55.6
+House,11B,Rush City Public School District,139,5489,12.9,FOUND_MED_POLICY_ONLY,no,,40.1
+House,11B,Braham Public School District,314,2486,5.8,FOUND_MED_POLICY_ONLY,no,,39.1
+House,11B,Willow River Public School District,577,1321,3.1,FOUND_MED_POLICY_ONLY,no,,48.4
+House,11B,Ogilvie Public School District,333,852,2.0,FOUND_MED_POLICY_ONLY,no,,41.4
+House,12A,Minnewaska School District,2149,8215,19.4,FOUND_SEIZURE_SPECIFIC,yes,,60.2
+House,12A,Morris Area Public Schools,2769,7675,18.1,FOUND_SEIZURE_SPECIFIC,yes,,81.7
+House,12A,Benson Public School District,777,5625,13.3,FOUND_MED_POLICY_ONLY,no,,69.5
+House,12A,Belgrade-Brooten-Elrosa Public School District,2364,3439,8.1,FOUND_SEIZURE_SPECIFIC,yes,,39.3
+House,12A,Melrose Public School District,740,3280,7.7,FOUND_MED_POLICY_ONLY,no,,29.7
+House,12A,Ortonville Public Schools,2903,2846,6.7,FOUND_SEIZURE_SPECIFIC,yes,,108.5
+House,12A,Lac qui Parle Valley School District,2853,2436,5.8,FOUND_MED_POLICY_ONLY,no,,96.3
+House,12A,Kerkhoven-Murdock-Sunburg,775,2120,5.0,FOUND_SEIZURE_SPECIFIC,yes,,59.9
+House,12A,Clinton-Graceville-Beardsley,2888,2105,5.0,FOUND_MED_POLICY_ONLY,no,confirmed,98.0
+House,12A,Hancock Public School District,768,1490,3.5,FOUND_SEIZURE_SPECIFIC,yes,,76.6
+House,12A,Chokio-Alberta Public Schools,771,1185,2.8,FOUND_MED_POLICY_ONLY,no,,93.9
+House,12A,Paynesville Public School District,741,649,1.5,FOUND_SEIZURE_SPECIFIC,yes,confirmed,28.6
+House,12A,Albany Public School District,745,604,1.4,FOUND_MED_POLICY_ONLY,no,,17.3
+House,12A,Sauk Centre Public School District,743,359,0.8,FOUND_MED_POLICY_ONLY,no,,37.0
+House,12A,West Central Area,2342,230,0.5,FOUND_MED_POLICY_ONLY,no,,79.0
+House,12A,Herman-Norcross School District,264,70,0.2,FOUND_MED_POLICY_ONLY,no,,79.2
+House,12A,Long Prairie-Grey Eagle School District,2753,27,0.1,FOUND_MED_POLICY_ONLY,no,,41.7
+House,12B,Alexandria Public School District,206,27510,64.2,FOUND_SEIZURE_SPECIFIC,yes,,59.0
+House,12B,Sauk Centre Public School District,743,6094,14.2,FOUND_MED_POLICY_ONLY,no,,37.0
+House,12B,Melrose Public School District,740,5103,11.9,FOUND_MED_POLICY_ONLY,no,,29.7
+House,12B,Osakis Public School District,213,2487,5.8,NOT_VERIFIABLE,no,confirmed,49.6
+House,12B,Minnewaska School District,2149,1494,3.5,FOUND_SEIZURE_SPECIFIC,yes,,60.2
+House,12B,Parkers Prairie Public School Dist.,547,181,0.4,FOUND_MED_POLICY_ONLY,no,,66.8
+House,13A,Rocori Public School District,750,12797,29.9,FOUND_MED_POLICY_ONLY,no,,13.0
+House,13A,Albany Public School District,745,8723,20.4,FOUND_MED_POLICY_ONLY,no,,17.3
+House,13A,St. Cloud Public School District,742,8710,20.4,FOUND_MED_POLICY_ONLY,no,,2.0
+House,13A,Paynesville Public School District,741,4324,10.1,FOUND_SEIZURE_SPECIFIC,yes,confirmed,28.6
+House,13A,Kimball Public School District,739,3670,8.6,FOUND_MED_POLICY_ONLY,no,,18.5
+House,13A,Eden Valley-Watkins School District,463,2236,5.2,FOUND_MED_POLICY_ONLY,no,,23.6
+House,13A,Annandale Public School District,876,1221,2.9,FOUND_MED_POLICY_ONLY,no,,21.9
+House,13A,Holdingford Public School District,738,911,2.1,FOUND_MED_POLICY_ONLY,no,,16.5
+House,13A,Upsala Public School District,487,118,0.3,NOT_VERIFIABLE,no,,23.5
+House,13A,Melrose Public School District,740,63,0.1,FOUND_MED_POLICY_ONLY,no,,29.7
+House,13B,Sartell-St. Stephen School District,748,20695,48.2,FOUND_MED_POLICY_ONLY,no,,3.3
+House,13B,Sauk Rapids-Rice Public Schools,47,16262,37.8,FOUND_SEIZURE_SPECIFIC,yes,,4.8
+House,13B,Holdingford Public School District,738,3838,8.9,FOUND_MED_POLICY_ONLY,no,,16.5
+House,13B,St. Cloud Public School District,742,2132,5.0,FOUND_MED_POLICY_ONLY,no,,2.0
+House,13B,Albany Public School District,745,43,0.1,FOUND_MED_POLICY_ONLY,no,,17.3
+House,13B,Royalton Public School District,485,7,0.0,FOUND_SEIZURE_SPECIFIC,yes,,17.9
+House,14A,St. Cloud Public School District,742,42786,99.9,FOUND_MED_POLICY_ONLY,no,,2.0
+House,14A,Kimball Public School District,739,58,0.1,FOUND_MED_POLICY_ONLY,no,,18.5
+House,14B,St. Cloud Public School District,742,40549,95.6,FOUND_MED_POLICY_ONLY,no,,2.0
+House,14B,Sauk Rapids-Rice Public Schools,47,1782,4.2,FOUND_SEIZURE_SPECIFIC,yes,,4.8
+House,14B,Foley Public School District,51,101,0.2,FOUND_MED_POLICY_ONLY,no,,16.0
+House,15A,Marshall Public School District,413,15593,36.7,FOUND_MED_POLICY_ONLY,no,,79.2
+House,15A,Yellow Medicine East,2190,6090,14.3,FOUND_SEIZURE_SPECIFIC,yes,,83.7
+House,15A,Tracy Area Public School District,2904,3728,8.8,FOUND_MED_POLICY_ONLY,no,,73.5
+House,15A,Canby Public School District,891,3181,7.5,NOT_VERIFIABLE,no,,85.3
+House,15A,Lac qui Parle Valley School District,2853,2853,6.7,FOUND_MED_POLICY_ONLY,no,,96.3
+House,15A,Dawson-Boyd Public School District,378,2838,6.7,FOUND_SEIZURE_SPECIFIC,yes,,100.2
+House,15A,Lakeview School District,2167,2603,6.1,FOUND_SEIZURE_SPECIFIC,yes,,92.7
+House,15A,Minneota Public School District,414,2420,5.7,FOUND_MED_POLICY_ONLY,no,,81.2
+House,15A,RTR Public Schools,2902,981,2.3,FOUND_MED_POLICY_ONLY,no,,59.9
+House,15A,Lynd Public School District,415,979,2.3,FOUND_MED_POLICY_ONLY,no,,73.0
+House,15A,Ortonville Public Schools,2903,655,1.5,FOUND_SEIZURE_SPECIFIC,yes,,108.5
+House,15A,Montevideo Public School District,129,500,1.2,FOUND_SEIZURE_SPECIFIC,yes,,84.8
+House,15A,Milroy Public School District,635,33,0.1,FOUND_SEIZURE_SPECIFIC,yes,,85.2
+House,15A,Redwood Area School District,2897,8,0.0,FOUND_MED_POLICY_ONLY,no,,83.6
+House,15B,New Ulm Public School District,88,17016,40.1,FOUND_SEIZURE_SPECIFIC,yes,,67.1
+House,15B,Redwood Area School District,2897,7251,17.1,FOUND_MED_POLICY_ONLY,no,,83.6
+House,15B,Sleepy Eye Public School District,84,5137,12.1,FOUND_MED_POLICY_ONLY,no,,79.0
+House,15B,Springfield Public School District,85,3230,7.6,FOUND_SEIZURE_SPECIFIC,yes,,92.0
+House,15B,Wabasso Public School District,640,2506,5.9,FOUND_SEIZURE_SPECIFIC,yes,,95.5
+House,15B,Red Rock Central School District,2884,1731,4.1,FOUND_MED_POLICY_ONLY,no,,88.1
+House,15B,Cedar Mountain School District,2754,1616,3.8,FOUND_MED_POLICY_ONLY,no,,84.2
+House,15B,Westbrook-Walnut Grove Schools,2898,1242,2.9,FOUND_MED_POLICY_ONLY,no,,74.5
+House,15B,Lake Crystal-Wellcome Memorial,2071,798,1.9,FOUND_SEIZURE_SPECIFIC,yes,,66.4
+House,15B,Comfrey Public School District,81,722,1.7,FOUND_MED_POLICY_ONLY,no,,92.8
+House,15B,Milroy Public School District,635,618,1.5,FOUND_SEIZURE_SPECIFIC,yes,,85.2
+House,15B,Madelia Public School District,837,177,0.4,FOUND_MED_POLICY_ONLY,no,,75.4
+House,15B,Tracy Area Public School District,2904,156,0.4,FOUND_MED_POLICY_ONLY,no,,73.5
+House,15B,St. James Public School District,840,140,0.3,NOT_FOUND,no,confirmed,86.6
+House,15B,Yellow Medicine East,2190,37,0.1,FOUND_SEIZURE_SPECIFIC,yes,,83.7
+House,15B,Mankato Public School District,77,14,0.0,FOUND_SEIZURE_SPECIFIC,yes,,55.5
+House,16A,Litchfield Public School District,465,8811,20.6,NOT_VERIFIABLE,no,,34.1
+House,16A,Montevideo Public School District,129,6977,16.3,FOUND_SEIZURE_SPECIFIC,yes,,84.8
+House,16A,Bird Island-Olivia-Lake Lillian Public School District,2534,4787,11.2,FOUND_MED_POLICY_ONLY,no,,67.3
+House,16A,Renville County West School District,2890,3775,8.8,FOUND_SEIZURE_SPECIFIC,yes,,72.7
+House,16A,A.C.G.C. Public School District,2396,3260,7.6,FOUND_MED_POLICY_ONLY,no,,37.6
+House,16A,MACCRAY School District,2180,3258,7.6,FOUND_MED_POLICY_ONLY,no,,70.8
+House,16A,Buffalo Lake-Hector-Stewart Public Schools,2159,2938,6.9,FOUND_MED_POLICY_ONLY,no,,62.5
+House,16A,Eden Valley-Watkins School District,463,2546,6.0,FOUND_MED_POLICY_ONLY,no,,23.6
+House,16A,GFW Public Schools,2365,1758,4.1,FOUND_MED_POLICY_ONLY,no,,62.8
+House,16A,Lac qui Parle Valley School District,2853,988,2.3,FOUND_MED_POLICY_ONLY,no,,96.3
+House,16A,Redwood Area School District,2897,812,1.9,FOUND_MED_POLICY_ONLY,no,,83.6
+House,16A,Cedar Mountain School District,2754,740,1.7,FOUND_MED_POLICY_ONLY,no,,84.2
+House,16A,Paynesville Public School District,741,546,1.3,FOUND_SEIZURE_SPECIFIC,yes,confirmed,28.6
+House,16A,Yellow Medicine East,2190,308,0.7,FOUND_SEIZURE_SPECIFIC,yes,,83.7
+House,16A,Hutchinson Public School District,423,298,0.7,FOUND_SEIZURE_SPECIFIC,yes,,47.7
+House,16A,Kimball Public School District,739,293,0.7,FOUND_MED_POLICY_ONLY,no,,18.5
+House,16A,Willmar Public School District,347,275,0.6,FOUND_MED_POLICY_ONLY,no,,51.4
+House,16A,Kerkhoven-Murdock-Sunburg,775,274,0.6,FOUND_SEIZURE_SPECIFIC,yes,,59.9
+House,16A,Benson Public School District,777,38,0.1,FOUND_MED_POLICY_ONLY,no,,69.5
+House,16B,Willmar Public School District,347,26687,62.6,FOUND_MED_POLICY_ONLY,no,,51.4
+House,16B,New London-Spicer School District,345,9297,21.8,NOT_VERIFIABLE,no,,40.5
+House,16B,A.C.G.C. Public School District,2396,2471,5.8,FOUND_MED_POLICY_ONLY,no,,37.6
+House,16B,MACCRAY School District,2180,1410,3.3,FOUND_MED_POLICY_ONLY,no,,70.8
+House,16B,Prinsburg Public School District,815,782,1.8,NOT_VERIFIABLE,no,,64.9
+House,16B,Belgrade-Brooten-Elrosa Public School District,2364,686,1.6,FOUND_SEIZURE_SPECIFIC,yes,,39.3
+House,16B,Kerkhoven-Murdock-Sunburg,775,520,1.2,FOUND_SEIZURE_SPECIFIC,yes,,59.9
+House,16B,Paynesville Public School District,741,451,1.1,FOUND_SEIZURE_SPECIFIC,yes,confirmed,28.6
+House,16B,Renville County West School District,2890,294,0.7,FOUND_SEIZURE_SPECIFIC,yes,,72.7
+House,16B,Bird Island-Olivia-Lake Lillian Public School District,2534,15,0.0,FOUND_MED_POLICY_ONLY,no,,67.3
+House,17A,Hutchinson Public School District,423,18277,43.2,FOUND_SEIZURE_SPECIFIC,yes,,47.7
+House,17A,Glencoe-Silver Lake School District,2859,10518,24.9,FOUND_MED_POLICY_ONLY,no,,40.0
+House,17A,Dassel-Cokato Public School District,466,9604,22.7,FOUND_SEIZURE_SPECIFIC,yes,,34.0
+House,17A,Litchfield Public School District,465,2037,4.8,NOT_VERIFIABLE,no,,34.1
+House,17A,Buffalo Lake-Hector-Stewart Public Schools,2159,939,2.2,FOUND_MED_POLICY_ONLY,no,,62.5
+House,17A,GFW Public Schools,2365,895,2.1,FOUND_MED_POLICY_ONLY,no,,62.8
+House,17A,Howard Lake-Waverly-Winsted,2687,49,0.1,FOUND_SEIZURE_SPECIFIC,yes,,35.5
+House,17A,Lester Prairie Public School Dist.,424,6,0.0,FOUND_MED_POLICY_ONLY,no,,34.7
+House,17B,Sibley East School District,2310,7424,17.5,FOUND_MED_POLICY_ONLY,no,,40.9
+House,17B,Eastern Carver County Public Schools,112,6747,15.9,FOUND_SEIZURE_SPECIFIC,yes,,13.0
+House,17B,Watertown-Mayer Public School District,111,6706,15.8,FOUND_SEIZURE_SPECIFIC,yes,,25.4
+House,17B,Central Public School District,108,5916,13.9,FOUND_MED_POLICY_ONLY,no,,29.6
+House,17B,Lester Prairie Public School Dist.,424,3087,7.3,FOUND_MED_POLICY_ONLY,no,,34.7
+House,17B,GFW Public Schools,2365,2982,7.0,FOUND_MED_POLICY_ONLY,no,,62.8
+House,17B,Howard Lake-Waverly-Winsted,2687,2617,6.2,FOUND_SEIZURE_SPECIFIC,yes,,35.5
+House,17B,Glencoe-Silver Lake School District,2859,2299,5.4,FOUND_MED_POLICY_ONLY,no,,40.0
+House,17B,Le Sueur-Henderson School District,2397,2027,4.8,FOUND_MED_POLICY_ONLY,no,,38.1
+House,17B,Waconia Public School District,110,1428,3.4,FOUND_SEIZURE_SPECIFIC,yes,,22.7
+House,17B,Belle Plaine Public School District,716,1268,3.0,FOUND_MED_POLICY_ONLY,no,,26.7
+House,18A,Mankato Public School District,77,22453,52.4,FOUND_SEIZURE_SPECIFIC,yes,,55.5
+House,18A,St. Peter Public School District,508,14459,33.8,FOUND_MED_POLICY_ONLY,no,,46.0
+House,18A,New Ulm Public School District,88,2794,6.5,FOUND_SEIZURE_SPECIFIC,yes,,67.1
+House,18A,Nicollet Public School District,507,2507,5.9,FOUND_MED_POLICY_ONLY,no,,56.5
+House,18A,GFW Public Schools,2365,304,0.7,FOUND_MED_POLICY_ONLY,no,,62.8
+House,18A,Sibley East School District,2310,180,0.4,FOUND_MED_POLICY_ONLY,no,,40.9
+House,18A,Le Sueur-Henderson School District,2397,118,0.3,FOUND_MED_POLICY_ONLY,no,,38.1
+House,18B,Mankato Public School District,77,42677,100.0,FOUND_SEIZURE_SPECIFIC,yes,,55.5
+House,18B,St. Clair Public School District,75,7,0.0,FOUND_MED_POLICY_ONLY,no,,56.0
+House,19A,Faribault Public School District,656,30352,71.8,FOUND_MED_POLICY_ONLY,no,in_progress,35.0
+House,19A,Kenyon-Wanamingo School District,2172,4698,11.1,FOUND_MED_POLICY_ONLY,no,,21.5
+House,19A,Janesville-Waldorf-Pemberton,2835,3385,8.0,FOUND_SEIZURE_SPECIFIC,yes,,50.2
+House,19A,Waterville-Elysian-Morristown Public School District,2143,2275,5.4,FOUND_SEIZURE_SPECIFIC,yes,,41.2
+House,19A,Waseca Public School District,829,839,2.0,FOUND_MED_POLICY_ONLY,no,,48.5
+House,19A,Medford Public School District,763,385,0.9,FOUND_SEIZURE_SPECIFIC,yes,,36.0
+House,19A,Tri-City United School District,2905,231,0.5,FOUND_MED_POLICY_ONLY,no,,27.6
+House,19A,Northfield Public School District,659,92,0.2,FOUND_MED_POLICY_ONLY,no,,22.6
+House,19A,Triton School District,2125,35,0.1,FOUND_MED_POLICY_ONLY,no,confirmed,17.0
+House,19A,Owatonna Public School District,761,5,0.0,FOUND_MED_POLICY_ONLY,no,,35.4
+House,19A,St. Clair Public School District,75,3,0.0,FOUND_MED_POLICY_ONLY,no,,56.0
+House,19B,Owatonna Public School District,761,28778,67.6,FOUND_MED_POLICY_ONLY,no,,35.4
+House,19B,Waseca Public School District,829,10871,25.5,FOUND_MED_POLICY_ONLY,no,,48.5
+House,19B,Medford Public School District,763,2823,6.6,FOUND_SEIZURE_SPECIFIC,yes,,36.0
+House,19B,Janesville-Waldorf-Pemberton,2835,45,0.1,FOUND_SEIZURE_SPECIFIC,yes,,50.2
+House,19B,Kenyon-Wanamingo School District,2172,43,0.1,FOUND_MED_POLICY_ONLY,no,,21.5
+House,19B,Triton School District,2125,12,0.0,FOUND_MED_POLICY_ONLY,no,confirmed,17.0
+House,20A,Red Wing Public School District,256,19804,46.5,FOUND_MED_POLICY_ONLY,no,,33.1
+House,20A,Lake City Public School District,813,8400,19.7,FOUND_MED_POLICY_ONLY,no,,29.8
+House,20A,Cannon Falls Public School District,252,6782,15.9,FOUND_MED_POLICY_ONLY,no,,26.3
+House,20A,Wabasha-Kellogg Public School District,811,3185,7.5,FOUND_MED_POLICY_ONLY,no,,32.9
+House,20A,Goodhue Public School District,253,3160,7.4,FOUND_SEIZURE_SPECIFIC,yes,,24.4
+House,20A,Hastings Public School District,200,755,1.8,FOUND_SEIZURE_SPECIFIC,yes,,18.4
+House,20A,Zumbrota-Mazeppa School District,2805,287,0.7,FOUND_MED_POLICY_ONLY,no,,17.8
+House,20A,Kenyon-Wanamingo School District,2172,124,0.3,FOUND_MED_POLICY_ONLY,no,,21.5
+House,20A,Plainview-Elgin-Millville,2899,55,0.1,FOUND_SEIZURE_SPECIFIC,yes,,19.0
+House,20A,Randolph Public School District,195,7,0.0,FOUND_MED_POLICY_ONLY,no,,21.3
+House,20B,Plainview-Elgin-Millville,2899,7930,18.8,FOUND_SEIZURE_SPECIFIC,yes,,19.0
+House,20B,Zumbrota-Mazeppa School District,2805,6939,16.4,FOUND_MED_POLICY_ONLY,no,,17.8
+House,20B,St. Charles Public School District,858,6012,14.2,FOUND_MED_POLICY_ONLY,no,,24.1
+House,20B,Pine Island Public School District,255,5432,12.9,FOUND_SEIZURE_SPECIFIC,yes,,11.6
+House,20B,Rochester Public School District,535,4721,11.2,FOUND_SEIZURE_SPECIFIC,yes,,3.8
+House,20B,Dover-Eyota Public School District,533,4247,10.1,NOT_FOUND,no,,15.5
+House,20B,Chatfield Public Schools,227,2136,5.1,FOUND_SEIZURE_SPECIFIC,yes,,21.7
+House,20B,Wabasha-Kellogg Public School District,811,2054,4.9,FOUND_MED_POLICY_ONLY,no,,32.9
+House,20B,Lewiston-Altura Public School District,857,1211,2.9,FOUND_MED_POLICY_ONLY,no,confirmed,33.5
+House,20B,Stewartville Public School District,534,377,0.9,FOUND_MED_POLICY_ONLY,no,,14.0
+House,20B,Kenyon-Wanamingo School District,2172,356,0.8,FOUND_MED_POLICY_ONLY,no,,21.5
+House,20B,Lake City Public School District,813,334,0.8,FOUND_MED_POLICY_ONLY,no,,29.8
+House,20B,Winona Area Public School District,861,334,0.8,FOUND_MED_POLICY_ONLY,no,,30.9
+House,20B,Byron Public School District,531,82,0.2,FOUND_MED_POLICY_ONLY,no,,6.8
+House,20B,Goodhue Public School District,253,33,0.1,FOUND_SEIZURE_SPECIFIC,yes,,24.4
+House,21A,Pipestone Area School District,2689,7443,17.5,FOUND_SEIZURE_SPECIFIC,yes,,38.4
+House,21A,Luverne Public School District,2184,7223,17.0,FOUND_MED_POLICY_ONLY,no,,27.7
+House,21A,Murray County Central School Dist.,2169,4650,11.0,NOT_FOUND,no,,58.4
+House,21A,Mountain Lake Public Schools,173,2505,5.9,FOUND_MED_POLICY_ONLY,no,,94.8
+House,21A,RTR Public Schools,2902,2401,5.7,FOUND_MED_POLICY_ONLY,no,,59.9
+House,21A,Edgerton Public School District,581,2392,5.6,FOUND_MED_POLICY_ONLY,no,,39.0
+House,21A,Adrian Public School District,511,2303,5.4,FOUND_MED_POLICY_ONLY,no,,40.7
+House,21A,Hills-Beaver Creek School District,671,1991,4.7,FOUND_MED_POLICY_ONLY,no,,18.6
+House,21A,Fulda Public School District,505,1941,4.6,FOUND_MED_POLICY_ONLY,no,,61.5
+House,21A,Westbrook-Walnut Grove Schools,2898,1530,3.6,FOUND_MED_POLICY_ONLY,no,,74.5
+House,21A,Red Rock Central School District,2884,1461,3.4,FOUND_MED_POLICY_ONLY,no,,88.1
+House,21A,Lake Benton Public School District,404,1378,3.2,FOUND_MED_POLICY_ONLY,no,,55.8
+House,21A,Ivanhoe Public School District,403,1265,3.0,FOUND_MED_POLICY_ONLY,no,,69.5
+House,21A,Tracy Area Public School District,2904,1061,2.5,FOUND_MED_POLICY_ONLY,no,,73.5
+House,21A,Hendricks Public School District,402,983,2.3,FOUND_MED_POLICY_ONLY,no,,69.9
+House,21A,Ellsworth Public School District,514,896,2.1,FOUND_MED_POLICY_ONLY,no,,35.9
+House,21A,Worthington Public School District,518,356,0.8,NOT_VERIFIABLE,no,,57.4
+House,21A,Canby Public School District,891,216,0.5,NOT_VERIFIABLE,no,,85.3
+House,21A,Comfrey Public School District,81,215,0.5,FOUND_MED_POLICY_ONLY,no,,92.8
+House,21A,Windom Public School District,177,135,0.3,NOT_FOUND,no,,83.8
+House,21A,Minneota Public School District,414,80,0.2,FOUND_MED_POLICY_ONLY,no,,81.2
+House,21A,Heron Lake-Okabena School District,330,33,0.1,FOUND_MED_POLICY_ONLY,no,,72.6
+House,21A,Butterfield Public School District,836,5,0.0,FOUND_MED_POLICY_ONLY,no,,93.8
+House,21B,Worthington Public School District,518,16467,38.4,NOT_VERIFIABLE,no,,57.4
+House,21B,Jackson County Central School District,2895,7731,18.0,FOUND_MED_POLICY_ONLY,no,,87.2
+House,21B,Windom Public School District,177,6044,14.1,NOT_FOUND,no,,83.8
+House,21B,St. James Public School District,840,5812,13.6,NOT_FOUND,no,confirmed,86.6
+House,21B,Round Lake-Brewster Public Schools,2907,1608,3.8,NOT_FOUND,no,,64.7
+House,21B,Heron Lake-Okabena School District,330,1462,3.4,FOUND_MED_POLICY_ONLY,no,,72.6
+House,21B,Martin County West School District,2448,1451,3.4,FOUND_MED_POLICY_ONLY,no,,101.0
+House,21B,Butterfield Public School District,836,1189,2.8,FOUND_MED_POLICY_ONLY,no,,93.8
+House,21B,Fulda Public School District,505,511,1.2,FOUND_MED_POLICY_ONLY,no,,61.5
+House,21B,Mountain Lake Public Schools,173,417,1.0,FOUND_MED_POLICY_ONLY,no,,94.8
+House,21B,Comfrey Public School District,81,127,0.3,FOUND_MED_POLICY_ONLY,no,,92.8
+House,21B,Ellsworth Public School District,514,37,0.1,FOUND_MED_POLICY_ONLY,no,,35.9
+House,21B,Red Rock Central School District,2884,9,0.0,FOUND_MED_POLICY_ONLY,no,,88.1
+House,22A,Fairmont Area School District,2752,12481,29.4,FOUND_MED_POLICY_ONLY,no,,97.5
+House,22A,Blue Earth Area Public School,2860,6162,14.5,FOUND_MED_POLICY_ONLY,no,,83.5
+House,22A,Lake Crystal-Wellcome Memorial,2071,5365,12.6,FOUND_SEIZURE_SPECIFIC,yes,,66.4
+House,22A,Maple River School District,2135,4859,11.4,FOUND_MED_POLICY_ONLY,no,,68.2
+House,22A,Madelia Public School District,837,3223,7.6,FOUND_MED_POLICY_ONLY,no,,75.4
+House,22A,Martin County West School District,2448,2848,6.7,FOUND_MED_POLICY_ONLY,no,,101.0
+House,22A,Truman Public School District,458,2234,5.3,FOUND_MED_POLICY_ONLY,no,,87.1
+House,22A,Granada Huntley East Chain,2536,1714,4.0,FOUND_MED_POLICY_ONLY,no,,91.5
+House,22A,Mankato Public School District,77,1618,3.8,FOUND_SEIZURE_SPECIFIC,yes,,55.5
+House,22A,St. Clair Public School District,75,846,2.0,FOUND_MED_POLICY_ONLY,no,,56.0
+House,22A,St. James Public School District,840,700,1.6,NOT_FOUND,no,confirmed,86.6
+House,22A,Janesville-Waldorf-Pemberton,2835,428,1.0,FOUND_SEIZURE_SPECIFIC,yes,,50.2
+House,22A,Jackson County Central School District,2895,5,0.0,FOUND_MED_POLICY_ONLY,no,,87.2
+House,22B,Tri-City United School District,2905,9714,23.0,FOUND_MED_POLICY_ONLY,no,,27.6
+House,22B,Belle Plaine Public School District,716,8519,20.1,FOUND_MED_POLICY_ONLY,no,,26.7
+House,22B,Le Sueur-Henderson School District,2397,5435,12.8,FOUND_MED_POLICY_ONLY,no,,38.1
+House,22B,New Prague Area Schools,721,5379,12.7,FOUND_MED_POLICY_ONLY,no,,21.7
+House,22B,Waterville-Elysian-Morristown Public School District,2143,4098,9.7,FOUND_SEIZURE_SPECIFIC,yes,,41.2
+House,22B,Mankato Public School District,77,2951,7.0,FOUND_SEIZURE_SPECIFIC,yes,,55.5
+House,22B,Cleveland Public School District,391,2627,6.2,FOUND_MED_POLICY_ONLY,no,,41.8
+House,22B,St. Clair Public School District,75,1688,4.0,FOUND_MED_POLICY_ONLY,no,,56.0
+House,22B,St. Peter Public School District,508,953,2.3,FOUND_MED_POLICY_ONLY,no,,46.0
+House,22B,Jordan Public School District,717,471,1.1,FOUND_SEIZURE_SPECIFIC,yes,,19.6
+House,22B,Janesville-Waldorf-Pemberton,2835,271,0.6,FOUND_SEIZURE_SPECIFIC,yes,,50.2
+House,22B,Faribault Public School District,656,176,0.4,FOUND_MED_POLICY_ONLY,no,in_progress,35.0
+House,22B,Northfield Public School District,659,15,0.0,FOUND_MED_POLICY_ONLY,no,,22.6
+House,23A,Albert Lea Public School District,241,22768,53.4,FOUND_SEIZURE_SPECIFIC,yes,,50.1
+House,23A,United South Central School District,2134,5868,13.8,FOUND_MED_POLICY_ONLY,no,,64.2
+House,23A,NRHEG School District,2168,5192,12.2,FOUND_MED_POLICY_ONLY,no,,49.5
+House,23A,Blue Earth Area Public School,2860,1618,3.8,FOUND_MED_POLICY_ONLY,no,,83.5
+House,23A,Glenville-Emmons School District,2886,1570,3.7,FOUND_MED_POLICY_ONLY,no,,50.4
+House,23A,Alden-Conger Public School District,242,1523,3.6,FOUND_MED_POLICY_ONLY,no,,58.6
+House,23A,Owatonna Public School District,761,1384,3.2,FOUND_MED_POLICY_ONLY,no,,35.4
+House,23A,Maple River School District,2135,906,2.1,FOUND_MED_POLICY_ONLY,no,,68.2
+House,23A,Janesville-Waldorf-Pemberton,2835,847,2.0,FOUND_SEIZURE_SPECIFIC,yes,,50.2
+House,23A,Waseca Public School District,829,519,1.2,FOUND_MED_POLICY_ONLY,no,,48.5
+House,23A,Blooming Prairie Public School Dist,756,447,1.0,FOUND_SEIZURE_SPECIFIC,yes,,29.7
+House,23A,Triton School District,2125,30,0.1,FOUND_MED_POLICY_ONLY,no,confirmed,17.0
+House,23B,Austin Public School District,492,29379,69.4,FOUND_SEIZURE_SPECIFIC,yes,,35.0
+House,23B,Blooming Prairie Public School Dist,756,3300,7.8,FOUND_SEIZURE_SPECIFIC,yes,,29.7
+House,23B,Southland Public School District,500,3256,7.7,FOUND_MED_POLICY_ONLY,no,,35.0
+House,23B,Hayfield Public School District,203,1820,4.3,FOUND_MED_POLICY_ONLY,no,confirmed,19.3
+House,23B,Grand Meadow Public School District,495,1536,3.6,FOUND_MED_POLICY_ONLY,no,confirmed,24.0
+House,23B,Lyle Public School District,497,1111,2.6,FOUND_MED_POLICY_ONLY,no,,43.2
+House,23B,Glenville-Emmons School District,2886,819,1.9,FOUND_MED_POLICY_ONLY,no,,50.4
+House,23B,Albert Lea Public School District,241,800,1.9,FOUND_SEIZURE_SPECIFIC,yes,,50.1
+House,23B,Stewartville Public School District,534,178,0.4,FOUND_MED_POLICY_ONLY,no,,14.0
+House,23B,LeRoy-Ostrander Public Schools,499,117,0.3,FOUND_SEIZURE_SPECIFIC,yes,,37.5
+House,24A,Kasson-Mantorville School District,204,10674,25.2,FOUND_MED_POLICY_ONLY,no,,11.0
+House,24A,Byron Public School District,531,8590,20.3,FOUND_MED_POLICY_ONLY,no,,6.8
+House,24A,Stewartville Public School District,534,7966,18.8,FOUND_MED_POLICY_ONLY,no,,14.0
+House,24A,Triton School District,2125,6802,16.1,FOUND_MED_POLICY_ONLY,no,confirmed,17.0
+House,24A,Rochester Public School District,535,4719,11.2,FOUND_SEIZURE_SPECIFIC,yes,,3.8
+House,24A,Hayfield Public School District,203,2788,6.6,FOUND_MED_POLICY_ONLY,no,confirmed,19.3
+House,24A,Pine Island Public School District,255,398,0.9,FOUND_SEIZURE_SPECIFIC,yes,,11.6
+House,24A,Blooming Prairie Public School Dist,756,350,0.8,FOUND_SEIZURE_SPECIFIC,yes,,29.7
+House,24A,Kenyon-Wanamingo School District,2172,13,0.0,FOUND_MED_POLICY_ONLY,no,,21.5
+House,24B,Rochester Public School District,535,42191,99.7,FOUND_SEIZURE_SPECIFIC,yes,,3.8
+House,24B,Byron Public School District,531,131,0.3,FOUND_MED_POLICY_ONLY,no,,6.8
+House,25A,Rochester Public School District,535,41650,97.2,FOUND_SEIZURE_SPECIFIC,yes,,3.8
+House,25A,Pine Island Public School District,255,1131,2.6,FOUND_SEIZURE_SPECIFIC,yes,,11.6
+House,25A,Byron Public School District,531,67,0.2,FOUND_MED_POLICY_ONLY,no,,6.8
+House,25A,Plainview-Elgin-Millville,2899,15,0.0,FOUND_SEIZURE_SPECIFIC,yes,,19.0
+House,25A,Zumbrota-Mazeppa School District,2805,6,0.0,FOUND_MED_POLICY_ONLY,no,,17.8
+House,25B,Rochester Public School District,535,42321,100.0,FOUND_SEIZURE_SPECIFIC,yes,,3.8
+House,26A,Winona Area Public School District,861,38068,90.3,FOUND_MED_POLICY_ONLY,no,,30.9
+House,26A,Lewiston-Altura Public School District,857,2873,6.8,FOUND_MED_POLICY_ONLY,no,confirmed,33.5
+House,26A,La Crescent-Hokah School District,300,649,1.5,FOUND_MED_POLICY_ONLY,no,,8.6
+House,26A,Rushford-Peterson Public Schools,239,355,0.8,NOT_FOUND,no,,30.1
+House,26A,Houston Public School District,294,145,0.3,FOUND_MED_POLICY_ONLY,no,,21.7
+House,26A,St. Charles Public School District,858,79,0.2,FOUND_MED_POLICY_ONLY,no,,24.1
+House,26B,La Crescent-Hokah School District,300,7722,18.0,FOUND_MED_POLICY_ONLY,no,,8.6
+House,26B,Caledonia Public School District,299,6050,14.1,FOUND_MED_POLICY_ONLY,no,,21.5
+House,26B,Kingsland Public School District,2137,5165,12.1,FOUND_MED_POLICY_ONLY,no,,25.7
+House,26B,Fillmore Central,2198,4909,11.5,NOT_FOUND,no,,34.0
+House,26B,Rushford-Peterson Public Schools,239,3780,8.8,NOT_FOUND,no,,30.1
+House,26B,Chatfield Public Schools,227,2998,7.0,FOUND_SEIZURE_SPECIFIC,yes,,21.7
+House,26B,Houston Public School District,294,2682,6.3,FOUND_MED_POLICY_ONLY,no,,21.7
+House,26B,Mabel-Canton Public School District,238,2346,5.5,FOUND_MED_POLICY_ONLY,no,,37.2
+House,26B,Spring Grove School District,297,2109,4.9,FOUND_MED_POLICY_ONLY,no,,30.1
+House,26B,LeRoy-Ostrander Public Schools,499,1871,4.4,FOUND_SEIZURE_SPECIFIC,yes,,37.5
+House,26B,Lanesboro Public School District,229,1784,4.2,NOT_FOUND,no,,36.0
+House,26B,Stewartville Public School District,534,1018,2.4,FOUND_MED_POLICY_ONLY,no,,14.0
+House,26B,Grand Meadow Public School District,495,397,0.9,FOUND_MED_POLICY_ONLY,no,confirmed,24.0
+House,26B,St. Charles Public School District,858,3,0.0,FOUND_MED_POLICY_ONLY,no,,24.1
+House,27A,Big Lake Public School District,727,19573,45.9,FOUND_SEIZURE_SPECIFIC,yes,,23.7
+House,27A,Becker Public School District,726,12168,28.5,FOUND_MED_POLICY_ONLY,no,,20.4
+House,27A,St. Cloud Public School District,742,5547,13.0,FOUND_MED_POLICY_ONLY,no,,2.0
+House,27A,Elk River School District,728,3262,7.6,FOUND_MED_POLICY_ONLY,no,,16.2
+House,27A,Monticello Public School District,882,1694,4.0,FOUND_MED_POLICY_ONLY,no,,24.7
+House,27A,Foley Public School District,51,248,0.6,FOUND_MED_POLICY_ONLY,no,,16.0
+House,27A,Princeton Public School District,477,193,0.5,FOUND_SEIZURE_SPECIFIC,yes,,30.4
+House,27B,Princeton Public School District,477,18902,44.1,FOUND_SEIZURE_SPECIFIC,yes,,30.4
+House,27B,Elk River School District,728,12374,28.8,FOUND_MED_POLICY_ONLY,no,,16.2
+House,27B,St. Francis Area Schools,15,10465,24.4,FOUND_SEIZURE_SPECIFIC,yes,,16.7
+House,27B,Cambridge-Isanti Public School District,911,1128,2.6,FOUND_SEIZURE_SPECIFIC,yes,,29.2
+House,27B,Milaca Public School District,912,38,0.1,FOUND_SEIZURE_SPECIFIC,yes,,29.4
+House,28A,Cambridge-Isanti Public School District,911,28815,67.5,FOUND_SEIZURE_SPECIFIC,yes,,29.2
+House,28A,North Branch Area Public Schools,138,8399,19.7,FOUND_MED_POLICY_ONLY,no,,29.3
+House,28A,Braham Public School District,314,3549,8.3,FOUND_MED_POLICY_ONLY,no,,39.1
+House,28A,Princeton Public School District,477,1045,2.4,FOUND_SEIZURE_SPECIFIC,yes,,30.4
+House,28A,Rush City Public School District,139,894,2.1,FOUND_MED_POLICY_ONLY,no,,40.1
+House,28A,Ogilvie Public School District,333,9,0.0,FOUND_MED_POLICY_ONLY,no,,41.4
+House,28B,Chisago Lakes School District,2144,21699,51.4,FOUND_SEIZURE_SPECIFIC,yes,,25.0
+House,28B,North Branch Area Public Schools,138,12565,29.8,FOUND_MED_POLICY_ONLY,no,,29.3
+House,28B,Forest Lake Public School District,831,7368,17.4,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+House,28B,Rush City Public School District,139,341,0.8,FOUND_MED_POLICY_ONLY,no,,40.1
+House,28B,Franconia Public School District,323,260,0.6,NOT_VERIFIABLE,no,,24.1
+House,29A,Annandale Public School District,876,9142,21.3,FOUND_MED_POLICY_ONLY,no,,21.9
+House,29A,Delano Public School District,879,8851,20.6,FOUND_MED_POLICY_ONLY,no,,21.5
+House,29A,Howard Lake-Waverly-Winsted,2687,6771,15.7,FOUND_SEIZURE_SPECIFIC,yes,,35.5
+House,29A,Buffalo-Hanover-Montrose Public Sch,877,6761,15.7,FOUND_SEIZURE_SPECIFIC,yes,,27.2
+House,29A,Rockford Public School District,883,4607,10.7,FOUND_SEIZURE_SPECIFIC,yes,,20.2
+House,29A,St. Cloud Public School District,742,2585,6.0,FOUND_MED_POLICY_ONLY,no,,2.0
+House,29A,Maple Lake Public School District,881,1271,3.0,FOUND_MED_POLICY_ONLY,no,,25.8
+House,29A,Dassel-Cokato Public School District,466,885,2.1,FOUND_SEIZURE_SPECIFIC,yes,,34.0
+House,29A,Watertown-Mayer Public School District,111,800,1.9,FOUND_SEIZURE_SPECIFIC,yes,,25.4
+House,29A,Litchfield Public School District,465,625,1.5,NOT_VERIFIABLE,no,,34.1
+House,29A,Kimball Public School District,739,614,1.4,FOUND_MED_POLICY_ONLY,no,,18.5
+House,29A,Monticello Public School District,882,89,0.2,FOUND_MED_POLICY_ONLY,no,,24.7
+House,29B,Monticello Public School District,882,19780,46.3,FOUND_MED_POLICY_ONLY,no,,24.7
+House,29B,Buffalo-Hanover-Montrose Public Sch,877,18431,43.1,FOUND_SEIZURE_SPECIFIC,yes,,27.2
+House,29B,Maple Lake Public School District,881,3911,9.2,FOUND_MED_POLICY_ONLY,no,,25.8
+House,29B,Annandale Public School District,876,496,1.2,FOUND_MED_POLICY_ONLY,no,,21.9
+House,29B,St. Michael-Albertville School District,885,115,0.3,FOUND_SEIZURE_SPECIFIC,yes,,17.2
+House,30A,St. Michael-Albertville School District,885,24522,57.1,FOUND_SEIZURE_SPECIFIC,yes,,17.2
+House,30A,Elk River School District,728,10388,24.2,FOUND_MED_POLICY_ONLY,no,,16.2
+House,30A,Buffalo-Hanover-Montrose Public Sch,877,5775,13.4,FOUND_SEIZURE_SPECIFIC,yes,,27.2
+House,30A,Monticello Public School District,882,1311,3.1,FOUND_MED_POLICY_ONLY,no,,24.7
+House,30A,Rockford Public School District,883,741,1.7,FOUND_SEIZURE_SPECIFIC,yes,,20.2
+House,30A,Delano Public School District,879,229,0.5,FOUND_MED_POLICY_ONLY,no,,21.5
+House,30B,Elk River School District,728,37114,86.7,FOUND_MED_POLICY_ONLY,no,,16.2
+House,30B,St. Francis Area Schools,15,3929,9.2,FOUND_SEIZURE_SPECIFIC,yes,,16.7
+House,30B,Anoka-Hennepin Public School District,11,1324,3.1,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,30B,St. Michael-Albertville School District,885,434,1.0,FOUND_SEIZURE_SPECIFIC,yes,,17.2
+House,31A,Anoka-Hennepin Public School District,11,39302,91.6,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,31A,Elk River School District,728,2790,6.5,FOUND_MED_POLICY_ONLY,no,,16.2
+House,31A,St. Francis Area Schools,15,804,1.9,FOUND_SEIZURE_SPECIFIC,yes,,16.7
+House,31B,St. Francis Area Schools,15,18546,43.2,FOUND_SEIZURE_SPECIFIC,yes,,16.7
+House,31B,Anoka-Hennepin Public School District,11,15565,36.2,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,31B,Forest Lake Public School District,831,7335,17.1,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+House,31B,Cambridge-Isanti Public School District,911,1521,3.5,FOUND_SEIZURE_SPECIFIC,yes,,29.2
+House,32A,Anoka-Hennepin Public School District,11,35332,82.2,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,32A,Forest Lake Public School District,831,4819,11.2,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+House,32A,Spring Lake Park Public Schools,16,2832,6.6,FOUND_SEIZURE_SPECIFIC,yes,,5.0
+House,32B,Spring Lake Park Public Schools,16,19358,45.0,FOUND_SEIZURE_SPECIFIC,yes,,5.0
+House,32B,Anoka-Hennepin Public School District,11,13414,31.2,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,32B,Centennial Public School District,12,10204,23.7,FOUND_SEIZURE_SPECIFIC,yes,,8.1
+House,33A,Forest Lake Public School District,831,17073,40.0,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+House,33A,White Bear Lake School District,624,13141,30.8,FOUND_SEIZURE_SPECIFIC,yes,,8.7
+House,33A,Mahtomedi Public School District,832,11655,27.3,FOUND_SEIZURE_SPECIFIC,yes,,10.6
+House,33A,Stillwater Area Public Schools,834,838,2.0,FOUND_SEIZURE_SPECIFIC,yes,,14.5
+House,33B,Stillwater Area Public Schools,834,33027,78.0,FOUND_SEIZURE_SPECIFIC,yes,,14.5
+House,33B,Forest Lake Public School District,831,8683,20.5,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+House,33B,Chisago Lakes School District,2144,625,1.5,FOUND_SEIZURE_SPECIFIC,yes,,25.0
+House,34A,Anoka-Hennepin Public School District,11,27073,64.2,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,34A,Elk River School District,728,13307,31.6,FOUND_MED_POLICY_ONLY,no,,16.2
+House,34A,Osseo Public School District,279,1151,2.7,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,34A,Buffalo-Hanover-Montrose Public Sch,877,638,1.5,FOUND_SEIZURE_SPECIFIC,yes,,27.2
+House,34B,Osseo Public School District,279,22114,51.6,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,34B,Anoka-Hennepin Public School District,11,20755,48.4,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,35A,Anoka-Hennepin Public School District,11,42891,100.0,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,35B,Anoka-Hennepin Public School District,11,42517,100.0,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,36A,Centennial Public School District,12,24581,57.2,FOUND_SEIZURE_SPECIFIC,yes,,8.1
+House,36A,White Bear Lake School District,624,10321,24.0,FOUND_SEIZURE_SPECIFIC,yes,,8.7
+House,36A,Mounds View Public School District,621,4038,9.4,NOT_FOUND,no,,4.8
+House,36A,Forest Lake Public School District,831,4008,9.3,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+House,36B,White Bear Lake School District,624,41348,96.4,FOUND_SEIZURE_SPECIFIC,yes,,8.7
+House,36B,Mounds View Public School District,621,1124,2.6,NOT_FOUND,no,,4.8
+House,36B,Mahtomedi Public School District,832,407,0.9,FOUND_SEIZURE_SPECIFIC,yes,,10.6
+House,37A,Osseo Public School District,279,21072,49.2,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,37A,Wayzata Public School District,284,5602,13.1,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+House,37A,Orono Public School District,278,5417,12.6,FOUND_SEIZURE_SPECIFIC,yes,,12.6
+House,37A,Rockford Public School District,883,4723,11.0,FOUND_SEIZURE_SPECIFIC,yes,,20.2
+House,37A,Delano Public School District,879,2995,7.0,FOUND_MED_POLICY_ONLY,no,,21.5
+House,37A,Buffalo-Hanover-Montrose Public Sch,877,2757,6.4,FOUND_SEIZURE_SPECIFIC,yes,,27.2
+House,37A,Westonka Public School District,277,285,0.7,FOUND_SEIZURE_SPECIFIC,yes,,16.2
+House,37B,Osseo Public School District,279,41549,96.7,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,37B,Wayzata Public School District,284,1437,3.3,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+House,38A,Osseo Public School District,279,36541,85.3,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,38A,Robbinsdale Public School District,281,6319,14.7,FOUND_SEIZURE_SPECIFIC,yes,,2.5
+House,38B,Osseo Public School District,279,18660,43.5,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,38B,Brooklyn Center School District,286,9891,23.1,FOUND_MED_POLICY_ONLY,no,,3.9
+House,38B,Anoka-Hennepin Public School District,11,7683,17.9,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,38B,Robbinsdale Public School District,281,6649,15.5,FOUND_SEIZURE_SPECIFIC,yes,,2.5
+House,39A,Fridley Public School District,14,17319,40.9,FOUND_MED_POLICY_ONLY,no,,6.3
+House,39A,Spring Lake Park Public Schools,16,12761,30.1,FOUND_SEIZURE_SPECIFIC,yes,,5.0
+House,39A,Columbia Heights Public School District,13,10550,24.9,FOUND_MED_POLICY_ONLY,no,,5.0
+House,39A,Anoka-Hennepin Public School District,11,1520,3.6,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,39A,Mounds View Public School District,621,205,0.5,NOT_FOUND,no,,4.8
+House,39B,Columbia Heights Public School District,13,17354,41.1,FOUND_MED_POLICY_ONLY,no,,5.0
+House,39B,Mounds View Public School District,621,13866,32.8,NOT_FOUND,no,,4.8
+House,39B,St. Anthony-New Brighton Schools,282,11033,26.1,FOUND_MED_POLICY_ONLY,no,,3.1
+House,40A,Mounds View Public School District,621,42599,99.4,NOT_FOUND,no,,4.8
+House,40A,Roseville Public School District,623,261,0.6,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,40B,Roseville Public School District,623,23909,56.7,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,40B,Mounds View Public School District,621,18274,43.3,NOT_FOUND,no,,4.8
+House,41A,Stillwater Area Public Schools,834,22521,53.2,FOUND_SEIZURE_SPECIFIC,yes,,14.5
+House,41A,South Washington County Schools,833,15686,37.0,FOUND_MED_POLICY_ONLY,no,,10.6
+House,41A,North St. Paul-Maplewood Oakdale Public School District,622,2070,4.9,FOUND_SEIZURE_SPECIFIC,yes,,6.5
+House,41A,Mahtomedi Public School District,832,1590,3.8,FOUND_SEIZURE_SPECIFIC,yes,,10.6
+House,41A,Hastings Public School District,200,484,1.1,FOUND_SEIZURE_SPECIFIC,yes,,18.4
+House,41B,Hastings Public School District,200,24650,58.1,FOUND_SEIZURE_SPECIFIC,yes,,18.4
+House,41B,South Washington County Schools,833,17743,41.9,FOUND_MED_POLICY_ONLY,no,,10.6
+House,42A,Wayzata Public School District,284,39375,92.6,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+House,42A,Osseo Public School District,279,3134,7.4,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,42B,Robbinsdale Public School District,281,17523,41.2,FOUND_SEIZURE_SPECIFIC,yes,,2.5
+House,42B,Wayzata Public School District,284,14408,33.9,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+House,42B,Osseo Public School District,279,10616,25.0,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,43A,Robbinsdale Public School District,281,42830,100.0,FOUND_SEIZURE_SPECIFIC,yes,,2.5
+House,43B,Robbinsdale Public School District,281,31365,73.8,FOUND_SEIZURE_SPECIFIC,yes,,2.5
+House,43B,Hopkins Public School District,270,10751,25.3,FOUND_SEIZURE_SPECIFIC,yes,,3.7
+House,43B,Wayzata Public School District,284,360,0.8,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+House,44A,North St. Paul-Maplewood Oakdale Public School District,622,24761,57.8,FOUND_SEIZURE_SPECIFIC,yes,,6.5
+House,44A,Roseville Public School District,623,17297,40.4,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,44A,White Bear Lake School District,624,765,1.8,FOUND_SEIZURE_SPECIFIC,yes,,8.7
+House,44B,North St. Paul-Maplewood Oakdale Public School District,622,41615,98.6,FOUND_SEIZURE_SPECIFIC,yes,,6.5
+House,44B,Mahtomedi Public School District,832,602,1.4,FOUND_SEIZURE_SPECIFIC,yes,,10.6
+House,45A,Westonka Public School District,277,19572,45.6,FOUND_SEIZURE_SPECIFIC,yes,,16.2
+House,45A,Minnetonka Public School District,276,10430,24.3,FOUND_MED_POLICY_ONLY,no,,8.8
+House,45A,Orono Public School District,278,7284,17.0,FOUND_SEIZURE_SPECIFIC,yes,,12.6
+House,45A,Waconia Public School District,110,4544,10.6,FOUND_SEIZURE_SPECIFIC,yes,,22.7
+House,45A,Watertown-Mayer Public School District,111,724,1.7,FOUND_SEIZURE_SPECIFIC,yes,,25.4
+House,45A,Wayzata Public School District,284,360,0.8,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+House,45A,Delano Public School District,879,29,0.1,FOUND_MED_POLICY_ONLY,no,,21.5
+House,45B,Hopkins Public School District,270,17669,41.1,FOUND_SEIZURE_SPECIFIC,yes,,3.7
+House,45B,Minnetonka Public School District,276,13646,31.7,FOUND_MED_POLICY_ONLY,no,,8.8
+House,45B,Wayzata Public School District,284,11655,27.1,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+House,45B,St. Louis Park Public School District,283,16,0.0,FOUND_MED_POLICY_ONLY,no,,1.2
+House,45B,Orono Public School District,278,10,0.0,FOUND_SEIZURE_SPECIFIC,yes,,12.6
+House,46A,St. Louis Park Public School District,283,40416,95.1,FOUND_MED_POLICY_ONLY,no,,1.2
+House,46A,Hopkins Public School District,270,2063,4.9,FOUND_SEIZURE_SPECIFIC,yes,,3.7
+House,46B,Hopkins Public School District,270,23073,54.6,FOUND_SEIZURE_SPECIFIC,yes,,3.7
+House,46B,Edina Public School District,273,11416,27.0,FOUND_SEIZURE_SPECIFIC,yes,,1.9
+House,46B,St. Louis Park Public School District,283,7803,18.5,FOUND_MED_POLICY_ONLY,no,,1.2
+House,47A,South Washington County Schools,833,24934,59.0,FOUND_MED_POLICY_ONLY,no,,10.6
+House,47A,North St. Paul-Maplewood Oakdale Public School District,622,14949,35.4,FOUND_SEIZURE_SPECIFIC,yes,,6.5
+House,47A,Stillwater Area Public Schools,834,2348,5.6,FOUND_SEIZURE_SPECIFIC,yes,,14.5
+House,47B,South Washington County Schools,833,34749,81.5,FOUND_MED_POLICY_ONLY,no,,10.6
+House,47B,Stillwater Area Public Schools,834,7876,18.5,FOUND_SEIZURE_SPECIFIC,yes,,14.5
+House,48A,Eastern Carver County Public Schools,112,20457,47.9,FOUND_SEIZURE_SPECIFIC,yes,,13.0
+House,48A,Waconia Public School District,110,16398,38.4,FOUND_SEIZURE_SPECIFIC,yes,,22.7
+House,48A,Central Public School District,108,2781,6.5,FOUND_MED_POLICY_ONLY,no,,29.6
+House,48A,Watertown-Mayer Public School District,111,2513,5.9,FOUND_SEIZURE_SPECIFIC,yes,,25.4
+House,48A,Minnetonka Public School District,276,575,1.3,FOUND_MED_POLICY_ONLY,no,,8.8
+House,48B,Eastern Carver County Public Schools,112,35037,81.7,FOUND_SEIZURE_SPECIFIC,yes,,13.0
+House,48B,Minnetonka Public School District,276,7866,18.3,FOUND_MED_POLICY_ONLY,no,,8.8
+House,49A,Eden Prairie Public School District,272,17948,42.1,FOUND_SEIZURE_SPECIFIC,yes,,7.2
+House,49A,Hopkins Public School District,270,15038,35.3,FOUND_SEIZURE_SPECIFIC,yes,,3.7
+House,49A,Minnetonka Public School District,276,9629,22.6,FOUND_MED_POLICY_ONLY,no,,8.8
+House,49B,Eden Prairie Public School District,272,42719,100.0,FOUND_SEIZURE_SPECIFIC,yes,,7.2
+House,50A,Edina Public School District,273,31695,74.9,FOUND_SEIZURE_SPECIFIC,yes,,1.9
+House,50A,Richfield Public School District,280,6121,14.5,FOUND_SEIZURE_SPECIFIC,yes,,2.4
+House,50A,Bloomington Public School District,271,4500,10.6,FOUND_SEIZURE_SPECIFIC,yes,,2.7
+House,50A,St. Louis Park Public School District,283,17,0.0,FOUND_MED_POLICY_ONLY,no,,1.2
+House,50B,Bloomington Public School District,271,42527,100.0,FOUND_SEIZURE_SPECIFIC,yes,,2.7
+House,50B,Eden Prairie Public School District,272,10,0.0,FOUND_SEIZURE_SPECIFIC,yes,,7.2
+House,50B,Edina Public School District,273,10,0.0,FOUND_SEIZURE_SPECIFIC,yes,,1.9
+House,51A,Richfield Public School District,280,37432,87.9,FOUND_SEIZURE_SPECIFIC,yes,,2.4
+House,51A,Minneapolis Public School District,30001,5154,12.1,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,51B,Bloomington Public School District,271,42947,100.0,FOUND_SEIZURE_SPECIFIC,yes,,2.7
+House,52A,Burnsville Public School District,191,21701,50.5,FOUND_SEIZURE_SPECIFIC,yes,,0.4
+House,52A,Rosemount-Apple Valley-Eagan,196,11641,27.1,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+House,52A,West St. Paul-Mendota Heights-Eagan,197,9652,22.4,FOUND_SEIZURE_SPECIFIC,yes,,3.2
+House,52B,Rosemount-Apple Valley-Eagan,196,31217,73.7,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+House,52B,West St. Paul-Mendota Heights-Eagan,197,11126,26.3,FOUND_SEIZURE_SPECIFIC,yes,,3.2
+House,53A,Inver Grove Heights Schools,199,22177,52.2,FOUND_MED_POLICY_ONLY,no,,7.8
+House,53A,West St. Paul-Mendota Heights-Eagan,197,13602,32.0,FOUND_SEIZURE_SPECIFIC,yes,,3.2
+House,53A,Rosemount-Apple Valley-Eagan,196,6712,15.8,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+House,53B,South St. Paul Public School District,6,20514,48.3,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+House,53B,South Washington County Schools,833,14914,35.1,FOUND_MED_POLICY_ONLY,no,,10.6
+House,53B,Inver Grove Heights Schools,199,7079,16.7,FOUND_MED_POLICY_ONLY,no,,7.8
+House,54A,Shakopee Public School District,720,42697,99.3,FOUND_SEIZURE_SPECIFIC,yes,,12.4
+House,54A,Burnsville Public School District,191,295,0.7,FOUND_SEIZURE_SPECIFIC,yes,,0.4
+House,54B,Prior Lake-Savage Area Schools,719,28592,66.7,FOUND_SEIZURE_SPECIFIC,yes,,9.0
+House,54B,Jordan Public School District,717,9188,21.4,FOUND_SEIZURE_SPECIFIC,yes,,19.6
+House,54B,Shakopee Public School District,720,5075,11.8,FOUND_SEIZURE_SPECIFIC,yes,,12.4
+House,54B,Lakeville Public School District,194,43,0.1,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,55A,Burnsville Public School District,191,25511,59.6,FOUND_SEIZURE_SPECIFIC,yes,,0.4
+House,55A,Prior Lake-Savage Area Schools,719,15510,36.2,FOUND_SEIZURE_SPECIFIC,yes,,9.0
+House,55A,Shakopee Public School District,720,1810,4.2,FOUND_SEIZURE_SPECIFIC,yes,,12.4
+House,55B,Burnsville Public School District,191,24040,56.8,FOUND_SEIZURE_SPECIFIC,yes,,0.4
+House,55B,Rosemount-Apple Valley-Eagan,196,13259,31.3,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+House,55B,Lakeville Public School District,194,5060,11.9,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,56A,Rosemount-Apple Valley-Eagan,196,42416,99.2,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+House,56A,Burnsville Public School District,191,334,0.8,FOUND_SEIZURE_SPECIFIC,yes,,0.4
+House,56B,Rosemount-Apple Valley-Eagan,196,42333,100.0,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+House,57A,Lakeville Public School District,194,35013,82.7,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,57A,New Prague Area Schools,721,3224,7.6,FOUND_MED_POLICY_ONLY,no,,21.7
+House,57A,Prior Lake-Savage Area Schools,719,2391,5.6,FOUND_SEIZURE_SPECIFIC,yes,,9.0
+House,57A,Farmington Public School District,192,1537,3.6,FOUND_MED_POLICY_ONLY,no,,9.4
+House,57A,Northfield Public School District,659,156,0.4,FOUND_MED_POLICY_ONLY,no,,22.6
+House,57B,Lakeville Public School District,194,20778,49.0,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+House,57B,Rosemount-Apple Valley-Eagan,196,13673,32.2,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+House,57B,Farmington Public School District,192,7955,18.8,FOUND_MED_POLICY_ONLY,no,,9.4
+House,58A,Northfield Public School District,659,26392,61.4,FOUND_MED_POLICY_ONLY,no,,22.6
+House,58A,New Prague Area Schools,721,11697,27.2,FOUND_MED_POLICY_ONLY,no,,21.7
+House,58A,Tri-City United School District,2905,3616,8.4,FOUND_MED_POLICY_ONLY,no,,27.6
+House,58A,Faribault Public School District,656,692,1.6,FOUND_MED_POLICY_ONLY,no,in_progress,35.0
+House,58A,Jordan Public School District,717,544,1.3,FOUND_SEIZURE_SPECIFIC,yes,,19.6
+House,58A,Prior Lake-Savage Area Schools,719,8,0.0,FOUND_SEIZURE_SPECIFIC,yes,,9.0
+House,58B,Farmington Public School District,192,28103,66.1,FOUND_MED_POLICY_ONLY,no,,9.4
+House,58B,Hastings Public School District,200,5998,14.1,FOUND_SEIZURE_SPECIFIC,yes,,18.4
+House,58B,Northfield Public School District,659,2580,6.1,FOUND_MED_POLICY_ONLY,no,,22.6
+House,58B,Randolph Public School District,195,2513,5.9,FOUND_MED_POLICY_ONLY,no,,21.3
+House,58B,Rosemount-Apple Valley-Eagan,196,1797,4.2,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+House,58B,Cannon Falls Public School District,252,1186,2.8,FOUND_MED_POLICY_ONLY,no,,26.3
+House,58B,Kenyon-Wanamingo School District,2172,215,0.5,FOUND_MED_POLICY_ONLY,no,,21.5
+House,58B,Faribault Public School District,656,98,0.2,FOUND_MED_POLICY_ONLY,no,in_progress,35.0
+House,58B,Inver Grove Heights Schools,199,6,0.0,FOUND_MED_POLICY_ONLY,no,,7.8
+House,59A,Minneapolis Public School District,30001,42430,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,59B,Minneapolis Public School District,30001,42494,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,60A,Minneapolis Public School District,30001,42800,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,60B,Minneapolis Public School District,30001,42169,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,61A,Minneapolis Public School District,30001,42219,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,61B,Minneapolis Public School District,30001,42825,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,62A,Minneapolis Public School District,30001,42714,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,62B,Minneapolis Public School District,30001,42527,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,63A,Minneapolis Public School District,30001,42332,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,63B,Minneapolis Public School District,30001,42292,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+House,64A,St. Paul Public School District,625,42372,100.0,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,64B,St. Paul Public School District,625,42650,100.0,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,65A,St. Paul Public School District,625,42216,100.0,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,65B,St. Paul Public School District,625,31662,74.3,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,65B,West St. Paul-Mendota Heights-Eagan,197,10946,25.7,FOUND_SEIZURE_SPECIFIC,yes,,3.2
+House,66A,St. Paul Public School District,625,25394,60.2,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,66A,Roseville Public School District,623,16772,39.8,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,66B,St. Paul Public School District,625,42184,100.0,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,67A,St. Paul Public School District,625,42235,100.0,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+House,67B,St. Paul Public School District,625,42814,100.0,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+Senate,01,Thief River Falls School District,564,13514,15.9,FOUND_SEIZURE_SPECIFIC,yes,,74.2
+Senate,01,East Grand Forks Public School Dist,595,10590,12.4,FOUND_SEIZURE_SPECIFIC,yes,,75.4
+Senate,01,Crookston Public School District,593,9194,10.8,FOUND_MED_POLICY_ONLY,no,,65.4
+Senate,01,Roseau Public School District,682,6680,7.8,NOT_FOUND,no,,101.2
+Senate,01,Warroad Public School District,690,5701,6.7,FOUND_MED_POLICY_ONLY,no,,99.0
+Senate,01,Ada-Borup-West,2910,3913,4.6,NOT_VERIFIABLE,no,,33.5
+Senate,01,Warren-Alvarado-Oslo School District,2176,3617,4.2,FOUND_MED_POLICY_ONLY,no,,92.5
+Senate,01,Win-E-Mac School District,2609,3250,3.8,FOUND_SEIZURE_SPECIFIC,yes,,53.5
+Senate,01,Fosston Public School District,601,3155,3.7,FOUND_MED_POLICY_ONLY,no,,41.8
+Senate,01,Fertile-Beltrami School District,599,2790,3.3,FOUND_MED_POLICY_ONLY,no,,53.2
+Senate,01,Greenbush-Middle River School Dist.,2683,2554,3.0,FOUND_MED_POLICY_ONLY,no,,102.1
+Senate,01,Red Lake Falls Public School Dist.,630,2189,2.6,NOT_FOUND,no,,70.7
+Senate,01,Norman County East School District,2215,2029,2.4,FOUND_MED_POLICY_ONLY,no,,38.4
+Senate,01,Red Lake County Central Public Schools,2906,1991,2.3,FOUND_MED_POLICY_ONLY,no,,51.7
+Senate,01,Tri-County School District,2358,1970,2.3,NOT_FOUND,no,,106.4
+Senate,01,Marshall County Central Schools,441,1905,2.2,NOT_VERIFIABLE,no,,89.9
+Senate,01,Kittson Central School District,2171,1828,2.1,FOUND_MED_POLICY_ONLY,no,confirmed,130.2
+Senate,01,Stephen-Argyle Central Schools,2856,1763,2.1,FOUND_MED_POLICY_ONLY,no,,110.2
+Senate,01,Badger Public School District,676,1099,1.3,FOUND_MED_POLICY_ONLY,no,,102.7
+Senate,01,Fisher Public School District,600,1005,1.2,FOUND_MED_POLICY_ONLY,no,in_progress,65.1
+Senate,01,Lancaster Public School District,356,852,1.0,NOT_VERIFIABLE,no,,129.0
+Senate,01,Goodridge Public School District,561,841,1.0,FOUND_MED_POLICY_ONLY,no,confirmed,62.2
+Senate,01,Climax-Shelly Public Schools,592,768,0.9,FOUND_MED_POLICY_ONLY,no,,51.9
+Senate,01,Ulen-Hitterdal Public School Dist,914,757,0.9,FOUND_MED_POLICY_ONLY,no,,30.6
+Senate,01,Grygla Public School District,447,666,0.8,NOT_FOUND,no,in_progress,65.0
+Senate,01,Dilworth-Glyndon-Felton,2164,251,0.3,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+Senate,01,Clearbrook-Gonvick School District,2311,227,0.3,FOUND_SEIZURE_SPECIFIC,yes,,30.0
+Senate,01,Waubun-Ogema-White Earth Schools,435,46,0.1,FOUND_MED_POLICY_ONLY,no,,47.2
+Senate,01,Mahnomen Public School District,432,30,0.0,FOUND_MED_POLICY_ONLY,no,,51.0
+Senate,02,Bemidji Public School District,31,38981,45.6,NOT_VERIFIABLE,no,,3.0
+Senate,02,Bagley Public School District,162,5815,6.8,FOUND_MED_POLICY_ONLY,no,,25.4
+Senate,02,Red Lake Public School District,38,5509,6.4,NOT_VERIFIABLE,no,,26.3
+Senate,02,Cass Lake-Bena Public Schools,115,4602,5.4,FOUND_MED_POLICY_ONLY,no,,15.0
+Senate,02,Walker-Hackensack-Akeley School District,113,3968,4.6,FOUND_MED_POLICY_ONLY,no,,31.5
+Senate,02,Blackduck Public School District,32,3953,4.6,FOUND_MED_POLICY_ONLY,no,,20.9
+Senate,02,Mahnomen Public School District,432,3754,4.4,FOUND_MED_POLICY_ONLY,no,,51.0
+Senate,02,Lake of the Woods School District,390,3385,4.0,FOUND_MED_POLICY_ONLY,no,,83.3
+Senate,02,Waubun-Ogema-White Earth Schools,435,3287,3.8,FOUND_MED_POLICY_ONLY,no,,47.2
+Senate,02,Deer River Public School District,317,2814,3.3,FOUND_MED_POLICY_ONLY,no,,51.3
+Senate,02,Clearbrook-Gonvick School District,2311,2639,3.1,FOUND_SEIZURE_SPECIFIC,yes,,30.0
+Senate,02,Northland Community Schools,118,1855,2.2,FOUND_MED_POLICY_ONLY,no,,54.3
+Senate,02,Detroit Lakes Public School District,22,1042,1.2,FOUND_SEIZURE_SPECIFIC,yes,,46.2
+Senate,02,Kelliher Public School District,36,1034,1.2,FOUND_MED_POLICY_ONLY,no,pending,35.3
+Senate,02,Grand Rapids Public School District,318,617,0.7,FOUND_SEIZURE_SPECIFIC,yes,,64.8
+Senate,02,Fosston Public School District,601,501,0.6,FOUND_MED_POLICY_ONLY,no,,41.8
+Senate,02,Laporte Public School District,306,461,0.5,FOUND_MED_POLICY_ONLY,no,,21.3
+Senate,02,Warroad Public School District,690,378,0.4,FOUND_MED_POLICY_ONLY,no,,99.0
+Senate,02,Grygla Public School District,447,284,0.3,NOT_FOUND,no,in_progress,65.0
+Senate,02,Pine Point Public School District,25,276,0.3,FOUND_MED_POLICY_ONLY,no,,44.7
+Senate,02,Park Rapids Public School District,309,274,0.3,FOUND_SEIZURE_SPECIFIC,yes,,41.8
+Senate,02,Lake Park Audubon School District,2889,27,0.0,FOUND_MED_POLICY_ONLY,no,,34.1
+Senate,02,Frazee-Vergas Public School District,23,5,0.0,FOUND_MED_POLICY_ONLY,no,,53.9
+Senate,03,Lake Superior Public School Dist.,381,13490,15.9,FOUND_MED_POLICY_ONLY,no,,26.6
+Senate,03,Hermantown Public School District,700,12337,14.6,FOUND_MED_POLICY_ONLY,no,confirmed,6.9
+Senate,03,Proctor Public School District,704,10869,12.8,FOUND_MED_POLICY_ONLY,no,,7.8
+Senate,03,Duluth Public School District,709,10843,12.8,FOUND_SEIZURE_SPECIFIC,yes,,1.1
+Senate,03,International Falls School District,361,9177,10.8,FOUND_MED_POLICY_ONLY,no,,99.8
+Senate,03,St. Louis County School District,2142,8376,9.9,FOUND_MED_POLICY_ONLY,no,,55.2
+Senate,03,Cook County Public Schools,166,5593,6.6,FOUND_MED_POLICY_ONLY,no,,105.7
+Senate,03,Ely Public School District,696,4820,5.7,FOUND_MED_POLICY_ONLY,no,,76.8
+Senate,03,Grand Rapids Public School District,318,2775,3.3,FOUND_SEIZURE_SPECIFIC,yes,,64.8
+Senate,03,Mesabi East School District,2711,2112,2.5,FOUND_MED_POLICY_ONLY,no,,50.9
+Senate,03,Littlefork-Big Falls School Dist.,362,1479,1.7,NOT_VERIFIABLE,no,,86.0
+Senate,03,South Koochiching School District,363,1279,1.5,NOT_VERIFIABLE,no,,38.1
+Senate,03,Deer River Public School District,317,637,0.8,FOUND_MED_POLICY_ONLY,no,,51.3
+Senate,03,Nashwauk-Keewatin School District,319,609,0.7,NOT_VERIFIABLE,no,in_progress,64.2
+Senate,03,Nett Lake Public School District,707,319,0.4,FOUND_MED_POLICY_ONLY,no,,91.6
+Senate,03,Blackduck Public School District,32,25,0.0,FOUND_MED_POLICY_ONLY,no,,20.9
+Senate,03,Kelliher Public School District,36,7,0.0,FOUND_MED_POLICY_ONLY,no,pending,35.3
+Senate,04,Moorhead Area Public School District,152,48025,56.5,FOUND_MED_POLICY_ONLY,no,,3.1
+Senate,04,Detroit Lakes Public School District,22,14817,17.4,FOUND_SEIZURE_SPECIFIC,yes,,46.2
+Senate,04,Dilworth-Glyndon-Felton,2164,6342,7.5,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+Senate,04,Lake Park Audubon School District,2889,5617,6.6,FOUND_MED_POLICY_ONLY,no,,34.1
+Senate,04,Hawley Public School District,150,4688,5.5,FOUND_MED_POLICY_ONLY,no,,23.8
+Senate,04,Barnesville Public School District,146,4216,5.0,FOUND_MED_POLICY_ONLY,no,,23.9
+Senate,04,Ulen-Hitterdal Public School Dist,914,834,1.0,FOUND_MED_POLICY_ONLY,no,,30.6
+Senate,04,Pelican Rapids Public School District,548,406,0.5,FOUND_MED_POLICY_ONLY,no,,40.3
+Senate,04,Ada-Borup-West,2910,57,0.1,NOT_VERIFIABLE,no,,33.5
+Senate,05,Park Rapids Public School District,309,12092,14.2,FOUND_SEIZURE_SPECIFIC,yes,,41.8
+Senate,05,Staples-Motley School District,2170,10077,11.8,FOUND_SEIZURE_SPECIFIC,yes,,61.3
+Senate,05,Long Prairie-Grey Eagle School District,2753,8824,10.3,FOUND_MED_POLICY_ONLY,no,,41.7
+Senate,05,Pine River-Backus School District,2174,6001,7.0,FOUND_MED_POLICY_ONLY,no,,58.3
+Senate,05,Frazee-Vergas Public School District,23,5809,6.8,FOUND_MED_POLICY_ONLY,no,,53.9
+Senate,05,Pillager Public School District,116,5676,6.6,FOUND_SEIZURE_SPECIFIC,yes,,53.5
+Senate,05,Wadena-Deer Creek School District,2155,5667,6.6,FOUND_MED_POLICY_ONLY,no,,75.0
+Senate,05,Menahga Public School District,821,4049,4.7,FOUND_MED_POLICY_ONLY,no,,53.7
+Senate,05,Browerville Public School District,787,3795,4.4,NOT_FOUND,no,,47.5
+Senate,05,Bertha-Hewitt Public School District,786,3359,3.9,FOUND_MED_POLICY_ONLY,no,,62.8
+Senate,05,Walker-Hackensack-Akeley School District,113,3091,3.6,FOUND_MED_POLICY_ONLY,no,,31.5
+Senate,05,Nevis Public School District,308,2655,3.1,FOUND_MED_POLICY_ONLY,no,,37.8
+Senate,05,Sebeka Public School District,820,2442,2.9,FOUND_SEIZURE_SPECIFIC,yes,,61.9
+Senate,05,Detroit Lakes Public School District,22,2125,2.5,FOUND_SEIZURE_SPECIFIC,yes,,46.2
+Senate,05,Verndale Public School District,818,1681,2.0,FOUND_MED_POLICY_ONLY,no,,68.6
+Senate,05,Sauk Centre Public School District,743,1630,1.9,FOUND_MED_POLICY_ONLY,no,,37.0
+Senate,05,Brainerd Public School District,181,1602,1.9,FOUND_SEIZURE_SPECIFIC,yes,,53.7
+Senate,05,Osakis Public School District,213,1589,1.9,NOT_VERIFIABLE,no,confirmed,49.6
+Senate,05,Laporte Public School District,306,1255,1.5,FOUND_MED_POLICY_ONLY,no,,21.3
+Senate,05,Pequot Lakes Public Schools,186,910,1.1,FOUND_SEIZURE_SPECIFIC,yes,,68.0
+Senate,05,Swanville Public School District,486,829,1.0,NOT_FOUND,no,,31.2
+Senate,05,Melrose Public School District,740,150,0.2,FOUND_MED_POLICY_ONLY,no,,29.7
+Senate,05,New York Mills Public School Dist.,553,55,0.1,FOUND_MED_POLICY_ONLY,no,,72.2
+Senate,05,Upsala Public School District,487,30,0.0,NOT_VERIFIABLE,no,,23.5
+Senate,05,Little Falls Public School District,482,6,0.0,FOUND_MED_POLICY_ONLY,no,,28.2
+Senate,05,Perham-Dent Public School District,549,2,0.0,FOUND_MED_POLICY_ONLY,no,,61.5
+Senate,05,Pine Point Public School District,25,1,0.0,FOUND_MED_POLICY_ONLY,no,,44.7
+Senate,06,Brainerd Public School District,181,38577,45.6,FOUND_SEIZURE_SPECIFIC,yes,,53.7
+Senate,06,Grand Rapids Public School District,318,18136,21.4,FOUND_SEIZURE_SPECIFIC,yes,,64.8
+Senate,06,Crosby-Ironton Public School District,182,10611,12.5,FOUND_MED_POLICY_ONLY,no,,63.6
+Senate,06,Pequot Lakes Public Schools,186,10039,11.9,FOUND_SEIZURE_SPECIFIC,yes,,68.0
+Senate,06,Northland Community Schools,118,2711,3.2,FOUND_MED_POLICY_ONLY,no,,54.3
+Senate,06,Pine River-Backus School District,2174,1806,2.1,FOUND_MED_POLICY_ONLY,no,,58.3
+Senate,06,Greenway Public School District,316,1390,1.6,FOUND_MED_POLICY_ONLY,no,,68.5
+Senate,06,Walker-Hackensack-Akeley School District,113,510,0.6,FOUND_MED_POLICY_ONLY,no,,31.5
+Senate,06,Aitkin Public School District,1,462,0.5,FOUND_MED_POLICY_ONLY,no,,70.5
+Senate,06,Onamia Public School District,480,235,0.3,FOUND_SEIZURE_SPECIFIC,yes,,42.4
+Senate,06,Deer River Public School District,317,86,0.1,FOUND_MED_POLICY_ONLY,no,,51.3
+Senate,07,Rock Ridge Public Schools,2909,18806,22.2,FOUND_SEIZURE_SPECIFIC,yes,,51.0
+Senate,07,Hibbing Public School District,701,17385,20.5,NOT_FOUND,no,,58.4
+Senate,07,St. Louis County School District,2142,7609,9.0,FOUND_MED_POLICY_ONLY,no,,55.2
+Senate,07,Greenway Public School District,316,7083,8.4,FOUND_MED_POLICY_ONLY,no,,68.5
+Senate,07,Grand Rapids Public School District,318,6048,7.1,FOUND_SEIZURE_SPECIFIC,yes,,64.8
+Senate,07,Chisholm Public School District,695,5573,6.6,FOUND_MED_POLICY_ONLY,no,,60.1
+Senate,07,Mesabi East School District,2711,5352,6.3,FOUND_MED_POLICY_ONLY,no,,50.9
+Senate,07,Mountain Iron-Buhl School District,712,4571,5.4,FOUND_MED_POLICY_ONLY,no,,54.9
+Senate,07,Nashwauk-Keewatin School District,319,3123,3.7,NOT_VERIFIABLE,no,in_progress,64.2
+Senate,07,McGregor Public School District,4,2899,3.4,FOUND_MED_POLICY_ONLY,no,,58.9
+Senate,07,Deer River Public School District,317,1906,2.2,FOUND_MED_POLICY_ONLY,no,,51.3
+Senate,07,Hill City Public School District,2,1616,1.9,FOUND_MED_POLICY_ONLY,no,,68.8
+Senate,07,Floodwood Public School District,698,1391,1.6,FOUND_MED_POLICY_ONLY,no,,39.8
+Senate,07,Aitkin Public School District,1,1365,1.6,FOUND_MED_POLICY_ONLY,no,,70.5
+Senate,07,Cromwell-Wright Public Schools,95,3,0.0,FOUND_MED_POLICY_ONLY,no,,38.3
+Senate,08,Duluth Public School District,709,83335,97.9,FOUND_SEIZURE_SPECIFIC,yes,,1.1
+Senate,08,Proctor Public School District,704,1820,2.1,FOUND_MED_POLICY_ONLY,no,,7.8
+Senate,09,Fergus Falls Public School District,544,19795,23.3,FOUND_SEIZURE_SPECIFIC,yes,,53.1
+Senate,09,Perham-Dent Public School District,549,11542,13.6,FOUND_MED_POLICY_ONLY,no,,61.5
+Senate,09,Pelican Rapids Public School District,548,7228,8.5,FOUND_MED_POLICY_ONLY,no,,40.3
+Senate,09,West Central Area,2342,5001,5.9,FOUND_MED_POLICY_ONLY,no,,79.0
+Senate,09,Breckenridge Public School District,846,4888,5.8,FOUND_MED_POLICY_ONLY,no,,42.1
+Senate,09,Alexandria Public School District,206,4134,4.9,FOUND_SEIZURE_SPECIFIC,yes,,59.0
+Senate,09,Battle Lake Public School District,542,4091,4.8,FOUND_MED_POLICY_ONLY,no,confirmed,65.6
+Senate,09,New York Mills Public School Dist.,553,3789,4.5,FOUND_MED_POLICY_ONLY,no,,72.2
+Senate,09,Brandon-Evansville Public Schools,2908,3643,4.3,FOUND_MED_POLICY_ONLY,no,,72.2
+Senate,09,Henning Public School District,545,3040,3.6,FOUND_SEIZURE_SPECIFIC,yes,,75.1
+Senate,09,Parkers Prairie Public School Dist.,547,2811,3.3,FOUND_MED_POLICY_ONLY,no,,66.8
+Senate,09,Underwood Public School District,550,2449,2.9,NOT_FOUND,no,,60.1
+Senate,09,Wadena-Deer Creek School District,2155,2305,2.7,FOUND_MED_POLICY_ONLY,no,,75.0
+Senate,09,Wheaton Area Public School District,803,2115,2.5,FOUND_MED_POLICY_ONLY,no,,74.5
+Senate,09,Ashby Public School District,261,1467,1.7,FOUND_MED_POLICY_ONLY,no,,71.1
+Senate,09,Frazee-Vergas Public School District,23,1178,1.4,FOUND_MED_POLICY_ONLY,no,,53.9
+Senate,09,Rothsay Public School District,850,1055,1.2,FOUND_MED_POLICY_ONLY,no,,36.3
+Senate,09,Herman-Norcross School District,264,802,0.9,FOUND_MED_POLICY_ONLY,no,,79.2
+Senate,09,Browns Valley Public School District,801,746,0.9,NOT_FOUND,no,,87.3
+Senate,09,Campbell-Tintah Public School District,852,711,0.8,FOUND_MED_POLICY_ONLY,no,,56.2
+Senate,09,Sebeka Public School District,820,573,0.7,FOUND_SEIZURE_SPECIFIC,yes,,61.9
+Senate,09,Barnesville Public School District,146,497,0.6,FOUND_MED_POLICY_ONLY,no,,23.9
+Senate,09,Bertha-Hewitt Public School District,786,404,0.5,FOUND_MED_POLICY_ONLY,no,,62.8
+Senate,09,Clinton-Graceville-Beardsley,2888,292,0.3,FOUND_MED_POLICY_ONLY,no,confirmed,98.0
+Senate,09,Detroit Lakes Public School District,22,179,0.2,FOUND_SEIZURE_SPECIFIC,yes,,46.2
+Senate,09,Menahga Public School District,821,47,0.1,FOUND_MED_POLICY_ONLY,no,,53.7
+Senate,09,Lake Park Audubon School District,2889,24,0.0,FOUND_MED_POLICY_ONLY,no,,34.1
+Senate,09,Chokio-Alberta Public Schools,771,4,0.0,FOUND_MED_POLICY_ONLY,no,,93.9
+Senate,09,Minnewaska School District,2149,2,0.0,FOUND_SEIZURE_SPECIFIC,yes,,60.2
+Senate,10,Little Falls Public School District,482,17699,20.6,FOUND_MED_POLICY_ONLY,no,,28.2
+Senate,10,Milaca Public School District,912,11972,14.0,FOUND_SEIZURE_SPECIFIC,yes,,29.4
+Senate,10,Foley Public School District,51,9200,10.7,FOUND_MED_POLICY_ONLY,no,,16.0
+Senate,10,Aitkin Public School District,1,7665,8.9,FOUND_MED_POLICY_ONLY,no,,70.5
+Senate,10,Sauk Rapids-Rice Public Schools,47,6698,7.8,FOUND_SEIZURE_SPECIFIC,yes,,4.8
+Senate,10,Pierz Public School District,484,5433,6.3,NOT_VERIFIABLE,no,,28.5
+Senate,10,Onamia Public School District,480,5206,6.1,FOUND_SEIZURE_SPECIFIC,yes,,42.4
+Senate,10,Brainerd Public School District,181,4741,5.5,FOUND_SEIZURE_SPECIFIC,yes,,53.7
+Senate,10,Royalton Public School District,485,3986,4.6,FOUND_SEIZURE_SPECIFIC,yes,,17.9
+Senate,10,Isle Public School District,473,3292,3.8,FOUND_MED_POLICY_ONLY,no,,52.5
+Senate,10,Ogilvie Public School District,333,2559,3.0,FOUND_MED_POLICY_ONLY,no,,41.4
+Senate,10,Upsala Public School District,487,1903,2.2,NOT_VERIFIABLE,no,,23.5
+Senate,10,Mora Public School District,332,1474,1.7,FOUND_MED_POLICY_ONLY,no,,49.1
+Senate,10,Princeton Public School District,477,1088,1.3,FOUND_SEIZURE_SPECIFIC,yes,,30.4
+Senate,10,McGregor Public School District,4,1023,1.2,FOUND_MED_POLICY_ONLY,no,,58.9
+Senate,10,Swanville Public School District,486,949,1.1,NOT_FOUND,no,,31.2
+Senate,10,Hinckley-Finlayson School District,2165,350,0.4,FOUND_MED_POLICY_ONLY,no,,61.8
+Senate,10,Cambridge-Isanti Public School District,911,231,0.3,FOUND_SEIZURE_SPECIFIC,yes,,29.2
+Senate,10,Holdingford Public School District,738,207,0.2,FOUND_MED_POLICY_ONLY,no,,16.5
+Senate,10,Willow River Public School District,577,49,0.1,FOUND_MED_POLICY_ONLY,no,,48.4
+Senate,10,East Central School District,2580,39,0.0,FOUND_MED_POLICY_ONLY,no,,55.6
+Senate,10,Long Prairie-Grey Eagle School District,2753,36,0.0,FOUND_MED_POLICY_ONLY,no,,41.7
+Senate,10,Staples-Motley School District,2170,12,0.0,FOUND_SEIZURE_SPECIFIC,yes,,61.3
+Senate,10,Pillager Public School District,116,7,0.0,FOUND_SEIZURE_SPECIFIC,yes,,53.5
+Senate,11,Cloquet Public School District,94,14738,17.3,FOUND_SEIZURE_SPECIFIC,yes,,17.7
+Senate,11,Pine City Public School District,578,10741,12.6,FOUND_MED_POLICY_ONLY,no,,47.9
+Senate,11,Mora Public School District,332,9533,11.2,FOUND_MED_POLICY_ONLY,no,,49.1
+Senate,11,Hinckley-Finlayson School District,2165,6558,7.7,FOUND_MED_POLICY_ONLY,no,,61.8
+Senate,11,East Central School District,2580,6465,7.6,FOUND_MED_POLICY_ONLY,no,,55.6
+Senate,11,Moose Lake Public School District,97,5869,6.9,FOUND_MED_POLICY_ONLY,no,,40.6
+Senate,11,Rush City Public School District,139,5489,6.4,FOUND_MED_POLICY_ONLY,no,,40.1
+Senate,11,Esko Public School District,99,5487,6.4,FOUND_SEIZURE_SPECIFIC,yes,,14.2
+Senate,11,Carlton Public School District,93,4448,5.2,FOUND_MED_POLICY_ONLY,no,,18.1
+Senate,11,Barnum Public School District,91,3899,4.6,NOT_VERIFIABLE,no,,34.3
+Senate,11,Willow River Public School District,577,3324,3.9,FOUND_MED_POLICY_ONLY,no,,48.4
+Senate,11,Braham Public School District,314,2486,2.9,FOUND_MED_POLICY_ONLY,no,,39.1
+Senate,11,Wrenshall Public School District,100,1861,2.2,FOUND_MED_POLICY_ONLY,no,,18.6
+Senate,11,Cromwell-Wright Public Schools,95,1814,2.1,FOUND_MED_POLICY_ONLY,no,,38.3
+Senate,11,St. Louis County School District,2142,1503,1.8,FOUND_MED_POLICY_ONLY,no,,55.2
+Senate,11,Ogilvie Public School District,333,852,1.0,FOUND_MED_POLICY_ONLY,no,,41.4
+Senate,11,Floodwood Public School District,698,83,0.1,FOUND_MED_POLICY_ONLY,no,,39.8
+Senate,12,Alexandria Public School District,206,27510,32.3,FOUND_SEIZURE_SPECIFIC,yes,,59.0
+Senate,12,Minnewaska School District,2149,9709,11.4,FOUND_SEIZURE_SPECIFIC,yes,,60.2
+Senate,12,Melrose Public School District,740,8383,9.8,FOUND_MED_POLICY_ONLY,no,,29.7
+Senate,12,Morris Area Public Schools,2769,7675,9.0,FOUND_SEIZURE_SPECIFIC,yes,,81.7
+Senate,12,Sauk Centre Public School District,743,6453,7.6,FOUND_MED_POLICY_ONLY,no,,37.0
+Senate,12,Benson Public School District,777,5625,6.6,FOUND_MED_POLICY_ONLY,no,,69.5
+Senate,12,Belgrade-Brooten-Elrosa Public School District,2364,3439,4.0,FOUND_SEIZURE_SPECIFIC,yes,,39.3
+Senate,12,Ortonville Public Schools,2903,2846,3.3,FOUND_SEIZURE_SPECIFIC,yes,,108.5
+Senate,12,Osakis Public School District,213,2487,2.9,NOT_VERIFIABLE,no,confirmed,49.6
+Senate,12,Lac qui Parle Valley School District,2853,2436,2.9,FOUND_MED_POLICY_ONLY,no,,96.3
+Senate,12,Kerkhoven-Murdock-Sunburg,775,2120,2.5,FOUND_SEIZURE_SPECIFIC,yes,,59.9
+Senate,12,Clinton-Graceville-Beardsley,2888,2105,2.5,FOUND_MED_POLICY_ONLY,no,confirmed,98.0
+Senate,12,Hancock Public School District,768,1490,1.7,FOUND_SEIZURE_SPECIFIC,yes,,76.6
+Senate,12,Chokio-Alberta Public Schools,771,1185,1.4,FOUND_MED_POLICY_ONLY,no,,93.9
+Senate,12,Paynesville Public School District,741,649,0.8,FOUND_SEIZURE_SPECIFIC,yes,confirmed,28.6
+Senate,12,Albany Public School District,745,604,0.7,FOUND_MED_POLICY_ONLY,no,,17.3
+Senate,12,West Central Area,2342,230,0.3,FOUND_MED_POLICY_ONLY,no,,79.0
+Senate,12,Parkers Prairie Public School Dist.,547,181,0.2,FOUND_MED_POLICY_ONLY,no,,66.8
+Senate,12,Herman-Norcross School District,264,70,0.1,FOUND_MED_POLICY_ONLY,no,,79.2
+Senate,12,Long Prairie-Grey Eagle School District,2753,27,0.0,FOUND_MED_POLICY_ONLY,no,,41.7
+Senate,13,Sartell-St. Stephen School District,748,20695,24.1,FOUND_MED_POLICY_ONLY,no,,3.3
+Senate,13,Sauk Rapids-Rice Public Schools,47,16262,19.0,FOUND_SEIZURE_SPECIFIC,yes,,4.8
+Senate,13,Rocori Public School District,750,12797,14.9,FOUND_MED_POLICY_ONLY,no,,13.0
+Senate,13,St. Cloud Public School District,742,10842,12.6,FOUND_MED_POLICY_ONLY,no,,2.0
+Senate,13,Albany Public School District,745,8766,10.2,FOUND_MED_POLICY_ONLY,no,,17.3
+Senate,13,Holdingford Public School District,738,4749,5.5,FOUND_MED_POLICY_ONLY,no,,16.5
+Senate,13,Paynesville Public School District,741,4324,5.0,FOUND_SEIZURE_SPECIFIC,yes,confirmed,28.6
+Senate,13,Kimball Public School District,739,3670,4.3,FOUND_MED_POLICY_ONLY,no,,18.5
+Senate,13,Eden Valley-Watkins School District,463,2236,2.6,FOUND_MED_POLICY_ONLY,no,,23.6
+Senate,13,Annandale Public School District,876,1221,1.4,FOUND_MED_POLICY_ONLY,no,,21.9
+Senate,13,Upsala Public School District,487,118,0.1,NOT_VERIFIABLE,no,,23.5
+Senate,13,Melrose Public School District,740,63,0.1,FOUND_MED_POLICY_ONLY,no,,29.7
+Senate,13,Royalton Public School District,485,7,0.0,FOUND_SEIZURE_SPECIFIC,yes,,17.9
+Senate,14,St. Cloud Public School District,742,83335,97.7,FOUND_MED_POLICY_ONLY,no,,2.0
+Senate,14,Sauk Rapids-Rice Public Schools,47,1782,2.1,FOUND_SEIZURE_SPECIFIC,yes,,4.8
+Senate,14,Foley Public School District,51,101,0.1,FOUND_MED_POLICY_ONLY,no,,16.0
+Senate,14,Kimball Public School District,739,58,0.1,FOUND_MED_POLICY_ONLY,no,,18.5
+Senate,15,New Ulm Public School District,88,17016,20.1,FOUND_SEIZURE_SPECIFIC,yes,,67.1
+Senate,15,Marshall Public School District,413,15593,18.4,FOUND_MED_POLICY_ONLY,no,,79.2
+Senate,15,Redwood Area School District,2897,7259,8.6,FOUND_MED_POLICY_ONLY,no,,83.6
+Senate,15,Yellow Medicine East,2190,6127,7.2,FOUND_SEIZURE_SPECIFIC,yes,,83.7
+Senate,15,Sleepy Eye Public School District,84,5137,6.1,FOUND_MED_POLICY_ONLY,no,,79.0
+Senate,15,Tracy Area Public School District,2904,3884,4.6,FOUND_MED_POLICY_ONLY,no,,73.5
+Senate,15,Springfield Public School District,85,3230,3.8,FOUND_SEIZURE_SPECIFIC,yes,,92.0
+Senate,15,Canby Public School District,891,3181,3.7,NOT_VERIFIABLE,no,,85.3
+Senate,15,Lac qui Parle Valley School District,2853,2853,3.4,FOUND_MED_POLICY_ONLY,no,,96.3
+Senate,15,Dawson-Boyd Public School District,378,2838,3.3,FOUND_SEIZURE_SPECIFIC,yes,,100.2
+Senate,15,Lakeview School District,2167,2603,3.1,FOUND_SEIZURE_SPECIFIC,yes,,92.7
+Senate,15,Wabasso Public School District,640,2506,3.0,FOUND_SEIZURE_SPECIFIC,yes,,95.5
+Senate,15,Minneota Public School District,414,2420,2.9,FOUND_MED_POLICY_ONLY,no,,81.2
+Senate,15,Red Rock Central School District,2884,1731,2.0,FOUND_MED_POLICY_ONLY,no,,88.1
+Senate,15,Cedar Mountain School District,2754,1616,1.9,FOUND_MED_POLICY_ONLY,no,,84.2
+Senate,15,Westbrook-Walnut Grove Schools,2898,1242,1.5,FOUND_MED_POLICY_ONLY,no,,74.5
+Senate,15,RTR Public Schools,2902,981,1.2,FOUND_MED_POLICY_ONLY,no,,59.9
+Senate,15,Lynd Public School District,415,979,1.2,FOUND_MED_POLICY_ONLY,no,,73.0
+Senate,15,Lake Crystal-Wellcome Memorial,2071,798,0.9,FOUND_SEIZURE_SPECIFIC,yes,,66.4
+Senate,15,Comfrey Public School District,81,722,0.9,FOUND_MED_POLICY_ONLY,no,,92.8
+Senate,15,Ortonville Public Schools,2903,655,0.8,FOUND_SEIZURE_SPECIFIC,yes,,108.5
+Senate,15,Milroy Public School District,635,651,0.8,FOUND_SEIZURE_SPECIFIC,yes,,85.2
+Senate,15,Montevideo Public School District,129,500,0.6,FOUND_SEIZURE_SPECIFIC,yes,,84.8
+Senate,15,Madelia Public School District,837,177,0.2,FOUND_MED_POLICY_ONLY,no,,75.4
+Senate,15,St. James Public School District,840,140,0.2,NOT_FOUND,no,confirmed,86.6
+Senate,15,Mankato Public School District,77,14,0.0,FOUND_SEIZURE_SPECIFIC,yes,,55.5
+Senate,16,Willmar Public School District,347,26962,31.6,FOUND_MED_POLICY_ONLY,no,,51.4
+Senate,16,New London-Spicer School District,345,9297,10.9,NOT_VERIFIABLE,no,,40.5
+Senate,16,Litchfield Public School District,465,8811,10.3,NOT_VERIFIABLE,no,,34.1
+Senate,16,Montevideo Public School District,129,6977,8.2,FOUND_SEIZURE_SPECIFIC,yes,,84.8
+Senate,16,A.C.G.C. Public School District,2396,5731,6.7,FOUND_MED_POLICY_ONLY,no,,37.6
+Senate,16,Bird Island-Olivia-Lake Lillian Public School District,2534,4802,5.6,FOUND_MED_POLICY_ONLY,no,,67.3
+Senate,16,MACCRAY School District,2180,4668,5.5,FOUND_MED_POLICY_ONLY,no,,70.8
+Senate,16,Renville County West School District,2890,4069,4.8,FOUND_SEIZURE_SPECIFIC,yes,,72.7
+Senate,16,Buffalo Lake-Hector-Stewart Public Schools,2159,2938,3.4,FOUND_MED_POLICY_ONLY,no,,62.5
+Senate,16,Eden Valley-Watkins School District,463,2546,3.0,FOUND_MED_POLICY_ONLY,no,,23.6
+Senate,16,GFW Public Schools,2365,1758,2.1,FOUND_MED_POLICY_ONLY,no,,62.8
+Senate,16,Paynesville Public School District,741,997,1.2,FOUND_SEIZURE_SPECIFIC,yes,confirmed,28.6
+Senate,16,Lac qui Parle Valley School District,2853,988,1.2,FOUND_MED_POLICY_ONLY,no,,96.3
+Senate,16,Redwood Area School District,2897,812,1.0,FOUND_MED_POLICY_ONLY,no,,83.6
+Senate,16,Kerkhoven-Murdock-Sunburg,775,794,0.9,FOUND_SEIZURE_SPECIFIC,yes,,59.9
+Senate,16,Prinsburg Public School District,815,782,0.9,NOT_VERIFIABLE,no,,64.9
+Senate,16,Cedar Mountain School District,2754,740,0.9,FOUND_MED_POLICY_ONLY,no,,84.2
+Senate,16,Belgrade-Brooten-Elrosa Public School District,2364,686,0.8,FOUND_SEIZURE_SPECIFIC,yes,,39.3
+Senate,16,Yellow Medicine East,2190,308,0.4,FOUND_SEIZURE_SPECIFIC,yes,,83.7
+Senate,16,Hutchinson Public School District,423,298,0.3,FOUND_SEIZURE_SPECIFIC,yes,,47.7
+Senate,16,Kimball Public School District,739,293,0.3,FOUND_MED_POLICY_ONLY,no,,18.5
+Senate,16,Benson Public School District,777,38,0.0,FOUND_MED_POLICY_ONLY,no,,69.5
+Senate,17,Hutchinson Public School District,423,18277,21.5,FOUND_SEIZURE_SPECIFIC,yes,,47.7
+Senate,17,Glencoe-Silver Lake School District,2859,12817,15.1,FOUND_MED_POLICY_ONLY,no,,40.0
+Senate,17,Dassel-Cokato Public School District,466,9604,11.3,FOUND_SEIZURE_SPECIFIC,yes,,34.0
+Senate,17,Sibley East School District,2310,7424,8.8,FOUND_MED_POLICY_ONLY,no,,40.9
+Senate,17,Eastern Carver County Public Schools,112,6747,8.0,FOUND_SEIZURE_SPECIFIC,yes,,13.0
+Senate,17,Watertown-Mayer Public School District,111,6706,7.9,FOUND_SEIZURE_SPECIFIC,yes,,25.4
+Senate,17,Central Public School District,108,5916,7.0,FOUND_MED_POLICY_ONLY,no,,29.6
+Senate,17,GFW Public Schools,2365,3877,4.6,FOUND_MED_POLICY_ONLY,no,,62.8
+Senate,17,Lester Prairie Public School Dist.,424,3093,3.6,FOUND_MED_POLICY_ONLY,no,,34.7
+Senate,17,Howard Lake-Waverly-Winsted,2687,2666,3.1,FOUND_SEIZURE_SPECIFIC,yes,,35.5
+Senate,17,Litchfield Public School District,465,2037,2.4,NOT_VERIFIABLE,no,,34.1
+Senate,17,Le Sueur-Henderson School District,2397,2027,2.4,FOUND_MED_POLICY_ONLY,no,,38.1
+Senate,17,Waconia Public School District,110,1428,1.7,FOUND_SEIZURE_SPECIFIC,yes,,22.7
+Senate,17,Belle Plaine Public School District,716,1268,1.5,FOUND_MED_POLICY_ONLY,no,,26.7
+Senate,17,Buffalo Lake-Hector-Stewart Public Schools,2159,939,1.1,FOUND_MED_POLICY_ONLY,no,,62.5
+Senate,18,Mankato Public School District,77,65130,76.2,FOUND_SEIZURE_SPECIFIC,yes,,55.5
+Senate,18,St. Peter Public School District,508,14459,16.9,FOUND_MED_POLICY_ONLY,no,,46.0
+Senate,18,New Ulm Public School District,88,2794,3.3,FOUND_SEIZURE_SPECIFIC,yes,,67.1
+Senate,18,Nicollet Public School District,507,2507,2.9,FOUND_MED_POLICY_ONLY,no,,56.5
+Senate,18,GFW Public Schools,2365,304,0.4,FOUND_MED_POLICY_ONLY,no,,62.8
+Senate,18,Sibley East School District,2310,180,0.2,FOUND_MED_POLICY_ONLY,no,,40.9
+Senate,18,Le Sueur-Henderson School District,2397,118,0.1,FOUND_MED_POLICY_ONLY,no,,38.1
+Senate,18,St. Clair Public School District,75,7,0.0,FOUND_MED_POLICY_ONLY,no,,56.0
+Senate,19,Faribault Public School District,656,30352,35.8,FOUND_MED_POLICY_ONLY,no,in_progress,35.0
+Senate,19,Owatonna Public School District,761,28783,33.9,FOUND_MED_POLICY_ONLY,no,,35.4
+Senate,19,Waseca Public School District,829,11710,13.8,FOUND_MED_POLICY_ONLY,no,,48.5
+Senate,19,Kenyon-Wanamingo School District,2172,4741,5.6,FOUND_MED_POLICY_ONLY,no,,21.5
+Senate,19,Janesville-Waldorf-Pemberton,2835,3430,4.0,FOUND_SEIZURE_SPECIFIC,yes,,50.2
+Senate,19,Medford Public School District,763,3208,3.8,FOUND_SEIZURE_SPECIFIC,yes,,36.0
+Senate,19,Waterville-Elysian-Morristown Public School District,2143,2275,2.7,FOUND_SEIZURE_SPECIFIC,yes,,41.2
+Senate,19,Tri-City United School District,2905,231,0.3,FOUND_MED_POLICY_ONLY,no,,27.6
+Senate,19,Northfield Public School District,659,92,0.1,FOUND_MED_POLICY_ONLY,no,,22.6
+Senate,19,Triton School District,2125,47,0.1,FOUND_MED_POLICY_ONLY,no,confirmed,17.0
+Senate,19,St. Clair Public School District,75,3,0.0,FOUND_MED_POLICY_ONLY,no,,56.0
+Senate,20,Red Wing Public School District,256,19804,23.4,FOUND_MED_POLICY_ONLY,no,,33.1
+Senate,20,Lake City Public School District,813,8734,10.3,FOUND_MED_POLICY_ONLY,no,,29.8
+Senate,20,Plainview-Elgin-Millville,2899,7985,9.4,FOUND_SEIZURE_SPECIFIC,yes,,19.0
+Senate,20,Zumbrota-Mazeppa School District,2805,7226,8.5,FOUND_MED_POLICY_ONLY,no,,17.8
+Senate,20,Cannon Falls Public School District,252,6782,8.0,FOUND_MED_POLICY_ONLY,no,,26.3
+Senate,20,St. Charles Public School District,858,6012,7.1,FOUND_MED_POLICY_ONLY,no,,24.1
+Senate,20,Pine Island Public School District,255,5432,6.4,FOUND_SEIZURE_SPECIFIC,yes,,11.6
+Senate,20,Wabasha-Kellogg Public School District,811,5239,6.2,FOUND_MED_POLICY_ONLY,no,,32.9
+Senate,20,Rochester Public School District,535,4721,5.6,FOUND_SEIZURE_SPECIFIC,yes,,3.8
+Senate,20,Dover-Eyota Public School District,533,4247,5.0,NOT_FOUND,no,,15.5
+Senate,20,Goodhue Public School District,253,3193,3.8,FOUND_SEIZURE_SPECIFIC,yes,,24.4
+Senate,20,Chatfield Public Schools,227,2136,2.5,FOUND_SEIZURE_SPECIFIC,yes,,21.7
+Senate,20,Lewiston-Altura Public School District,857,1211,1.4,FOUND_MED_POLICY_ONLY,no,confirmed,33.5
+Senate,20,Hastings Public School District,200,755,0.9,FOUND_SEIZURE_SPECIFIC,yes,,18.4
+Senate,20,Kenyon-Wanamingo School District,2172,480,0.6,FOUND_MED_POLICY_ONLY,no,,21.5
+Senate,20,Stewartville Public School District,534,377,0.4,FOUND_MED_POLICY_ONLY,no,,14.0
+Senate,20,Winona Area Public School District,861,334,0.4,FOUND_MED_POLICY_ONLY,no,,30.9
+Senate,20,Byron Public School District,531,82,0.1,FOUND_MED_POLICY_ONLY,no,,6.8
+Senate,20,Randolph Public School District,195,7,0.0,FOUND_MED_POLICY_ONLY,no,,21.3
+Senate,21,Worthington Public School District,518,16823,19.7,NOT_VERIFIABLE,no,,57.4
+Senate,21,Jackson County Central School District,2895,7731,9.1,FOUND_MED_POLICY_ONLY,no,,87.2
+Senate,21,Pipestone Area School District,2689,7443,8.7,FOUND_SEIZURE_SPECIFIC,yes,,38.4
+Senate,21,Luverne Public School District,2184,7223,8.5,FOUND_MED_POLICY_ONLY,no,,27.7
+Senate,21,Windom Public School District,177,6179,7.2,NOT_FOUND,no,,83.8
+Senate,21,St. James Public School District,840,5812,6.8,NOT_FOUND,no,confirmed,86.6
+Senate,21,Murray County Central School Dist.,2169,4650,5.4,NOT_FOUND,no,,58.4
+Senate,21,Mountain Lake Public Schools,173,2922,3.4,FOUND_MED_POLICY_ONLY,no,,94.8
+Senate,21,Fulda Public School District,505,2452,2.9,FOUND_MED_POLICY_ONLY,no,,61.5
+Senate,21,RTR Public Schools,2902,2401,2.8,FOUND_MED_POLICY_ONLY,no,,59.9
+Senate,21,Edgerton Public School District,581,2392,2.8,FOUND_MED_POLICY_ONLY,no,,39.0
+Senate,21,Adrian Public School District,511,2303,2.7,FOUND_MED_POLICY_ONLY,no,,40.7
+Senate,21,Hills-Beaver Creek School District,671,1991,2.3,FOUND_MED_POLICY_ONLY,no,,18.6
+Senate,21,Round Lake-Brewster Public Schools,2907,1608,1.9,NOT_FOUND,no,,64.7
+Senate,21,Westbrook-Walnut Grove Schools,2898,1530,1.8,FOUND_MED_POLICY_ONLY,no,,74.5
+Senate,21,Heron Lake-Okabena School District,330,1495,1.8,FOUND_MED_POLICY_ONLY,no,,72.6
+Senate,21,Red Rock Central School District,2884,1470,1.7,FOUND_MED_POLICY_ONLY,no,,88.1
+Senate,21,Martin County West School District,2448,1451,1.7,FOUND_MED_POLICY_ONLY,no,,101.0
+Senate,21,Lake Benton Public School District,404,1378,1.6,FOUND_MED_POLICY_ONLY,no,,55.8
+Senate,21,Ivanhoe Public School District,403,1265,1.5,FOUND_MED_POLICY_ONLY,no,,69.5
+Senate,21,Butterfield Public School District,836,1194,1.4,FOUND_MED_POLICY_ONLY,no,,93.8
+Senate,21,Tracy Area Public School District,2904,1061,1.2,FOUND_MED_POLICY_ONLY,no,,73.5
+Senate,21,Hendricks Public School District,402,983,1.2,FOUND_MED_POLICY_ONLY,no,,69.9
+Senate,21,Ellsworth Public School District,514,933,1.1,FOUND_MED_POLICY_ONLY,no,,35.9
+Senate,21,Comfrey Public School District,81,342,0.4,FOUND_MED_POLICY_ONLY,no,,92.8
+Senate,21,Canby Public School District,891,216,0.3,NOT_VERIFIABLE,no,,85.3
+Senate,21,Minneota Public School District,414,80,0.1,FOUND_MED_POLICY_ONLY,no,,81.2
+Senate,22,Fairmont Area School District,2752,12481,14.7,FOUND_MED_POLICY_ONLY,no,,97.5
+Senate,22,Tri-City United School District,2905,9714,11.5,FOUND_MED_POLICY_ONLY,no,,27.6
+Senate,22,Belle Plaine Public School District,716,8519,10.0,FOUND_MED_POLICY_ONLY,no,,26.7
+Senate,22,Blue Earth Area Public School,2860,6162,7.3,FOUND_MED_POLICY_ONLY,no,,83.5
+Senate,22,Le Sueur-Henderson School District,2397,5435,6.4,FOUND_MED_POLICY_ONLY,no,,38.1
+Senate,22,New Prague Area Schools,721,5379,6.3,FOUND_MED_POLICY_ONLY,no,,21.7
+Senate,22,Lake Crystal-Wellcome Memorial,2071,5365,6.3,FOUND_SEIZURE_SPECIFIC,yes,,66.4
+Senate,22,Maple River School District,2135,4859,5.7,FOUND_MED_POLICY_ONLY,no,,68.2
+Senate,22,Mankato Public School District,77,4569,5.4,FOUND_SEIZURE_SPECIFIC,yes,,55.5
+Senate,22,Waterville-Elysian-Morristown Public School District,2143,4098,4.8,FOUND_SEIZURE_SPECIFIC,yes,,41.2
+Senate,22,Madelia Public School District,837,3223,3.8,FOUND_MED_POLICY_ONLY,no,,75.4
+Senate,22,Martin County West School District,2448,2848,3.4,FOUND_MED_POLICY_ONLY,no,,101.0
+Senate,22,Cleveland Public School District,391,2627,3.1,FOUND_MED_POLICY_ONLY,no,,41.8
+Senate,22,St. Clair Public School District,75,2534,3.0,FOUND_MED_POLICY_ONLY,no,,56.0
+Senate,22,Truman Public School District,458,2234,2.6,FOUND_MED_POLICY_ONLY,no,,87.1
+Senate,22,Granada Huntley East Chain,2536,1714,2.0,FOUND_MED_POLICY_ONLY,no,,91.5
+Senate,22,St. Peter Public School District,508,953,1.1,FOUND_MED_POLICY_ONLY,no,,46.0
+Senate,22,St. James Public School District,840,700,0.8,NOT_FOUND,no,confirmed,86.6
+Senate,22,Janesville-Waldorf-Pemberton,2835,699,0.8,FOUND_SEIZURE_SPECIFIC,yes,,50.2
+Senate,22,Jordan Public School District,717,471,0.6,FOUND_SEIZURE_SPECIFIC,yes,,19.6
+Senate,22,Faribault Public School District,656,176,0.2,FOUND_MED_POLICY_ONLY,no,in_progress,35.0
+Senate,22,Northfield Public School District,659,15,0.0,FOUND_MED_POLICY_ONLY,no,,22.6
+Senate,22,Jackson County Central School District,2895,5,0.0,FOUND_MED_POLICY_ONLY,no,,87.2
+Senate,23,Austin Public School District,492,29379,34.6,FOUND_SEIZURE_SPECIFIC,yes,,35.0
+Senate,23,Albert Lea Public School District,241,23568,27.7,FOUND_SEIZURE_SPECIFIC,yes,,50.1
+Senate,23,United South Central School District,2134,5868,6.9,FOUND_MED_POLICY_ONLY,no,,64.2
+Senate,23,NRHEG School District,2168,5192,6.1,FOUND_MED_POLICY_ONLY,no,,49.5
+Senate,23,Blooming Prairie Public School Dist,756,3747,4.4,FOUND_SEIZURE_SPECIFIC,yes,,29.7
+Senate,23,Southland Public School District,500,3256,3.8,FOUND_MED_POLICY_ONLY,no,,35.0
+Senate,23,Glenville-Emmons School District,2886,2389,2.8,FOUND_MED_POLICY_ONLY,no,,50.4
+Senate,23,Hayfield Public School District,203,1820,2.1,FOUND_MED_POLICY_ONLY,no,confirmed,19.3
+Senate,23,Blue Earth Area Public School,2860,1618,1.9,FOUND_MED_POLICY_ONLY,no,,83.5
+Senate,23,Grand Meadow Public School District,495,1536,1.8,FOUND_MED_POLICY_ONLY,no,confirmed,24.0
+Senate,23,Alden-Conger Public School District,242,1523,1.8,FOUND_MED_POLICY_ONLY,no,,58.6
+Senate,23,Owatonna Public School District,761,1384,1.6,FOUND_MED_POLICY_ONLY,no,,35.4
+Senate,23,Lyle Public School District,497,1111,1.3,FOUND_MED_POLICY_ONLY,no,,43.2
+Senate,23,Maple River School District,2135,906,1.1,FOUND_MED_POLICY_ONLY,no,,68.2
+Senate,23,Janesville-Waldorf-Pemberton,2835,847,1.0,FOUND_SEIZURE_SPECIFIC,yes,,50.2
+Senate,23,Waseca Public School District,829,519,0.6,FOUND_MED_POLICY_ONLY,no,,48.5
+Senate,23,Stewartville Public School District,534,178,0.2,FOUND_MED_POLICY_ONLY,no,,14.0
+Senate,23,LeRoy-Ostrander Public Schools,499,117,0.1,FOUND_SEIZURE_SPECIFIC,yes,,37.5
+Senate,23,Triton School District,2125,30,0.0,FOUND_MED_POLICY_ONLY,no,confirmed,17.0
+Senate,24,Rochester Public School District,535,46910,55.4,FOUND_SEIZURE_SPECIFIC,yes,,3.8
+Senate,24,Kasson-Mantorville School District,204,10674,12.6,FOUND_MED_POLICY_ONLY,no,,11.0
+Senate,24,Byron Public School District,531,8721,10.3,FOUND_MED_POLICY_ONLY,no,,6.8
+Senate,24,Stewartville Public School District,534,7966,9.4,FOUND_MED_POLICY_ONLY,no,,14.0
+Senate,24,Triton School District,2125,6802,8.0,FOUND_MED_POLICY_ONLY,no,confirmed,17.0
+Senate,24,Hayfield Public School District,203,2788,3.3,FOUND_MED_POLICY_ONLY,no,confirmed,19.3
+Senate,24,Pine Island Public School District,255,398,0.5,FOUND_SEIZURE_SPECIFIC,yes,,11.6
+Senate,24,Blooming Prairie Public School Dist,756,350,0.4,FOUND_SEIZURE_SPECIFIC,yes,,29.7
+Senate,24,Kenyon-Wanamingo School District,2172,13,0.0,FOUND_MED_POLICY_ONLY,no,,21.5
+Senate,25,Rochester Public School District,535,83971,98.6,FOUND_SEIZURE_SPECIFIC,yes,,3.8
+Senate,25,Pine Island Public School District,255,1131,1.3,FOUND_SEIZURE_SPECIFIC,yes,,11.6
+Senate,25,Byron Public School District,531,67,0.1,FOUND_MED_POLICY_ONLY,no,,6.8
+Senate,25,Plainview-Elgin-Millville,2899,15,0.0,FOUND_SEIZURE_SPECIFIC,yes,,19.0
+Senate,25,Zumbrota-Mazeppa School District,2805,6,0.0,FOUND_MED_POLICY_ONLY,no,,17.8
+Senate,26,Winona Area Public School District,861,38068,44.8,FOUND_MED_POLICY_ONLY,no,,30.9
+Senate,26,La Crescent-Hokah School District,300,8371,9.8,FOUND_MED_POLICY_ONLY,no,,8.6
+Senate,26,Caledonia Public School District,299,6050,7.1,FOUND_MED_POLICY_ONLY,no,,21.5
+Senate,26,Kingsland Public School District,2137,5165,6.1,FOUND_MED_POLICY_ONLY,no,,25.7
+Senate,26,Fillmore Central,2198,4909,5.8,NOT_FOUND,no,,34.0
+Senate,26,Rushford-Peterson Public Schools,239,4135,4.9,NOT_FOUND,no,,30.1
+Senate,26,Chatfield Public Schools,227,2998,3.5,FOUND_SEIZURE_SPECIFIC,yes,,21.7
+Senate,26,Lewiston-Altura Public School District,857,2873,3.4,FOUND_MED_POLICY_ONLY,no,confirmed,33.5
+Senate,26,Houston Public School District,294,2827,3.3,FOUND_MED_POLICY_ONLY,no,,21.7
+Senate,26,Mabel-Canton Public School District,238,2346,2.8,FOUND_MED_POLICY_ONLY,no,,37.2
+Senate,26,Spring Grove School District,297,2109,2.5,FOUND_MED_POLICY_ONLY,no,,30.1
+Senate,26,LeRoy-Ostrander Public Schools,499,1871,2.2,FOUND_SEIZURE_SPECIFIC,yes,,37.5
+Senate,26,Lanesboro Public School District,229,1784,2.1,NOT_FOUND,no,,36.0
+Senate,26,Stewartville Public School District,534,1018,1.2,FOUND_MED_POLICY_ONLY,no,,14.0
+Senate,26,Grand Meadow Public School District,495,397,0.5,FOUND_MED_POLICY_ONLY,no,confirmed,24.0
+Senate,26,St. Charles Public School District,858,82,0.1,FOUND_MED_POLICY_ONLY,no,,24.1
+Senate,27,Big Lake Public School District,727,19573,22.9,FOUND_SEIZURE_SPECIFIC,yes,,23.7
+Senate,27,Princeton Public School District,477,19095,22.3,FOUND_SEIZURE_SPECIFIC,yes,,30.4
+Senate,27,Elk River School District,728,15636,18.3,FOUND_MED_POLICY_ONLY,no,,16.2
+Senate,27,Becker Public School District,726,12168,14.2,FOUND_MED_POLICY_ONLY,no,,20.4
+Senate,27,St. Francis Area Schools,15,10465,12.2,FOUND_SEIZURE_SPECIFIC,yes,,16.7
+Senate,27,St. Cloud Public School District,742,5547,6.5,FOUND_MED_POLICY_ONLY,no,,2.0
+Senate,27,Monticello Public School District,882,1694,2.0,FOUND_MED_POLICY_ONLY,no,,24.7
+Senate,27,Cambridge-Isanti Public School District,911,1128,1.3,FOUND_SEIZURE_SPECIFIC,yes,,29.2
+Senate,27,Foley Public School District,51,248,0.3,FOUND_MED_POLICY_ONLY,no,,16.0
+Senate,27,Milaca Public School District,912,38,0.0,FOUND_SEIZURE_SPECIFIC,yes,,29.4
+Senate,28,Cambridge-Isanti Public School District,911,28815,33.9,FOUND_SEIZURE_SPECIFIC,yes,,29.2
+Senate,28,Chisago Lakes School District,2144,21699,25.5,FOUND_SEIZURE_SPECIFIC,yes,,25.0
+Senate,28,North Branch Area Public Schools,138,20964,24.7,FOUND_MED_POLICY_ONLY,no,,29.3
+Senate,28,Forest Lake Public School District,831,7368,8.7,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+Senate,28,Braham Public School District,314,3549,4.2,FOUND_MED_POLICY_ONLY,no,,39.1
+Senate,28,Rush City Public School District,139,1235,1.5,FOUND_MED_POLICY_ONLY,no,,40.1
+Senate,28,Princeton Public School District,477,1045,1.2,FOUND_SEIZURE_SPECIFIC,yes,,30.4
+Senate,28,Franconia Public School District,323,260,0.3,NOT_VERIFIABLE,no,,24.1
+Senate,28,Ogilvie Public School District,333,9,0.0,FOUND_MED_POLICY_ONLY,no,,41.4
+Senate,29,Buffalo-Hanover-Montrose Public Sch,877,25192,29.4,FOUND_SEIZURE_SPECIFIC,yes,,27.2
+Senate,29,Monticello Public School District,882,19869,23.2,FOUND_MED_POLICY_ONLY,no,,24.7
+Senate,29,Annandale Public School District,876,9638,11.2,FOUND_MED_POLICY_ONLY,no,,21.9
+Senate,29,Delano Public School District,879,8851,10.3,FOUND_MED_POLICY_ONLY,no,,21.5
+Senate,29,Howard Lake-Waverly-Winsted,2687,6771,7.9,FOUND_SEIZURE_SPECIFIC,yes,,35.5
+Senate,29,Maple Lake Public School District,881,5182,6.0,FOUND_MED_POLICY_ONLY,no,,25.8
+Senate,29,Rockford Public School District,883,4607,5.4,FOUND_SEIZURE_SPECIFIC,yes,,20.2
+Senate,29,St. Cloud Public School District,742,2585,3.0,FOUND_MED_POLICY_ONLY,no,,2.0
+Senate,29,Dassel-Cokato Public School District,466,885,1.0,FOUND_SEIZURE_SPECIFIC,yes,,34.0
+Senate,29,Watertown-Mayer Public School District,111,800,0.9,FOUND_SEIZURE_SPECIFIC,yes,,25.4
+Senate,29,Litchfield Public School District,465,625,0.7,NOT_VERIFIABLE,no,,34.1
+Senate,29,Kimball Public School District,739,614,0.7,FOUND_MED_POLICY_ONLY,no,,18.5
+Senate,29,St. Michael-Albertville School District,885,115,0.1,FOUND_SEIZURE_SPECIFIC,yes,,17.2
+Senate,30,Elk River School District,728,47502,55.4,FOUND_MED_POLICY_ONLY,no,,16.2
+Senate,30,St. Michael-Albertville School District,885,24956,29.1,FOUND_SEIZURE_SPECIFIC,yes,,17.2
+Senate,30,Buffalo-Hanover-Montrose Public Sch,877,5775,6.7,FOUND_SEIZURE_SPECIFIC,yes,,27.2
+Senate,30,St. Francis Area Schools,15,3929,4.6,FOUND_SEIZURE_SPECIFIC,yes,,16.7
+Senate,30,Anoka-Hennepin Public School District,11,1324,1.5,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+Senate,30,Monticello Public School District,882,1311,1.5,FOUND_MED_POLICY_ONLY,no,,24.7
+Senate,30,Rockford Public School District,883,741,0.9,FOUND_SEIZURE_SPECIFIC,yes,,20.2
+Senate,30,Delano Public School District,879,229,0.3,FOUND_MED_POLICY_ONLY,no,,21.5
+Senate,31,Anoka-Hennepin Public School District,11,54867,63.9,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+Senate,31,St. Francis Area Schools,15,19350,22.5,FOUND_SEIZURE_SPECIFIC,yes,,16.7
+Senate,31,Forest Lake Public School District,831,7335,8.5,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+Senate,31,Elk River School District,728,2790,3.2,FOUND_MED_POLICY_ONLY,no,,16.2
+Senate,31,Cambridge-Isanti Public School District,911,1521,1.8,FOUND_SEIZURE_SPECIFIC,yes,,29.2
+Senate,32,Anoka-Hennepin Public School District,11,48746,56.7,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+Senate,32,Spring Lake Park Public Schools,16,22190,25.8,FOUND_SEIZURE_SPECIFIC,yes,,5.0
+Senate,32,Centennial Public School District,12,10204,11.9,FOUND_SEIZURE_SPECIFIC,yes,,8.1
+Senate,32,Forest Lake Public School District,831,4819,5.6,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+Senate,33,Stillwater Area Public Schools,834,33865,39.8,FOUND_SEIZURE_SPECIFIC,yes,,14.5
+Senate,33,Forest Lake Public School District,831,25756,30.3,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+Senate,33,White Bear Lake School District,624,13141,15.5,FOUND_SEIZURE_SPECIFIC,yes,,8.7
+Senate,33,Mahtomedi Public School District,832,11655,13.7,FOUND_SEIZURE_SPECIFIC,yes,,10.6
+Senate,33,Chisago Lakes School District,2144,625,0.7,FOUND_SEIZURE_SPECIFIC,yes,,25.0
+Senate,34,Anoka-Hennepin Public School District,11,47828,56.2,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+Senate,34,Osseo Public School District,279,23265,27.4,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+Senate,34,Elk River School District,728,13307,15.6,FOUND_MED_POLICY_ONLY,no,,16.2
+Senate,34,Buffalo-Hanover-Montrose Public Sch,877,638,0.8,FOUND_SEIZURE_SPECIFIC,yes,,27.2
+Senate,35,Anoka-Hennepin Public School District,11,85408,100.0,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+Senate,36,White Bear Lake School District,624,51669,60.2,FOUND_SEIZURE_SPECIFIC,yes,,8.7
+Senate,36,Centennial Public School District,12,24581,28.6,FOUND_SEIZURE_SPECIFIC,yes,,8.1
+Senate,36,Mounds View Public School District,621,5162,6.0,NOT_FOUND,no,,4.8
+Senate,36,Forest Lake Public School District,831,4008,4.7,FOUND_SEIZURE_SPECIFIC,yes,,17.5
+Senate,36,Mahtomedi Public School District,832,407,0.5,FOUND_SEIZURE_SPECIFIC,yes,,10.6
+Senate,37,Osseo Public School District,279,62621,73.0,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+Senate,37,Wayzata Public School District,284,7039,8.2,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+Senate,37,Orono Public School District,278,5417,6.3,FOUND_SEIZURE_SPECIFIC,yes,,12.6
+Senate,37,Rockford Public School District,883,4723,5.5,FOUND_SEIZURE_SPECIFIC,yes,,20.2
+Senate,37,Delano Public School District,879,2995,3.5,FOUND_MED_POLICY_ONLY,no,,21.5
+Senate,37,Buffalo-Hanover-Montrose Public Sch,877,2757,3.2,FOUND_SEIZURE_SPECIFIC,yes,,27.2
+Senate,37,Westonka Public School District,277,285,0.3,FOUND_SEIZURE_SPECIFIC,yes,,16.2
+Senate,38,Osseo Public School District,279,55201,64.4,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+Senate,38,Robbinsdale Public School District,281,12968,15.1,FOUND_SEIZURE_SPECIFIC,yes,,2.5
+Senate,38,Brooklyn Center School District,286,9891,11.5,FOUND_MED_POLICY_ONLY,no,,3.9
+Senate,38,Anoka-Hennepin Public School District,11,7683,9.0,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+Senate,39,Columbia Heights Public School District,13,27904,33.0,FOUND_MED_POLICY_ONLY,no,,5.0
+Senate,39,Fridley Public School District,14,17319,20.5,FOUND_MED_POLICY_ONLY,no,,6.3
+Senate,39,Mounds View Public School District,621,14071,16.6,NOT_FOUND,no,,4.8
+Senate,39,Spring Lake Park Public Schools,16,12761,15.1,FOUND_SEIZURE_SPECIFIC,yes,,5.0
+Senate,39,St. Anthony-New Brighton Schools,282,11033,13.0,FOUND_MED_POLICY_ONLY,no,,3.1
+Senate,39,Anoka-Hennepin Public School District,11,1520,1.8,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+Senate,40,Mounds View Public School District,621,60873,71.6,NOT_FOUND,no,,4.8
+Senate,40,Roseville Public School District,623,24170,28.4,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+Senate,41,South Washington County Schools,833,33429,39.4,FOUND_MED_POLICY_ONLY,no,,10.6
+Senate,41,Hastings Public School District,200,25134,29.7,FOUND_SEIZURE_SPECIFIC,yes,,18.4
+Senate,41,Stillwater Area Public Schools,834,22521,26.6,FOUND_SEIZURE_SPECIFIC,yes,,14.5
+Senate,41,North St. Paul-Maplewood Oakdale Public School District,622,2070,2.4,FOUND_SEIZURE_SPECIFIC,yes,,6.5
+Senate,41,Mahtomedi Public School District,832,1590,1.9,FOUND_SEIZURE_SPECIFIC,yes,,10.6
+Senate,42,Wayzata Public School District,284,53783,63.2,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+Senate,42,Robbinsdale Public School District,281,17523,20.6,FOUND_SEIZURE_SPECIFIC,yes,,2.5
+Senate,42,Osseo Public School District,279,13750,16.2,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+Senate,43,Robbinsdale Public School District,281,74195,87.0,FOUND_SEIZURE_SPECIFIC,yes,,2.5
+Senate,43,Hopkins Public School District,270,10751,12.6,FOUND_SEIZURE_SPECIFIC,yes,,3.7
+Senate,43,Wayzata Public School District,284,360,0.4,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+Senate,44,North St. Paul-Maplewood Oakdale Public School District,622,66376,78.1,FOUND_SEIZURE_SPECIFIC,yes,,6.5
+Senate,44,Roseville Public School District,623,17297,20.3,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+Senate,44,White Bear Lake School District,624,765,0.9,FOUND_SEIZURE_SPECIFIC,yes,,8.7
+Senate,44,Mahtomedi Public School District,832,602,0.7,FOUND_SEIZURE_SPECIFIC,yes,,10.6
+Senate,45,Minnetonka Public School District,276,24076,28.0,FOUND_MED_POLICY_ONLY,no,,8.8
+Senate,45,Westonka Public School District,277,19572,22.8,FOUND_SEIZURE_SPECIFIC,yes,,16.2
+Senate,45,Hopkins Public School District,270,17669,20.6,FOUND_SEIZURE_SPECIFIC,yes,,3.7
+Senate,45,Wayzata Public School District,284,12015,14.0,FOUND_SEIZURE_SPECIFIC,yes,,5.6
+Senate,45,Orono Public School District,278,7294,8.5,FOUND_SEIZURE_SPECIFIC,yes,,12.6
+Senate,45,Waconia Public School District,110,4544,5.3,FOUND_SEIZURE_SPECIFIC,yes,,22.7
+Senate,45,Watertown-Mayer Public School District,111,724,0.8,FOUND_SEIZURE_SPECIFIC,yes,,25.4
+Senate,45,Delano Public School District,879,29,0.0,FOUND_MED_POLICY_ONLY,no,,21.5
+Senate,45,St. Louis Park Public School District,283,16,0.0,FOUND_MED_POLICY_ONLY,no,,1.2
+Senate,46,St. Louis Park Public School District,283,48219,56.9,FOUND_MED_POLICY_ONLY,no,,1.2
+Senate,46,Hopkins Public School District,270,25136,29.7,FOUND_SEIZURE_SPECIFIC,yes,,3.7
+Senate,46,Edina Public School District,273,11416,13.5,FOUND_SEIZURE_SPECIFIC,yes,,1.9
+Senate,47,South Washington County Schools,833,59683,70.3,FOUND_MED_POLICY_ONLY,no,,10.6
+Senate,47,North St. Paul-Maplewood Oakdale Public School District,622,14949,17.6,FOUND_SEIZURE_SPECIFIC,yes,,6.5
+Senate,47,Stillwater Area Public Schools,834,10224,12.0,FOUND_SEIZURE_SPECIFIC,yes,,14.5
+Senate,48,Eastern Carver County Public Schools,112,55494,64.8,FOUND_SEIZURE_SPECIFIC,yes,,13.0
+Senate,48,Waconia Public School District,110,16398,19.2,FOUND_SEIZURE_SPECIFIC,yes,,22.7
+Senate,48,Minnetonka Public School District,276,8441,9.9,FOUND_MED_POLICY_ONLY,no,,8.8
+Senate,48,Central Public School District,108,2781,3.2,FOUND_MED_POLICY_ONLY,no,,29.6
+Senate,48,Watertown-Mayer Public School District,111,2513,2.9,FOUND_SEIZURE_SPECIFIC,yes,,25.4
+Senate,49,Eden Prairie Public School District,272,60667,71.1,FOUND_SEIZURE_SPECIFIC,yes,,7.2
+Senate,49,Hopkins Public School District,270,15038,17.6,FOUND_SEIZURE_SPECIFIC,yes,,3.7
+Senate,49,Minnetonka Public School District,276,9629,11.3,FOUND_MED_POLICY_ONLY,no,,8.8
+Senate,50,Bloomington Public School District,271,47027,55.4,FOUND_SEIZURE_SPECIFIC,yes,,2.7
+Senate,50,Edina Public School District,273,31705,37.4,FOUND_SEIZURE_SPECIFIC,yes,,1.9
+Senate,50,Richfield Public School District,280,6121,7.2,FOUND_SEIZURE_SPECIFIC,yes,,2.4
+Senate,50,St. Louis Park Public School District,283,17,0.0,FOUND_MED_POLICY_ONLY,no,,1.2
+Senate,50,Eden Prairie Public School District,272,10,0.0,FOUND_SEIZURE_SPECIFIC,yes,,7.2
+Senate,51,Bloomington Public School District,271,42947,50.2,FOUND_SEIZURE_SPECIFIC,yes,,2.7
+Senate,51,Richfield Public School District,280,37432,43.8,FOUND_SEIZURE_SPECIFIC,yes,,2.4
+Senate,51,Minneapolis Public School District,30001,5154,6.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+Senate,52,Rosemount-Apple Valley-Eagan,196,42858,50.2,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+Senate,52,Burnsville Public School District,191,21701,25.4,FOUND_SEIZURE_SPECIFIC,yes,,0.4
+Senate,52,West St. Paul-Mendota Heights-Eagan,197,20778,24.3,FOUND_SEIZURE_SPECIFIC,yes,,3.2
+Senate,53,Inver Grove Heights Schools,199,29256,34.4,FOUND_MED_POLICY_ONLY,no,,7.8
+Senate,53,South St. Paul Public School District,6,20514,24.1,FOUND_SEIZURE_SPECIFIC,yes,,4.9
+Senate,53,South Washington County Schools,833,14914,17.5,FOUND_MED_POLICY_ONLY,no,,10.6
+Senate,53,West St. Paul-Mendota Heights-Eagan,197,13602,16.0,FOUND_SEIZURE_SPECIFIC,yes,,3.2
+Senate,53,Rosemount-Apple Valley-Eagan,196,6712,7.9,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+Senate,54,Shakopee Public School District,720,47772,55.6,FOUND_SEIZURE_SPECIFIC,yes,,12.4
+Senate,54,Prior Lake-Savage Area Schools,719,28592,33.3,FOUND_SEIZURE_SPECIFIC,yes,,9.0
+Senate,54,Jordan Public School District,717,9188,10.7,FOUND_SEIZURE_SPECIFIC,yes,,19.6
+Senate,54,Burnsville Public School District,191,295,0.3,FOUND_SEIZURE_SPECIFIC,yes,,0.4
+Senate,54,Lakeville Public School District,194,43,0.1,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+Senate,55,Burnsville Public School District,191,49551,58.2,FOUND_SEIZURE_SPECIFIC,yes,,0.4
+Senate,55,Prior Lake-Savage Area Schools,719,15510,18.2,FOUND_SEIZURE_SPECIFIC,yes,,9.0
+Senate,55,Rosemount-Apple Valley-Eagan,196,13259,15.6,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+Senate,55,Lakeville Public School District,194,5060,5.9,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+Senate,55,Shakopee Public School District,720,1810,2.1,FOUND_SEIZURE_SPECIFIC,yes,,12.4
+Senate,56,Rosemount-Apple Valley-Eagan,196,84749,99.6,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+Senate,56,Burnsville Public School District,191,334,0.4,FOUND_SEIZURE_SPECIFIC,yes,,0.4
+Senate,57,Lakeville Public School District,194,55791,65.8,FOUND_SEIZURE_SPECIFIC,yes,,5.8
+Senate,57,Rosemount-Apple Valley-Eagan,196,13673,16.1,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+Senate,57,Farmington Public School District,192,9492,11.2,FOUND_MED_POLICY_ONLY,no,,9.4
+Senate,57,New Prague Area Schools,721,3224,3.8,FOUND_MED_POLICY_ONLY,no,,21.7
+Senate,57,Prior Lake-Savage Area Schools,719,2391,2.8,FOUND_SEIZURE_SPECIFIC,yes,,9.0
+Senate,57,Northfield Public School District,659,156,0.2,FOUND_MED_POLICY_ONLY,no,,22.6
+Senate,58,Northfield Public School District,659,28972,33.9,FOUND_MED_POLICY_ONLY,no,,22.6
+Senate,58,Farmington Public School District,192,28103,32.9,FOUND_MED_POLICY_ONLY,no,,9.4
+Senate,58,New Prague Area Schools,721,11697,13.7,FOUND_MED_POLICY_ONLY,no,,21.7
+Senate,58,Hastings Public School District,200,5998,7.0,FOUND_SEIZURE_SPECIFIC,yes,,18.4
+Senate,58,Tri-City United School District,2905,3616,4.2,FOUND_MED_POLICY_ONLY,no,,27.6
+Senate,58,Randolph Public School District,195,2513,2.9,FOUND_MED_POLICY_ONLY,no,,21.3
+Senate,58,Rosemount-Apple Valley-Eagan,196,1797,2.1,FOUND_SEIZURE_SPECIFIC,yes,,7.6
+Senate,58,Cannon Falls Public School District,252,1186,1.4,FOUND_MED_POLICY_ONLY,no,,26.3
+Senate,58,Faribault Public School District,656,790,0.9,FOUND_MED_POLICY_ONLY,no,in_progress,35.0
+Senate,58,Jordan Public School District,717,544,0.6,FOUND_SEIZURE_SPECIFIC,yes,,19.6
+Senate,58,Kenyon-Wanamingo School District,2172,215,0.3,FOUND_MED_POLICY_ONLY,no,,21.5
+Senate,58,Prior Lake-Savage Area Schools,719,8,0.0,FOUND_SEIZURE_SPECIFIC,yes,,9.0
+Senate,58,Inver Grove Heights Schools,199,6,0.0,FOUND_MED_POLICY_ONLY,no,,7.8
+Senate,59,Minneapolis Public School District,30001,84924,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+Senate,60,Minneapolis Public School District,30001,84969,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+Senate,61,Minneapolis Public School District,30001,85044,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+Senate,62,Minneapolis Public School District,30001,85241,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+Senate,63,Minneapolis Public School District,30001,84624,100.0,FOUND_MED_POLICY_ONLY,no,confirmed,2.2
+Senate,64,St. Paul Public School District,625,85022,100.0,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+Senate,65,St. Paul Public School District,625,73878,87.1,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+Senate,65,West St. Paul-Mendota Heights-Eagan,197,10946,12.9,FOUND_SEIZURE_SPECIFIC,yes,,3.2
+Senate,66,St. Paul Public School District,625,67578,80.1,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+Senate,66,Roseville Public School District,623,16772,19.9,FOUND_SEIZURE_SPECIFIC,yes,,0.2
+Senate,67,St. Paul Public School District,625,85049,100.0,FOUND_SEIZURE_SPECIFIC,yes,,0.2
