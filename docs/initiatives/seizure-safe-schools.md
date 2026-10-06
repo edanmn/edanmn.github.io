@@ -15,6 +15,12 @@ rather than rurality, which makes it a capacity problem.
 A plan that is not posted can still exist, and most districts that answered our follow-up said
 theirs do. The audit measures whether a family can find one, which is a different question.
 
+The audit also left out charter schools, which the same law covers. Minnesota had 181
+operating charter schools with about 69,800 students in 2023-24, roughly 8 percent of public
+school enrollment (National Center for Education Statistics, Common Core of Data). Most are
+small. Half enroll fewer than 215 students, and in regular districts small size was the
+strongest predictor of posting no plan. We have not checked their websites yet.
+
 The law stops at public and charter schools. Minnesota also had 467 nonpublic schools in
 2024-25, with 72,871 students in kindergarten through grade 12 (Minnesota Department of
 Education). At the CDC's rate of about 0.6 percent of children, roughly 440 of those students
@@ -52,6 +58,7 @@ Look up any district in [Find Your District](../find-your-district/index.md).
 | Measure | Value |
 |---|---|
 | Districts audited | 329 of 329 |
+| Charter schools audited | 0 of 181 (not yet started) |
 | Districts with a findable seizure plan | 98 (29.8%) |
 | Districts emailed | 147 (June 18 to September 16, 2026) |
 | Districts that replied | 18 |
