@@ -1,7 +1,7 @@
 # 3. SUDEP
 
 Status: started September 2026. This page is student-written from
-public sources and have not yet been reviewed by a clinician or the Epilepsy Foundation of
+public sources and has not yet been reviewed by a clinician or the Epilepsy Foundation of
 Minnesota; we are seeking that review. Nothing here is medical advice.
 
 ## The gap
@@ -10,8 +10,9 @@ year and lower in children (American Academy of Neurology guideline, Harden et a
 it is the outcome every family fears. The Minnesota
 Department of Health reports around 1,000 deaths a year in the state related to epilepsy or
 seizures; our own pull of 2018 to 2024 death certificates gives about 870 a year that mention
-epilepsy or seizures, and about 200 a year that mention epilepsy specifically. How many are SUDEP, nobody knows: it has no diagnostic code, and death certificates
-record it as "epilepsy" or "undetermined." Illinois and New York require
+epilepsy or seizures, and about 200 a year that mention epilepsy specifically. How many are
+SUDEP, nobody knows. It has no diagnostic code, so it is counted only when a certifier writes
+the words on the death certificate. Illinois and New York require
 medical examiners to look for it and report cases to the North American SUDEP Registry, and
 Colorado changed its death certificate rules for it in 2026. Minnesota does neither.
 
@@ -39,17 +40,43 @@ conditions. The epilepsy-specific count peaks at ages 65 to 74.
 
 <iframe src="../../charts/mortality_by_age.html" class="microsim" width="100%" height="480" title="Rate by age" loading="lazy"></iframe>
 
-SUDEP is inside the epilepsy count and cannot be separated from it. That is the whole
-problem. Only 27 of 87 counties had enough epilepsy-specific deaths in seven years to
+These coded files cannot separate SUDEP from other epilepsy deaths. Only 27 of 87 counties had enough epilepsy-specific deaths in seven years to
 report a number at all. Fifty-seven are suppressed as fewer than 10, and three had none
 recorded. Those are
 the same counties with the smallest districts, the longest ambulance runs, and the farthest
 specialists. Source: CDC WONDER, Multiple Cause of Death, 2018 to 2024.
 
+## How often SUDEP is written on a certificate
+
+At our request, the Minnesota Center for Health Statistics at the Minnesota Department of
+Health searched the cause-of-death text on Minnesota residents' death certificates from 2011
+to 2024 for SUDEP and its spelled-out forms.
+
+| Years | Certificates that name SUDEP |
+|---|---|
+| 2011 to 2015 | 8 |
+| 2016 to 2019 | 23 |
+| 2020 to 2024 | 43 |
+| Total | 74 |
+
+Sixty-three of the 74 people were under 45. Sixty of the deaths kept an epilepsy code as the
+underlying cause. The other 14 were coded to a different condition, such as a brain
+malformation or cerebral palsy, so a count built on epilepsy codes alone would miss them.
+
+This is a count of certificates, which is different from a count of SUDEP deaths. A death
+certificate is the certifier's opinion from the information available at the time. The table
+cannot show how many SUDEP deaths went unnamed, or why. The rise across the three periods is
+consistent with medical examiners following the 2018 recommendations of the National
+Association of Medical Examiners on naming SUDEP, and may not reflect any change in how
+often it happens. Practice also varies across the state. Some counties are served by forensic
+pathologists and others by coroners with smaller budgets for autopsies. Source: Minnesota
+Department of Health, Minnesota Center for Health Statistics, death certificate data, custom
+tabulation for EDAN, October 2026.
+
 ## Where these deaths happen, and how Minnesota compares
 
-SUDEP usually happens at home, often during sleep, and often with nobody present. Death
-certificates almost never say so. The closest public measure is where people died, and for
+SUDEP usually happens at home, often during sleep, and often with nobody present. The coded
+death files do not record those circumstances. The closest public measure is where people died, and for
 younger Minnesotans that pattern is stark.
 
 | Minnesota, 2018 to 2024 | Died at home | Total |
@@ -58,10 +85,9 @@ younger Minnesotans that pattern is stark.
 | Epilepsy mentioned anywhere, ages 1 to 44 | 169 (54%) | 311 |
 | Epilepsy as the underlying cause, ages 1 to 44 | 98 (64%) | 152 |
 
-Nearly two in three young Minnesotans whose deaths were caused by epilepsy died at home. That
-is the population where SUDEP is most likely and least likely to be recorded as such. It is a
-proxy, not a count: dying at home is not proof of SUDEP, and some SUDEP deaths happen
-elsewhere.
+Nearly two in three young Minnesotans whose deaths were caused by epilepsy died at home. SUDEP
+is concentrated in that age group. Place of death is only a proxy, though. Dying at home is
+not proof of SUDEP, and some SUDEP deaths happen elsewhere.
 
 Minnesota's epilepsy death rate also runs above the national one. Counting every death
 certificate that mentions epilepsy anywhere, not only those where it was the underlying cause,
