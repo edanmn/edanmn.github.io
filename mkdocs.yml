@@ -78,6 +78,7 @@ nav:
   - 'Find Your District':
     - 'School District': find-your-district/index.md
     - 'Legislative District': legislative-districts/index.md
+    - 'County': counties/index.md
   - 'Distance to Care':
     - 'Map': initiatives/care-access.md
     - 'Lookup': sims/distance-lookup/index.md

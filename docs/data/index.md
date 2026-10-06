@@ -27,6 +27,11 @@ same data behind [Find Your District](../find-your-district/index.md) and
 
 The file leaves out phone numbers and the names of district contacts.
 
+## County profiles
+
+[Epilepsy by County](../counties/index.md) joins the county-level data into one row for each
+of the 87 counties, with the file to download and the method.
+
 ## Legislative district profiles
 
 [Epilepsy by Legislative District](../legislative-districts/index.md) has an estimate for each of
