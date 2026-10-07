@@ -11,10 +11,10 @@ and 67 Senate districts are here.
     apply published rates to census counts. A school district that posts no plan can still
     have one on file.
 
-## Download
+## Request the data
 
-[District profiles (CSV)](mn_legislative_district_epilepsy_profiles.csv){ .md-button .md-button--primary download="mn_legislative_district_epilepsy_profiles.csv" }
-[School districts in each legislative district (CSV)](mn_legislative_district_school_districts.csv){ .md-button download="mn_legislative_district_school_districts.csv" }
+The district file and the list of school districts inside each legislative district are
+available on request. Write to <edanmnorg@gmail.com> and tell us who you are and how you plan to use it.
 
 ## How the numbers are built
 
@@ -37,7 +37,7 @@ and 67 Senate districts are here.
 - Summed across all districts, the estimates come to about 56,000 Minnesotans. The CDC's own
   statewide figure for 2015 was 53,700, and the population has grown since.
 - The count of school districts posting a plan leaves out any school district with less
-  than 1 percent of the legislative district's residents. The downloadable file lists all of
+  than 1 percent of the legislative district's residents. The full file lists all of
   them.
 - School district shares are shares of all residents. They assume children are spread across
   a school district the way residents are.

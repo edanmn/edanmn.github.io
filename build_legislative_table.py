@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the searchable legislative district table and its public CSVs.
+"""Build the searchable legislative district table.
 Reads ../data/mn_legislative_district_profiles.csv and ../data/mn_legislative_district_schools.csv
 (built by ../build_legislative_profiles.py), writes docs/legislative-districts/."""
 import csv, html, json, os
@@ -125,13 +125,8 @@ def main():
         })
     page = PAGE.replace("__DATA__", json.dumps(data, separators=(",", ":")).replace("</", "<\\/"))
     open(os.path.join(OUTDIR, "district_table.html"), "w", encoding="utf-8").write(page)
-    for name, rows, cols in (("mn_legislative_district_epilepsy_profiles.csv", prof, PUBLIC_PROFILE_COLS),
-                             ("mn_legislative_district_school_districts.csv", sch, PUBLIC_SCHOOL_COLS)):
-        with open(os.path.join(OUTDIR, name), "w", newline="", encoding="utf-8") as f:
-            w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
-            w.writeheader()
-            w.writerows(rows)
-    print(f"wrote table for {len(data)} districts and two CSVs to {OUTDIR}")
+    # The CSV files are shared on request and are not published with the site.
+    print(f"wrote table for {len(data)} districts to {OUTDIR}")
 
 
 if __name__ == "__main__":

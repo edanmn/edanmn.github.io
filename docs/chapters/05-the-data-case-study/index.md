@@ -66,7 +66,7 @@ for its numbers. The gap covers most of Greater Minnesota, with the metro area l
 <iframe src="../../charts/gap_map.html" class="microsim" width="100%" height="540" title="Interactive map of seizure-plan gaps by county" loading="lazy"></iframe>
 
 The district-level data behind the map, with each district's county, is in the
-[downloadable audit file](../../data/index.md).
+[audit file, available on request](../../data/index.md).
 
 ## The real driver is size, not "rural"
 We built a logistic regression to ask what predicts a public plan. The dominant factor was

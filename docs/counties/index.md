@@ -10,12 +10,10 @@ and how many deaths mention epilepsy or seizures.
     No Minnesota agency counts people with epilepsy by county. The figures apply published
     rates to census counts. A school district that posts no plan can still have one on file.
 
-## Download
+## Request the data
 
-[County profiles (CSV)](mn_county_epilepsy_profiles.csv){ .md-button .md-button--primary download="mn_county_epilepsy_profiles.csv" }
-
-The file has 42 columns for each county, including the House and Senate districts that
-cover it.
+The full county file has 42 columns for each county, including the House and Senate
+districts that cover it. It is available on request. Write to <edanmnorg@gmail.com> and tell us who you are and how you plan to use it.
 
 ## What stands out
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the searchable county table and its public CSV.
+"""Build the searchable county table.
 Reads ../data/mn_county_epilepsy_profiles.csv (built by ../build_county_profiles.py),
 writes docs/counties/."""
 import csv, json, os
@@ -88,10 +88,7 @@ def main():
         })
     open(os.path.join(OUTDIR, "county_table.html"), "w", encoding="utf-8").write(
         PAGE.replace("__DATA__", json.dumps(data, separators=(",", ":"))))
-    with open(os.path.join(OUTDIR, "mn_county_epilepsy_profiles.csv"), "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=list(prof[0].keys()))
-        w.writeheader()
-        w.writerows(prof)
+    # The CSV file is shared on request and is not published with the site.
     print(f"wrote county table for {len(data)} counties to {OUTDIR}")
 
 

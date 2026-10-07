@@ -1,11 +1,14 @@
 # Data and Methods
 
-We publish the method with the data, so you can check it. This page is where to download the
-district audit, see what each column means, and tell us when something is wrong.
+We publish the method with the findings, so you can check them. This page says what the
+district audit file holds, how to ask for it, and how to tell us when something is wrong.
 
-## Download the audit
+## Request the data
 
-[Download the district audit (CSV)](mn_seizure_plan_audit.csv){ .md-button .md-button--primary download="mn_seizure_plan_audit.csv" }
+The data files are available on request. Write to <edanmnorg@gmail.com> and tell us who you are and how you plan to use it.
+We share them with researchers, agencies, schools and advocates at no charge.
+
+## The district audit
 
 One row for each of the 329 Minnesota school districts we checked, as of June 2026. It is the
 same data behind [Find Your District](../find-your-district/index.md) and
@@ -30,13 +33,13 @@ The file leaves out phone numbers and the names of district contacts.
 ## County profiles
 
 [Epilepsy by County](../counties/index.md) joins the county-level data into one row for each
-of the 87 counties, with the file to download and the method.
+of the 87 counties, with the method.
 
 ## Legislative district profiles
 
 [Epilepsy by Legislative District](../legislative-districts/index.md) has an estimate for each of
-the 134 House and 67 Senate districts, with the school districts that serve each one. Both
-files can be downloaded there, with the method.
+the 134 House and 67 Senate districts, with the school districts that serve each one and the
+method.
 
 ## What the categories mean
 
@@ -72,4 +75,5 @@ Found an error or an out-of-date entry? Write to <edanmnorg@gmail.com>. A distri
 
 ## Using this data
 
-Everything we produce is free to use and adapt.
+Our findings and published pages are free to quote and adapt, with credit to EDAN. The data
+files behind them are free on request.

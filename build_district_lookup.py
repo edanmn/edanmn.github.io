@@ -387,5 +387,6 @@ list.addEventListener('click',e=>{{const d=e.target.closest('[data-i]');if(d)pic
 
 open(OUT, "w").write(page)
 print("wrote", os.path.relpath(OUT, HERE), "with", len(rows), "districts")
-write_public_csv(rows)
+# The audit file is shared on request and is no longer published with the site (October 2026).
+# write_public_csv(rows)
 update_reply_counts(rows)
