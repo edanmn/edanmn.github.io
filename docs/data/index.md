@@ -59,8 +59,8 @@ How we checked each district, and how reliable the check is, is written up in
 
 ## Code
 
-The scripts that build the district lookup, the district table and the charts are in the
-site's repository: <https://github.com/edanmn/edanmn.github.io>.
+The scripts that build the district lookup, the tables and the charts are available on
+request, with the data.
 
 ## Corrections
 
