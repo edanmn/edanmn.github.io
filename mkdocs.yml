@@ -57,10 +57,10 @@ plugins:
 
 extra_css:
   # Bump the version after CSS changes so browsers fetch the new file right away.
-  - css/extra.css?v=2026-10-04
+  - css/extra.css?v=2026-10-07
 
 extra_javascript:
-  - js/reactbits.js?v=2026-10-07
+  - js/reactbits.js?v=2026-10-07b
 
 # The quiz is reached from the button at the end of the law page, not from the menu.
 not_in_nav: |

@@ -135,7 +135,7 @@ rows.sort(key=lambda x: x["name"])
 payload = json.dumps(rows, separators=(",", ":"))
 # Names only, for the suggestions under the home page search box (docs/js/reactbits.js).
 with open(os.path.join(HERE, "docs", "find-your-district", "district_names.json"), "w", encoding="utf-8") as _f:
-    json.dump([[r["name"], r["county"], r["isd"]] for r in rows], _f, separators=(",", ":"))
+    json.dump([[r["name"], r["county"], r["isd"], r.get("city", "")] for r in rows], _f, separators=(",", ":"))
 
 # ---- Public data file, linked from the Data and methods page ----
 # One row per district with the audit result. Phone numbers and named contacts stay out of it.

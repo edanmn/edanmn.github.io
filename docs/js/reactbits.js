@@ -156,36 +156,95 @@
     if (h1 && !prefersReduced) h1.classList.add("rb-gradient-text");
   }
 
-  // Home page search box: suggest district names as the reader types (a native datalist), and
-  // go straight to a district when the text matches one exactly.
+  // Home page search box: the same dropdown as the Find Your District lookup. Matching and
+  // ranking follow docs/find-your-district/district_lookup.html; picking a district opens it.
   var findNames = null;
   function initFind() {
-    var input = document.getElementById("edan-find-q");
-    if (!input || input.getAttribute("list")) return;
-    var form = input.form;
-    var list = document.createElement("datalist");
+    var q = document.getElementById("edan-find-q");
+    if (!q || q.getAttribute("role") === "combobox") return;
+    var form = q.form, matches = [], ai = -1;
+    var list = document.createElement("div");
     list.id = "edan-find-list";
+    list.className = "edan-find-list";
+    list.setAttribute("role", "listbox");
+    list.setAttribute("aria-label", "Matching districts");
     form.appendChild(list);
-    input.setAttribute("list", list.id);
-    function fill(names) {
-      findNames = names;
-      list.innerHTML = "";
-      names.forEach(function (n) {
-        var o = document.createElement("option");
-        o.value = n[0];
-        o.label = n[1] + " County";
-        list.appendChild(o);
-      });
+    q.setAttribute("role", "combobox");
+    q.setAttribute("aria-autocomplete", "list");
+    q.setAttribute("aria-expanded", "false");
+    q.setAttribute("aria-controls", list.id);
+
+    if (!findNames) {
+      fetch(new URL("district_names.json", form.action))
+        .then(function (r) { return r.json(); })
+        .then(function (n) { findNames = n; if (q.value) search(); })
+        .catch(function () {});
     }
-    if (findNames) fill(findNames);
-    else fetch(new URL("district_names.json", form.action)).then(function (r) { return r.json(); }).then(fill).catch(function () {});
-    form.addEventListener("submit", function (ev) {
-      var v = input.value.trim().toLowerCase();
-      var hit = (findNames || []).filter(function (n) { return n[0].toLowerCase() === v; })[0];
-      if (hit) {
-        ev.preventDefault();
-        window.location.href = new URL("?district=" + encodeURIComponent(hit[2]), form.action).href;
-      }
+    function hay(d) { return (d[0] + " " + d[1] + " " + d[3] + " " + d[2]).toLowerCase(); }
+    function close() {
+      list.style.display = "none";
+      q.setAttribute("aria-expanded", "false");
+      q.removeAttribute("aria-activedescendant");
+    }
+    function search() {
+      var s = q.value.toLowerCase().trim();
+      ai = -1;
+      if (!s || !findNames) { matches = []; close(); return; }
+      // Names that start with what was typed come first, then any word that starts with it.
+      function rank(h) { return h.indexOf(s) === 0 ? 0 : h.indexOf(" " + s) >= 0 ? 1 : 2; }
+      matches = findNames.filter(function (d) { return hay(d).indexOf(s) >= 0; })
+        .sort(function (x, y) { return rank(hay(x)) - rank(hay(y)); }).slice(0, 12);
+      list.textContent = "";
+      matches.forEach(function (d, i) {
+        var el = document.createElement("div"), county = document.createElement("span");
+        el.setAttribute("role", "option");
+        el.id = "edan-find-opt-" + i;
+        el.dataset.i = i;
+        el.textContent = d[0] + " ";
+        county.className = "edan-find-county";
+        county.textContent = "\u00b7 " + d[1] + " County";
+        el.appendChild(county);
+        list.appendChild(el);
+      });
+      if (!matches.length) { close(); return; }
+      list.style.display = "block";
+      q.setAttribute("aria-expanded", "true");
+    }
+    function pick(i) {
+      if (!matches[i]) return;
+      q.value = matches[i][0];
+      close();
+      window.location.href = new URL("?district=" + encodeURIComponent(matches[i][2]), form.action).href;
+    }
+    q.addEventListener("input", search);
+    q.addEventListener("focus", function () { if (q.value) search(); });
+    q.addEventListener("keydown", function (e) {
+      if (list.style.display !== "block") return;
+      var items = Array.prototype.slice.call(list.children);
+      if (e.key === "ArrowDown") { ai = Math.min(ai + 1, items.length - 1); e.preventDefault(); }
+      else if (e.key === "ArrowUp") { ai = Math.max(ai - 1, 0); e.preventDefault(); }
+      else if (e.key === "Enter") { e.preventDefault(); pick(ai < 0 ? 0 : ai); return; }
+      else if (e.key === "Escape") { close(); return; }
+      else return;
+      items.forEach(function (el, i) {
+        el.classList.toggle("active", i === ai);
+        el.setAttribute("aria-selected", i === ai ? "true" : "false");
+      });
+      q.setAttribute("aria-activedescendant", "edan-find-opt-" + ai);
+      items[ai].scrollIntoView({ block: "nearest" });
+    });
+    // mousedown, so the pick lands before the field loses focus and the list closes.
+    list.addEventListener("mousedown", function (e) {
+      var d = e.target.closest("[data-i]");
+      if (d) { e.preventDefault(); pick(+d.dataset.i); }
+    });
+    q.addEventListener("blur", function () { setTimeout(close, 150); });
+    // The button with one clear match opens it; anything else goes to the lookup as a search.
+    form.addEventListener("submit", function (e) {
+      var v = q.value.trim().toLowerCase();
+      var exact = (findNames || []).filter(function (d) { return d[0].toLowerCase() === v; })[0];
+      if (exact) { e.preventDefault(); matches = [exact]; pick(0); }
+      else if (matches.length === 1) { e.preventDefault(); pick(0); }
     });
   }
 
