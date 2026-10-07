@@ -8,7 +8,7 @@ title: Epilepsy Data & Advocacy Network
 
 <div class="edan-hero" markdown>
 
-<span class="edan-stat edan-stat--static">7 in 10</span>
+<span class="edan-stat edan-stat--static">Many</span>
 Minnesota school districts post no findable seizure plan. We audited all 329.
 [See what we found](chapters/05-the-data-case-study/index.md).
 
@@ -67,7 +67,7 @@ built from federal sources or state filings that every state has. Other states a
 </div>
 
 ## Three initiatives for 2026-27
-1. [Seizure-Safe Schools](initiatives/seizure-safe-schools.md): 7 in 10 Minnesota districts
+1. [Seizure-Safe Schools](initiatives/seizure-safe-schools.md): many Minnesota districts
    post no findable seizure plan. We are turning that finding into adoptions.
 2. [Medication access](initiatives/medication-access.md): shortages, prices, pharmacy
    deserts, and support for reintroducing a cap on what epilepsy drugs cost families (HF 3652 /
