@@ -28,6 +28,8 @@ PAGE = """<!doctype html>
   td:nth-child(7)::before{content:"Ambulance, 9 in 10 calls: "}
   td:nth-child(8)::before{content:"Deaths with epilepsy or seizures, 2018 to 2024: "}
  }
+ .scroll{overflow-x:auto} th{white-space:normal} th,td{padding:6px 6px}
+ td .muted{font-size:.74rem}
 </style></head>
 <body><div class="wrap">
 <div class="filters">
@@ -35,16 +37,17 @@ PAGE = """<!doctype html>
   <select id="ru" aria-label="Type of county"><option value="">All counties</option><option>Metropolitan</option><option>Nonmetro-Urban</option><option>Nonmetro-Large Town</option><option>Rural</option></select>
 </div>
 <p class="muted" id="cnt"></p>
-<table><thead><tr>
+<p class="muted">With epilepsy and under 18 are estimates. Child neurologists are those practicing in the county; miles are to the nearest one from a typical school district. Ambulance is minutes to reach 9 in 10 emergency calls. Deaths are death certificates that mention epilepsy or seizures.</p>
+<div class="scroll"><table><thead><tr>
   <th data-k="county">County</th>
-  <th class="r" data-k="total">Residents with epilepsy <span style="font-weight:400">(estimate)</span></th>
-  <th class="r" data-k="kids">Under 18 <span style="font-weight:400">(estimate)</span></th>
-  <th data-k="pct">School districts posting a seizure plan</th>
-  <th class="r" data-k="child">Child neurologists in the county</th>
-  <th class="r" data-k="neuro">Nearest child neurologist <span style="font-weight:400">(typical district)</span></th>
-  <th class="r" data-k="ems">Ambulance, 9 in 10 calls</th>
-  <th class="r" data-k="deaths">Deaths with epilepsy or seizures, 2018 to 2024</th>
-</tr></thead><tbody id="tb"></tbody></table>
+  <th class="r" data-k="total">With epilepsy <span style="font-weight:400">(est.)</span></th>
+  <th class="r" data-k="kids">Under 18 <span style="font-weight:400">(est.)</span></th>
+  <th data-k="pct">Districts posting a seizure plan</th>
+  <th class="r" data-k="child">Child neuro-logists</th>
+  <th class="r" data-k="neuro">Miles to nearest</th>
+  <th class="r" data-k="ems">Ambu-lance</th>
+  <th class="r" data-k="deaths">Deaths, 2018 to 2024</th>
+</tr></thead><tbody id="tb"></tbody></table></div>
 <script>
 const D=__DATA__;
 let key="county",dir=1;
@@ -54,12 +57,12 @@ function draw(){
     .sort((a,b)=>(a[key]>b[key]?1:a[key]<b[key]?-1:0)*dir);
   document.getElementById("cnt").textContent=rows.length+" of "+D.length+" counties. Select a column heading to sort.";
   document.getElementById("tb").innerHTML=rows.map(d=>`<tr>
-    <td>${d.county}<div class="muted">${d.pop.toLocaleString()} residents, ${d.ru}</div></td>
+    <td>${d.county}<div class="muted">${d.pop.toLocaleString()}, ${d.ru}</div></td>
     <td class="r">about ${d.total.toLocaleString()}</td><td class="r">about ${d.kids.toLocaleString()}</td>
-    <td><b>${d.post} of ${d.n}</b> <span class="muted">enrolling ${Math.round(d.pct)}% of students</span></td>
+    <td><b>${d.post} of ${d.n}</b> <span class="muted">(${Math.round(d.pct)}% of students)</span></td>
     <td class="r">${d.child}</td>
     <td class="r">${d.neuro<10?d.neuro.toFixed(1):Math.round(d.neuro)} mi</td><td class="r">${Math.round(d.ems)} min</td>
-    <td class="r">${d.deaths<0?"fewer than 10":d.deaths.toLocaleString()}</td></tr>`).join("");
+    <td class="r">${d.deaths<0?"under 10":d.deaths.toLocaleString()}</td></tr>`).join("");
 }
 document.getElementById("q").addEventListener("input",draw);
 document.getElementById("ru").addEventListener("change",draw);
