@@ -156,11 +156,45 @@
     if (h1 && !prefersReduced) h1.classList.add("rb-gradient-text");
   }
 
+  // Home page search box: suggest district names as the reader types (a native datalist), and
+  // go straight to a district when the text matches one exactly.
+  var findNames = null;
+  function initFind() {
+    var input = document.getElementById("edan-find-q");
+    if (!input || input.getAttribute("list")) return;
+    var form = input.form;
+    var list = document.createElement("datalist");
+    list.id = "edan-find-list";
+    form.appendChild(list);
+    input.setAttribute("list", list.id);
+    function fill(names) {
+      findNames = names;
+      list.innerHTML = "";
+      names.forEach(function (n) {
+        var o = document.createElement("option");
+        o.value = n[0];
+        o.label = n[1] + " County";
+        list.appendChild(o);
+      });
+    }
+    if (findNames) fill(findNames);
+    else fetch(new URL("district_names.json", form.action)).then(function (r) { return r.json(); }).then(fill).catch(function () {});
+    form.addEventListener("submit", function (ev) {
+      var v = input.value.trim().toLowerCase();
+      var hit = (findNames || []).filter(function (n) { return n[0].toLowerCase() === v; })[0];
+      if (hit) {
+        ev.preventDefault();
+        window.location.href = new URL("?district=" + encodeURIComponent(hit[2]), form.action).href;
+      }
+    });
+  }
+
   function init() {
     initReveal();
     initSpotlight();
     initCount();
     initHome();
+    initFind();
   }
 
   // Material emits document$ on every (instant) navigation; otherwise run once.

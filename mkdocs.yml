@@ -60,7 +60,7 @@ extra_css:
   - css/extra.css?v=2026-10-04
 
 extra_javascript:
-  - js/reactbits.js?v=2026-10-04
+  - js/reactbits.js?v=2026-10-07
 
 # The quiz is reached from the button at the end of the law page, not from the menu.
 not_in_nav: |
