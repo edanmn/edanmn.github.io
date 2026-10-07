@@ -8,8 +8,7 @@ title: Epilepsy Data & Advocacy Network
 
 <div class="edan-hero" markdown>
 
-<span class="edan-stat edan-stat--static">Many</span>
-Minnesota school districts post no findable seizure plan. We audited all 329.
+Find out if your school district posts a seizure plan. We checked all 329 Minnesota districts.
 [See what we found](chapters/05-the-data-case-study/index.md).
 
 <form class="edan-find" action="find-your-district/" method="get" role="search">
