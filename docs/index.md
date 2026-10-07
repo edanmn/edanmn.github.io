@@ -8,8 +8,7 @@ title: Epilepsy Data & Advocacy Network
 
 <div class="edan-hero" markdown>
 
-Find out if your school district posts a seizure plan. We checked all 329 Minnesota districts.
-[See what we found](chapters/05-the-data-case-study/index.md).
+Find out if your school district posts a seizure plan.
 
 <form class="edan-find" action="find-your-district/" method="get" role="search">
 <label for="edan-find-q">Check your district</label>
