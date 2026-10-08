@@ -1,3 +1,7 @@
+---
+title: Distance to Care Map
+---
+
 # Distance to care
 
 Status: map published September 2026. This is a data page that supports two of our

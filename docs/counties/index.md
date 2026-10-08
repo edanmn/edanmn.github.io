@@ -1,3 +1,7 @@
+---
+title: Epilepsy by County
+---
+
 # Epilepsy by County
 
 One row for each of Minnesota's 87 counties: how many residents are estimated to have

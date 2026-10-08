@@ -1,25 +1,14 @@
 #!/usr/bin/env python3
-"""Generate the interactive Plotly charts for the audit page from the EDAN dataset.
-Reads ../data/*, writes self-contained HTML into docs/charts/ for iframe embedding."""
-import csv, json, math, os
+"""Generate the charts for the audit page from the EDAN dataset.
+Reads ../data/*, writes docs/charts/*.html. The charts are drawn by docs/js/charts.js from the
+description each write_chart call passes in; see edan_charts.py."""
+import csv, json, os
 from collections import defaultdict
 from urllib.request import urlopen
-import plotly.graph_objects as go
+from edan_charts import write_chart, county_paths
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
-OUT = os.path.join(HERE, "docs", "charts")
-os.makedirs(OUT, exist_ok=True)
-
-RED, GREEN, AMBER, GREY = "#b3202c", "#1a9850", "#fdae61", "#999999"
-LAYOUT = dict(font=dict(family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif", size=14),
-              margin=dict(l=60, r=20, t=50, b=50), plot_bgcolor="white", paper_bgcolor="white")
-
-def save(fig, name):
-    fig.update_layout(**LAYOUT)
-    fig.write_html(os.path.join(OUT, name), include_plotlyjs="cdn", full_html=True,
-                   config={"displayModeBar": False, "responsive": True})
-    print("wrote charts/" + name)
 
 rows = list(csv.DictReader(open(os.path.join(DATA, "audit_full.csv"))))
 def f(x):
@@ -34,30 +23,27 @@ for r in rows:
     if r["seizure_specific"] == "1": by[r["locale"]][0] += 1
 rate = [round(100 * by[l][0] / by[l][1]) for l in order]
 ns = [by[l][1] for l in order]
-fig = go.Figure(go.Bar(x=order, y=rate, marker_color=GREEN,
-    text=[f"{r}%<br><span style='font-size:11px'>n={n}</span>" for r, n in zip(rate, ns)],
-    textposition="outside",
-    hovertemplate="%{x}: %{y}% of districts post a public seizure plan<extra></extra>"))
-fig.update_yaxes(range=[0, 100], title="% of districts with a public seizure plan", gridcolor="#eee")
-fig.update_layout(title="Public seizure plan, by district type")
-save(fig, "gap_by_locale.html")
+write_chart("gap_by_locale.html", {
+    "type": "columns", "title": "Public seizure plan, by district type",
+    "yTitle": "% of districts with a public seizure plan", "ymax": 100,
+    "cols": [{"label": l, "value": r, "text": f"{r}%", "sub": f"n={n}",
+              "tip": [[f"{r}%", "of districts post a public seizure plan"], [n, "districts"]]}
+             for l, r, n in zip(order, rate, ns)]})
 
 # ---------- 2. Classification breakdown ----------
-LAB = {"FOUND_SEIZURE_SPECIFIC": ("Seizure plan posted", GREEN),
-       "FOUND_MED_POLICY_ONLY": ("Medication policy only (no seizure mention)", AMBER),
-       "NOT_FOUND": ("Nothing relevant found online", RED),
-       "NOT_VERIFIABLE": ("Could not check", GREY)}
+LAB = {"FOUND_SEIZURE_SPECIFIC": ("Seizure plan posted", "good"),
+       "FOUND_MED_POLICY_ONLY": ("Medication policy only (no seizure mention)", "warn"),
+       "NOT_FOUND": ("Nothing relevant found online", "bad"),
+       "NOT_VERIFIABLE": ("Could not check", "none")}
 cnt = defaultdict(int)
 for r in rows: cnt[r["classification"]] += 1
 keys = [k for k in LAB if k in cnt]
-fig = go.Figure(go.Bar(
-    y=[LAB[k][0] for k in keys][::-1], x=[cnt[k] for k in keys][::-1], orientation="h",
-    marker_color=[LAB[k][1] for k in keys][::-1],
-    text=[f"{cnt[k]} ({round(100*cnt[k]/len(rows))}%)" for k in keys][::-1], textposition="outside",
-    hovertemplate="%{y}: %{x} districts<extra></extra>"))
-fig.update_xaxes(title=f"Number of districts (of {len(rows)})", gridcolor="#eee", range=[0, max(cnt.values())*1.2])
-fig.update_layout(title="What Minnesota districts actually post")
-save(fig, "classification_breakdown.html")
+write_chart("classification_breakdown.html", {
+    "type": "bars", "title": "What Minnesota districts actually post",
+    "axis": f"Number of districts (of {len(rows)})",
+    "rows": [{"label": LAB[k][0], "value": cnt[k], "text": f"{cnt[k]} ({round(100*cnt[k]/len(rows))}%)", "tone": LAB[k][1],
+              "tip": [[cnt[k], "districts"], [f"{round(100*cnt[k]/len(rows))}%", f"of all {len(rows)}"]]}
+             for k in keys]})
 
 # ---------- 3. Size effect: plan rate by enrollment bucket ----------
 buckets = [("Under 500", 0, 500), ("500-999", 500, 1000), ("1,000-2,499", 1000, 2500),
@@ -74,16 +60,14 @@ for r in rows:
 labels = [b[0] for b in buckets]
 brate = [round(100 * bdata[l][0] / bdata[l][1]) if bdata[l][1] else 0 for l in labels]
 bn = [bdata[l][1] for l in labels]
-fig = go.Figure(go.Bar(x=labels, y=brate, marker_color=RED,
-    text=[f"{r}%<br><span style='font-size:11px'>n={n}</span>" for r, n in zip(brate, bn)],
-    textposition="outside",
-    hovertemplate="%{x} students: %{y}% post a public plan<extra></extra>"))
-fig.update_yaxes(range=[0, 100], title="% of districts with a public seizure plan", gridcolor="#eee")
-fig.update_xaxes(title="District enrollment")
-fig.update_layout(title="The real driver is size: plan rate rises with enrollment")
-save(fig, "size_effect.html")
+write_chart("size_effect.html", {
+    "type": "columns", "title": "The real driver is size: plan rate rises with enrollment",
+    "yTitle": "% of districts with a public seizure plan", "ymax": 100, "axis": "District enrollment",
+    "cols": [{"label": l, "value": r, "text": f"{r}%", "sub": f"n={n}",
+              "tip": [[f"{r}%", "of districts post a public seizure plan"], [n, "districts"]]}
+             for l, r, n in zip(labels, brate, bn)]})
 
-# ---------- 4. Interactive county choropleth ----------
+# ---------- 4. County map ----------
 ctyfips = {}
 for r in csv.DictReader(open(os.path.join(DATA, "cdc_places_mn_county_health.csv"))):
     ctyfips[r["locationname"].upper()] = r["locationid"]
@@ -92,30 +76,20 @@ for r in rows:
     c = (r["county"] or "").upper().replace(" COUNTY", "").strip()
     cagg[c][1] += 1
     if r["seizure_specific"] == "1": cagg[c][0] += 1
-fips, z, txt = [], [], []
-for c, (has, tot) in cagg.items():
-    if c in ctyfips and tot:
-        fips.append(ctyfips[c]); z.append(round(100 * (1 - has / tot)))
-        txt.append(f"{c.title()} County ({tot} districts)")
 with urlopen("https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json") as fh:
     counties = json.load(fh)
-# The file holds every US county. Keep Minnesota's 87 (FIPS 27xxx), or the page ships 3 MB
-# of shapes it never draws.
+# The file holds every US county. Keep Minnesota's 87 (FIPS 27xxx).
 counties["features"] = [ft for ft in counties["features"] if ft["id"].startswith("27")]
-fig = go.Figure(go.Choropleth(geojson=counties, locations=fips, z=z, text=txt,
-    colorscale="Reds", zmin=0, zmax=100, marker_line_color="white", marker_line_width=0.5,
-    colorbar_title="% no plan",
-    hovertemplate="%{text}<br>%{z}% of districts post no plan<extra></extra>"))
-# Mercator keeps Minnesota's shape; the default projection stretches it sideways.
-fig.update_geos(fitbounds="locations", visible=False, projection_type="mercator")
-# Hover only: with pan and scroll-zoom left on, scrolling the page over the map zooms the map.
-fig.update_layout(title="% of districts with NO public seizure plan, by county",
-                  margin=dict(l=0, r=0, t=50, b=0), dragmode=False)
-fig.write_html(os.path.join(OUT, "gap_map.html"), include_plotlyjs="cdn", full_html=True,
-               config={"displayModeBar": False, "responsive": True, "scrollZoom": False})
-print("wrote charts/gap_map.html")
+paths, height = county_paths(counties)
+write_chart("gap_map.html", {
+    "type": "counties", "title": "% of districts with NO public seizure plan, by county",
+    "legend": "Districts with no public seizure plan", "valueLabel": "of districts post no plan",
+    "bins": [20, 40, 60, 80], "h": height,
+    "areas": [{"name": f"{c.title()} County", "d": paths[ctyfips[c]], "v": round(100 * (1 - has / tot)), "n": tot}
+              for c, (has, tot) in cagg.items() if c in ctyfips and tot],
+    "head": ["County", "No public plan", "Districts"]})
 
-# ---------- 5. County need vs gap scatter ----------
+# ---------- 5. County need vs gap ----------
 pivot = {r["County"].upper(): r for r in csv.DictReader(open(os.path.join(DATA, "cdc_places_mn_county_pivot.csv")))}
 xs, ys, sizes, names = [], [], [], []
 for c, (has, tot) in cagg.items():
@@ -124,16 +98,12 @@ for c, (has, tot) in cagg.items():
         d = f(p["AnyDisability"])
         if d is None: continue
         xs.append(d); ys.append(round(100 * (1 - has / tot))); sizes.append(tot); names.append(c.title())
-fig = go.Figure(go.Scatter(x=xs, y=ys, mode="markers", text=names,
-    marker=dict(size=[6 + s * 2 for s in sizes], color=ys, colorscale="Reds", cmin=0, cmax=100,
-                line=dict(width=1, color="#999"), showscale=False, opacity=0.8),
-    hovertemplate="%{text}<br>Adult disability: %{x}%<br>%{y}% of districts post no plan<br>(bubble size = # districts)<extra></extra>"))
-fig.update_xaxes(title="County adult disability rate (%) - a need proxy", gridcolor="#eee")
-fig.update_yaxes(title="% of districts with no public plan", gridcolor="#eee", range=[0, 105])
-fig.update_layout(title="Higher-need counties tend to have bigger gaps")
-save(fig, "county_need_vs_gap.html")
+write_chart("county_need_vs_gap.html", {
+    "type": "bubbles", "title": "Higher-need counties tend to have bigger gaps",
+    "xTitle": "County adult disability rate (%), a need proxy", "yTitle": "% of districts with no public plan", "ymax": 100,
+    "note": "A larger bubble means more districts in the county.",
+    "tip": ["adult disability rate", "of districts post no plan", "districts"],
+    "pts": [{"name": n, "x": x, "y": y, "n": s} for n, x, y, s in zip(names, xs, ys, sizes)],
+    "head": ["County", "Adult disability rate", "No public plan", "Districts"]})
 
-# Viewport tag and the light/dark + narrow-screen helper (docs/js/embed.js).
-from postprocess_charts import finish_charts
-finish_charts(OUT)
-print("\nAll charts written to", OUT)
+print("\nAll audit charts written.")

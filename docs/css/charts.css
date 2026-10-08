@@ -1,0 +1,123 @@
+/* ==========================================================================
+   charts.css — the look of the charts in docs/charts/, drawn by docs/js/charts.js.
+   No chart library: each chart is plain HTML or SVG, so it is on screen as soon
+   as the page is.
+
+   Colour does one job per chart:
+   - one series        -> --one, the site red
+   - a few named lines -> --c1 to --c6, a fixed order chosen to stay apart for
+                          colour-blind readers; any line past the sixth is grey
+   - how much (a map)  -> --s0 to --s4, one red from light to dark
+   - a state           -> --good / --warn / --bad / --none, always beside a label
+   Dark mode has its own steps rather than an automatic flip.
+   ========================================================================== */
+:root {
+  --bg: #fcfcfb; --fg: #232020; --muted: #5d5851; --line: #e6e2db; --grid: #ebe8e2; --axis: #c9c5bd;
+  --tip: #fff; --tipline: rgba(0, 0, 0, .14); --edge: rgba(70, 20, 20, .3);
+  --one: #b3202c;
+  --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a; --c4: #eda100; --c5: #e87ba4; --c6: #008300; --off: #8a8780;
+  --s0: #fed2ce; --s1: #f3aca6; --s2: #e47c76; --s3: #c64545; --s4: #8d1920;
+  --good: #1a9850; --warn: #fdae61; --bad: #b3202c; --none: #999;
+}
+[data-theme=dark] {
+  --bg: #16140f; --fg: #e6e1d9; --muted: #aaa39a; --line: #3a352e; --grid: #2b2721; --axis: #4a443c;
+  --tip: #26221c; --tipline: rgba(255, 255, 255, .16); --edge: rgba(255, 235, 230, .25);
+  --one: #e56965;
+  --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500; --c5: #d55181; --c6: #0ca30c; --off: #8f8b83;
+  --s0: #462624; --s1: #773734; --s2: #b04947; --s3: #e56965; --s4: #fba7a1;
+  --good: #2fae66; --warn: #fdae61; --bad: #e56965; --none: #999;
+}
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; padding: 16px; color: var(--fg); background: var(--bg); line-height: 1.45; }
+figure { margin: 0; position: relative; }
+h1 { font-size: 1rem; font-weight: 650; margin: 0 0 2px; text-wrap: balance; }
+.sub { color: var(--muted); font-size: .84rem; margin: 0 0 12px; }
+.note, .axis { color: var(--muted); font-size: .78rem; margin: 8px 0 0; }
+.axis { text-align: center; }
+.num { font-variant-numeric: tabular-nums; }
+
+/* ---- Bars: one row per thing, the value at the tip ---- */
+.bars { display: grid; gap: 2px; }
+.row { display: grid; grid-template-columns: minmax(84px, 36%) 1fr; gap: 10px; align-items: center; padding: 3px 0; border-radius: 4px; }
+.row .lab { font-size: .82rem; text-align: right; line-height: 1.25; }
+.row .track { display: flex; align-items: center; min-width: 0; }
+.row .bar { height: 16px; min-width: 2px; border-radius: 0 4px 4px 0; background: var(--one); flex: none; }
+.row .val { margin-left: 6px; font-size: .8rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.row:hover .bar, .col:hover .bar { filter: brightness(1.12); }
+.dense .row { padding: 1px 0; } .dense .row .bar { height: 12px; } .dense .row .lab, .dense .row .val { font-size: .76rem; }
+.good { background: var(--good) !important; } .warn { background: var(--warn) !important; }
+.bad { background: var(--bad) !important; } .none { background: var(--none) !important; }
+
+/* ---- Columns: the same, standing up ---- */
+.cols { display: grid; grid-template-columns: auto 1fr; gap: 0 6px; }
+.cols .ytitle { grid-column: 1 / -1; color: var(--muted); font-size: .76rem; margin-bottom: 6px; }
+.cols .ticks { position: relative; width: 28px; }
+.cols .ticks span { position: absolute; right: 0; transform: translateY(50%); color: var(--muted); font-size: .72rem; font-variant-numeric: tabular-nums; }
+.cols .plot { position: relative; display: flex; height: 230px; border-bottom: 1px solid var(--axis); }
+.cols .plot i { position: absolute; left: 0; right: 0; height: 1px; background: var(--grid); }
+.col { position: relative; flex: 1; min-width: 0; }
+.col .bar { position: absolute; bottom: 0; left: 50%; width: min(24px, 56%); transform: translateX(-50%); background: var(--one); border-radius: 4px 4px 0 0; min-height: 2px; }
+.col .cap { position: absolute; left: 0; right: 0; text-align: center; font-size: .82rem; font-weight: 600; line-height: 1.15; font-variant-numeric: tabular-nums; padding-bottom: 3px; }
+.col .cap small { display: block; font-weight: 400; font-size: .7rem; color: var(--muted); }
+.cols .labs { grid-column: 2; display: flex; }
+.cols .labs span { flex: 1; min-width: 0; text-align: center; font-size: .76rem; padding-top: 5px; line-height: 1.2; overflow-wrap: anywhere; }
+
+/* ---- Lines and bubbles (SVG) ---- */
+svg { display: block; width: 100%; overflow: visible; user-select: none; -webkit-user-select: none; }
+svg text { font-size: 11.5px; fill: var(--muted); }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.baseline { stroke: var(--axis); stroke-width: 1; }
+.series { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.dot { stroke: var(--bg); stroke-width: 2; }
+.endlab { font-size: 11.5px; fill: var(--fg); }
+.cross { stroke: var(--axis); stroke-width: 1; display: none; }
+.bubble { fill: var(--one); fill-opacity: .72; stroke: var(--bg); stroke-width: 1.5; }
+.ring { fill: none; stroke: var(--fg); stroke-width: 2; display: none; pointer-events: none; }
+.axt { font-size: 11.5px; fill: var(--muted); }
+
+/* ---- Key ---- */
+.key { display: flex; flex-wrap: wrap; gap: 4px 6px; margin: 0 0 10px; padding: 0; list-style: none; font-size: .8rem; }
+.key li { display: flex; align-items: center; gap: 6px; }
+.key button { display: flex; align-items: center; gap: 6px; font: inherit; color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; cursor: pointer; transition: transform .1s ease-out; }
+.key button:active { transform: scale(.96); }
+.key button[aria-pressed=false] { color: var(--muted); border-style: dashed; }
+.key button[aria-pressed=false] .sw { background: transparent !important; box-shadow: inset 0 0 0 1.5px var(--off); }
+.sw { flex: none; width: 14px; height: 3px; border-radius: 2px; }
+.sw.box { width: 13px; height: 13px; border-radius: 3px; box-shadow: inset 0 0 0 1px var(--edge); }
+.key .n { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---- County map ---- */
+.mapfig { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 20px; align-items: start; }
+.mapfig svg { max-width: 460px; }
+.area { stroke: var(--bg); stroke-width: .8; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.k0 { fill: var(--s0); } .k1 { fill: var(--s1); } .k2 { fill: var(--s2); } .k3 { fill: var(--s3); } .k4 { fill: var(--s4); }
+.sw.k0 { background: var(--s0); } .sw.k1 { background: var(--s1); } .sw.k2 { background: var(--s2); } .sw.k3 { background: var(--s3); } .sw.k4 { background: var(--s4); }
+.areahit { fill: none; stroke: var(--fg); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; pointer-events: none; display: none; }
+.mapfig .key { display: block; } .mapfig .key li { padding: 2px 0; } .mapfig .key .n { margin-left: auto; }
+.mapfig h2 { font-size: .8rem; font-weight: 650; margin: 0 0 6px; }
+
+/* ---- Hover card: frosted, grows from the pointer ---- */
+.tip { position: absolute; left: 0; top: 0; z-index: 2; visibility: hidden; opacity: 0; transform: scale(.96); pointer-events: none;
+  transition: opacity .1s ease-out, transform .16s cubic-bezier(.2, .8, .2, 1), visibility 0s .1s;
+  width: max-content; max-width: min(300px, 94%); padding: 9px 12px; border-radius: 8px; font-size: .8rem;
+  background: color-mix(in srgb, var(--tip) 88%, transparent); -webkit-backdrop-filter: blur(16px) saturate(170%); backdrop-filter: blur(16px) saturate(170%);
+  border: 1px solid var(--tipline); box-shadow: 0 4px 16px rgba(0, 0, 0, .16); }
+.tip.on { visibility: visible; opacity: 1; transform: none; transition-delay: 0s; }
+.tip b { display: block; font-size: .86rem; margin-bottom: 3px; }
+.tip dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; margin: 0; }
+.tip dt { font-weight: 650; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; display: flex; align-items: center; justify-content: flex-end; gap: 6px; }
+.tip dd { margin: 0; color: var(--muted); }
+
+/* ---- Table view: every number, without hovering ---- */
+.tools { margin-top: 12px; }
+.tools button { font: inherit; font-size: .82rem; padding: 6px 11px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--fg); cursor: pointer; transition: transform .1s ease-out; }
+.tools button:hover { border-color: var(--muted); } .tools button:active { transform: scale(.96); }
+.tablewrap { display: none; margin-top: 12px; max-height: 380px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: .8rem; }
+th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); }
+th { position: sticky; top: 0; background: var(--bg); font-weight: 650; }
+td.r, th.r { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+@media (max-width: 640px) { body { padding: 12px; } .mapfig { grid-template-columns: 1fr; gap: 12px; } }
+@media (prefers-reduced-motion: reduce) { .tip, .key button, .tools button { transition: none; transform: none; } }
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) { .tip { background: var(--tip); -webkit-backdrop-filter: none; backdrop-filter: none; } }

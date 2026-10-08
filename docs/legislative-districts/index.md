@@ -1,3 +1,7 @@
+---
+title: Epilepsy by Legislative District
+---
+
 # Epilepsy by Legislative District
 
 How many people in each Minnesota House and Senate district are estimated to have epilepsy,

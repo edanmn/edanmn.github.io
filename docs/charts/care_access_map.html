@@ -33,7 +33,10 @@
  .lab{font-size:12px;font-weight:600;fill:var(--fg);paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round}
  .name{font-size:11px;fill:var(--fg);text-anchor:middle;paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round}
  .hit{fill:none;stroke:var(--fg);stroke-width:2;stroke-linejoin:round;vector-effect:non-scaling-stroke;display:none}
- .tip{position:absolute;display:none;pointer-events:none;z-index:2;width:max-content;max-width:min(310px,94%);padding:10px 12px;border-radius:8px;background:var(--tip);border:1px solid var(--tipline);box-shadow:0 4px 16px rgba(0,0,0,.16);font-size:.8rem}
+ .pick{fill:none;stroke:var(--ring);stroke-width:3;stroke-linejoin:round;vector-effect:non-scaling-stroke;display:none}   /* the district picked in the lookup */
+ /* The hover card grows out of the pointer and fades away, rather than blinking on and off. */
+ .tip{position:absolute;left:0;top:0;visibility:hidden;opacity:0;transform:scale(.96);transition:opacity .1s ease-out,transform .16s cubic-bezier(.2,.8,.2,1),visibility 0s .1s;pointer-events:none;z-index:2;width:max-content;max-width:min(310px,94%);padding:10px 12px;border-radius:8px;background:color-mix(in srgb,var(--tip) 86%,transparent);-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);border:1px solid var(--tipline);box-shadow:0 4px 16px rgba(0,0,0,.16);font-size:.8rem}
+ .tip.on{visibility:visible;opacity:1;transform:none;transition-delay:0s}
  .tip b{display:block;font-size:.86rem}
  .tip .where{display:block;color:var(--muted);margin-bottom:6px}
  .tip dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0}
@@ -47,12 +50,18 @@
  .sw.k0{background:var(--s0)}.sw.k1{background:var(--s1)}.sw.k2{background:var(--s2)}.sw.k3{background:var(--s3)}.sw.k4{background:var(--s4)}
  .sw.ring{border:2px solid var(--ring);border-radius:50%;box-shadow:none}
  .note{color:var(--muted);font-size:.78rem;margin:0 0 10px}
- button{font:inherit;font-size:.82rem;padding:6px 11px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--fg);cursor:pointer}
+ button{font:inherit;font-size:.82rem;padding:6px 11px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--fg);cursor:pointer;transition:transform .1s ease-out}
  button:hover{border-color:var(--muted)}
- button:disabled{opacity:.4;cursor:default}
+ button:active{transform:scale(.95)}                 /* answer the press itself, not the release */
+ button:disabled{opacity:.4;cursor:default;transform:none}
  .zoom{position:absolute;top:0;right:0;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
- .zoom button{width:32px;height:32px;padding:0;font-size:1.15rem;line-height:1;background:var(--bg)}
+ /* The controls and the hover card float over the map as a frosted layer. */
+ .zoom button{width:32px;height:32px;padding:0;font-size:1.15rem;line-height:1;background:color-mix(in srgb,var(--bg) 70%,transparent);-webkit-backdrop-filter:blur(12px) saturate(170%);backdrop-filter:blur(12px) saturate(170%)}
  .zoom #zreset{width:auto;height:26px;padding:0 8px;font-size:.72rem}
+ @media (prefers-reduced-transparency:reduce){.zoom button,.tip{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}}
+ @media (prefers-contrast:more){.zoom button,.tip{background:var(--bg);border-color:var(--fg);-webkit-backdrop-filter:none;backdrop-filter:none}}
+ @media (prefers-reduced-motion:reduce){button{transition:none}button:active{transform:none}.tip{transition:none;transform:none}}
+ .map:focus-visible{outline:3px solid var(--ring);outline-offset:3px;border-radius:8px}
  .tablewrap{display:none;margin-top:14px;max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:8px}
  table{border-collapse:collapse;width:100%;font-size:.8rem}
  caption{text-align:left;padding:8px;color:var(--muted)}
@@ -64,10 +73,10 @@
 <h1>Distance from each school district to the nearest child neurologist</h1>
 <p class="sub">Each district is shaded by how far its office is from the nearest child neurologist. Hover or tap a district for its distances. Zoom in with the buttons, a pinch, or Ctrl + scroll, then drag to move around.</p>
 <div class="fig">
- <div class="map" id="map">
+ <div class="map" id="map" tabindex="0" role="group" aria-label="Map. With the keyboard: plus and minus zoom, zero resets, and the arrow keys move the map once it is zoomed in.">
   <canvas id="cv"></canvas>
   <svg id="svg" role="img" aria-labelledby="alt"><title id="alt"></title>
-   <g id="over"><path class="hit" id="hitr"/></g>
+   <g id="over"><path class="pick" id="pick"/><path class="hit" id="hitr"/></g>
    <g id="names"></g><g id="sites"></g><circle class="hit" id="hit"/>
   </svg>
   <div class="zoom" role="group" aria-label="Zoom the map">
@@ -154,7 +163,7 @@ const shown = (m) => m.when === "always" || (m.when === "near") === (z >= SPLIT)
 
 function layout(){
  const w = map.clientWidth; if (!w) return;
- if (w !== W) { z = 1; tx = ty = 0; }
+ if (w !== W) { halt(); z = 1; tx = ty = 0; }
  W = w; wide = w >= 400;
  // With room to spare, keep a left margin so practices just west of the state are labelled
  // outside it. Otherwise their labels go on the east side, over the map.
@@ -210,14 +219,14 @@ function render(){
  });
  nameDistricts();
  map.classList.toggle("zoomed", z > 1);
- $("zin").disabled = z >= MAXZ; $("zout").disabled = $("zreset").disabled = z <= 1;
+ $("zin").disabled = aim() >= MAXZ; $("zout").disabled = $("zreset").disabled = aim() <= 1 && z <= 1;
  hide();
 }
 // Once the map is zoomed in, a district is named wherever its name fits inside it and covers
 // no ring or other name, so more names appear the further in you go.
 function nameDistricts(){
  let used = 0;
- if (z > 1) {
+ if (z > 1 && !about) {                    // names wait for a zoom to settle, so they do not flicker in and out
   const taken = marks.filter(shown).map(m => m.box), dpr = window.devicePixelRatio || 1;
   const edge = (p, i) => (padL + p.b[i] * k) * z + tx, top = (p, i) => (padT + p.b[i] * k) * z + ty;
   frame(true);
@@ -241,36 +250,121 @@ function nameDistricts(){
 }
 
 // ---- Zoom and pan ----
-function clampView(){
- z = Math.min(MAXZ, Math.max(1, z));
- tx = Math.min(0, Math.max(W - W * z, tx)); ty = Math.min(0, Math.max(H - H * z, ty));
+// Keep the map inside the frame. Zoomed out past 1 (only ever briefly, see zoomAt) the map is
+// smaller than the frame, so the limits swap round.
+function clampPan(){
+ const ex = W - W * z, ey = H - H * z;
+ tx = Math.min(Math.max(0, ex), Math.max(Math.min(0, ex), tx)); ty = Math.min(Math.max(0, ey), Math.max(Math.min(0, ey), ty));
 }
+function clampView(){ z = Math.min(MAXZ, Math.max(1, z)); clampPan(); }
+// A direct zoom, for a pinch or Ctrl + scroll: the map follows the fingers one to one. Past the
+// closest or the farthest zoom it gives a little and then resists, and settle() eases it back.
+let pulled = null, focal = null, wheelTimer = 0;       // pulled: the zoom the fingers have asked for, as a logarithm
 function zoomAt(mx, my, factor){
- const z0 = z; z = Math.min(MAXZ, Math.max(1, z * factor));
+ halt();
+ if (pulled === null) pulled = Math.log(z);
+ pulled += Math.log(factor);
+ const top = Math.log(MAXZ), give = .25;
+ const l = pulled > top ? top + rubber(pulled - top, give) : pulled < 0 ? -rubber(-pulled, give) : pulled;
+ const z0 = z; z = Math.exp(l); focal = [mx, my];
  tx = mx - (mx - tx) * z / z0; ty = my - (my - ty) * z / z0;
- clampView(); render();
+ clampPan(); render();
+}
+function settle(){
+ pulled = null;
+ if (focal && (z < 1 || z > MAXZ)) zoomTo(focal[0], focal[1], z);    // zoomTo brings the target back inside the limits
 }
 const spot = (e) => { const box = svg.getBoundingClientRect(); return [e.clientX - box.left, e.clientY - box.top]; };
-$("zin").addEventListener("click", () => zoomAt(W / 2, H / 2, 1.6));
-$("zout").addEventListener("click", () => zoomAt(W / 2, H / 2, 1 / 1.6));
-$("zreset").addEventListener("click", () => { z = 1; tx = ty = 0; render(); });
+
+// ---- Motion ----
+// A button zoom and the glide after a drag are springs rather than timed animations: they start
+// from wherever the map is, keep the speed it already has, and can be caught or sent somewhere
+// else at any moment. Each spring has Apple's two numbers: response, in seconds, and a damping
+// ratio, where 1 settles with no bounce.
+const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+function spring(response, damping, rest){
+ const w = 2 * Math.PI / response;
+ return {x: 0, v: 0, to: 0, on: false, step(dt){
+  this.v += (-w * w * (this.x - this.to) - 2 * damping * w * this.v) * dt; this.x += this.v * dt;
+  if (Math.abs(this.x - this.to) < rest && Math.abs(this.v) < rest * 20) { this.x = this.to; this.v = 0; this.on = false; }
+ }};
+}
+const sz = spring(.35, 1, .0008);                     // zoom, as its logarithm so each step feels the same size
+const sx = spring(.45, 1, .2), sy = spring(.45, 1, .2);   // pan, left-right and up-down on their own
+let about = null;                                     // the point the map zooms about while the zoom spring runs
+let flight = false;                                   // true while flying to a district (see flyTo)
+let frameId = 0, lastFrame = 0;
+function halt(){ sz.on = sx.on = sy.on = false; sz.v = sx.v = sy.v = 0; about = null; flight = false; }
+function run(){ if (!frameId) { lastFrame = 0; frameId = requestAnimationFrame(frameStep); } }
+function frameStep(now){
+ frameId = 0;
+ advance(lastFrame ? Math.min(.034, (now - lastFrame) / 1000) : 1 / 60); lastFrame = now;
+ if (sz.on || sx.on || sy.on) frameId = requestAnimationFrame(frameStep);
+}
+function advance(dt){
+ const panning = sx.on || sy.on;                       // read before stepping: a spring switches itself off when it settles
+ for (let n = Math.ceil(dt / .004), h = dt / n; n > 0; n--) for (const s of [sz, sx, sy]) if (s.on) s.step(h);
+ if (about) {
+  z = Math.exp(sz.x); tx = about.mx - about.ux * z; ty = about.my - about.uy * z;
+  clampPan();
+  if (!sz.on) about = null;
+ } else if (flight) {
+  // Flying to a district: the zoom and the point at the middle of the frame move together.
+  z = Math.exp(sz.x); tx = W / 2 - sx.x * z; ty = H / 2 - sy.x * z;
+  clampPan();
+  if (!sz.on && !sx.on && !sy.on) flight = false;
+ } else if (panning) { tx = sx.x; ty = sy.x; }
+ render();
+}
+// Zoom to a level about a point on screen. A second press while the first is still moving
+// adds to it: the spring is re-aimed from where the map is now, at the speed it has now.
+function zoomTo(mx, my, target){
+ target = Math.min(MAXZ, Math.max(1, target));
+ pulled = null;
+ if (calm.matches) return zoomAt(mx, my, target / z);
+ sx.on = sy.on = false; flight = false;
+ sz.x = Math.log(z); sz.to = Math.log(target); sz.on = true;
+ about = {mx, my, ux: (mx - tx) / z, uy: (my - ty) / z};
+ run();
+}
+const aim = () => sz.on ? Math.exp(sz.to) : z;        // where the zoom is heading
+// Let go of a drag and the map keeps the speed of the hand, heading for where that speed would
+// carry it (Apple's scroll projection), and settles there. Past an edge it eases back.
+const project = (v, rate = .995) => v / 1000 * rate / (1 - rate);
+function glide(vx, vy){
+ flight = false;
+ const lox = W - W * z, loy = H - H * z;
+ sx.x = tx; sy.x = ty; sx.v = vx; sy.v = vy;
+ sx.to = Math.min(0, Math.max(lox, tx + project(vx))); sy.to = Math.min(0, Math.max(loy, ty + project(vy)));
+ if (calm.matches) { tx = sx.to; ty = sy.to; return render(); }
+ sx.on = sy.on = true; run();
+}
+// Dragged past an edge, the map follows less and less instead of stopping dead.
+const rubber = (over, size) => over * size * .55 / (size + .55 * over);
+const band = (v, lo, size) => v > 0 ? rubber(v, size) : v < lo ? lo - rubber(lo - v, size) : v;
+
+$("zin").addEventListener("click", () => zoomTo(W / 2, H / 2, aim() * 1.6));
+$("zout").addEventListener("click", () => zoomTo(W / 2, H / 2, aim() / 1.6));
+$("zreset").addEventListener("click", () => { $("pick").style.display = "none"; zoomTo(W / 2, H / 2, 1); });
 // Plain scrolling stays with the page. Ctrl + scroll, or a trackpad pinch, zooms the map.
 svg.addEventListener("wheel", (e) => {
  if (!e.ctrlKey && !e.metaKey) return;
  e.preventDefault();
  zoomAt(...spot(e), Math.exp(-Math.max(-50, Math.min(50, e.deltaY)) * .012));
+ clearTimeout(wheelTimer); wheelTimer = setTimeout(settle, 140);     // a wheel has no "let go", so wait for it to go quiet
 }, {passive: false});
-svg.addEventListener("dblclick", (e) => zoomAt(...spot(e), 2));
+svg.addEventListener("dblclick", (e) => zoomTo(...spot(e), aim() * 2));
 
 // The mouse or one finger drags the map once it is zoomed in; two fingers pinch.
 const ptrs = new Map();
-let drag = null, pinch = 0, lastTap = 0;
+let drag = null, pinch = 0, lastTap = 0, trail = [];     // trail: the last few drag positions, for the speed at release
 const spread = () => { const [a, b] = [...ptrs.values()]; return {d: Math.hypot(a[0] - b[0], a[1] - b[1]), x: (a[0] + b[0]) / 2, y: (a[1] + b[1]) / 2}; };
 svg.addEventListener("pointerdown", (e) => {
- ptrs.set(e.pointerId, spot(e));
+ halt(); pulled = null;                                // catch the map mid-flight: it stops under the finger
+ ptrs.set(e.pointerId, spot(e)); trail = [];
  drag = ptrs.size === 1 ? {from: spot(e), tx, ty, moved: false} : null;
  if (ptrs.size === 2) { pinch = spread().d; hide(); }
- if (z > 1 || ptrs.size === 2) svg.setPointerCapture(e.pointerId);
+ if (z > 1 || ptrs.size === 2) try { svg.setPointerCapture(e.pointerId); } catch (err) {}   // keep tracking outside the map
 });
 svg.addEventListener("pointermove", (e) => {
  if (ptrs.has(e.pointerId)) ptrs.set(e.pointerId, spot(e));
@@ -279,25 +373,68 @@ svg.addEventListener("pointermove", (e) => {
   const [x, y] = spot(e), dx = x - drag.from[0], dy = y - drag.from[1];
   if (drag.moved || Math.hypot(dx, dy) > 4) {
    drag.moved = true; map.classList.add("dragging");
-   tx = drag.tx + dx; ty = drag.ty + dy; clampView(); render();
+   tx = band(drag.tx + dx, W - W * z, W); ty = band(drag.ty + dy, H - H * z, H); render();
+   trail.push([e.timeStamp, x, y]); while (trail.length > 2 && e.timeStamp - trail[0][0] > 100) trail.shift();
   }
   return;
  }
  if (e.pointerType === "mouse" && !ptrs.size) point(e);
 });
 function release(e){
- const tap = drag && !drag.moved && e.type === "pointerup";
- ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch = 0;
+ const tap = drag && !drag.moved && e.type === "pointerup", dragged = drag && drag.moved;
+ ptrs.delete(e.pointerId);
+ if (ptrs.size < 2 && pinch) { pinch = 0; settle(); }
  drag = null; map.classList.remove("dragging");
+ if (dragged) {
+  // Hand the speed of the hand to the springs, so there is no seam between dragging and gliding.
+  const a = trail[0], b = trail[trail.length - 1], dt = a && b ? (b[0] - a[0]) / 1000 : 0;
+  const fresh = b && e.timeStamp - b[0] < 80 && dt > 0;         // a pause before letting go means no throw
+  glide(fresh ? (b[1] - a[1]) / dt : 0, fresh ? (b[2] - a[2]) / dt : 0);
+ }
  if (!tap) return;
  // A second quick tap zooms in, the way a double click does with a mouse.
- if (e.pointerType !== "mouse" && Date.now() - lastTap < 320) { lastTap = 0; zoomAt(...spot(e), 2); }
+ if (e.pointerType !== "mouse" && Date.now() - lastTap < 320) { lastTap = 0; zoomTo(...spot(e), aim() * 2); }
  else { lastTap = Date.now(); point(e); }
 }
 svg.addEventListener("pointerup", release);
 svg.addEventListener("pointercancel", release);
 svg.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse" && !ptrs.size) hide(); });
 document.addEventListener("pointerdown", (e) => { if (!map.contains(e.target)) hide(); });
+
+// ---- Fly to a district ----
+// The lookup under the map calls this when a district is picked there: the map travels to the
+// district, zooms until it fills about half the frame, and keeps it outlined.
+function flyTo(name){
+ const p = M.P.find(d => d.d === name && d.g);
+ if (!p || !W) return false;
+ const bw = (p.b[2] - p.b[0]) * k, bh = (p.b[3] - p.b[1]) * k;
+ const target = Math.min(MAXZ, Math.max(2, Math.min(W / bw, H / bh) * .5));
+ const cx = padL + (p.b[0] + p.b[2]) / 2 * k, cy = padT + (p.b[1] + p.b[3]) / 2 * k;      // its centre, before zoom
+ $("pick").setAttribute("d", p.g); $("pick").style.display = "block";
+ halt(); pulled = null;
+ if (calm.matches) { z = target; tx = W / 2 - cx * z; ty = H / 2 - cy * z; clampPan(); render(); return true; }
+ sz.x = Math.log(z); sz.to = Math.log(target);
+ sx.x = (W / 2 - tx) / z; sy.x = (H / 2 - ty) / z; sx.to = cx; sy.to = cy;
+ sz.on = sx.on = sy.on = flight = true; run();
+ return true;
+}
+
+// ---- Keyboard: the same moves without a pointer ----
+function nudge(dx, dy){
+ if (flight) sx.on = sy.on = false;                    // in flight those springs hold the frame's centre, not the pan
+ sz.on = false; about = null; flight = false;
+ sx.to = Math.min(0, Math.max(W - W * z, (sx.on ? sx.to : tx) + dx)); sy.to = Math.min(0, Math.max(H - H * z, (sy.on ? sy.to : ty) + dy));
+ if (calm.matches) { tx = sx.to; ty = sy.to; return render(); }
+ sx.x = tx; sy.x = ty; sx.on = sy.on = true; run();
+}
+map.addEventListener("keydown", (e) => {
+ if (e.target !== map) return;                         // the zoom buttons keep their own keys
+ const arrows = {ArrowLeft: [90, 0], ArrowRight: [-90, 0], ArrowUp: [0, 90], ArrowDown: [0, -90]};
+ if (arrows[e.key]) { if (z > 1) { e.preventDefault(); nudge(...arrows[e.key]); } }   // not zoomed in: the arrows scroll the page as usual
+ else if (e.key === "+" || e.key === "=") { e.preventDefault(); zoomTo(W / 2, H / 2, aim() * 1.6); }
+ else if (e.key === "-" || e.key === "_") { e.preventDefault(); zoomTo(W / 2, H / 2, aim() / 1.6); }
+ else if (e.key === "0") { e.preventDefault(); zoomTo(W / 2, H / 2, 1); }
+});
 
 // ---- Tooltip ----
 // What is under the pointer: a practice ring if the pointer is on one, otherwise the district.
@@ -336,7 +473,7 @@ function fill(b){
  }
 }
 let showing = null;                        // the district or practice the tooltip is about
-function hide(){ tip.style.display = "none"; $("hit").style.display = $("hitr").style.display = "none"; showing = null; }
+function hide(){ tip.classList.remove("on"); $("hit").style.display = $("hitr").style.display = "none"; showing = null; }
 function point(e){
  const [mx, my] = spot(e), b = under(mx, my);
  if (!b) return hide();
@@ -346,7 +483,7 @@ function point(e){
   $("hit").style.display = b.s ? "block" : "none"; $("hitr").style.display = b.p ? "block" : "none";
   if (b.p) $("hitr").setAttribute("d", b.p.g);
   else { $("hit").setAttribute("cx", b.x); $("hit").setAttribute("cy", b.y); $("hit").setAttribute("r", b.r); }
-  tip.style.display = "block";
+  tip.classList.add("on");
  }
  const tw = tip.offsetWidth, th = tip.offsetHeight;
  let left = mx + 14, topPx = my + 14;
@@ -354,6 +491,7 @@ function point(e){
  if (left < 0) left = Math.max(0, (W - tw) / 2);
  if (topPx + th > H) topPx = Math.max(0, my - 14 - th);
  tip.style.left = left + "px"; tip.style.top = topPx + "px";
+ tip.style.transformOrigin = (left < mx ? "right " : "left ") + (topPx < my ? "bottom" : "top");   // grow from the pointer's side
 }
 
 // ---- Table view: every value on the map, without hovering ----

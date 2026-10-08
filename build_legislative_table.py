@@ -40,6 +40,9 @@ PAGE = """<!doctype html>
  table{border-collapse:collapse;width:100%;font-size:.86rem;margin-top:4px}
  th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
  th{background:var(--head);font-size:.8rem;cursor:pointer;user-select:none}
+ th:active{background:var(--soft)}                      /* a heading answers the press as it lands */
+ th:focus-visible{outline:2px solid var(--muted);outline-offset:-2px}
+ th[aria-sort]::after{content:" ▲";font-size:.7em;color:var(--muted)} th[aria-sort=descending]::after{content:" ▼"}
  th.r,td.r{text-align:right}
  .muted{color:var(--muted);font-size:.8rem}
  .ok{color:var(--ok);font-weight:600}.no{color:var(--no);font-weight:600}
@@ -89,10 +92,17 @@ function draw(){
     <td><b>${d.post} of ${d.n}</b> <span class="muted">covering ${Math.round(d.pct)}% of residents</span>
       <details><summary>School districts</summary><ul>${d.sd.map(s=>`<li>${esc(s[0])}, ${s[1]}%: <span class="${s[2]?"ok":"no"}">${s[2]?"plan posted":"no plan posted"}</span></li>`).join("")}</ul></details></td>
     <td class="r">${d.neuro<10?d.neuro.toFixed(1):Math.round(d.neuro)} mi</td><td class="r">${Math.round(d.ems)} min</td></tr>`).join("");
+  document.querySelectorAll("th").forEach(th=>{if(th.dataset.k===key)th.setAttribute("aria-sort",dir>0?"ascending":"descending");else th.removeAttribute("aria-sort");});
 }
 document.getElementById("q").addEventListener("input",draw);
 document.getElementById("ch").addEventListener("change",draw);
-document.querySelectorAll("th").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;dir=(k===key)?-dir:1;key=k;draw();}));
+// A heading sorts by its column, by click or by Enter. The arrow on it shows which column and which way.
+document.querySelectorAll("th").forEach(th=>{
+  const sort=()=>{const k=th.dataset.k;dir=(k===key)?-dir:1;key=k;draw();};
+  th.tabIndex=0;
+  th.addEventListener("click",sort);
+  th.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();sort();}});
+});
 draw();
 </script>
 <script src="../js/embed.js"></script>

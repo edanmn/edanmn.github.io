@@ -13,9 +13,10 @@
  #q:focus-visible{outline:3px solid var(--link);outline-offset:1px}
  #list{border:1px solid var(--line);border-radius:8px;margin-top:4px;max-height:240px;overflow:auto;display:none}
  #list div{padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--line);font-size:.95rem}
- #list div:hover,#list div.active{background:var(--hover)}
+ #list div:hover,#list div.active,#list div:active{background:var(--hover)}   /* :active answers a tap as it lands */
  .muted{color:var(--muted);font-size:.85rem}
- .card{margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:18px;display:none}
+ .card{margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:18px;display:none;animation:arrive .18s ease-out}
+ @keyframes arrive{from{opacity:0;transform:translateY(4px)}}
  .badge{display:inline-block;padding:5px 12px;border-radius:999px;font-weight:600;font-size:.9rem}
  .pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
  .dual{display:inline-block;margin-left:8px;background:#fce4ec;color:#880e4f;font-size:.78rem;padding:2px 9px;border-radius:12px;font-weight:600}
@@ -35,6 +36,8 @@
  .share{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0 0}
  .share button{font:inherit;font-size:.88rem;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--fg);cursor:pointer}
  .share button:hover{border-color:var(--link)}
+ .share button{transition:transform .1s ease-out} .share button:active{transform:scale(.97)}
+ @media(prefers-reduced-motion:reduce){.card{animation:none}.share button:active{transform:none}}
  .share span{word-break:break-all}
  .disc{color:var(--muted);font-size:.82rem;margin-top:14px}
  @media(max-width:480px){.card{padding:14px}.facts{grid-template-columns:1fr}}

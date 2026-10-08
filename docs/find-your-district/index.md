@@ -1,3 +1,7 @@
+---
+title: Find Your School District
+---
+
 # Find Your District
 
 Look up your Minnesota school district to see whether a seizure plan is posted, key district

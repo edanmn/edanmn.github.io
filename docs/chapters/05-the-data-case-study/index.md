@@ -2,7 +2,7 @@
 
 This is the study the rest of the schools work rests on. We asked a question with a measurable
 answer: **how many Minnesota school districts post a seizure plan that families and staff can
-actually find?** The charts below are interactive, hover, zoom, and explore.
+actually find?** The charts below are interactive: hover over them, or tap, for the numbers.
 
 !!! tip "Want to check your own district?"
     Jump to [Find Your District](../../find-your-district/index.md) and search your district by name.
@@ -35,7 +35,7 @@ districts post only a general medication policy that never mentions seizures.
 Schools' health services page that the June check missed. The count of districts with a posted
 plan moved from 97 to 98.*
 
-<iframe src="../../charts/classification_breakdown.html" class="microsim" width="100%" height="380" title="What Minnesota districts post" loading="lazy"></iframe>
+<iframe src="../../charts/classification_breakdown.html" class="microsim" width="100%" height="190" title="What Minnesota districts post" loading="lazy"></iframe>
 
 ??? note "The numbers in this chart"
     | What the district posts | Districts | Share of 329 |
@@ -49,7 +49,7 @@ plan moved from 97 to 98.*
 City and suburban districts are far more likely to post a plan than town and rural districts.
 A statistical test confirms this is not chance (chi-square p < 0.0001).
 
-<iframe src="../../charts/gap_by_locale.html" class="microsim" width="100%" height="430" title="Plan rate by district type" loading="lazy"></iframe>
+<iframe src="../../charts/gap_by_locale.html" class="microsim" width="100%" height="340" title="Plan rate by district type" loading="lazy"></iframe>
 
 ??? note "The numbers in this chart"
     | District type | Districts | Post a seizure plan |
@@ -60,10 +60,11 @@ A statistical test confirms this is not chance (chi-square p < 0.0001).
     | Rural | 226 | 20% |
 
 ## Where the gaps are, county by county
-Darker counties have a higher share of districts with no public seizure plan. Hover any county
-for its numbers. The gap covers most of Greater Minnesota, with the metro area lighter.
+Each county is shaded by the share of its districts with no public seizure plan; the key beside
+the map gives the scale. Hover any county for its numbers. The gap covers most of Greater
+Minnesota and is smaller in the metro area.
 
-<iframe src="../../charts/gap_map.html" class="microsim" width="100%" height="540" title="Interactive map of seizure-plan gaps by county" loading="lazy"></iframe>
+<iframe src="../../charts/gap_map.html" class="microsim" width="100%" height="580" title="Interactive map of seizure-plan gaps by county" loading="lazy"></iframe>
 
 The district-level data behind the map, with each district's county, is in the
 [audit file, available on request](../../data/index.md).
@@ -74,7 +75,7 @@ We built a logistic regression to ask what predicts a public plan. The dominant 
 accounted for size, "rural" was no longer a significant predictor on its own. You can see the
 size effect directly:
 
-<iframe src="../../charts/size_effect.html" class="microsim" width="100%" height="430" title="Plan rate by enrollment" loading="lazy"></iframe>
+<iframe src="../../charts/size_effect.html" class="microsim" width="100%" height="360" title="Plan rate by enrollment" loading="lazy"></iframe>
 
 ??? note "The numbers in this chart"
     | District enrollment | Districts | Post a seizure plan |
@@ -95,7 +96,7 @@ Snapshot).
 And the gap tends to be largest exactly where community health needs are highest, hover the
 bubbles (size = number of districts in that county):
 
-<iframe src="../../charts/county_need_vs_gap.html" class="microsim" width="100%" height="430" title="County need versus gap" loading="lazy"></iframe>
+<iframe src="../../charts/county_need_vs_gap.html" class="microsim" width="100%" height="480" title="County need versus gap" loading="lazy"></iframe>
 
 This changes how we help: do not lecture small districts, **do the work for them** with a
 ready-to-use packet.

@@ -32,8 +32,10 @@ docs/
   sims/distance-lookup/        distance-to-care lookup
   packet/                      the Seizure-Safe Schools packet (PDF)
   css/extra.css                site styling
-  js/reactbits.js              page animations
-  js/embed.js                  dark mode, auto height and phone layout for the embedded pages
+  css/charts.css               the look of the charts
+  js/reactbits.js              home page search, light/dark fade, swipeable phone menu
+  js/charts.js                 draws the charts (no chart library)
+  js/embed.js                  dark mode and auto height for the embedded pages
 overrides/                     theme overrides: analytics, link previews, home page sidebar
 press/                         press release and outreach kit (not part of the site)
 ```
@@ -48,8 +50,18 @@ project:
 | `build_district_lookup.py` | `docs/find-your-district/district_lookup.html`, `docs/data/mn_seizure_plan_audit.csv`, and the reply counts on the report page |
 | `build_district_table.py` | `docs/find-your-district/district_table.html` |
 | `build_charts.py` | the audit charts in `docs/charts/` |
-| `build_initiative_charts.py` | the initiative charts in `docs/charts/` and `docs/sims/distance-lookup/main.html` |
-| `postprocess_charts.py` | adds the viewport tag and `embed.js` to every chart (the two chart scripts call it) |
+| `build_initiative_charts.py` | the initiative charts and the distance-to-care map in `docs/charts/`, and `docs/sims/distance-lookup/main.html` |
+| `build_county_table.py`, `build_legislative_table.py` | the county and legislative district tables |
+| `edan_charts.py` | shared helper: `write_chart()` writes one chart page |
+| `postprocess_charts.py` | adds the viewport tag and `embed.js` to the one chart still made with Plotly (`county_four_layers.html`, not used on any page) |
+
+The charts use no chart library. Each chart page holds a short description of the chart as JSON
+(`window.SPEC`), and `docs/js/charts.js` draws it with `docs/css/charts.css`. The kinds of chart
+and what each needs are listed at the top of `charts.js`.
+
+`mortality_by_year.html` and `mortality_by_age.html` are built by a script that is not in this
+repository. They were converted to the new format by hand; that script needs to call
+`write_chart()` too, or it will put the old Plotly versions back.
 
 Edit the script, not the generated file, or the next rebuild will undo the change.
 

@@ -27,6 +27,11 @@ theme:
         name: Switch to light mode
   features:
     - navigation.instant
+    # Fetch a page when the pointer reaches its link, and show a bar if a load is slow.
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    # Breadcrumbs above the title on nested pages: where am I, and how do I get back.
+    - navigation.path
     - navigation.tracking
     - navigation.top
     - navigation.footer
@@ -57,10 +62,10 @@ plugins:
 
 extra_css:
   # Bump the version after CSS changes so browsers fetch the new file right away.
-  - css/extra.css?v=2026-10-07
+  - css/extra.css?v=2026-10-08d
 
 extra_javascript:
-  - js/reactbits.js?v=2026-10-07b
+  - js/reactbits.js?v=2026-10-08d
 
 # The quiz is reached from the button at the end of the law page, not from the menu.
 not_in_nav: |
@@ -68,25 +73,25 @@ not_in_nav: |
 
 nav:
   - Home: index.md
-  - About EDAN: about.md
+  - 'Find Your District':
+    - 'School District': find-your-district/index.md
+    - 'Legislative District': legislative-districts/index.md
+    - 'County': counties/index.md
+    - 'Tell Us What Your District Has': programs/report-your-district/index.md
   - 'Initiatives':
     - 'Overview': initiatives/index.md
     - '1. Seizure-Safe Schools': initiatives/seizure-safe-schools.md
     - '2. Medication Access': initiatives/medication-access.md
     - '3. SUDEP': initiatives/sudep.md
-  - In Your Language: in-your-language/index.md
-  - 'Find Your District':
-    - 'School District': find-your-district/index.md
-    - 'Legislative District': legislative-districts/index.md
-    - 'County': counties/index.md
-  - 'Distance to Care':
-    - 'Map': initiatives/care-access.md
-    - 'Lookup': sims/distance-lookup/index.md
-  - 'Tell Us What Your District Has': programs/report-your-district/index.md
-  - 'The Law and the Audit':
+  - 'Law and Data':
     - 'The Minnesota Law (121A.24)': chapters/03-minnesota-law/index.md
     - 'The Audit: Mapping the Gaps': chapters/05-the-data-case-study/index.md
+    - 'Distance to Care Map': initiatives/care-access.md
+    - 'Distance to Care Lookup': sims/distance-lookup/index.md
     - 'Data and Methods': data/index.md
-  - Resources & Support: resources/index.md
-  - FAQ: faq.md
-  - Glossary: glossary.md
+  - 'Help and Resources':
+    - 'Resources & Support': resources/index.md
+    - 'In Your Language': in-your-language/index.md
+    - 'FAQ': faq.md
+    - 'Glossary': glossary.md
+  - About EDAN: about.md

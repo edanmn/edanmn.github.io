@@ -1,3 +1,7 @@
+---
+title: Initiatives
+---
+
 # Initiatives
 
 ## The vision

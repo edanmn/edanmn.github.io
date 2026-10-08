@@ -5,8 +5,9 @@
    Brand: medical red (#b3202c) with warm-ink neutrals.
    ========================================================================== */
 
-/* Serif display face for headings (Inter + JetBrains Mono load via mkdocs.yml). */
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap');
+/* Serif display face for headings: Newsreader, linked from overrides/main.html so the browser
+   finds it straight away instead of after this file has loaded. (Inter + JetBrains Mono load
+   via mkdocs.yml.) */
 
 /* --------------------------------------------------------------------------
    1. Design tokens
@@ -280,27 +281,9 @@ button:focus-visible {
 /* ==========================================================================
    9. Modern / interactive layer — effects modelled on reactbits.dev,
    rebuilt in vanilla CSS/JS so they work in a static MkDocs build.
-   Content is fully visible without JS; the .rb-ready flag (set by JS on
-   <html>) is what arms the entrance animations. All motion is disabled
-   under prefers-reduced-motion.
+   Content never waits on an animation: nothing fades in as you scroll.
+   All motion is disabled under prefers-reduced-motion.
    ========================================================================== */
-
-/* ---- Scroll Reveal / Animated Content -----------------------------------
-   reactbits: "Scroll Reveal" + "Animated Content". Top-level content blocks
-   fade and rise into view. Only armed once JS adds .rb-ready. */
-@media (prefers-reduced-motion: no-preference) {
-  .rb-ready .rb-reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 620ms cubic-bezier(0.16, 1, 0.3, 1),
-                transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
-  }
-  .rb-ready .rb-reveal.rb-in {
-    opacity: 1;
-    transform: none;
-  }
-}
 
 /* ---- Aurora background (home hero only) ----------------------------------
    reactbits: "Aurora". A slow, soft brand-tinted gradient wash behind the
@@ -326,63 +309,25 @@ button:focus-visible {
     radial-gradient(38% 50% at 82% 8%, rgba(214, 122, 60, 0.16), transparent 72%),
     radial-gradient(45% 60% at 55% 0%, rgba(255, 107, 115, 0.12), transparent 75%);
 }
-@media (prefers-reduced-motion: no-preference) {
-  .rb-aurora {
-    animation: rb-aurora-drift 22s ease-in-out infinite alternate;
-  }
-}
-@keyframes rb-aurora-drift {
-  0%   { transform: translate3d(-2%, 0, 0) scale(1); }
-  100% { transform: translate3d(3%, 2%, 0) scale(1.08); }
-}
+/* The wash holds still. A slow, endless drift behind the whole page is the kind of motion
+   that makes some readers unwell, and it tells them nothing. */
 
-/* ---- Gradient / Shiny Text (home title) ----------------------------------
-   reactbits: "Gradient Text" + "Shiny Text". A slow sheen sweeps across the
-   home page H1. Falls back to solid ink when motion is reduced. */
-@media (prefers-reduced-motion: no-preference) {
-  .rb-gradient-text {
-    background: linear-gradient(
-      100deg,
-      var(--edan-ink) 0%, var(--edan-ink) 38%,
-      var(--edan-red) 50%,
-      var(--edan-ink) 62%, var(--edan-ink) 100%);
-    background-size: 220% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: rb-sheen 7s linear infinite;
-  }
-  [data-md-color-scheme="slate"] .rb-gradient-text {
-    background: linear-gradient(
-      100deg, #f3efe9 0%, #f3efe9 38%, var(--edan-red) 50%, #f3efe9 62%, #f3efe9 100%);
-    background-size: 220% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-}
-@keyframes rb-sheen {
-  0%   { background-position: 180% center; }
-  100% { background-position: -80% center; }
-}
-
-/* ---- Count Up ------------------------------------------------------------
-   reactbits: "Count Up". JS animates the number; this just steadies width. */
-.edan-stat { font-variant-numeric: tabular-nums; }
 
 /* ---- Spotlight Card + hover lift -----------------------------------------
-   reactbits: "Spotlight Card" / "Magic Bento". Callouts, details and tables
-   lift on hover and reveal a soft cursor-following glow. */
+   reactbits: "Spotlight Card" / "Magic Bento". Only the collapsible blocks
+   lift on hover and show the cursor glow, because only they do something when
+   pressed. A callout or a table that moved under the cursor looked clickable
+   and was not. */
 .md-typeset .admonition,
 .md-typeset details,
 .md-typeset table:not([class]) {
   position: relative;
+}
+.md-typeset details {
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .md-typeset .admonition:hover,
-  .md-typeset details:hover,
-  .md-typeset table:not([class]):hover {
+  .md-typeset details:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
   }
@@ -548,3 +493,174 @@ button:focus-visible {
 
 /* Embedded lookups and charts sit on the page colour in dark mode. */
 [data-md-color-scheme="slate"] .md-typeset iframe { border-color: rgba(255, 255, 255, 0.14) !important; }
+
+/* ==========================================================================
+   10. Material, response and restraint
+   Guided by Apple's interface design talks: surfaces that float are frosted,
+   a press is answered the moment it lands, and nothing moves without a reason.
+   ========================================================================== */
+
+/* ---- The header is a frosted layer --------------------------------------
+   Content scrolls underneath it instead of being cut off by a solid bar. The
+   frost sits on a pseudo-element: a backdrop filter on the header itself would
+   trap the phone search overlay inside the header. */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .md-header { background-color: transparent; }
+  .md-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: rgba(36, 33, 30, 0.86);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  [data-md-color-scheme="slate"] .md-header::before { background-color: rgba(27, 25, 22, 0.82); }
+}
+/* Readers who ask for less transparency or more contrast get the solid bar back. */
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .md-header::before {
+    background-color: var(--md-primary-fg-color);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* ---- A press is answered on the way down, not on release ---------------- */
+.md-typeset .md-button {
+  transition: color 125ms, background-color 125ms, border-color 125ms, transform 100ms ease-out;
+}
+.md-typeset .md-button:active { transform: scale(0.97); }
+.edan-find-list div:active { background: #fbeaec; }
+[data-md-color-scheme="slate"] .edan-find-list div:active { background: #3a2326; }
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .md-button:active { transform: none; }
+}
+
+/* ==========================================================================
+   11. Leaning further into the same ideas
+   ========================================================================== */
+
+/* ---- Type ----------------------------------------------------------------
+   Headings break into even lines; paragraphs avoid a stranded last word.
+   Small text gets a little more letter-spacing, the way large text gets less.
+   Figures in tables are equal-width so columns of numbers line up. */
+.md-typeset h1, .md-typeset h2, .md-typeset h3 { text-wrap: balance; }
+.md-typeset p, .md-typeset li { text-wrap: pretty; }
+.md-typeset table:not([class]),
+.md-typeset .admonition,
+.md-typeset details,
+.md-nav { letter-spacing: 0.006em; }
+.md-typeset table:not([class]) td { font-variant-numeric: tabular-nums; }
+
+/* ---- Collapsible blocks open and close, they do not blink ----------------
+   The answer grows out of the question it belongs to. Press again part-way
+   and it turns round from where it is. Browsers that cannot do this yet keep
+   the plain open and shut. */
+@supports (interpolate-size: allow-keywords) and selector(::details-content) {
+  .md-typeset details { interpolate-size: allow-keywords; }
+  .md-typeset details::details-content {
+    block-size: 0;
+    overflow-y: clip;
+    opacity: 0;
+    transition: block-size 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+                opacity 200ms ease,
+                content-visibility 320ms allow-discrete;
+  }
+  .md-typeset details[open]::details-content { block-size: auto; opacity: 1; }
+}
+
+/* ---- Where the header meets the page ------------------------------------
+   No line at the top of a page. Once content has scrolled under the header,
+   a soft shadow says so. */
+.md-header { box-shadow: none; transition: box-shadow 250ms ease; }
+.md-header--shadow { box-shadow: 0 10px 24px -14px rgba(0, 0, 0, 0.5); }
+
+/* ---- Links in the menus answer the press --------------------------------- */
+.md-nav__link:active,
+.md-tabs__link:active,
+.md-path__link:active { opacity: 0.5; transition: none; }
+
+/* ---- Back to top: a frosted pill ----------------------------------------- */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .md-top {
+    background-color: color-mix(in srgb, var(--md-default-bg-color) 72%, transparent);
+    -webkit-backdrop-filter: saturate(170%) blur(14px);
+    backdrop-filter: saturate(170%) blur(14px);
+  }
+}
+.md-top:active { scale: 0.96; }
+
+/* ---- Home page search: the suggestions float ------------------------------
+   The list used to open inside the form and push the page down. Now it is a
+   frosted sheet that grows out of the search field, placed by reactbits.js,
+   and the page underneath stays where it was. */
+.edan-hero { position: relative; z-index: 2; }
+.edan-find { position: relative; }
+.edan-find input { border-radius: 0.5rem; padding: 0.6rem 0.75rem; }
+.edan-find-list {
+  position: absolute;
+  z-index: 3;
+  flex: none;
+  border-radius: 0.6rem;
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.08);
+  transform-origin: top center;
+  animation: edan-materialize 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.edan-find-list div { border-bottom-color: rgba(0, 0, 0, 0.07); }
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .edan-find-list {
+    background: color-mix(in srgb, var(--md-default-bg-color) 88%, transparent);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+}
+[data-md-color-scheme="slate"] .edan-find-list {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.5);
+}
+[data-md-color-scheme="slate"] .edan-find-list div { border-bottom-color: rgba(255, 255, 255, 0.08); }
+@keyframes edan-materialize {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+}
+
+/* ---- Readers who ask for less ---------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .edan-find-list { animation: none; }
+  .md-typeset details::details-content { transition: none; }
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .md-top, .edan-find-list {
+    background-color: var(--md-default-bg-color);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+/* More contrast: links are underlined, not told apart by colour alone, and edges are firmer. */
+@media (prefers-contrast: more) {
+  .md-typeset a { text-decoration: underline; text-underline-offset: 0.15em; }
+  .md-typeset .admonition, .md-typeset details, .edan-find input, .edan-find-list { border-color: currentColor; }
+}
+
+/* ==========================================================================
+   12. The rest of the list
+   ========================================================================== */
+
+/* ---- Home page search: say when nothing matches --------------------------- */
+.edan-find-list .edan-find-none,
+.edan-find-list .edan-find-none:hover { color: #666; cursor: default; background: none; }
+[data-md-color-scheme="slate"] .edan-find-list .edan-find-none { color: #aaa39a; }
+
+/* ---- Light and dark fade into each other ---------------------------------
+   reactbits.js asks the browser to cross-fade the whole page when the theme
+   is switched; this sets how long the fade takes. */
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 240ms; }
+
+/* ---- Phone menu follows the finger ----------------------------------------
+   reactbits.js drags the menu shut. The browser keeps vertical scrolling of
+   the menu; sideways movement is left to the script. */
+@media screen and (max-width: 76.234375em) {
+  .md-sidebar--primary { touch-action: pan-y; }
+}

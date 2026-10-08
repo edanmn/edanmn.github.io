@@ -50,7 +50,7 @@ The full method, the charts, the county map and the reliability check are in
 Hover a bar for the county and the number of English learners. These 25 districts, all
 without a findable seizure plan, get the Spanish, Hmong, and Somali templates first.
 
-<iframe src="../../charts/el_noplan_districts.html" class="microsim" width="100%" height="740" title="No-plan districts by English learner share" loading="lazy"></iframe>
+<iframe src="../../charts/el_noplan_districts.html" class="microsim" width="100%" height="620" title="No-plan districts by English learner share" loading="lazy"></iframe>
 
 Look up any district in [Find Your District](../find-your-district/index.md).
 

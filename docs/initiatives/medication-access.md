@@ -129,9 +129,9 @@ Group Insurance Program.
 Click a drug name in the legend to show or hide it. The most common drugs are cheap generics.
 The drugs a child with hard-to-control epilepsy needs are the expensive ones.
 
-<iframe src="../../charts/asm_by_molecule.html" class="microsim" width="100%" height="540" title="Medicaid antiseizure prescriptions by drug" loading="lazy"></iframe>
+<iframe src="../../charts/asm_by_molecule.html" class="microsim" width="100%" height="480" title="Medicaid antiseizure prescriptions by drug" loading="lazy"></iframe>
 
-<iframe src="../../charts/asm_cost_per_rx.html" class="microsim" width="100%" height="700" title="Cost per prescription by drug" loading="lazy"></iframe>
+<iframe src="../../charts/asm_cost_per_rx.html" class="microsim" width="100%" height="640" title="Cost per prescription by drug" loading="lazy"></iframe>
 
 ## Check yourself
 ??? quiz "1. Six seizure medicines have no generic. What share of Minnesota Medicaid seizure-drug spending did they take in 2025?"

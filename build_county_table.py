@@ -63,10 +63,17 @@ function draw(){
     <td class="r">${d.child}</td>
     <td class="r">${d.neuro<10?d.neuro.toFixed(1):Math.round(d.neuro)} mi</td><td class="r">${Math.round(d.ems)} min</td>
     <td class="r">${d.deaths<0?"under 10":d.deaths.toLocaleString()}</td></tr>`).join("");
+  document.querySelectorAll("th").forEach(th=>{if(th.dataset.k===key)th.setAttribute("aria-sort",dir>0?"ascending":"descending");else th.removeAttribute("aria-sort");});
 }
 document.getElementById("q").addEventListener("input",draw);
 document.getElementById("ru").addEventListener("change",draw);
-document.querySelectorAll("th").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.k;dir=(k===key)?-dir:1;key=k;draw();}));
+// A heading sorts by its column, by click or by Enter. The arrow on it shows which column and which way.
+document.querySelectorAll("th").forEach(th=>{
+  const sort=()=>{const k=th.dataset.k;dir=(k===key)?-dir:1;key=k;draw();};
+  th.tabIndex=0;
+  th.addEventListener("click",sort);
+  th.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();sort();}});
+});
 draw();
 </script>
 <script src="../js/embed.js"></script>

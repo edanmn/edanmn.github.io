@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Interactive charts and lookup tools for the five initiative pages.
-Reads ../data/*, writes docs/charts/*.html and docs/sims/distance-lookup/main.html."""
+"""Interactive charts and lookup tools for the initiative pages.
+Reads ../data/*, writes docs/charts/*.html and docs/sims/distance-lookup/main.html. Charts are
+drawn by docs/js/charts.js from the description each write_chart call passes in (see
+edan_charts.py); the distance-to-care map has its own, larger page further down."""
 import csv, io, json, math, os, re, zipfile
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from urllib.request import urlopen
-import plotly.graph_objects as go
+import plotly.graph_objects as go          # only for county_four_layers.html, which no page uses yet
+from edan_charts import write_chart, albers
 
 HERE = os.path.dirname(os.path.abspath(__file__)); DATA = os.path.join(HERE, "..", "data")
 OUT = os.path.join(HERE, "docs", "charts"); os.makedirs(OUT, exist_ok=True)
@@ -24,12 +27,13 @@ def rd(name): return list(csv.DictReader(open(os.path.join(DATA, name))))
 # ---------- Initiative 1: no-plan districts by English learner share ----------
 lang = [r for r in rd("mn_district_language.csv") if r["classification"] and r["classification"] != "FOUND_SEIZURE_SPECIFIC" and f(r["el_share_pct"]) is not None]
 lang = sorted(lang, key=lambda r: -f(r["el_share_pct"]))[:25]
-fig = go.Figure(go.Bar(x=[f(r["el_share_pct"]) for r in lang][::-1], y=[r["district"].title() for r in lang][::-1], orientation="h", marker_color=RED,
-    customdata=[[r["county"], r["english_learners_2021"]] for r in lang][::-1],
-    hovertemplate="%{y}<br>%{x}% English learners (%{customdata[1]} students), %{customdata[0]}<br>No findable seizure plan<extra></extra>"))
-fig.update_layout(title="No-plan districts with the most English learners", height=720, margin=dict(l=260, r=20, t=50, b=50))
-fig.update_xaxes(title="English learners, % of enrollment (NCES 2021)", gridcolor="#eee")
-save(fig, "el_noplan_districts.html")
+write_chart("el_noplan_districts.html", {
+    "type": "bars", "title": "No-plan districts with the most English learners",
+    "axis": "English learners, % of enrollment (NCES 2021)",
+    "rows": [{"label": r["district"].title(), "value": f(r["el_share_pct"]), "text": f'{f(r["el_share_pct"]):g}%',
+              "tip": [[f'{f(r["el_share_pct"]):g}%', "English learners"], [r["english_learners_2021"], "students"],
+                      [r["county"], "no findable seizure plan"]]} for r in lang],
+    "head": ["District", "English learners", "Students", "County"]})
 
 # ---------- Initiative 2: four layers, one county ----------
 comp = rd("mn_district_risk_composite.csv")
@@ -57,22 +61,25 @@ years = sorted({int(r["year"]) for r in yr if int(r["year"]) <= 2025})
 tot = defaultdict(float)
 for r in yr: tot[r["molecule"]] += f(r["prescriptions"]) or 0
 mols = sorted(tot, key=lambda m: -tot[m])[:14]
-fig = go.Figure()
-for i, m in enumerate(mols):
-    d = {int(r["year"]): f(r["prescriptions"]) for r in yr if r["molecule"] == m}
-    fig.add_trace(go.Scatter(x=years, y=[d.get(y) for y in years], mode="lines+markers", name=m.replace("_", " "), visible=True if i < 6 else "legendonly",
-                             hovertemplate="%{x}: %{y:,.0f} prescriptions<extra>" + m + "</extra>"))
-fig.update_layout(title="Minnesota Medicaid antiseizure prescriptions by drug (click a name to show or hide)", height=520, legend=dict(orientation="v"))
-fig.update_yaxes(title="Prescriptions per year", gridcolor="#eee"); fig.update_xaxes(dtick=1)
-save(fig, "asm_by_molecule.html")
+by_mol = {m: {int(r["year"]): f(r["prescriptions"]) for r in yr if r["molecule"] == m} for m in mols}
+write_chart("asm_by_molecule.html", {
+    "type": "lines", "title": "Minnesota Medicaid antiseizure prescriptions by drug",
+    "sub": "Press a drug's name to show or hide it.", "yTitle": "Prescriptions per year", "toggle": True,
+    "x": years,
+    # The six most prescribed are drawn to start with; the rest wait for a press.
+    "series": [{"name": m.replace("_", " "), "values": [by_mol[m].get(y) for y in years], "on": i < 6}
+               for i, m in enumerate(mols)],
+    "head": ["Year"]})
 c25 = [(r["molecule"], f(r["total_reimbursed_usd"]) / f(r["prescriptions"]), f(r["prescriptions"])) for r in yr if r["year"] == "2025" and f(r["prescriptions"])]
 c25 = sorted(c25, key=lambda x: x[1])
 LABEL = {"rescue_diazepam": "nasal diazepam (Valtoco)", "rescue_midazolam": "nasal midazolam (Nayzilam)"}  # 2025 SDUD rows are these brands only
-fig = go.Figure(go.Bar(x=[round(x[1]) for x in c25], y=[LABEL.get(x[0], x[0].replace("_", " ")) for x in c25], orientation="h", marker_color=[RED if x[1] > 500 else AMBER if x[1] > 100 else GREEN for x in c25],
-    customdata=[x[2] for x in c25], hovertemplate="%{y}: $%{x:,} per prescription (%{customdata:,.0f} prescriptions in 2025)<extra></extra>"))
-fig.update_xaxes(type="log", title="Average Medicaid reimbursement per prescription, 2025 (log scale)", gridcolor="#eee")
-fig.update_layout(title="Average Minnesota Medicaid payment per prescription, by drug, 2025", height=680, margin=dict(l=150, r=20, t=50, b=50))
-save(fig, "asm_cost_per_rx.html")
+write_chart("asm_cost_per_rx.html", {
+    "type": "bars", "scale": "log", "title": "Average Minnesota Medicaid payment per prescription, by drug, 2025",
+    "axis": "Average Medicaid reimbursement per prescription, 2025 (log scale)",
+    "rows": [{"label": LABEL.get(m, m.replace("_", " ")), "value": round(cost), "text": f"${round(cost):,}",
+              "tip": [[f"${round(cost):,}", "per prescription"], [f"{n:,.0f}", "prescriptions in 2025"]]}
+             for m, cost, n in reversed(c25)],          # dearest first
+    "head": ["Drug", "Per prescription", "Prescriptions in 2025"]})
 
 # ---------- Initiative 4: map + lookup ----------
 # The map is hand-built SVG rather than Plotly, so it loads fast and plain scrolling never zooms
@@ -175,15 +182,6 @@ def centroid(ring):
     for (x1, y1), (x2, y2) in zip(ring, ring[1:]):
         w = x1 * y2 - x2 * y1; a += w; cx += (x1 + x2) * w; cy += (y1 + y2) * w
     return (cx / (3 * a), cy / (3 * a), abs(a) / 2) if a else (ring[0][0], ring[0][1], 0)
-
-def albers(lon, lat, lon0=-94.2, lat0=46.4, lat1=44.5, lat2=48.5):
-    """Albers equal-area conic centred on Minnesota. Returns (east, north) in Earth radii."""
-    rad = math.radians
-    n = (math.sin(rad(lat1)) + math.sin(rad(lat2))) / 2
-    c = math.cos(rad(lat1)) ** 2 + 2 * n * math.sin(rad(lat1))
-    rho = lambda la: math.sqrt(c - 2 * n * math.sin(rad(la))) / n
-    th = n * rad(lon - lon0)
-    return rho(lat) * math.sin(th), rho(lat0) - rho(lat) * math.cos(th)
 
 def care_map_data(districts, providers, counties, shapes):
     """Project the state, the district shapes and the practices into one frame 1000 units wide."""
@@ -317,7 +315,10 @@ CARE_MAP_HTML = """<!doctype html>
  .lab{font-size:12px;font-weight:600;fill:var(--fg);paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round}
  .name{font-size:11px;fill:var(--fg);text-anchor:middle;paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round}
  .hit{fill:none;stroke:var(--fg);stroke-width:2;stroke-linejoin:round;vector-effect:non-scaling-stroke;display:none}
- .tip{position:absolute;display:none;pointer-events:none;z-index:2;width:max-content;max-width:min(310px,94%);padding:10px 12px;border-radius:8px;background:var(--tip);border:1px solid var(--tipline);box-shadow:0 4px 16px rgba(0,0,0,.16);font-size:.8rem}
+ .pick{fill:none;stroke:var(--ring);stroke-width:3;stroke-linejoin:round;vector-effect:non-scaling-stroke;display:none}   /* the district picked in the lookup */
+ /* The hover card grows out of the pointer and fades away, rather than blinking on and off. */
+ .tip{position:absolute;left:0;top:0;visibility:hidden;opacity:0;transform:scale(.96);transition:opacity .1s ease-out,transform .16s cubic-bezier(.2,.8,.2,1),visibility 0s .1s;pointer-events:none;z-index:2;width:max-content;max-width:min(310px,94%);padding:10px 12px;border-radius:8px;background:color-mix(in srgb,var(--tip) 86%,transparent);-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);border:1px solid var(--tipline);box-shadow:0 4px 16px rgba(0,0,0,.16);font-size:.8rem}
+ .tip.on{visibility:visible;opacity:1;transform:none;transition-delay:0s}
  .tip b{display:block;font-size:.86rem}
  .tip .where{display:block;color:var(--muted);margin-bottom:6px}
  .tip dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0}
@@ -331,12 +332,18 @@ CARE_MAP_HTML = """<!doctype html>
  .sw.k0{background:var(--s0)}.sw.k1{background:var(--s1)}.sw.k2{background:var(--s2)}.sw.k3{background:var(--s3)}.sw.k4{background:var(--s4)}
  .sw.ring{border:2px solid var(--ring);border-radius:50%;box-shadow:none}
  .note{color:var(--muted);font-size:.78rem;margin:0 0 10px}
- button{font:inherit;font-size:.82rem;padding:6px 11px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--fg);cursor:pointer}
+ button{font:inherit;font-size:.82rem;padding:6px 11px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--fg);cursor:pointer;transition:transform .1s ease-out}
  button:hover{border-color:var(--muted)}
- button:disabled{opacity:.4;cursor:default}
+ button:active{transform:scale(.95)}                 /* answer the press itself, not the release */
+ button:disabled{opacity:.4;cursor:default;transform:none}
  .zoom{position:absolute;top:0;right:0;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
- .zoom button{width:32px;height:32px;padding:0;font-size:1.15rem;line-height:1;background:var(--bg)}
+ /* The controls and the hover card float over the map as a frosted layer. */
+ .zoom button{width:32px;height:32px;padding:0;font-size:1.15rem;line-height:1;background:color-mix(in srgb,var(--bg) 70%,transparent);-webkit-backdrop-filter:blur(12px) saturate(170%);backdrop-filter:blur(12px) saturate(170%)}
  .zoom #zreset{width:auto;height:26px;padding:0 8px;font-size:.72rem}
+ @media (prefers-reduced-transparency:reduce){.zoom button,.tip{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}}
+ @media (prefers-contrast:more){.zoom button,.tip{background:var(--bg);border-color:var(--fg);-webkit-backdrop-filter:none;backdrop-filter:none}}
+ @media (prefers-reduced-motion:reduce){button{transition:none}button:active{transform:none}.tip{transition:none;transform:none}}
+ .map:focus-visible{outline:3px solid var(--ring);outline-offset:3px;border-radius:8px}
  .tablewrap{display:none;margin-top:14px;max-height:420px;overflow:auto;border:1px solid var(--line);border-radius:8px}
  table{border-collapse:collapse;width:100%;font-size:.8rem}
  caption{text-align:left;padding:8px;color:var(--muted)}
@@ -348,10 +355,10 @@ CARE_MAP_HTML = """<!doctype html>
 <h1>Distance from each school district to the nearest child neurologist</h1>
 <p class="sub">Each district is shaded by how far its office is from the nearest child neurologist. Hover or tap a district for its distances. Zoom in with the buttons, a pinch, or Ctrl + scroll, then drag to move around.</p>
 <div class="fig">
- <div class="map" id="map">
+ <div class="map" id="map" tabindex="0" role="group" aria-label="Map. With the keyboard: plus and minus zoom, zero resets, and the arrow keys move the map once it is zoomed in.">
   <canvas id="cv"></canvas>
   <svg id="svg" role="img" aria-labelledby="alt"><title id="alt"></title>
-   <g id="over"><path class="hit" id="hitr"/></g>
+   <g id="over"><path class="pick" id="pick"/><path class="hit" id="hitr"/></g>
    <g id="names"></g><g id="sites"></g><circle class="hit" id="hit"/>
   </svg>
   <div class="zoom" role="group" aria-label="Zoom the map">
@@ -438,7 +445,7 @@ const shown = (m) => m.when === "always" || (m.when === "near") === (z >= SPLIT)
 
 function layout(){
  const w = map.clientWidth; if (!w) return;
- if (w !== W) { z = 1; tx = ty = 0; }
+ if (w !== W) { halt(); z = 1; tx = ty = 0; }
  W = w; wide = w >= 400;
  // With room to spare, keep a left margin so practices just west of the state are labelled
  // outside it. Otherwise their labels go on the east side, over the map.
@@ -494,14 +501,14 @@ function render(){
  });
  nameDistricts();
  map.classList.toggle("zoomed", z > 1);
- $("zin").disabled = z >= MAXZ; $("zout").disabled = $("zreset").disabled = z <= 1;
+ $("zin").disabled = aim() >= MAXZ; $("zout").disabled = $("zreset").disabled = aim() <= 1 && z <= 1;
  hide();
 }
 // Once the map is zoomed in, a district is named wherever its name fits inside it and covers
 // no ring or other name, so more names appear the further in you go.
 function nameDistricts(){
  let used = 0;
- if (z > 1) {
+ if (z > 1 && !about) {                    // names wait for a zoom to settle, so they do not flicker in and out
   const taken = marks.filter(shown).map(m => m.box), dpr = window.devicePixelRatio || 1;
   const edge = (p, i) => (padL + p.b[i] * k) * z + tx, top = (p, i) => (padT + p.b[i] * k) * z + ty;
   frame(true);
@@ -525,36 +532,121 @@ function nameDistricts(){
 }
 
 // ---- Zoom and pan ----
-function clampView(){
- z = Math.min(MAXZ, Math.max(1, z));
- tx = Math.min(0, Math.max(W - W * z, tx)); ty = Math.min(0, Math.max(H - H * z, ty));
+// Keep the map inside the frame. Zoomed out past 1 (only ever briefly, see zoomAt) the map is
+// smaller than the frame, so the limits swap round.
+function clampPan(){
+ const ex = W - W * z, ey = H - H * z;
+ tx = Math.min(Math.max(0, ex), Math.max(Math.min(0, ex), tx)); ty = Math.min(Math.max(0, ey), Math.max(Math.min(0, ey), ty));
 }
+function clampView(){ z = Math.min(MAXZ, Math.max(1, z)); clampPan(); }
+// A direct zoom, for a pinch or Ctrl + scroll: the map follows the fingers one to one. Past the
+// closest or the farthest zoom it gives a little and then resists, and settle() eases it back.
+let pulled = null, focal = null, wheelTimer = 0;       // pulled: the zoom the fingers have asked for, as a logarithm
 function zoomAt(mx, my, factor){
- const z0 = z; z = Math.min(MAXZ, Math.max(1, z * factor));
+ halt();
+ if (pulled === null) pulled = Math.log(z);
+ pulled += Math.log(factor);
+ const top = Math.log(MAXZ), give = .25;
+ const l = pulled > top ? top + rubber(pulled - top, give) : pulled < 0 ? -rubber(-pulled, give) : pulled;
+ const z0 = z; z = Math.exp(l); focal = [mx, my];
  tx = mx - (mx - tx) * z / z0; ty = my - (my - ty) * z / z0;
- clampView(); render();
+ clampPan(); render();
+}
+function settle(){
+ pulled = null;
+ if (focal && (z < 1 || z > MAXZ)) zoomTo(focal[0], focal[1], z);    // zoomTo brings the target back inside the limits
 }
 const spot = (e) => { const box = svg.getBoundingClientRect(); return [e.clientX - box.left, e.clientY - box.top]; };
-$("zin").addEventListener("click", () => zoomAt(W / 2, H / 2, 1.6));
-$("zout").addEventListener("click", () => zoomAt(W / 2, H / 2, 1 / 1.6));
-$("zreset").addEventListener("click", () => { z = 1; tx = ty = 0; render(); });
+
+// ---- Motion ----
+// A button zoom and the glide after a drag are springs rather than timed animations: they start
+// from wherever the map is, keep the speed it already has, and can be caught or sent somewhere
+// else at any moment. Each spring has Apple's two numbers: response, in seconds, and a damping
+// ratio, where 1 settles with no bounce.
+const calm = window.matchMedia("(prefers-reduced-motion: reduce)");
+function spring(response, damping, rest){
+ const w = 2 * Math.PI / response;
+ return {x: 0, v: 0, to: 0, on: false, step(dt){
+  this.v += (-w * w * (this.x - this.to) - 2 * damping * w * this.v) * dt; this.x += this.v * dt;
+  if (Math.abs(this.x - this.to) < rest && Math.abs(this.v) < rest * 20) { this.x = this.to; this.v = 0; this.on = false; }
+ }};
+}
+const sz = spring(.35, 1, .0008);                     // zoom, as its logarithm so each step feels the same size
+const sx = spring(.45, 1, .2), sy = spring(.45, 1, .2);   // pan, left-right and up-down on their own
+let about = null;                                     // the point the map zooms about while the zoom spring runs
+let flight = false;                                   // true while flying to a district (see flyTo)
+let frameId = 0, lastFrame = 0;
+function halt(){ sz.on = sx.on = sy.on = false; sz.v = sx.v = sy.v = 0; about = null; flight = false; }
+function run(){ if (!frameId) { lastFrame = 0; frameId = requestAnimationFrame(frameStep); } }
+function frameStep(now){
+ frameId = 0;
+ advance(lastFrame ? Math.min(.034, (now - lastFrame) / 1000) : 1 / 60); lastFrame = now;
+ if (sz.on || sx.on || sy.on) frameId = requestAnimationFrame(frameStep);
+}
+function advance(dt){
+ const panning = sx.on || sy.on;                       // read before stepping: a spring switches itself off when it settles
+ for (let n = Math.ceil(dt / .004), h = dt / n; n > 0; n--) for (const s of [sz, sx, sy]) if (s.on) s.step(h);
+ if (about) {
+  z = Math.exp(sz.x); tx = about.mx - about.ux * z; ty = about.my - about.uy * z;
+  clampPan();
+  if (!sz.on) about = null;
+ } else if (flight) {
+  // Flying to a district: the zoom and the point at the middle of the frame move together.
+  z = Math.exp(sz.x); tx = W / 2 - sx.x * z; ty = H / 2 - sy.x * z;
+  clampPan();
+  if (!sz.on && !sx.on && !sy.on) flight = false;
+ } else if (panning) { tx = sx.x; ty = sy.x; }
+ render();
+}
+// Zoom to a level about a point on screen. A second press while the first is still moving
+// adds to it: the spring is re-aimed from where the map is now, at the speed it has now.
+function zoomTo(mx, my, target){
+ target = Math.min(MAXZ, Math.max(1, target));
+ pulled = null;
+ if (calm.matches) return zoomAt(mx, my, target / z);
+ sx.on = sy.on = false; flight = false;
+ sz.x = Math.log(z); sz.to = Math.log(target); sz.on = true;
+ about = {mx, my, ux: (mx - tx) / z, uy: (my - ty) / z};
+ run();
+}
+const aim = () => sz.on ? Math.exp(sz.to) : z;        // where the zoom is heading
+// Let go of a drag and the map keeps the speed of the hand, heading for where that speed would
+// carry it (Apple's scroll projection), and settles there. Past an edge it eases back.
+const project = (v, rate = .995) => v / 1000 * rate / (1 - rate);
+function glide(vx, vy){
+ flight = false;
+ const lox = W - W * z, loy = H - H * z;
+ sx.x = tx; sy.x = ty; sx.v = vx; sy.v = vy;
+ sx.to = Math.min(0, Math.max(lox, tx + project(vx))); sy.to = Math.min(0, Math.max(loy, ty + project(vy)));
+ if (calm.matches) { tx = sx.to; ty = sy.to; return render(); }
+ sx.on = sy.on = true; run();
+}
+// Dragged past an edge, the map follows less and less instead of stopping dead.
+const rubber = (over, size) => over * size * .55 / (size + .55 * over);
+const band = (v, lo, size) => v > 0 ? rubber(v, size) : v < lo ? lo - rubber(lo - v, size) : v;
+
+$("zin").addEventListener("click", () => zoomTo(W / 2, H / 2, aim() * 1.6));
+$("zout").addEventListener("click", () => zoomTo(W / 2, H / 2, aim() / 1.6));
+$("zreset").addEventListener("click", () => { $("pick").style.display = "none"; zoomTo(W / 2, H / 2, 1); });
 // Plain scrolling stays with the page. Ctrl + scroll, or a trackpad pinch, zooms the map.
 svg.addEventListener("wheel", (e) => {
  if (!e.ctrlKey && !e.metaKey) return;
  e.preventDefault();
  zoomAt(...spot(e), Math.exp(-Math.max(-50, Math.min(50, e.deltaY)) * .012));
+ clearTimeout(wheelTimer); wheelTimer = setTimeout(settle, 140);     // a wheel has no "let go", so wait for it to go quiet
 }, {passive: false});
-svg.addEventListener("dblclick", (e) => zoomAt(...spot(e), 2));
+svg.addEventListener("dblclick", (e) => zoomTo(...spot(e), aim() * 2));
 
 // The mouse or one finger drags the map once it is zoomed in; two fingers pinch.
 const ptrs = new Map();
-let drag = null, pinch = 0, lastTap = 0;
+let drag = null, pinch = 0, lastTap = 0, trail = [];     // trail: the last few drag positions, for the speed at release
 const spread = () => { const [a, b] = [...ptrs.values()]; return {d: Math.hypot(a[0] - b[0], a[1] - b[1]), x: (a[0] + b[0]) / 2, y: (a[1] + b[1]) / 2}; };
 svg.addEventListener("pointerdown", (e) => {
- ptrs.set(e.pointerId, spot(e));
+ halt(); pulled = null;                                // catch the map mid-flight: it stops under the finger
+ ptrs.set(e.pointerId, spot(e)); trail = [];
  drag = ptrs.size === 1 ? {from: spot(e), tx, ty, moved: false} : null;
  if (ptrs.size === 2) { pinch = spread().d; hide(); }
- if (z > 1 || ptrs.size === 2) svg.setPointerCapture(e.pointerId);
+ if (z > 1 || ptrs.size === 2) try { svg.setPointerCapture(e.pointerId); } catch (err) {}   // keep tracking outside the map
 });
 svg.addEventListener("pointermove", (e) => {
  if (ptrs.has(e.pointerId)) ptrs.set(e.pointerId, spot(e));
@@ -563,25 +655,68 @@ svg.addEventListener("pointermove", (e) => {
   const [x, y] = spot(e), dx = x - drag.from[0], dy = y - drag.from[1];
   if (drag.moved || Math.hypot(dx, dy) > 4) {
    drag.moved = true; map.classList.add("dragging");
-   tx = drag.tx + dx; ty = drag.ty + dy; clampView(); render();
+   tx = band(drag.tx + dx, W - W * z, W); ty = band(drag.ty + dy, H - H * z, H); render();
+   trail.push([e.timeStamp, x, y]); while (trail.length > 2 && e.timeStamp - trail[0][0] > 100) trail.shift();
   }
   return;
  }
  if (e.pointerType === "mouse" && !ptrs.size) point(e);
 });
 function release(e){
- const tap = drag && !drag.moved && e.type === "pointerup";
- ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch = 0;
+ const tap = drag && !drag.moved && e.type === "pointerup", dragged = drag && drag.moved;
+ ptrs.delete(e.pointerId);
+ if (ptrs.size < 2 && pinch) { pinch = 0; settle(); }
  drag = null; map.classList.remove("dragging");
+ if (dragged) {
+  // Hand the speed of the hand to the springs, so there is no seam between dragging and gliding.
+  const a = trail[0], b = trail[trail.length - 1], dt = a && b ? (b[0] - a[0]) / 1000 : 0;
+  const fresh = b && e.timeStamp - b[0] < 80 && dt > 0;         // a pause before letting go means no throw
+  glide(fresh ? (b[1] - a[1]) / dt : 0, fresh ? (b[2] - a[2]) / dt : 0);
+ }
  if (!tap) return;
  // A second quick tap zooms in, the way a double click does with a mouse.
- if (e.pointerType !== "mouse" && Date.now() - lastTap < 320) { lastTap = 0; zoomAt(...spot(e), 2); }
+ if (e.pointerType !== "mouse" && Date.now() - lastTap < 320) { lastTap = 0; zoomTo(...spot(e), aim() * 2); }
  else { lastTap = Date.now(); point(e); }
 }
 svg.addEventListener("pointerup", release);
 svg.addEventListener("pointercancel", release);
 svg.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse" && !ptrs.size) hide(); });
 document.addEventListener("pointerdown", (e) => { if (!map.contains(e.target)) hide(); });
+
+// ---- Fly to a district ----
+// The lookup under the map calls this when a district is picked there: the map travels to the
+// district, zooms until it fills about half the frame, and keeps it outlined.
+function flyTo(name){
+ const p = M.P.find(d => d.d === name && d.g);
+ if (!p || !W) return false;
+ const bw = (p.b[2] - p.b[0]) * k, bh = (p.b[3] - p.b[1]) * k;
+ const target = Math.min(MAXZ, Math.max(2, Math.min(W / bw, H / bh) * .5));
+ const cx = padL + (p.b[0] + p.b[2]) / 2 * k, cy = padT + (p.b[1] + p.b[3]) / 2 * k;      // its centre, before zoom
+ $("pick").setAttribute("d", p.g); $("pick").style.display = "block";
+ halt(); pulled = null;
+ if (calm.matches) { z = target; tx = W / 2 - cx * z; ty = H / 2 - cy * z; clampPan(); render(); return true; }
+ sz.x = Math.log(z); sz.to = Math.log(target);
+ sx.x = (W / 2 - tx) / z; sy.x = (H / 2 - ty) / z; sx.to = cx; sy.to = cy;
+ sz.on = sx.on = sy.on = flight = true; run();
+ return true;
+}
+
+// ---- Keyboard: the same moves without a pointer ----
+function nudge(dx, dy){
+ if (flight) sx.on = sy.on = false;                    // in flight those springs hold the frame's centre, not the pan
+ sz.on = false; about = null; flight = false;
+ sx.to = Math.min(0, Math.max(W - W * z, (sx.on ? sx.to : tx) + dx)); sy.to = Math.min(0, Math.max(H - H * z, (sy.on ? sy.to : ty) + dy));
+ if (calm.matches) { tx = sx.to; ty = sy.to; return render(); }
+ sx.x = tx; sy.x = ty; sx.on = sy.on = true; run();
+}
+map.addEventListener("keydown", (e) => {
+ if (e.target !== map) return;                         // the zoom buttons keep their own keys
+ const arrows = {ArrowLeft: [90, 0], ArrowRight: [-90, 0], ArrowUp: [0, 90], ArrowDown: [0, -90]};
+ if (arrows[e.key]) { if (z > 1) { e.preventDefault(); nudge(...arrows[e.key]); } }   // not zoomed in: the arrows scroll the page as usual
+ else if (e.key === "+" || e.key === "=") { e.preventDefault(); zoomTo(W / 2, H / 2, aim() * 1.6); }
+ else if (e.key === "-" || e.key === "_") { e.preventDefault(); zoomTo(W / 2, H / 2, aim() / 1.6); }
+ else if (e.key === "0") { e.preventDefault(); zoomTo(W / 2, H / 2, 1); }
+});
 
 // ---- Tooltip ----
 // What is under the pointer: a practice ring if the pointer is on one, otherwise the district.
@@ -620,7 +755,7 @@ function fill(b){
  }
 }
 let showing = null;                        // the district or practice the tooltip is about
-function hide(){ tip.style.display = "none"; $("hit").style.display = $("hitr").style.display = "none"; showing = null; }
+function hide(){ tip.classList.remove("on"); $("hit").style.display = $("hitr").style.display = "none"; showing = null; }
 function point(e){
  const [mx, my] = spot(e), b = under(mx, my);
  if (!b) return hide();
@@ -630,7 +765,7 @@ function point(e){
   $("hit").style.display = b.s ? "block" : "none"; $("hitr").style.display = b.p ? "block" : "none";
   if (b.p) $("hitr").setAttribute("d", b.p.g);
   else { $("hit").setAttribute("cx", b.x); $("hit").setAttribute("cy", b.y); $("hit").setAttribute("r", b.r); }
-  tip.style.display = "block";
+  tip.classList.add("on");
  }
  const tw = tip.offsetWidth, th = tip.offsetHeight;
  let left = mx + 14, topPx = my + 14;
@@ -638,6 +773,7 @@ function point(e){
  if (left < 0) left = Math.max(0, (W - tw) / 2);
  if (topPx + th > H) topPx = Math.max(0, my - 14 - th);
  tip.style.left = left + "px"; tip.style.top = topPx + "px";
+ tip.style.transformOrigin = (left < mx ? "right " : "left ") + (topPx < my ? "bottom" : "top");   // grow from the pointer's side
 }
 
 // ---- Table view: every value on the map, without hovering ----
@@ -681,14 +817,20 @@ html = """<!DOCTYPE html><html lang="en" data-autoheight><head><meta charset="ut
 <style>:root{--fg:#232020;--bg:#fcfcfb;--card:#fff;--field:#fff;--muted:#5d5851;--line:#f0eeea;--hover:#f6e9ea;--red:#b3202c}
 [data-theme=dark]{--fg:#e6e1d9;--bg:#16140f;--card:#1d1a15;--field:#1d1a15;--muted:#aaa39a;--line:#3a352e;--hover:#3a2326;--red:#ff8088}
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:16px;color:var(--fg);background:var(--bg)}input{width:100%;font-size:17px;padding:10px 12px;border:2px solid #999;border-radius:8px;box-sizing:border-box;background:var(--field);color:var(--fg)}input:focus{outline:none;border-color:var(--red)}
-.list{margin-top:6px;max-height:160px;overflow:auto;border:1px solid var(--line);border-radius:8px}.list:empty{display:none}.list div{padding:8px 12px;cursor:pointer}.list div:hover,.list div.active{background:var(--hover)}.card{margin-top:14px;padding:16px;border-left:5px solid #b3202c;background:var(--card);border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.list{margin-top:6px;max-height:160px;overflow:auto;border:1px solid var(--line);border-radius:8px}.list:empty{display:none}.list div{padding:8px 12px;cursor:pointer}.list div:hover,.list div.active,.list div:active{background:var(--hover)}.card{margin-top:14px;padding:16px;border-left:5px solid #b3202c;background:var(--card);border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,.08);animation:arrive .18s ease-out}
+@keyframes arrive{from{opacity:0;transform:translateY(4px)}}@media(prefers-reduced-motion:reduce){.card{animation:none}}
+.onmap{font:inherit;font-size:14px;margin-top:12px;padding:7px 12px;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--fg);cursor:pointer;transition:transform .1s ease-out}.onmap:active{transform:scale(.97)}
 .row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--line)}.row b{font-size:20px;white-space:nowrap}.far{color:var(--red)}.sub{color:var(--muted)}.note{font-size:13px;color:var(--muted);margin-top:10px}</style></head><body>
 <label for="q"><strong>Type your school district</strong></label><input id="q" placeholder="e.g. Worthington, Roseau, Anoka" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="list"><div class="list" id="list" role="listbox" aria-label="Matching districts"></div><div id="out" aria-live="polite"></div>
 <script>const D=__DATA__;const q=document.getElementById('q'),L=document.getElementById('list'),O=document.getElementById('out');
 function show(r){const far=x=>x!==''&&parseFloat(x)>60?' class="far"':'';O.innerHTML=`<div class="card"><h3 style="margin:0 0 6px">${r.d}</h3><div class="sub">${r.c} · ${Number(r.en||0).toLocaleString()} students</div>
 <div class="row"><span>Nearest child neurologist</span><b${far(r.cn)}>${r.cn} mi</b></div><div class="row"><span>Nearest epilepsy subspecialist</span><b${far(r.ep)}>${r.ep} mi</b></div><div class="row"><span>Nearest Level 4 epilepsy center</span><b${far(r.na)}>${r.na} mi</b></div>
 ${r.ph!==''?`<div class="row"><span>Nearest retail pharmacy</span><b${parseFloat(r.ph)>15?' class="far"':''}>${r.ph} mi</b></div>`:''}<div class="row"><span>Ambulance, slowest 10% of calls</span><b${parseFloat(r.ems)>20?' class="far"':''}>${r.ems} min</b></div><div class="row"><span>Findable seizure plan posted</span><b>${r.plan}</b></div>
-<div class="note">Straight-line miles from the district office, so the drive is longer. Red means more than 60 miles to a specialist, 15 to a pharmacy, or 20 minutes for ambulances. Nearest Level 4 center: ${r.nan}. Sources: NPPES, NCES, MN OEMS, EDAN audit.</div></div>`;L.innerHTML='';}
+<div class="note">Straight-line miles from the district office, so the drive is longer. Red means more than 60 miles to a specialist, 15 to a pharmacy, or 20 minutes for ambulances. Nearest Level 4 center: ${r.nan}. Sources: NPPES, NCES, MN OEMS, EDAN audit.</div></div>`;L.innerHTML='';
+// On the Distance to Care page the map sits above this lookup: send it to the district, and offer a way up to it.
+const frame=mapFrame();if(frame&&frame.contentWindow.flyTo(r.d)){const b=document.createElement('button');b.type='button';b.className='onmap';b.textContent='Show on the map';
+b.onclick=()=>{frame.contentWindow.flyTo(r.d);frame.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'})};O.querySelector('.card').appendChild(b)}}
+function mapFrame(){try{const f=parent!==window&&parent.document.querySelector('iframe[src*="care_access_map"]');return f&&f.contentWindow&&typeof f.contentWindow.flyTo==='function'?f:null}catch(e){return null}}
 let M=[],ai=-1;
 function pick(i){const r=M[i];if(!r)return;q.value=r.d;show(r);M=[];q.setAttribute('aria-expanded','false');q.removeAttribute('aria-activedescendant')}
 q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();L.innerHTML='';ai=-1;M=v.length<2?[]:D.filter(r=>r.d.toLowerCase().includes(v)||r.c.toLowerCase().includes(v)).slice(0,12);M.forEach((r,i)=>{const e=document.createElement('div');e.textContent=r.d+' ('+r.c+')';e.id='opt-'+i;e.setAttribute('role','option');e.onclick=()=>pick(i);L.appendChild(e)});q.setAttribute('aria-expanded',M.length?'true':'false')});

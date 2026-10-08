@@ -1,3 +1,7 @@
+---
+title: Distance to Care Lookup
+---
+
 # Distance to Care Lookup
 
 Type a Minnesota school district and see how far it is to the nearest child neurologist,

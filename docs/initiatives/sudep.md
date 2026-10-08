@@ -24,7 +24,7 @@ this. Nobody has published how many families use it.
 We pulled every Minnesota death certificate from 2018 to 2024 that mentions epilepsy or
 seizures, from the CDC's multiple cause of death files.
 
-<iframe src="../../charts/mortality_by_year.html" class="microsim" width="100%" height="480" title="Minnesota deaths mentioning epilepsy or seizures by year" loading="lazy"></iframe>
+<iframe src="../../charts/mortality_by_year.html" class="microsim" width="100%" height="400" title="Minnesota deaths mentioning epilepsy or seizures by year" loading="lazy"></iframe>
 
 | 2018 to 2024, Minnesota residents | Deaths | Per year |
 |---|---|---|
@@ -38,7 +38,7 @@ did not trend up, going from 60 in 2018 to 55 in 2024. Rates are low through chi
 and climb steeply after 65, when seizures ride along with strokes, dementia, and other
 conditions. The epilepsy-specific count peaks at ages 65 to 74.
 
-<iframe src="../../charts/mortality_by_age.html" class="microsim" width="100%" height="480" title="Rate by age" loading="lazy"></iframe>
+<iframe src="../../charts/mortality_by_age.html" class="microsim" width="100%" height="340" title="Rate by age" loading="lazy"></iframe>
 
 These coded files cannot separate SUDEP from other epilepsy deaths. Only 27 of 87 counties had enough epilepsy-specific deaths in seven years to
 report a number at all. Fifty-seven are suppressed as fewer than 10, and three had none
