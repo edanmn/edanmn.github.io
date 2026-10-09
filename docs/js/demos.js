@@ -1,7 +1,7 @@
 /* ==========================================================================
    demos.js: helpers shared by the three interactive pages in docs/sims/.
    Each page keeps what the reader picked in its own address, so a view can be
-   linked to. The district page also offers its answer as a sentence to copy.
+   linked to.
    ========================================================================== */
 window.EDAN = (function () {
   "use strict";
@@ -26,43 +26,6 @@ window.EDAN = (function () {
     const q = params.toString();
     try { history.replaceState(null, "", location.pathname + (q ? "?" + q : "")); } catch (e) { /* opened from a file */ }
   }
-  // The address of this view on its own page, without the theme switch.
-  function link() {
-    const p = new URLSearchParams(params); p.delete("theme");
-    const q = p.toString();
-    return location.origin + location.pathname + (q ? "?" + q : "");
-  }
-
-  /* ---- Copy ---- */
-  function copy(text, button) {
-    const done = () => {
-      const was = button.textContent;
-      button.textContent = "Copied";
-      setTimeout(() => { button.textContent = was; }, 1400);
-    };
-    const fallback = () => {
-      const t = h("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
-      document.body.append(t); t.select();
-      try { document.execCommand("copy"); done(); } catch (e) { /* nothing more to try */ }
-      t.remove();
-    };
-    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback);
-    else fallback();
-  }
-
-  // The answer box: a sentence, its source, and buttons to copy the sentence or a link to this view.
-  function say(into, sentence, source) {
-    const box = h("div", "say"), act = h("div", "act");
-    const a = h("button", "", "Copy this sentence"), b = h("button", "", "Copy a link to this view");
-    a.type = b.type = "button";
-    a.addEventListener("click", () => copy(sentence + " Source: " + source + ", compiled by EDAN (edanmn.org).", a));
-    b.addEventListener("click", () => copy(link(), b));
-    act.append(a, b);
-    box.append(h("p", "", sentence), h("p", "src", "Source: " + source + "."), act);
-    into.append(box);
-    return box;
-  }
-
   // A row of buttons where one is chosen.
   function seg(into, label, options, current, onPick) {
     const wrap = h("div", "ctl"), row = h("div", "seg");
@@ -113,5 +76,5 @@ window.EDAN = (function () {
     return { on, hide };
   }
 
-  return { h, num, usd, pct, get, set, link, copy, say, seg, tips };
+  return { h, num, usd, pct, get, set, seg, tips };
 })();

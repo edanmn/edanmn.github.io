@@ -10,28 +10,20 @@
    ========================================================================== */
 (function () {
   "use strict";
-  const { h, num, pct, get, set, say, tips } = window.EDAN;
+  const { h, num, pct, get, set, tips } = window.EDAN;
   const fig = document.getElementById("demo");
   const tip = tips(fig);
   const ALL = window.DATA.d.map(r => ({ isd: r[0], name: r[1], county: r[2], city: r[3], type: r[4], en: r[5], st: r[6], url: r[7] }));
   const WHEN = window.DATA.checked;
-  const SOURCE = "EDAN audit of the public websites of all 329 Minnesota school districts, " + WHEN;
 
   const ORDER = ["posted", "med", "nothing", "nocheck"];
   const LABEL = { posted: "Seizure plan posted", med: "Medication policy only", nothing: "Nothing found", nocheck: "Could not check" };
-  const DOES = {
-    posted: "posts a seizure plan on its website",
-    med: "posts a general medication policy and no seizure plan that we could find",
-    nothing: "posts no seizure plan or medication policy that we could find",
-    nocheck: "has a website we could not check",
-  };
   const KIND = { Rural: "rural", Town: "town", Suburb: "suburban", City: "city" };
 
   let me = ALL.find(d => d.isd === get("district")) || null;
   let showAll = false;
 
   const posted = (list) => list.filter(d => d.st === "posted").length;
-  const share = (list) => posted(list) + " of " + list.length + " (" + pct(posted(list), list.length) + ")";
   function peers(d) {
     const same = ALL.filter(x => x.type === d.type && x !== d);
     const near = d.en ? same.filter(x => x.en >= d.en / 2 && x.en <= d.en * 2) : [];
@@ -150,9 +142,7 @@
       ? "other " + kind + " districts of similar size"
       : "other " + kind + " districts";
     const without = grp.list.filter(x => x.st !== "posted"), kids = without.reduce((a, x) => a + x.en, 0);
-    say(into, d.name + " (" + d.county + " County" + (d.en ? ", " + num(d.en) + " students" : "") + ") " + DOES[d.st] + ", as of " + WHEN + ". Of the " +
-      grp.list.length + " " + group + ", " + posted(grp.list) + " (" + pct(posted(grp.list), grp.list.length) + ") post a seizure plan. Statewide it is " + share(ALL) + ".", SOURCE);
-
+    into.append(h("h2", "", d.name + ", " + d.county + " County"));
     const big = h("div", "big");
     const fact = (value, label, cls) => { const b = h("div", cls || ""); b.append(h("b", "", value), h("span", "", label)); big.append(b); };
     fact(LABEL[d.st], "what we found on the district's website");
@@ -217,6 +207,7 @@
     if (me) district(body); else statewide(body);
     const foot = h("div", "foot");
     [
+      "Source: EDAN audit of the public websites of all " + ALL.length + " Minnesota school districts, " + WHEN + ".",
       "This records whether a seizure plan was posted publicly online in " + WHEN + ". A district with nothing posted may keep plans on file or on pages we could not reach, so this is not a measure of legal compliance or of how safe a school is.",
       "Similar districts share the same locale (city, suburb, town or rural) and have between half and twice the enrollment. Where fewer than eight districts fit, every other district of that locale is used.",
     ].forEach(t => foot.append(h("p", "", t)));

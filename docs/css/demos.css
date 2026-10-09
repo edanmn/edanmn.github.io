@@ -36,10 +36,6 @@ input:focus { outline: none; border-color: var(--one); }
 .list div span { color: var(--muted); }
 .list div:hover, .list div.active { background: var(--hover); }
 
-/* ---- The answer, stated in a sentence ---- */
-.say { margin: 14px 0; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--one); border-radius: 8px; box-shadow: 0 1px 4px rgba(0, 0, 0, .06); }
-.say p { font-size: .98rem; margin: 0; max-width: 68ch; }
-.say .src { font-size: .76rem; color: var(--muted); margin-top: 8px; }
 .act { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .act button { font: inherit; font-size: .8rem; padding: 5px 11px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--fg); cursor: pointer; transition: transform .1s ease-out; }
 .act button:hover { border-color: var(--muted); }
