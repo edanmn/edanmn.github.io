@@ -32,7 +32,7 @@ docs/
   sims/distance-lookup/        distance-to-care lookup
   sims/cap-calculator/         what a $25 cap would change, ten plans by five medicines
   sims/district-compare/       one district beside similar districts
-  sims/death-certificates/     death certificate counts, six views
+  sims/death-certificates/     death certificate counts, seven views
   packet/                      the Seizure-Safe Schools packet (PDF)
   css/extra.css                site styling
   css/charts.css               the look of the charts
