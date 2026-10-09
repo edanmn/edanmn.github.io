@@ -46,6 +46,15 @@ The full method, the charts, the county map and the reliability check are in
 - Running the same audit on the 467 nonpublic schools and offering them the same free
   packet. Nothing requires them to have a plan, so a plan gets written only if someone asks.
 
+## Explore: how one district compares
+
+Type a district to see its result beside districts of the same kind and size, the rest of its
+county and the state, with links to similar districts that post a plan.
+
+<iframe src="../../sims/district-compare/main.html" class="microsim" width="100%" height="760" title="Compare a district's seizure plan result with similar districts" loading="lazy"></iframe>
+
+[Open it full screen](../sims/district-compare/main.html){ .md-button }
+
 ## Explore: which no-plan districts need translated plans first
 Hover a bar for the county and the number of English learners. These 25 districts, all
 without a findable seizure plan, get the Spanish, Hmong, and Somali templates first.

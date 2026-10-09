@@ -67,11 +67,13 @@ built from federal sources or state filings that every state has. Other states a
 ## Three initiatives for 2026-27
 1. [Seizure-Safe Schools](initiatives/seizure-safe-schools.md): many Minnesota districts
    post no findable seizure plan. We are turning that finding into adoptions.
+   [Compare your district](sims/district-compare/index.md).
 2. [Medication access](initiatives/medication-access.md): shortages, prices, pharmacy
    deserts, and support for reintroducing a cap on what epilepsy drugs cost families (HF 3652 /
-   SF 3786) in 2027.
+   SF 3786) in 2027. [See what the cap would change](sims/cap-calculator/index.md).
 3. [SUDEP](initiatives/sudep.md): about 1,000 Minnesota deaths a year involve seizures and
    nobody counts SUDEP. Data, a missed benefit, and a reporting law.
+   [Explore the death certificate counts](sims/death-certificates/index.md).
 
 [Read the full initiatives page](initiatives/index.md), including how we measure impact.
 

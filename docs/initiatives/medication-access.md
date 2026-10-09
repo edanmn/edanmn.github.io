@@ -128,6 +128,18 @@ transparency reports); CMS National Average Drug Acquisition Cost; FDA Orange Bo
 benefit summaries and formularies from HealthPartners, Medica, UCare and the State Employee
 Group Insurance Program.
 
+## Explore: what a $25 cap would change, plan by plan
+
+We read the 2026 benefit summary and drug list of ten Minnesota plans and priced five seizure
+medicines against each. Pick a medicine to see what a member pays today and what the cap would
+leave. The brand drugs split two ways: on some plans the cap takes hundreds of dollars off the
+month, and on others the drug is missing from the plan's list, where a cap on cost sharing
+does not reach it.
+
+<iframe src="../../sims/cap-calculator/main.html" class="microsim" width="100%" height="1500" title="What a $25 cap would change, plan by plan" loading="lazy"></iframe>
+
+[Open it full screen](../sims/cap-calculator/main.html){ .md-button }
+
 ## Explore: which drugs, and what they cost
 Click a drug name in the legend to show or hide it. The most common drugs are cheap generics.
 The drugs a child with hard-to-control epilepsy needs are the expensive ones.

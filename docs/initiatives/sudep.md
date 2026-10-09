@@ -103,6 +103,16 @@ One caution before reading too much into that gap. A state's rate depends partly
 doctors write epilepsy on a death certificate, which varies. A higher rate may mean more
 deaths, better recording, or both. Source: CDC WONDER, Multiple Cause of Death, 2018 to 2024.
 
+## Explore: every count in one place
+
+The figures above, and the breakdowns behind them, in one page: totals, by year, by age, by
+place of death, the certificates that name SUDEP, and Minnesota beside its neighbors. Each
+view gives a sentence with its source that can be copied.
+
+<iframe src="../../sims/death-certificates/main.html" class="microsim" width="100%" height="800" title="What Minnesota death certificates record about epilepsy" loading="lazy"></iframe>
+
+[Open it full screen](../sims/death-certificates/main.html){ .md-button }
+
 ## What we are doing this year
 - A public-records request to find out how many devices Medical Assistance has covered, so
   the benefit can be measured.

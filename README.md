@@ -30,11 +30,15 @@ docs/
   data/                        Data and Methods page, and the audit as a CSV
   charts/                      interactive Plotly charts, embedded in pages as iframes
   sims/distance-lookup/        distance-to-care lookup
+  sims/cap-calculator/         what a $25 cap would change, ten plans by five medicines
+  sims/district-compare/       one district beside similar districts
+  sims/death-certificates/     death certificate counts, six views
   packet/                      the Seizure-Safe Schools packet (PDF)
   css/extra.css                site styling
   css/charts.css               the look of the charts
   js/reactbits.js              home page search, light/dark fade, swipeable phone menu
   js/charts.js                 draws the charts (no chart library)
+  js/demos.js, js/demo-*.js    the three interactive pages in sims/, styled by css/demos.css
   js/embed.js                  dark mode and auto height for the embedded pages
 overrides/                     theme overrides: analytics, link previews, home page sidebar
 press/                         press release and outreach kit (not part of the site)
@@ -52,6 +56,7 @@ project:
 | `build_charts.py` | the audit charts in `docs/charts/` |
 | `build_initiative_charts.py` | the initiative charts and the distance-to-care map in `docs/charts/`, and `docs/sims/distance-lookup/main.html` |
 | `build_county_table.py`, `build_legislative_table.py` | the county and legislative district tables |
+| `build_demos.py` | `main.html` in `docs/sims/cap-calculator/`, `district-compare/` and `death-certificates/` (the data only; the drawing code is in `docs/js/demo-*.js`) |
 | `edan_charts.py` | shared helper: `write_chart()` writes one chart page |
 | `postprocess_charts.py` | adds the viewport tag and `embed.js` to the one chart still made with Plotly (`county_four_layers.html`, not used on any page) |
 

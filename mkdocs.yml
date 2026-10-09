@@ -81,8 +81,11 @@ nav:
   - 'Initiatives':
     - 'Overview': initiatives/index.md
     - '1. Seizure-Safe Schools': initiatives/seizure-safe-schools.md
+    - 'Compare Your District': sims/district-compare/index.md
     - '2. Medication Access': initiatives/medication-access.md
+    - 'What a $25 Cap Would Change': sims/cap-calculator/index.md
     - '3. SUDEP': initiatives/sudep.md
+    - 'Death Certificate Explorer': sims/death-certificates/index.md
   - 'Law and Data':
     - 'The Minnesota Law (121A.24)': chapters/03-minnesota-law/index.md
     - 'The Audit: Mapping the Gaps': chapters/05-the-data-case-study/index.md

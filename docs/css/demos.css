@@ -1,0 +1,136 @@
+/* ==========================================================================
+   demos.css: the three interactive pages in docs/sims/: the $25 cap, the
+   district comparison and the death certificate explorer. Loaded after
+   charts.css, whose colours, bars, columns, hover card and tables it reuses.
+   ========================================================================== */
+:root { --card: #fff; --field: #fff; --hover: #f6e9ea; --soft: #f5f3ef; --okbg: #e7f4ec; --badbg: #fbeaec; --warnbg: #fdf1e1; }
+[data-theme=dark] { --card: #1d1a15; --field: #1d1a15; --hover: #3a2326; --soft: #211e18; --okbg: #17301f; --badbg: #3a2326; --warnbg: #3a2d17; }
+
+body { max-width: 900px; }
+h1 { font-size: 1.15rem; }
+h2 { font-size: .95rem; font-weight: 650; margin: 22px 0 4px; text-wrap: balance; }
+p { margin: 0 0 10px; }
+.lede { color: var(--muted); font-size: .88rem; margin: 0 0 14px; max-width: 64ch; }
+.small { font-size: .78rem; color: var(--muted); }
+a { color: var(--one); }
+
+/* ---- Controls ---- */
+.ctl { margin: 0 0 12px; }
+.ctl > span, .ctl > label { display: block; font-size: .78rem; font-weight: 650; color: var(--muted); margin: 0 0 5px; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button { font: inherit; font-size: .84rem; color: var(--fg); background: var(--card); border: 1px solid var(--axis); border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: transform .1s ease-out, background-color .12s; }
+.seg button small { color: var(--muted); font-size: .74rem; margin-left: 4px; }
+.seg button:hover { border-color: var(--muted); }
+.seg button:active { transform: scale(.96); }
+.seg button[aria-pressed=true] { background: var(--one); border-color: var(--one); color: #fff; }
+[data-theme=dark] .seg button[aria-pressed=true] { color: #16140f; }
+.seg button[aria-pressed=true] small { color: inherit; opacity: .85; }
+.seg button:disabled { opacity: .45; cursor: default; }
+.seg button:focus-visible, .pick:focus-visible, .cell:focus-visible, .sq:focus-visible, .act button:focus-visible { outline: 2px solid var(--one); outline-offset: 2px; }
+
+input[type=search], input[type=text] { width: 100%; font: inherit; font-size: 1rem; padding: 10px 12px; border: 2px solid var(--axis); border-radius: 8px; background: var(--field); color: var(--fg); }
+input:focus { outline: none; border-color: var(--one); }
+.list { margin-top: 6px; max-height: 220px; overflow: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+.list:empty { display: none; }
+.list div { padding: 8px 12px; cursor: pointer; font-size: .9rem; }
+.list div span { color: var(--muted); }
+.list div:hover, .list div.active { background: var(--hover); }
+
+/* ---- The answer, stated in a sentence ---- */
+.say { margin: 14px 0; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--one); border-radius: 8px; box-shadow: 0 1px 4px rgba(0, 0, 0, .06); }
+.say p { font-size: .98rem; margin: 0; max-width: 68ch; }
+.say .src { font-size: .76rem; color: var(--muted); margin-top: 8px; }
+.act { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.act button { font: inherit; font-size: .8rem; padding: 5px 11px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--fg); cursor: pointer; transition: transform .1s ease-out; }
+.act button:hover { border-color: var(--muted); }
+.act button:active { transform: scale(.96); }
+.big { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 14px 0 10px; }
+.big div { min-width: 0; }
+.big b { display: block; font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.big span { font-size: .78rem; color: var(--muted); }
+.big .cut b { color: var(--good); }
+
+/* ---- Status chips: always a word beside the colour ---- */
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: .76rem; padding: 2px 9px; border-radius: 999px; background: var(--soft); white-space: nowrap; }
+.chip::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--none); flex: none; }
+.chip.lower::before, .chip.posted::before { background: var(--good); }
+.chip.same::before { background: var(--c1); }
+.chip.wait::before, .chip.med::before { background: var(--warn); }
+.chip.nocov::before, .chip.nothing::before { background: var(--bad); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none; }
+
+/* ---- Cap: one row per plan ---- */
+.plans { display: grid; gap: 4px; margin-top: 6px; }
+.plan { background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
+.plan:hover { border-color: var(--muted); }
+.plan:has(.pick[aria-expanded=true]) { border-color: var(--one); }
+.pick { display: grid; grid-template-columns: minmax(150px, 34%) 1fr auto; gap: 4px 12px; align-items: center; width: 100%; text-align: left; font: inherit; color: var(--fg); background: none; border: 0; border-radius: 8px; padding: 8px 10px; cursor: pointer; }
+.pick .nm { font-size: .84rem; line-height: 1.25; }
+.pick .nm small { display: block; color: var(--muted); font-size: .74rem; }
+.pair { display: grid; gap: 3px; min-width: 0; }
+.pair div { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.pair i { display: block; height: 10px; min-width: 2px; border-radius: 0 3px 3px 0; background: var(--off); flex: none; }
+.pair .after i { background: var(--good); }
+.pair .flat i { background: var(--off); }
+.pair span { font-size: .78rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pair span em { font-style: normal; color: var(--muted); }
+.more { border-top: 1px solid var(--line); padding: 8px 10px 10px; font-size: .82rem; }
+.more dl { display: grid; grid-template-columns: minmax(110px, 30%) 1fr; gap: 4px 12px; margin: 0; }
+.more dt { color: var(--muted); }
+.more dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---- Cap: ten plans by five medicines ---- */
+.matrix { display: grid; grid-template-columns: minmax(120px, 30%) repeat(5, minmax(0, 1fr)); gap: 3px; font-size: .74rem; }
+.matrix .hd { font-weight: 650; padding: 4px 2px; text-align: center; line-height: 1.2; align-self: end; overflow-wrap: anywhere; min-width: 0; }
+.matrix .rw { padding: 4px 6px 4px 0; line-height: 1.2; align-self: center; text-align: right; }
+.cell { font: inherit; font-size: .74rem; font-variant-numeric: tabular-nums; border: 0; border-radius: 5px; padding: 7px 2px; cursor: pointer; color: var(--fg); background: var(--soft); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; transition: transform .1s ease-out; }
+.cell:active { transform: scale(.95); }
+.cell.lower { background: var(--okbg); box-shadow: inset 0 -3px 0 var(--good); }
+.cell.same { box-shadow: inset 0 -3px 0 var(--c1); }
+.cell.wait { background: var(--warnbg); box-shadow: inset 0 -3px 0 var(--warn); }
+.cell.nocov { background: var(--badbg); box-shadow: inset 0 -3px 0 var(--bad); }
+.cell.on { outline: 2px solid var(--fg); outline-offset: 1px; }
+
+/* ---- District comparison ---- */
+.stack { display: grid; grid-template-columns: minmax(120px, 32%) 1fr; gap: 8px 12px; align-items: center; margin-top: 8px; }
+.stack .lab { font-size: .82rem; text-align: right; line-height: 1.25; }
+.stack .lab small { display: block; color: var(--muted); font-size: .74rem; }
+.stack .trk { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.stack .bar { display: flex; flex: 1; height: 18px; border-radius: 4px; overflow: hidden; background: var(--soft); min-width: 0; }
+.stack .bar i { display: block; height: 100%; }
+.stack .pct { font-size: .84rem; font-weight: 650; font-variant-numeric: tabular-nums; white-space: nowrap; min-width: 9.5em; }
+.stack .pct small { font-weight: 400; color: var(--muted); }
+i.posted, .sq.posted { background: var(--good); }
+i.med, .sq.med { background: var(--warn); }
+i.nothing, .sq.nothing { background: var(--bad); }
+i.nocheck, .sq.nocheck { background: var(--none); }
+.grid { display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0 4px; }
+.sq { width: 18px; height: 18px; border: 0; border-radius: 4px; padding: 0; cursor: pointer; transition: transform .1s ease-out; }
+.sq:hover { transform: scale(1.2); }
+.sq.me { outline: 3px solid var(--fg); outline-offset: 2px; }
+.names { margin: 8px 0 0; padding: 0; list-style: none; columns: 2 240px; column-gap: 24px; font-size: .84rem; }
+.names li { break-inside: avoid; padding: 3px 0; border-bottom: 1px solid var(--line); display: flex; gap: 8px; justify-content: space-between; align-items: baseline; }
+.names button { font: inherit; color: var(--fg); background: none; border: 0; padding: 0; cursor: pointer; text-align: left; text-decoration: underline; text-decoration-color: var(--axis); text-underline-offset: 2px; }
+.names span { color: var(--muted); font-size: .76rem; white-space: nowrap; }
+
+/* ---- Death certificates: confidence interval on a bar ---- */
+.row .ci { font-size: .72rem; color: var(--muted); margin-left: 6px; white-space: nowrap; }
+.row.sel .lab { font-weight: 650; }
+.row.pickable { cursor: pointer; }
+.row.pickable:hover { background: var(--soft); }
+.row .bar.alt { background: var(--c1); }
+.row .bar.off { background: var(--off); }
+.panel { animation: arrive .18s ease-out; }
+@keyframes arrive { from { opacity: 0; transform: translateY(4px); } }
+
+.foot { margin-top: 20px; padding-top: 10px; border-top: 1px solid var(--line); font-size: .76rem; color: var(--muted); }
+.foot p { margin: 0 0 6px; max-width: 76ch; }
+
+@media (max-width: 640px) {
+  .pick { grid-template-columns: 1fr; }
+  .matrix { grid-template-columns: minmax(84px, 26%) repeat(5, minmax(0, 1fr)); font-size: .66rem; }
+  .cell { font-size: .66rem; padding: 7px 0; }
+  .stack { grid-template-columns: 1fr; gap: 2px; } .stack .lab { text-align: left; } .stack .trk { margin-bottom: 8px; }
+  .big b { font-size: 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) { .panel { animation: none; } .seg button, .pick, .cell, .sq, .act button { transition: none; } }

@@ -28,7 +28,8 @@ language. Then we put it in the hands of the organizations and lawmakers who can
     We audited all 329 Minnesota school districts. Seven in ten post no findable seizure
     plan. Now we are turning findings into adoptions, district by district.
 
-    [:octicons-arrow-right-24: Read more](seizure-safe-schools.md)
+    [:octicons-arrow-right-24: Read more](seizure-safe-schools.md)  
+    [:octicons-arrow-right-24: Compare your district](../sims/district-compare/index.md)
 
 -   :material-pill:{ .lg .middle } __2. Medication access__
 
@@ -37,7 +38,8 @@ language. Then we put it in the hands of the organizations and lawmakers who can
     A missed dose can mean a seizure. We track shortages, prices, and pharmacy deserts, and
     we support reintroducing a cap on what epilepsy drugs cost families in 2027.
 
-    [:octicons-arrow-right-24: Read more](medication-access.md)
+    [:octicons-arrow-right-24: Read more](medication-access.md)  
+    [:octicons-arrow-right-24: What a $25 cap would change](../sims/cap-calculator/index.md)
 
 -   :material-heart-pulse:{ .lg .middle } __3. SUDEP__
 
@@ -46,7 +48,8 @@ language. Then we put it in the hands of the organizations and lawmakers who can
     About 1,000 Minnesota deaths a year involve epilepsy or seizures, and nobody counts
     SUDEP. We are working on the data, a benefit families miss, and a reporting law.
 
-    [:octicons-arrow-right-24: Read more](sudep.md)
+    [:octicons-arrow-right-24: Read more](sudep.md)  
+    [:octicons-arrow-right-24: Death certificate explorer](../sims/death-certificates/index.md)
 
 </div>
 
