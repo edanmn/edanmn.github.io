@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 SIMS = os.path.join(HERE, "docs", "sims")
 LOOKUP = os.path.join(HERE, "docs", "find-your-district", "district_lookup.html")
-VERSION = "2026-10-09f"
+VERSION = "2026-10-09g"
 
 SHELL = """<!doctype html>
 <html lang="en" data-autoheight><head><meta charset="utf-8">
@@ -51,15 +51,34 @@ def write(folder, title, script, data):
 
 
 # ---------------------------------------------------------------------------
-# 1. The $25 cap: ten plans, five medicines, two points in the year
+# 1. The $25 cap: ten plans, the twenty most-prescribed medicines, two points in the year
 # ---------------------------------------------------------------------------
+# id (kept short, it goes in the page address), name shown, what kind of product it is.
 DRUGS = {
+    "lamotrigine 150 mg tablet (generic)": ("lam", "Lamotrigine", "generic"),
+    "topiramate 100 mg tablet (generic)": ("top", "Topiramate", "generic"),
     "levetiracetam 500 mg tablet (generic)": ("lev", "Levetiracetam", "generic"),
+    "divalproex ER 500 mg tablet (generic)": ("dvp", "Divalproex", "generic, extended release"),
+    "oxcarbazepine 600 mg tablet (generic)": ("oxc", "Oxcarbazepine", "generic"),
+    "carbamazepine ER 400 mg tablet (generic)": ("cbz", "Carbamazepine", "generic, extended release"),
+    "lacosamide 150 mg tablet (generic)": ("lac", "Lacosamide", "generic"),
+    "zonisamide 100 mg capsule (generic)": ("zon", "Zonisamide", "generic"),
+    "phenytoin sodium extended 100 mg capsule (generic)": ("phy", "Phenytoin", "generic"),
+    "primidone 250 mg tablet (generic)": ("prm", "Primidone", "generic"),
+    "phenobarbital 16.2 mg tablet (generic)": ("phb", "Phenobarbital", "generic"),
     "clobazam 10 mg tablet (generic)": ("clb", "Clobazam", "generic"),
-    "Onfi 10 mg tablet (brand clobazam)": ("onfi", "Onfi", "brand of clobazam"),
-    "Xcopri 200 mg tablet (cenobamate)": ("xcp", "Xcopri", "cenobamate, no generic"),
+    "brivaracetam 50 mg tablet (generic)": ("brv", "Brivaracetam", "generic"),
+    "ethosuximide 250 mg capsule (generic)": ("eth", "Ethosuximide", "generic"),
+    "Valtoco 10 mg nasal spray (diazepam)": ("val", "Valtoco", "diazepam nasal spray, no generic"),
+    "felbamate 600 mg tablet (generic)": ("fel", "Felbamate", "generic"),
     "Epidiolex oral solution (cannabidiol)": ("epd", "Epidiolex", "cannabidiol, no generic"),
+    "Xcopri 200 mg tablet (cenobamate)": ("xcp", "Xcopri", "cenobamate, no generic"),
+    "Nayzilam 5 mg nasal spray (midazolam)": ("nay", "Nayzilam", "midazolam nasal spray, no generic"),
+    "perampanel 8 mg tablet (generic)": ("per", "Perampanel", "generic"),
+    "Onfi 10 mg tablet (brand clobazam)": ("onfi", "Onfi", "brand of clobazam"),
 }
+# Priced as one prescription rather than thirty days of tablets.
+PER_FILL = {"epd": "dosed by weight", "val": "one carton of two devices", "nay": "one carton of two devices"}
 PHASES = {"January, deductible not met": "jan", "mid-year, deductible met": "mid"}
 CARRIER = {"healthpartners": "HealthPartners", "ucare": "UCare", "medica": "Medica"}
 
@@ -104,7 +123,10 @@ def build_cap():
             pid = seen[r["plan"]] = len(plans) - 1
         did, short, kind = DRUGS[r["drug"]]
         if not any(d["id"] == did for d in drugs):
-            drugs.append({"id": did, "name": short, "kind": kind, "full": r["drug"], "dose": r["dose"],
+            drugs.append({"id": did, "name": short, "kind": kind, "full": r["drug"],
+                          "dose": PER_FILL.get(did, r["dose"]), "fill": did in PER_FILL,
+                          "dose_src": r["dose_source"],
+                          "rank": int(r["commercial_rx_rank"]) if r["commercial_rx_rank"] else None,
                           "price": money(r["thirty_day_price_basis_usd"]),
                           "basis": r["price_basis"].replace("NOT NADAC", "Not NADAC")})
         cell = cells.setdefault(f"{pid}|{did}", {
@@ -116,9 +138,13 @@ def build_cap():
             "under": money(r["member_pays_under_hf3652_usd"]), "save": money(r["monthly_saving_usd"]),
             "note": r["cap_note"], "st": cap_status(r),
         }
-    assert len(plans) == 10 and len(drugs) == 5 and len(cells) == 50
-    write("cap-calculator", "What would a $25 cap change? Ten Minnesota plans, five seizure medicines",
-          "demo-cap.js", {"plans": plans, "drugs": drugs, "cells": cells, "year": 2026})
+    drugs.sort(key=lambda d: d["rank"] or 99)
+    assert len(plans) == 10 and len(drugs) == 21 and len(cells) == 210
+    assert [d["rank"] for d in drugs] == list(range(1, 21)) + [None]
+    rank_year = {r["commercial_rx_year"] for r in src if r["commercial_rx_year"]}
+    assert rank_year == {"2022"}
+    write("cap-calculator", "What would a $25 cap change? Ten Minnesota plans, twenty seizure medicines",
+          "demo-cap.js", {"plans": plans, "drugs": drugs, "cells": cells, "year": 2026, "rank_year": 2022})
 
 
 # ---------------------------------------------------------------------------

@@ -130,9 +130,11 @@ Group Insurance Program.
 
 ## Explore: what a $25 cap would change, plan by plan
 
-We read the 2026 benefit summary and drug list of ten Minnesota plans and priced five seizure
-medicines against each. Pick a medicine to see what a member pays today and what the cap would
-leave. The brand drugs split two ways: on some plans the cap takes hundreds of dollars off the
+We read the 2026 benefit summary and drug list of ten Minnesota plans and priced the twenty
+seizure medicines most prescribed to commercially insured Minnesotans against each. Pick a
+medicine to see what a member pays today and what the cap would leave. For the common generics
+the cap changes little, because most plans already charge $25 or less. The brand drugs split
+two ways: on some plans the cap takes hundreds of dollars off the
 month, and on others the drug is missing from the plan's list, where a cap on cost sharing
 does not reach it.
 

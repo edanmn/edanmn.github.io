@@ -1,6 +1,7 @@
 /* ==========================================================================
    demo-cap.js: what a $25 monthly cap would change, for ten Minnesota plans
-   and five seizure medicines. Data is window.DATA, written by build_demos.py
+   and the twenty seizure medicines most prescribed to commercially insured
+   Minnesotans (plus brand Onfi). Data is window.DATA, written by build_demos.py
    from each carrier's 2026 benefit summary and drug list.
 
    Every plan and medicine pairing lands in one of four groups:
@@ -27,9 +28,11 @@
     jan: { label: "January", sub: "before the deductible is met", text: "in January, before the deductible is met" },
     mid: { label: "Mid-year", sub: "after the deductible is met", text: "at mid-year, after the deductible is met" },
   };
-  const SOURCE = "Each carrier's 2026 Summary of Benefits and Coverage and drug list; prices from the CMS National Average Drug Acquisition Cost survey and Minnesota Medicaid";
+  const SOURCE = "Each carrier's 2026 Summary of Benefits and Coverage and drug list; prices from the CMS National Average Drug Acquisition Cost survey and Minnesota Medicaid; ranking from the Minnesota All Payer Claims Database public use file, " + D.rank_year;
+  const TOTAL = D.plans.length * D.drugs.length;
+  const each = (d) => d.fill ? "a fill" : "a month";
 
-  let drug = D.drugs.some(d => d.id === get("drug")) ? get("drug") : "epd";
+  let drug = D.drugs.some(d => d.id === get("drug")) ? get("drug") : D.drugs[0].id;
   let phase = PHASE[get("when")] ? get("when") : "mid";
   let open = get("plan") == null ? -1 : +get("plan");
   if (!(open >= 0 && open < D.plans.length)) open = -1;
@@ -52,10 +55,11 @@
     const p = D.plans[i], d = D.drugs.find(x => x.id === drug), c = cell(i, drug), now = c[phase];
     const more = h("div", "more panel"), dl = h("dl");
     const add = (k, v) => { if (v) dl.append(h("dt", "", k), h("dd", "", v)); };
-    add("Today", usd(now.pays) + " a month: " + now.how);
-    add("With the cap", usd(now.under) + " a month: " + now.note);
+    add("Today", usd(now.pays) + " " + each(d) + ": " + now.how);
+    add("With the cap", usd(now.under) + " " + each(d) + ": " + now.note);
     add("On the drug list", tier(c) + (c.flags ? " (" + flags(c.flags) + ")" : ""));
-    add("Price used", usd(d.price) + (/^weight/.test(d.dose) ? " for one prescription, dosed by weight. " : " for 30 days at " + d.dose + ". ") + d.basis);
+    add("Price used", usd(d.price) + (d.fill ? " for one prescription, " + d.dose + ". " : " for 30 days at " + d.dose + ". ") + d.basis);
+    add("Dose from", d.dose_src);
     add("Plan", p.market + ". Deductible " + usd(p.ded) + ", out-of-pocket limit " + usd(p.oop) + " for one person" + (p.hsa ? ". Qualifies for a health savings account." : "."));
     add("Benefit summary", p.src);
     add("Drug list", c.fsrc);
@@ -64,7 +68,7 @@
   }
 
   function planRows(into) {
-    const max = Math.max(...D.plans.map((p, i) => cell(i, drug)[phase].pays));
+    const max = Math.max(...D.plans.map((p, i) => cell(i, drug)[phase].pays)), d = D.drugs.find(x => x.id === drug);
     const wrap = h("div", "plans");
     D.plans.forEach((p, i) => {
       const now = cell(i, drug)[phase];
@@ -89,38 +93,58 @@
     into.append(wrap);
   }
 
-  function matrix(into) {
-    const count = { lower: 0, same: 0, wait: 0, nocov: 0 }, narrow = fig.clientWidth < 560;
-    const grid = h("div", "matrix");
-    grid.append(h("div", "hd", ""));
-    D.drugs.forEach(d => grid.append(h("div", "hd", d.name)));
-    D.plans.forEach((p, i) => {
-      grid.append(h("div", "rw", shortPlan(p)));
-      D.drugs.forEach(d => {
+  // Every medicine in one list: ten squares a row, one for each plan in the order shown above.
+  function overview(into) {
+    const count = { lower: 0, same: 0, wait: 0, nocov: 0 };
+    const list = h("div", "meds");
+    D.drugs.forEach(d => {
+      const row = h("div", "med" + (d.id === drug ? " on" : "")), name = h("button", "nm", (d.rank ? d.rank + ". " : "") + d.name);
+      name.type = "button";
+      name.append(h("small", "", d.kind));
+      name.addEventListener("click", () => { drug = d.id; open = -1; set({ drug, plan: null }); render(); fig.querySelector("select").focus(); });
+      const squares = h("div", "grid");
+      let lower = 0;
+      D.plans.forEach((p, i) => {
         const now = cell(i, d.id)[phase];
         count[now.st]++;
-        const text = now.st === "lower" ? "−" + dollars(now.save) : narrow ? { same: "=", wait: "wait", nocov: "none" }[now.st]
-          : { same: "no change", wait: "waits", nocov: "not listed" }[now.st];
-        const b = h("button", "cell " + now.st + (d.id === drug && i === open ? " on" : ""), text);
+        if (now.st === "lower") lower++;
+        const b = h("button", "sq " + now.st + (d.id === drug && i === open ? " me" : ""));
         b.type = "button";
-        b.setAttribute("aria-label", shortPlan(p) + ", " + d.name + ": " + GROUP[now.st] + ". Today " + usd(now.pays) + ", with the cap " + usd(now.under) + ".");
-        b.dataset.tip = "1";
-        tip.on(b, d.name + ", " + shortPlan(p), [[usd(now.pays), "a month today"], [usd(now.under), "with the cap"], [GROUP[now.st], ""]]);
+        b.setAttribute("aria-label", d.name + ", " + shortPlan(p) + ": " + GROUP[now.st] + ". Today " + usd(now.pays) + ", with the cap " + usd(now.under) + ".");
+        tip.on(b, d.name + ", " + shortPlan(p), [[usd(now.pays), each(d) + " today"], [usd(now.under), "with the cap"], [GROUP[now.st], ""]]);
         b.addEventListener("click", () => {
           drug = d.id; open = i; set({ drug, plan: open }); render();
           const target = fig.querySelector(".pick[aria-expanded=true]");
           if (target) target.scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
         });
-        grid.append(b);
+        squares.append(b);
       });
+      row.append(name, squares, h("span", "n", lower ? "lower on " + lower : "no change"));
+      list.append(row);
     });
-    into.append(h("p", "small", "Of the 50 pairings " + PHASE[phase].text + ": the cap lowers the cost in " + count.lower +
-      ", " + count.same + " already cost $25 or less, " + count.nocov + " are not on the plan's drug list" +
-      (count.wait ? ", and " + count.wait + " wait for the deductible." : ".") + " Each box shows the monthly saving. Pick one to see how it was worked out."));
-    into.append(grid);
+    into.append(h("p", "small", "Each row is one medicine and each square is one plan, in the order of the list above. Of the " + TOTAL + " pairings " + PHASE[phase].text +
+      ": the cap lowers the cost in " + count.lower + ", " + count.same + " already cost $25 or less, " + count.nocov + " are not on the plan's drug list" +
+      (count.wait ? ", and " + count.wait + " wait for the deductible." : ".") + " Pick a square to see how it was worked out."));
     const key = h("ul", "legend");
     Object.keys(GROUP).forEach(k => { const li = h("li"); li.append(h("span", "chip " + k, GROUP[k])); key.append(li); });
-    into.append(key);
+    into.append(key, list);
+  }
+
+  // The medicine picker: a list in order of use, too long for a row of buttons.
+  function picker(into) {
+    const wrap = h("div", "ctl"), label = h("label", "", "Medicine"), sel = h("select");
+    sel.id = "medicine"; label.htmlFor = sel.id;
+    const top = h("optgroup"), more = h("optgroup");
+    top.label = "Twenty most prescribed, in order"; more.label = "Also priced";
+    D.drugs.forEach(d => {
+      const o = h("option", "", (d.rank ? d.rank + ". " : "") + d.name + " (" + d.kind + ")");
+      o.value = d.id; o.selected = d.id === drug;
+      (d.rank ? top : more).append(o);
+    });
+    sel.append(top, more);
+    sel.addEventListener("change", () => { drug = sel.value; open = -1; set({ drug, plan: null }); render(); fig.querySelector("select").focus(); });
+    wrap.append(label, sel);
+    into.append(wrap);
   }
 
   function render() {
@@ -129,28 +153,29 @@
     fig.replaceChildren();
     fig.append(h("h1", "", "What would a $25 cap change?"));
     fig.append(h("p", "lede", "Two 2026 bills would have capped what a commercially insured Minnesotan pays for a seizure medicine at $25 a month. " +
-      "We read the " + D.year + " benefit summary and drug list of ten Minnesota plans and worked out what five medicines cost a member today and what they would cost with the cap."));
-    seg(fig, "Medicine", D.drugs.map(d => ({ id: d.id, label: d.name, sub: d.kind })), drug, (id) => { drug = id; set({ drug }); render(); });
+      "We read the " + D.year + " benefit summary and drug list of ten Minnesota plans and worked out what the twenty most prescribed seizure medicines cost a member today and what they would cost with the cap."));
+    picker(fig);
     seg(fig, "Point in the plan year", Object.keys(PHASE).map(k => ({ id: k, label: PHASE[k].label, sub: PHASE[k].sub })), phase, (id) => { phase = id; set({ when: phase }); render(); });
-    fig.append(h("h2", "", "Plan by plan"));
-    fig.append(h("p", "small", "Each plan shows the monthly cost today and with the cap. Pick a plan to see the calculation and the documents it comes from."));
+    const chosen = D.drugs.find(d => d.id === drug);
+    fig.append(h("h2", "", chosen.name + ", plan by plan"));
+    fig.append(h("p", "small", "Each plan shows the cost of " + (chosen.fill ? "one prescription (" + chosen.dose + ")" : "30 days at " + chosen.dose) + ", today and with the cap. Pick a plan to see the calculation and the documents it comes from."));
     planRows(fig);
-    fig.append(h("h2", "", "All ten plans and five medicines"));
-    matrix(fig);
+    fig.append(h("h2", "", "Every medicine across the ten plans"));
+    overview(fig);
 
     const foot = h("div", "foot");
     [
       "Sources: " + SOURCE + ".",
+      "The twenty medicines are those with the most prescriptions filled by commercially insured Minnesotans in " + D.rank_year + ", the newest year the state has published, counted by active ingredient. The count covers every use of a medicine, so topiramate's includes migraine and lamotrigine's includes bipolar disorder. Gabapentin, pregabalin and clonazepam are left out because most of their use is for other conditions. Brand Onfi is added as an example of a brand whose generic is on every list.",
+      "One product stands for each medicine: a common strength at a dose from its FDA label, in the generic form where one exists. Other strengths, forms and brands of the same medicine can sit on a different tier. Valtoco and Nayzilam are rescue medicines, priced as one carton and not as a month's supply.",
+      "The state employee plan's drug list is not public. Its tiers here are inferred from a national CVS Caremark list and are the least certain figures on the page.",
       "These are " + D.year + " plans. UCare's individual plans end with " + D.year + ", and most 2027 plan documents were not published when this was built.",
-      "Prices are a floor. For four of the medicines we used what pharmacies pay for the drug (CMS National Average Drug Acquisition Cost, third quarter 2026). Epidiolex is outside that survey, so its price is the average Minnesota Medicaid payment per prescription in 2025. A plan's own price is usually higher, which makes coinsurance, and the saving from a cap, larger than shown.",
-      "Ten plans from HealthPartners, UCare, Medica and the state employee plan. Blue Cross and Blue Shield of Minnesota and Quartz are missing because their plan-by-plan benefit summaries could not be retrieved. Self-insured employer plans are outside state insurance law and would not be covered by the cap.",
+      "Prices are a floor. For every medicine but one we used what pharmacies pay for the drug (CMS National Average Drug Acquisition Cost, third quarter 2026). Epidiolex is outside that survey, so its price is the average Minnesota Medicaid payment per prescription in 2025. A plan's own price is usually higher, which makes coinsurance, and the saving from a cap, larger than shown.",
+      "Ten plans from HealthPartners, UCare, Medica and the state employee plan, with drug lists dated October 2026 for the three carriers. Blue Cross and Blue Shield of Minnesota and Quartz are missing because their plan-by-plan benefit summaries could not be retrieved. Self-insured employer plans are outside state insurance law and would not be covered by the cap.",
       "The bills were HF 3652 and SF 3786, which would have added epilepsy to Minn. Stat. 62Q.481. They did not pass in 2026. This page shows what the plan documents say; what one family pays depends on its own plan, dose and pharmacy.",
     ].forEach(t => foot.append(h("p", "", t)));
     fig.append(foot);
     if (keep) fig.append(keep);
   }
   render();
-  // The grid of fifty shortens its words on a narrow screen.
-  let wide = fig.clientWidth >= 560;
-  window.addEventListener("resize", () => { const now = fig.clientWidth >= 560; if (now !== wide) { wide = now; render(); } });
 })();
