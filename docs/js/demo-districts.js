@@ -134,8 +134,6 @@
   }
 
   function statewide(into) {
-    say(into, "As of " + WHEN + ", " + share(ALL) + " Minnesota school districts post a seizure plan on their website. Among rural districts it is " +
-      share(ALL.filter(d => d.type === "Rural")) + ", and among suburban districts " + share(ALL.filter(d => d.type === "Suburb")) + ".", SOURCE);
     into.append(h("h2", "", "By kind of district"));
     const g = h("div", "stack");
     [["City", "City districts"], ["Suburb", "Suburban districts"], ["Town", "Town districts"], ["Rural", "Rural districts"]].forEach(([t, label]) =>
