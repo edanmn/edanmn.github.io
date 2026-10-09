@@ -76,5 +76,9 @@ window.EDAN = (function () {
     return { on, hide };
   }
 
-  return { h, num, usd, pct, get, set, seg, tips };
+  // Earlier copies of the demo scripts drew an answer box with say(). A browser can hold one
+  // of those copies beside this file, so the name stays and draws nothing.
+  const say = () => {};
+
+  return { h, num, usd, pct, get, set, say, seg, tips };
 })();

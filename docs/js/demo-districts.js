@@ -35,7 +35,15 @@
     return lo === hi ? "about " + num(lo) : "about " + num(lo) + " to " + num(hi);
   };
 
-  function pick(d) { me = d; showAll = false; set({ district: d ? d.isd : null }); render(); if (d) fig.scrollIntoView({ block: "start" }); }
+  // Bring the top of the result into view. Inside a page, leave room for that page's fixed header.
+  function toTop() {
+    let frame = null;
+    try { frame = window.frameElement; } catch (e) { frame = null; }
+    if (!frame) return fig.scrollIntoView({ block: "start" });
+    frame.style.scrollMarginTop = "5.5rem";
+    frame.scrollIntoView({ block: "start" });
+  }
+  function pick(d) { me = d; showAll = false; set({ district: d ? d.isd : null }); render(); if (d) toTop(); }
 
   /* ---- Search: the same box as Find Your District ---- */
   function search(into) {
