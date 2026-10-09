@@ -1,7 +1,7 @@
 /* ==========================================================================
    demos.js: helpers shared by the three interactive pages in docs/sims/.
    Each page keeps what the reader picked in its own address, so a view can be
-   linked to, and offers its current answer as a sentence to copy.
+   linked to. The district page also offers its answer as a sentence to copy.
    ========================================================================== */
 window.EDAN = (function () {
   "use strict";

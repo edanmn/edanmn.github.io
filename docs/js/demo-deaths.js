@@ -14,7 +14,7 @@
    ========================================================================== */
 (function () {
   "use strict";
-  const { h, num, pct, get, set, say, seg, tips } = window.EDAN;
+  const { h, num, pct, get, set, seg, tips } = window.EDAN;
   const D = window.DATA, fig = document.getElementById("demo");
   const tip = tips(fig);
 
@@ -108,9 +108,6 @@
   /* ---- The views ---- */
   function count(into) {
     const t = D.total, s = D.sudep;
-    say(into, "From 2018 to 2024, " + num(t.any) + " Minnesota death certificates mentioned epilepsy or seizures, " + num(t.epi) +
-      " mentioned epilepsy, and " + num(t.ucd) + " gave epilepsy as the underlying cause. In the same seven years, " + s.same_years +
-      " certificates named SUDEP in the cause-of-death text.", CDC + "; " + MDH);
     const go = (k) => () => { def = k; view = "year"; set({ count: def, show: view }); render(); };
     bars(into, Object.keys(DEF).map(k => ({
       label: DEF[k].label, sub: "(" + DEF[k].sub + ")", value: t[k], text: num(t[k]), extra: "about " + num(Math.round(t[k] / 7 / 5) * 5) + " a year",
@@ -127,9 +124,7 @@
 
   function year(into) {
     defPicker(into);
-    const rows = D.year[def], first = rows[0], last = rows[rows.length - 1];
-    say(into, "Minnesota death certificates that " + DEF[def].said + " numbered " + num(first.n) + " in " + first.g + " and " + num(last.n) + " in " + last.g +
-      ", and " + num(D.total[def]) + " across the seven years.", CDC);
+    const rows = D.year[def];
     columns(into, rows.map(r => ({ label: r.g, value: r.n, text: num(r.n),
       tip: [[num(r.n), "deaths"], [r.r, "per 100,000 residents"], [r.ci, "95% confidence interval"]] })), "Deaths a year");
   }
@@ -138,16 +133,7 @@
     defPicker(into);
     seg(into, "Show", [{ id: "deaths", label: "Number of deaths" }, { id: "rate", label: "Deaths per 100,000 residents" }], measure,
       (id) => { measure = id; set({ as: measure === "rate" ? "rate" : null }); render(); });
-    const rows = D.age[def], known = rows.filter(r => r.n != null);
-    const most = known.reduce((a, b) => b.n > a.n ? b : a), steepest = known.reduce((a, b) => b.r > a.r ? b : a);
-    const young = rows.filter(r => /^(< 1|1-4|5-14|15-24|25-34|35-44)/.test(r.g));
-    let text = "Among Minnesota deaths from 2018 to 2024 that " + DEF[def].said + ", the largest number was at ages " + ageName(most.g).toLowerCase() +
-      " (" + num(most.n) + "), and the rate was highest at ages " + ageName(steepest.g).toLowerCase() + " (" + steepest.r + " per 100,000 residents a year).";
-    if (young.every(r => r.n != null)) {
-      const n = young.reduce((a, r) => a + r.n, 0);
-      text += " People under 45 were " + num(n) + " of the " + num(D.total[def]) + " (" + pct(n, D.total[def]) + ").";
-    }
-    say(into, text, CDC);
+    const rows = D.age[def];
     bars(into, rows.map(r => {
       const v = measure === "rate" ? r.r : r.n;
       return { label: ageName(r.g), value: v, text: v == null ? "fewer than 10 deaths" : measure === "rate" ? String(v) : num(v),
@@ -158,8 +144,7 @@
 
   function place(into) {
     seg(into, "Whose deaths", Object.keys(SCOPE).map(k => ({ id: k, label: SCOPE[k].label, sub: SCOPE[k].sub })), scope, (id) => { scope = id; set({ who: scope }); render(); });
-    const p = D.place[scope], home = p.rows.find(r => r.g === "Decedent's home");
-    say(into, "Of " + num(p.total) + " " + SCOPE[scope].who + " from 2018 to 2024, " + num(home.n) + " (" + pct(home.n, p.total) + ") died at home.", CDC);
+    const p = D.place[scope];
     bars(into, p.rows.slice().sort((a, b) => (b.n || 0) - (a.n || 0)).map(r => ({
       label: PLACE[r.g] || r.g, value: r.n, text: r.n == null ? "fewer than 10" : num(r.n), extra: r.n == null ? "" : pct(r.n, p.total),
       tone: r.g === "Decedent's home" ? "" : "off", sel: r.g === "Decedent's home",
@@ -170,8 +155,6 @@
 
   function named(into) {
     const s = D.sudep, p = s.periods;
-    say(into, "From 2011 to 2024, " + s.total + " Minnesota death certificates named SUDEP in the cause-of-death text: " + p[0][1] + " in " + p[0][0] + ", " +
-      p[1][1] + " in " + p[1][0] + " and " + p[2][1] + " in " + p[2][0] + ". Of the " + s.total + " people, " + s.under45 + " were under 45.", MDH);
     columns(into, p.map(x => ({ label: x[0], value: x[1], text: String(x[1]), tip: [[x[1], "certificates that name SUDEP"]] })), "Certificates that name SUDEP");
     const big = h("div", "big");
     [[s.total, "certificates in 14 years"], [s.under45, "of them for people under 45"], [s.as_epilepsy, "kept an epilepsy code as the underlying cause"],
@@ -185,9 +168,6 @@
 
   function expected(into) {
     const e = D.expected, per = Math.round(e.named / e.named_years), y = e.year;
-    say(into, "Published SUDEP rates, applied to the CDC's estimate of Minnesotans with active epilepsy, give about " + y[0] + " SUDEP deaths a year, with a range of about " +
-      y[1] + " to " + y[2] + ". From " + e.named_period + ", " + e.named + " Minnesota death certificates named SUDEP, about " + per +
-      " a year. The " + y[0] + " is an estimate and Minnesota's own rate has never been measured, so the difference is not a count of missed SUDEP deaths.", RATES + "; " + MDH);
     // On a narrow screen the notes beside each bar move to the hover card and the table, so the bars keep their room.
     const narrow = fig.clientWidth < 560;
     bars(into, [
@@ -200,6 +180,7 @@
         tip: [[num(D.total.ucd), "deaths, 2018 to 2024"], ["", "Includes deaths in hospitals and nursing homes and deaths from status epilepticus. Most are probably not SUDEP."]],
         pick: () => { def = "ucd"; view = "year"; set({ count: def, show: view }); render(); } },
     ], "Deaths a year in Minnesota");
+    note(into, "The expected number is an estimate, and Minnesota's own rate has never been measured. The difference between the first two bars is not a count of missed SUDEP deaths.");
 
     into.append(h("h2", "", "How the estimate is worked out"));
     const wrap = h("div", "workwrap"), table = h("table", "work"), head = h("tr"), body = h("tbody");
@@ -230,9 +211,6 @@
   }
 
   function states(into) {
-    const mn = D.states.find(r => r.g === "Minnesota"), us = D.states.find(r => r.g === "United States");
-    say(into, "Counting every death certificate that mentions epilepsy, Minnesota's age-adjusted death rate for 2018 to 2024 was " + mn.r.toFixed(1) + " per 100,000 residents a year, against " +
-      us.r.toFixed(1) + " for the United States.", "CDC WONDER, Multiple Cause of Death, 2018 to 2024");
     bars(into, D.states.slice().sort((a, b) => b.r - a.r).map(r => ({
       label: r.g, value: r.r, text: r.r.toFixed(1), extra: r.ci.replace(" - ", " to "), tone: r.g === "Minnesota" ? "" : "off", sel: r.g === "Minnesota",
       tip: [[r.r.toFixed(1), "per 100,000, age-adjusted"], [r.ci.replace(" - ", " to "), "95% confidence interval"], [num(r.n), "deaths, 2018 to 2024"]],

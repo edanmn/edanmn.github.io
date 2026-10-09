@@ -107,8 +107,7 @@ deaths, better recording, or both. Source: CDC WONDER, Multiple Cause of Death, 
 
 The figures above, and the breakdowns behind them, in one page: totals, by year, by age, by
 place of death, the certificates that name SUDEP, that count beside the number expected from
-published rates, and Minnesota beside its neighbors. Each
-view gives a sentence with its source that can be copied.
+published rates, and Minnesota beside its neighbors.
 
 <iframe src="../../sims/death-certificates/main.html" class="microsim" width="100%" height="800" title="What Minnesota death certificates record about epilepsy" loading="lazy"></iframe>
 

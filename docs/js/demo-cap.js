@@ -13,7 +13,7 @@
    ========================================================================== */
 (function () {
   "use strict";
-  const { h, usd, get, set, say, seg, tips } = window.EDAN;
+  const { h, usd, get, set, seg, tips } = window.EDAN;
   const D = window.DATA, fig = document.getElementById("demo");
   const tip = tips(fig);
 
@@ -27,7 +27,7 @@
     jan: { label: "January", sub: "before the deductible is met", text: "in January, before the deductible is met" },
     mid: { label: "Mid-year", sub: "after the deductible is met", text: "at mid-year, after the deductible is met" },
   };
-  const SOURCE = "each carrier's 2026 Summary of Benefits and Coverage and drug list; prices from the CMS National Average Drug Acquisition Cost survey and Minnesota Medicaid";
+  const SOURCE = "Each carrier's 2026 Summary of Benefits and Coverage and drug list; prices from the CMS National Average Drug Acquisition Cost survey and Minnesota Medicaid";
 
   let drug = D.drugs.some(d => d.id === get("drug")) ? get("drug") : "epd";
   let phase = PHASE[get("when")] ? get("when") : "mid";
@@ -37,7 +37,6 @@
   const cell = (p, d) => D.cells[p + "|" + d];
   const shortPlan = (p) => p.metal ? p.carrier + " " + p.metal + (p.hsa ? " HSA" : "") : (p.hsa ? "State employees, high deductible" : "State employees");
   const dollars = (v) => usd(Math.round(v));
-  const plural = (n) => n + " of the 10 plans";
 
   function tier(c) {
     if (c.tier === "NF") return "Marked non-formulary, which the plan treats as not covered";
@@ -47,25 +46,6 @@
   function flags(text) {
     return text.replace(/\bPA\b/g, "prior authorization").replace(/\bQL\b/g, "quantity limit")
       .replace(/\bSP\b/g, "specialty pharmacy").replace(/\bEDS\b(?! \()/g, "extended day supply");
-  }
-
-  function sentence() {
-    const d = D.drugs.find(x => x.id === drug);
-    const by = { lower: [], same: [], wait: [], nocov: [] };
-    D.plans.forEach((p, i) => by[cell(i, drug)[phase].st].push(cell(i, drug)[phase]));
-    const name = d.name + " (" + d.kind + ")";
-    const parts = [];
-    if (by.lower.length) {
-      const saves = by.lower.map(c => c.save), lo = Math.min(...saves), hi = Math.max(...saves);
-      parts.push("For " + name + " " + PHASE[phase].text + ", a $25 cap would lower the monthly cost on " + plural(by.lower.length) +
-        " we priced, by " + (Math.round(lo) === Math.round(hi) ? dollars(lo) : dollars(lo) + " to " + dollars(hi)) + " a month.");
-    } else {
-      parts.push("For " + name + " " + PHASE[phase].text + ", a $25 cap would not lower the cost on any of the 10 plans we priced.");
-    }
-    if (by.same.length) parts.push("On " + by.same.length + ", the member already pays $25 or less.");
-    if (by.nocov.length) parts.push("On " + by.nocov.length + ", the medicine is not on the plan's drug list, so a cap on cost sharing does not reach it.");
-    if (by.wait.length) parts.push("On " + by.wait.length + ", a high-deductible plan with a health savings account, the cap waits until the deductible is met.");
-    return parts.join(" ");
   }
 
   function details(i) {
@@ -152,7 +132,6 @@
       "We read the " + D.year + " benefit summary and drug list of ten Minnesota plans and worked out what five medicines cost a member today and what they would cost with the cap."));
     seg(fig, "Medicine", D.drugs.map(d => ({ id: d.id, label: d.name, sub: d.kind })), drug, (id) => { drug = id; set({ drug }); render(); });
     seg(fig, "Point in the plan year", Object.keys(PHASE).map(k => ({ id: k, label: PHASE[k].label, sub: PHASE[k].sub })), phase, (id) => { phase = id; set({ when: phase }); render(); });
-    say(fig, sentence(), SOURCE);
     fig.append(h("h2", "", "Plan by plan"));
     fig.append(h("p", "small", "Each plan shows the monthly cost today and with the cap. Pick a plan to see the calculation and the documents it comes from."));
     planRows(fig);
@@ -161,6 +140,7 @@
 
     const foot = h("div", "foot");
     [
+      "Sources: " + SOURCE + ".",
       "These are " + D.year + " plans. UCare's individual plans end with " + D.year + ", and most 2027 plan documents were not published when this was built.",
       "Prices are a floor. For four of the medicines we used what pharmacies pay for the drug (CMS National Average Drug Acquisition Cost, third quarter 2026). Epidiolex is outside that survey, so its price is the average Minnesota Medicaid payment per prescription in 2025. A plan's own price is usually higher, which makes coinsurance, and the saving from a cap, larger than shown.",
       "Ten plans from HealthPartners, UCare, Medica and the state employee plan. Blue Cross and Blue Shield of Minnesota and Quartz are missing because their plan-by-plan benefit summaries could not be retrieved. Self-insured employer plans are outside state insurance law and would not be covered by the cap.",
