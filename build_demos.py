@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 SIMS = os.path.join(HERE, "docs", "sims")
 LOOKUP = os.path.join(HERE, "docs", "find-your-district", "district_lookup.html")
-VERSION = "2026-10-09"
+VERSION = "2026-10-09b"
 
 SHELL = """<!doctype html>
 <html lang="en" data-autoheight><head><meta charset="utf-8">
@@ -197,9 +197,28 @@ def build_deaths():
     }
     assert [p[1] for p in sudep["periods"]] == [8, 23, 43]
 
+    # SUDEP deaths expected from published rates: people with active epilepsy (CDC, Zack and
+    # Kobau, MMWR 2017, estimate for 2015) times the rate per 1,000 a year (Harden et al.,
+    # Neurology 2017, AAN/AES guideline). Each rate is [estimate, low, high] of its 95% interval.
+    people = {"adults": 46300, "children": 7400}
+    rate = {"adults": [1.2, 0.64, 2.32], "children": [0.22, 0.16, 0.31]}
+    assert sum(people.values()) == 53700
+    exp = {k: [people[k] * r / 1000 for r in rate[k]] for k in people}
+    both = [round(exp["adults"][i] + exp["children"][i]) for i in range(3)]
+    assert both == [57, 31, 110]
+    last = sudep["periods"][-1]
+    assert last == ["2020 to 2024", 43]
+    expected = {
+        "people": people, "rate": rate,
+        "each": {k: [round(v) for v in exp[k]] for k in exp},
+        "year": both, "named_period": last[0], "named": last[1], "named_years": 5,
+        "ucd_year": round(total["ucd"] / 7),
+    }
+    assert expected["ucd_year"] == 59
+
     write("death-certificates", "What Minnesota death certificates record about epilepsy, 2018 to 2024",
           "demo-deaths.js", {"year": year, "age": age, "total": total, "place": place,
-                             "states": states, "sudep": sudep})
+                             "states": states, "sudep": sudep, "expected": expected})
 
 
 if __name__ == "__main__":

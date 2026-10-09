@@ -5,9 +5,9 @@ title: Death Certificate Explorer
 # Death Certificate Explorer
 
 Sudden Unexpected Death in Epilepsy has no code on a death certificate, so Minnesota has no
-count of it. This page holds the counts that do exist, six ways: the totals, by year, by age,
-by place of death, the certificates that name SUDEP in words, and Minnesota beside its
-neighbors.
+count of it. This page holds the counts that do exist, seven ways: the totals, by year, by age,
+by place of death, the certificates that name SUDEP in words, that count beside the number
+expected from published rates, and Minnesota beside its neighbors.
 
 <iframe src="main.html" width="100%" height="800" class="microsim" title="What Minnesota death certificates record about epilepsy" loading="lazy"></iframe>
 

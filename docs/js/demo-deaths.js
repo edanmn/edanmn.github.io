@@ -10,6 +10,7 @@
      ucd  epilepsy as the underlying cause
    A count of null was withheld by CDC because it is between 1 and 9.
    SUDEP has no code, so it appears only in the text search, in multi-year totals.
+   One view sets the named count beside the number expected from published rates.
    ========================================================================== */
 (function () {
   "use strict";
@@ -18,6 +19,7 @@
   const tip = tips(fig);
 
   const CDC = "CDC WONDER, Multiple Cause of Death, Minnesota residents, 2018 to 2024";
+  const RATES = "CDC, estimate of Minnesotans with active epilepsy in 2015 (Zack and Kobau, MMWR 2017); American Academy of Neurology and American Epilepsy Society guideline on SUDEP rates (Harden and others, Neurology 2017)";
   const MDH = "Minnesota Department of Health, Minnesota Center for Health Statistics, death certificate data, custom tabulation for EDAN, October 2026";
   const DEF = {
     any: { label: "Epilepsy or seizures mentioned", sub: "G40, G41 or R56", said: "mentioned epilepsy or seizures",
@@ -27,7 +29,7 @@
     ucd: { label: "Epilepsy as the underlying cause", sub: "G40 or G41", said: "gave epilepsy as the underlying cause",
       long: "G40 or G41 chosen as the single underlying cause of death, the condition that started the chain of events." },
   };
-  const VIEWS = [["count", "The count"], ["year", "By year"], ["age", "By age"], ["place", "Where people died"], ["named", "SUDEP by name"], ["states", "Other states"]];
+  const VIEWS = [["count", "The count"], ["year", "By year"], ["age", "By age"], ["place", "Where people died"], ["named", "SUDEP by name"], ["expected", "Expected and named"], ["states", "Other states"]];
   const SCOPE = {
     epi_all: { label: "Epilepsy mentioned", sub: "all ages", who: "Minnesotans whose death certificate mentioned epilepsy" },
     epi_young: { label: "Epilepsy mentioned", sub: "ages 1 to 44", who: "Minnesotans aged 1 to 44 whose death certificate mentioned epilepsy" },
@@ -181,6 +183,52 @@
     note(into, "The " + (s.total - s.as_epilepsy) + " coded to another condition, such as a brain malformation or cerebral palsy, would be missed by a count built on epilepsy codes alone.");
   }
 
+  function expected(into) {
+    const e = D.expected, per = Math.round(e.named / e.named_years), y = e.year;
+    say(into, "Published SUDEP rates, applied to the CDC's estimate of Minnesotans with active epilepsy, give about " + y[0] + " SUDEP deaths a year, with a range of about " +
+      y[1] + " to " + y[2] + ". From " + e.named_period + ", " + e.named + " Minnesota death certificates named SUDEP, about " + per +
+      " a year. The " + y[0] + " is an estimate and Minnesota's own rate has never been measured, so the difference is not a count of missed SUDEP deaths.", RATES + "; " + MDH);
+    // On a narrow screen the notes beside each bar move to the hover card and the table, so the bars keep their room.
+    const narrow = fig.clientWidth < 560;
+    bars(into, [
+      { label: "Expected from published rates", sub: "(an estimate)", value: y[0], text: "about " + y[0] + " a year", extra: narrow ? "" : "range " + y[1] + " to " + y[2], tone: "off",
+        tip: [[y[0], "a year, at the guideline's rates"], [y[1] + " to " + y[2], "if both rates sit at the low or the high end of their 95% confidence intervals"]] },
+      { label: "Certificates that name SUDEP", sub: "(" + e.named_period + ")", value: per, text: "about " + per + " a year", extra: narrow ? "" : e.named + " in " + e.named_years + " years", sel: true,
+        tip: [[e.named, "certificates, " + e.named_period], ["", "Found by the Minnesota Department of Health in the written cause of death."]],
+        pick: () => { view = "named"; set({ show: view }); render(); } },
+      { label: "Epilepsy as the underlying cause", sub: "(every age and kind of death)", value: e.ucd_year, text: "about " + e.ucd_year + " a year", extra: narrow ? "" : num(D.total.ucd) + " in 7 years", tone: "off",
+        tip: [[num(D.total.ucd), "deaths, 2018 to 2024"], ["", "Includes deaths in hospitals and nursing homes and deaths from status epilepticus. Most are probably not SUDEP."]],
+        pick: () => { def = "ucd"; view = "year"; set({ count: def, show: view }); render(); } },
+    ], "Deaths a year in Minnesota");
+
+    into.append(h("h2", "", "How the estimate is worked out"));
+    const wrap = h("div", "workwrap"), table = h("table", "work"), head = h("tr"), body = h("tbody");
+    ["", "Minnesotans with active epilepsy", "SUDEP deaths per 1,000 a year", "Expected a year"].forEach((t, i) => { const th = h("th", "", t); if (i) th.className = "n"; head.append(th); });
+    const thead = h("thead"); thead.append(head); table.append(thead, body);
+    const line = (name, people, rate, out, cls) => {
+      const tr = h("tr", cls || "");
+      tr.append(h("th", "", name), h("td", "n", people), h("td", "n", rate), h("td", "n", out));
+      body.append(tr);
+    };
+    [["adults", "Adults"], ["children", "Children under 18"]].forEach(([k, name]) => {
+      const r = e.rate[k], x = e.each[k];
+      line(name, num(e.people[k]), r[0] + " (" + r[1] + " to " + r[2] + ")", x[0] + " (" + x[1] + " to " + x[2] + ")");
+    });
+    line("Together", num(e.people.adults + e.people.children), "", y[0] + " (" + y[1] + " to " + y[2] + ")", "sum");
+    wrap.append(table); into.append(wrap);
+    note(into, "The numbers in brackets are the 95% confidence interval of each rate. Each line is rounded on its own, so the two lines can differ from the total by one.");
+
+    into.append(h("h2", "", "What this comparison cannot show"));
+    const limits = h("ul", "limits");
+    [
+      "The expected number is an estimate. The rates come from studies in other places, pooled in a 2017 guideline, and the guideline calls them uncertain. The count of people is a CDC estimate for 2015, itself with a margin of 45,700 to 61,700.",
+      "A death can be a SUDEP death without the word on the certificate. A certifier may write seizure disorder or epilepsy, and that death then sits among the roughly " + e.ucd_year + " a year coded to epilepsy, where it cannot be told apart from other epilepsy deaths.",
+      "A death certificate is the certifier's opinion from the information available at the time. These numbers cannot show how many SUDEP deaths went unnamed, or why any one certificate was worded as it was.",
+      "The years differ. The people were counted for 2015 and the certificates are from " + e.named_period + ", the most recent five years and the period with the most certificates naming SUDEP.",
+    ].forEach(t => limits.append(h("li", "", t)));
+    into.append(limits);
+  }
+
   function states(into) {
     const mn = D.states.find(r => r.g === "Minnesota"), us = D.states.find(r => r.g === "United States");
     say(into, "Counting every death certificate that mentions epilepsy, Minnesota's age-adjusted death rate for 2018 to 2024 was " + mn.r.toFixed(1) + " per 100,000 residents a year, against " +
@@ -193,7 +241,7 @@
     note(into, "A state's rate depends partly on how often certifiers write epilepsy on a death certificate, which varies. A higher rate may mean more deaths, fuller recording, or both.");
   }
 
-  const DRAW = { count, year, age, place, named, states };
+  const DRAW = { count, year, age, place, named, expected, states };
   function render() {
     tip.hide();
     const keep = fig.querySelector(".tip");
@@ -209,10 +257,14 @@
     [
       "Coded counts: " + CDC + ". CDC withholds any count from 1 to 9, shown here as fewer than 10.",
       "SUDEP by name: " + MDH + ". Shown as multi-year totals.",
-      "This page publishes counts. It does not estimate how many SUDEP deaths occur, and it says nothing about any one person's risk.",
+      "Expected and named: " + RATES + ".",
+      "The counts on this page come from death certificates. The one estimate, in the view Expected and named, is built from published rates and is not a Minnesota measurement. Nothing here describes any one person's risk.",
     ].forEach(t => foot.append(h("p", "", t)));
     fig.append(foot);
     if (keep) fig.append(keep);
   }
   render();
+  // The view Expected and named drops the notes beside its bars on a narrow screen.
+  let wide = fig.clientWidth >= 560;
+  window.addEventListener("resize", () => { const now = fig.clientWidth >= 560; if (now !== wide) { wide = now; render(); } });
 })();
