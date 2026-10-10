@@ -138,12 +138,4 @@ table.work tr.sum th, table.work tr.sum td { font-weight: 650; border-bottom: 0;
   .stack { grid-template-columns: 1fr; gap: 2px; } .stack .lab { text-align: left; } .stack .trk { margin-bottom: 8px; }
   .big b { font-size: 1.4rem; }
 }
-@media (prefers-reduced-motion: reduce) { .tablewrap { overflow-x: auto; }
-table.work { border-collapse: collapse; font-size: .82rem; margin: 6px 0 8px; min-width: 100%; }
-table.work th, table.work td { padding: 5px 10px 5px 0; border-bottom: 1px solid var(--line); text-align: left; font-weight: 400; vertical-align: bottom; }
-table.work thead th { color: var(--muted); font-size: .76rem; }
-table.work .n { text-align: right; font-variant-numeric: tabular-nums; padding: 5px 0 5px 10px; }
-table.work tr.sum th, table.work tr.sum td { font-weight: 650; border-bottom: 0; }
-.limits { margin: 4px 0 0; padding-left: 1.1em; font-size: .82rem; max-width: 76ch; }
-.limits li { margin: 0 0 6px; }
-.panel { animation: none; } .seg button, .pick, .sq, .act button { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .panel { animation: none; } .seg button, .pick, .sq, .act button { transition: none; } }
