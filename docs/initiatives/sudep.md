@@ -19,8 +19,8 @@ Colorado passed a law in 2026 under which, from July 2027, a death consistent wi
 list epilepsy on the certificate. Minnesota has no such rule.
 
 Since January 2024 Minnesota Medical Assistance has covered seizure detection devices,
-wearables that alert a caregiver to a convulsive seizure. Minnesota was the first state to do
-this. Nobody has published how many families use it.
+wearables that alert a caregiver to a convulsive seizure. The Epilepsy Foundation of Minnesota
+described the 2023 law as the first of its kind in the nation. Nobody has published how many families use it.
 
 ## What the death data shows
 We pulled every Minnesota death certificate from 2018 to 2024 that mentions epilepsy or
