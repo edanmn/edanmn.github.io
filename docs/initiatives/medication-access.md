@@ -98,17 +98,19 @@ line. People filled in about six months of the year on average, so this is not a
 per month. Both bills died with this legislature and would need to be reintroduced
 in 2027.
 
-The Minnesota Department of Health ran the claims counts behind that estimate and shared them
-with EDAN in September 2026. In 2024, 4,341 commercially insured Minnesotans with epilepsy
-filled a first-line seizure prescription. In 12 percent of the months they filled one, they paid more than
-$25 per 30-day supply. The amount over was $55 per 30-day supply on average. What they paid above $25 came to $385,732 that year.
-Both measures have fallen since 2021, when 14.6 percent of months went over and the overage came
-to $536,892. These counts come from the Minnesota All Payer Claims Database, which does not
-receive claims from self-insured employer plans and holds about 40 percent of the commercial
-market, so the true number of people affected is larger. The drug list MDH used focused on
-first-line therapies and left out several newer add-on drugs, among them cannabidiol,
-fenfluramine and cenobamate, so the amounts above $25 are a floor. MDH did not count how many
-different people went over $25 in a year, only how many months did.
+EDAN requested and received from the Minnesota Department of Health the summary data
+underlying the averages made available by the Minnesota Department of Commerce. In 2024, 4,341
+commercially insured Minnesotans with epilepsy filled a prescription for a first-line seizure
+medication. In 12 percent of the months with a filled prescription, out-of-pocket payment
+exceeded $25 per 30-day supply, by $55 on average. Total out-of-pocket payment in excess of $25
+per 30-day supply equaled $385,732 that year. For comparison, in 2021, out-of-pocket payment
+exceeded $25 per 30-day supply in 14.6 percent of months. These summary estimates were
+calculated using the Minnesota All Payer Claims Database (MN APCD), which does not receive
+claims from most self-insured employer plans and includes data representing about 40 percent of
+the commercial market, so the true number of people affected is larger. The drug list MDH used
+focused on first-line therapies and excluded several newer add-on drugs, among them
+cannabidiol, fenfluramine and cenobamate, so the amounts above $25 are a floor. MDH did not
+count how many different people went over $25 in a year, only how many member months did.
 
 | | 2021 | 2022 | 2023 | 2024 |
 |---|---:|---:|---:|---:|
@@ -119,10 +121,11 @@ different people went over $25 in a year, only how many months did.
 | Amount above $25 | $537K | $509K | $396K | $386K |
 
 *Minnesota Department of Health, Health Economics Program, MN APCD Extract 29. Commercial members
-with 12 months of medical and pharmacy coverage and an epilepsy or seizure diagnosis. First-line
-antiseizure drugs only. "Months
-over $25" is the share of months with a fill in which the patient paid more than $25 per 30-day
-supply. Self-insured (ERISA) plans are not included.*
+with 12 months of medical and pharmacy coverage and an epilepsy or seizure diagnosis. The
+twelve first-line drugs MDH counted are brivaracetam, carbamazepine, lacosamide, lamotrigine,
+levetiracetam, oxcarbazepine, perampanel, phenobarbital, phenytoin, topiramate, valproic acid
+and zonisamide. "Months over $25" is the share of months with a fill in which the patient paid
+more than $25 per 30-day supply. Most self-insured (ERISA) plans are not included.*
 
 Sources: Minnesota Department of Health (All Payer Claims Database and prescription drug price
 transparency reports); CMS National Average Drug Acquisition Cost; FDA Orange Book; 2026 plan
@@ -158,7 +161,7 @@ The drugs a child with hard-to-control epilepsy needs are the expensive ones.
 
 ??? quiz "2. In 2024, in what share of months did commercially insured Minnesotans filling a first-line seizure prescription pay more than $25?"
     12 percent, down from 14.6 percent in 2021, in the All Payer Claims Database counts MDH
-    ran for EDAN. The database leaves out self-insured employer plans.
+    ran for EDAN. The database leaves out most self-insured employer plans.
 
 ??? quiz "3. Why does a broad drop across many drugs in one quarter probably not mean a shortage?"
     Shortages hit one molecule. A drop across unrelated drugs at once points to fewer people
