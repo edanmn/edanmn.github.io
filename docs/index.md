@@ -71,8 +71,8 @@ built from federal sources or state filings that every state has. Other states a
 2. [Medication access](initiatives/medication-access.md): shortages, prices, pharmacy
    deserts, and support for reintroducing a cap on what epilepsy drugs cost families (HF 3652 /
    SF 3786) in 2027. [See what the cap would change](sims/cap-calculator/index.md).
-3. [SUDEP](initiatives/sudep.md): about 1,000 Minnesota deaths a year involve seizures and
-   nobody counts SUDEP. Data, a missed benefit, and a reporting law.
+3. [SUDEP](initiatives/sudep.md): the state health department reports around 1,000 Minnesota deaths a
+   year related to epilepsy or seizures, and nobody counts SUDEP. Data, a missed benefit, and a reporting law.
    [Explore the death certificate counts](sims/death-certificates/index.md).
 
 [Read the full initiatives page](initiatives/index.md), including how we measure impact.

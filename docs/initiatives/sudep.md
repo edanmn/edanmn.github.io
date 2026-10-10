@@ -5,16 +5,18 @@ public sources and has not yet been reviewed by a clinician or the Epilepsy Foun
 Minnesota; we are seeking that review. Nothing here is medical advice.
 
 ## The gap
-Sudden Unexpected Death in Epilepsy is rare, about one in a thousand adults with epilepsy a
-year and lower in children (American Academy of Neurology guideline, Harden et al. 2017), and
+Sudden Unexpected Death in Epilepsy is rare, about 1.2 in a thousand adults with epilepsy a
+year and lower in children (guideline of the American Academy of Neurology and the American
+Epilepsy Society, Harden et al. 2017), and
 it is the outcome every family fears. The Minnesota
 Department of Health reports around 1,000 deaths a year in the state related to epilepsy or
 seizures; our own pull of 2018 to 2024 death certificates gives about 870 a year that mention
 epilepsy or seizures, and about 200 a year that mention epilepsy specifically. How many are
 SUDEP, nobody knows. It has no diagnostic code, so it is counted only when a certifier writes
 the words on the death certificate. Illinois and New York require
-medical examiners to look for it and report cases to the North American SUDEP Registry, and
-Colorado changed its death certificate rules for it in 2026. Minnesota does neither.
+medical examiners to look for it and report cases to the North American SUDEP Registry.
+Colorado passed a law in 2026 under which, from July 2027, a death consistent with SUDEP must
+list epilepsy on the certificate. Minnesota has no such rule.
 
 Since January 2024 Minnesota Medical Assistance has covered seizure detection devices,
 wearables that alert a caregiver to a convulsive seizure. Minnesota was the first state to do
@@ -30,11 +32,11 @@ seizures, from the CDC's multiple cause of death files.
 |---|---|---|
 | Any mention of epilepsy or seizures on the certificate (G40, G41, R56) | 6,077 | about 870 |
 | Any mention of epilepsy (G40, G41) | 1,404 | about 200 |
-| Epilepsy as the underlying cause of death | 415 | about 60 |
+| Epilepsy as the underlying cause of death | 415 | about 59 |
 
 The two broader counts rose across the seven years, from 728 to 967 for any seizure mention
 and from 153 to 233 for any epilepsy mention. Deaths with epilepsy as the underlying cause
-did not trend up, going from 60 in 2018 to 55 in 2024. Rates are low through childhood, rise steadily through adulthood,
+did not trend up, going from 60 in 2018 to 55 in 2024. After the first year of life, rates are low through childhood. They rise steadily through adulthood
 and climb steeply after 65, when seizures ride along with strokes, dementia, and other
 conditions. The epilepsy-specific count peaks at ages 65 to 74.
 
@@ -42,9 +44,7 @@ conditions. The epilepsy-specific count peaks at ages 65 to 74.
 
 These coded files cannot separate SUDEP from other epilepsy deaths. Only 27 of 87 counties had enough epilepsy-specific deaths in seven years to
 report a number at all. Fifty-seven are suppressed as fewer than 10, and three had none
-recorded. Those are
-the same counties with the smallest districts, the longest ambulance runs, and the farthest
-specialists. Source: CDC WONDER, Multiple Cause of Death, 2018 to 2024.
+recorded. Source: CDC WONDER, Multiple Cause of Death, 2018 to 2024.
 
 ## How often SUDEP is written on a certificate
 
@@ -75,7 +75,8 @@ tabulation for EDAN, October 2026.
 
 ## Where these deaths happen, and how Minnesota compares
 
-SUDEP usually happens at home, often during sleep, and often with nobody present. The coded
+In a Swedish study of 329 SUDEP deaths, 91 percent happened at home, 58 percent at night, and
+17 percent were witnessed (Sveinsson et al., Epilepsia 2018). The coded
 death files do not record those circumstances. The closest public measure is where people died, and for
 younger Minnesotans that pattern is stark.
 
@@ -85,8 +86,8 @@ younger Minnesotans that pattern is stark.
 | Epilepsy mentioned anywhere, ages 1 to 44 | 169 (54%) | 311 |
 | Epilepsy as the underlying cause, ages 1 to 44 | 98 (64%) | 152 |
 
-Nearly two in three young Minnesotans whose deaths were caused by epilepsy died at home. SUDEP
-is concentrated in that age group. Place of death is only a proxy, though. Dying at home is
+Nearly two in three young Minnesotans whose deaths were caused by epilepsy died at home. Of the
+74 Minnesota certificates that name SUDEP, 63 were for people under 45. Place of death is only a proxy, though. Dying at home is
 not proof of SUDEP, and some SUDEP deaths happen elsewhere.
 
 Minnesota's epilepsy death rate also runs above the national one. Counting every death

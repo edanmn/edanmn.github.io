@@ -45,8 +45,8 @@ language. Then we put it in the hands of the organizations and lawmakers who can
 
     ---
 
-    About 1,000 Minnesota deaths a year involve epilepsy or seizures, and nobody counts
-    SUDEP. We are working on the data, a benefit families miss, and a reporting law.
+    The Minnesota Department of Health reports around 1,000 deaths a year related to epilepsy
+    or seizures, and nobody counts SUDEP. We are working on the data, a benefit families miss, and a reporting law.
 
     [:octicons-arrow-right-24: Read more](sudep.md)  
     [:octicons-arrow-right-24: Death certificate explorer](../sims/death-certificates/index.md)

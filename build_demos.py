@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 SIMS = os.path.join(HERE, "docs", "sims")
 LOOKUP = os.path.join(HERE, "docs", "find-your-district", "district_lookup.html")
-VERSION = "2026-10-09i"
+VERSION = "2026-10-09j"
 
 SHELL = """<!doctype html>
 <html lang="en" data-autoheight><head><meta charset="utf-8">
@@ -201,12 +201,32 @@ def build_deaths():
     total = {k: sum(r["n"] for r in year[k]) for k in defs}
     assert total == {"any": 6077, "epi": 1404, "ucd": 415}
 
+    # CDC withholds counts under 10, and a withheld count must not be recoverable by subtracting
+    # the bars from a total. For the underlying cause the two youngest groups are withheld, and
+    # the place-of-death view gives a total for ages 1 to 44, so the ages are regrouped across
+    # both boundaries: nothing shown here can be subtracted down to one withheld group.
+    src = [r for r in rows("mn_epilepsy_mortality_ucd_epilepsy_by_age10.csv") if r["group"] != "Total"]
+    assert [r["deaths"] for r in src[:2]] == ["Suppressed", "Suppressed"] and len(src) == 11
+    pop = lambda rs: sum(int(r["population"].replace(",", "")) for r in rs)
+    older = sum(int(r["deaths"]) for r in src[4:])
+    merged = [("Under 25 years", total["ucd"] - older, src[:4]),
+              ("25-54 years", sum(int(r["deaths"]) for r in src[4:7]), src[4:7])]
+    age["ucd"] = [{"g": g, "n": d, "r": round(d / pop(rs) * 1e5, 1), "ci": ""} for g, d, rs in merged] + age["ucd"][7:]
+    assert sum(r["n"] for r in age["ucd"]) == total["ucd"] and all(r["n"] >= 10 for r in age["ucd"])
+
     place = {}
     for r in rows("mn_epilepsy_mortality_place_of_death.csv"):
         key = ("ucd" if r["cause"].startswith("underlying") else "epi") + ("_young" if "1-44" in r["age_scope"] else "_all")
         if r["place_of_death"] != "Total":
             place.setdefault(key, {"total": int(r["total_deaths"]), "rows": []})["rows"].append(
                 {"g": r["place_of_death"], "n": n(r["deaths"])})
+    # Same rule for places: withheld places are folded into "Other", so that the bars add up to
+    # the total and no withheld count can be found by subtraction.
+    for p in place.values():
+        keep = [r for r in p["rows"] if r["n"] is not None and r["g"] != "Other"]
+        rest = p["total"] - sum(r["n"] for r in keep)
+        assert rest >= 10, rest
+        p["rows"] = keep + [{"g": "Other", "n": rest}]
 
     states = [{"g": r["area"], "n": int(r["deaths"]), "r": float(r["age_adjusted_rate_per_100k"]),
                "ci": r["age_adjusted_ci_95"]} for r in rows("epilepsy_mortality_neighbor_states.csv")]

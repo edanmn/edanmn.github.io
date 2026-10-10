@@ -38,8 +38,8 @@
   const PLACE = {
     "Decedent's home": "At home", "Medical Facility - Inpatient": "Hospital, inpatient",
     "Medical Facility - Outpatient or ER": "Hospital, outpatient or emergency room",
-    "Medical Facility - Dead on Arrival": "Dead on arrival at a hospital", "Hospice facility": "Hospice",
-    "Nursing home/long term care": "Nursing home or long-term care", "Other": "Somewhere else", "Place of death unknown": "Not recorded",
+    "Hospice facility": "Hospice",
+    "Nursing home/long term care": "Nursing home or long-term care", "Other": "Somewhere else, or not shown separately",
   };
   const ageName = (g) => g === "< 1 year" ? "Under 1" : g === "85+ years" ? "85 and over" : g.replace(" years", "").replace("-", " to ");
 
@@ -110,7 +110,7 @@
     const t = D.total, s = D.sudep;
     const go = (k) => () => { def = k; view = "year"; set({ count: def, show: view }); render(); };
     bars(into, Object.keys(DEF).map(k => ({
-      label: DEF[k].label, sub: "(" + DEF[k].sub + ")", value: t[k], text: num(t[k]), extra: "about " + num(Math.round(t[k] / 7 / 5) * 5) + " a year",
+      label: DEF[k].label, sub: "(" + DEF[k].sub + ")", value: t[k], text: num(t[k]), extra: "about " + num(t[k] / 7 < 100 ? Math.round(t[k] / 7) : Math.round(t[k] / 7 / 5) * 5) + " a year",
       tip: [[num(t[k]), "deaths, 2018 to 2024"], ["", DEF[k].long]], pick: go(k),
     })).concat([{
       label: "SUDEP written in words", sub: "(no code exists)", value: s.same_years, text: String(s.same_years), extra: "about " + Math.round(s.same_years / 7) + " a year", tone: "alt",
@@ -138,7 +138,7 @@
       const v = measure === "rate" ? r.r : r.n;
       return { label: ageName(r.g), value: v, text: v == null ? "fewer than 10 deaths" : measure === "rate" ? String(v) : num(v),
         extra: measure === "rate" && r.ci ? r.ci.replace(" - ", " to ") : "",
-        tip: r.n == null ? [["1 to 9", "deaths, withheld by CDC"]] : [[num(r.n), "deaths, 2018 to 2024"], [r.r, "per 100,000 residents a year"], [r.ci.replace(" - ", " to "), "95% confidence interval"]] };
+        tip: r.n == null ? [["1 to 9", "deaths, withheld by CDC"]] : [[num(r.n), "deaths, 2018 to 2024"], [r.r, "per 100,000 residents a year"]].concat(r.ci ? [[r.ci.replace(" - ", " to "), "95% confidence interval"]] : []) };
     }), measure === "rate" ? "Deaths per 100,000 residents a year, with the 95% confidence interval" : "Deaths, 2018 to 2024");
   }
 
@@ -233,7 +233,7 @@
     DRAW[view](body);
     const foot = h("div", "foot");
     [
-      "Coded counts: " + CDC + ". CDC withholds any count from 1 to 9, shown here as fewer than 10.",
+      "Coded counts: " + CDC + ". CDC withholds any count from 1 to 9. Where that applies, ages or places are grouped here so that every bar stands for 10 or more deaths, which is why the underlying-cause view has wider age groups.",
       "SUDEP by name: " + MDH + ". Shown as multi-year totals.",
       "Expected and named: " + RATES + ".",
       "The counts on this page come from death certificates. The one estimate, in the view Expected and named, is built from published rates and is not a Minnesota measurement. Nothing here describes any one person's risk.",
