@@ -1,4 +1,4 @@
-# 2. Medication access
+# Medication access
 
 Status: data published September 2026.
 

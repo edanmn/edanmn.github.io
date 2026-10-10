@@ -1,4 +1,4 @@
-# 3. SUDEP
+# SUDEP
 
 Status: started September 2026. This page is student-written from
 public sources and has not yet been reviewed by a clinician or the Epilepsy Foundation of

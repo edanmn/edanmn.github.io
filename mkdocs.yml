@@ -83,9 +83,9 @@ nav:
     - 'Tell Us What Your District Has': programs/report-your-district/index.md
   - 'Initiatives':
     - 'Overview': initiatives/index.md
-    - '1. Seizure-Safe Schools': initiatives/seizure-safe-schools.md
-    - '2. Medication Access': initiatives/medication-access.md
-    - '3. SUDEP': initiatives/sudep.md
+    - 'Seizure-Safe Schools': initiatives/seizure-safe-schools.md
+    - 'Medication Access': initiatives/medication-access.md
+    - 'SUDEP': initiatives/sudep.md
   - 'Law and Data':
     - 'The Minnesota Law (121A.24)': chapters/03-minnesota-law/index.md
     - 'The Audit: Mapping the Gaps': chapters/05-the-data-case-study/index.md

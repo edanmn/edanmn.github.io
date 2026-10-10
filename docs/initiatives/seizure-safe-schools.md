@@ -1,4 +1,4 @@
-# 1. Seizure-Safe Schools
+# Seizure-Safe Schools
 
 Status: active since 2026. Flagship initiative.
 
