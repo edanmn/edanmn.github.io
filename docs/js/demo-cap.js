@@ -98,7 +98,7 @@
     const count = { lower: 0, same: 0, wait: 0, nocov: 0 };
     const list = h("div", "meds");
     D.drugs.forEach(d => {
-      const row = h("div", "med" + (d.id === drug ? " on" : "")), name = h("button", "nm", (d.rank ? d.rank + ". " : "") + d.name);
+      const row = h("div", "med" + (d.id === drug ? " on" : "")), name = h("button", "nm", d.name);
       name.type = "button";
       name.append(h("small", "", d.kind));
       name.addEventListener("click", () => { drug = d.id; open = -1; set({ drug, plan: null }); render(); fig.querySelector("select").focus(); });
@@ -137,7 +137,7 @@
     const top = h("optgroup"), more = h("optgroup");
     top.label = "Twenty most prescribed, in order"; more.label = "Also priced";
     D.drugs.forEach(d => {
-      const o = h("option", "", (d.rank ? d.rank + ". " : "") + d.name + " (" + d.kind + ")");
+      const o = h("option", "", d.name + " (" + d.kind + ")");
       o.value = d.id; o.selected = d.id === drug;
       (d.rank ? top : more).append(o);
     });
