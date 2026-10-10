@@ -31,7 +31,8 @@ The full method, the charts, the county map and the reliability check are in
 
 ## What we are doing this year
 - Contacting every no-plan district, in order of need, with a free drop-in packet: a seizure
-  action plan template in four languages, board policy language, a first-aid poster.
+  action plan template with links to the Epilepsy Foundation of Minnesota's Spanish, Hmong and
+  Somali versions, board policy language, a first-aid poster.
 - Asking each district one question once staff are back: do you now have a plan on file for
   each student with a seizure disorder and a trained adult at each school? A yes, with a
   count, is how we measure this initiative.
@@ -41,7 +42,7 @@ The full method, the charts, the county map and the reliability check are in
   the medication policy or the crisis-management policy that already covers cardiac response
   plans, and is consulting the Department of Health. No date is set.
 - Adding a language layer: 25 no-plan districts have ten percent or more English learners,
-  about 15,000 students. They get the Spanish, Hmong, and Somali templates first.
+  about 15,000 English learners in all (federal data for 2021). They get the Spanish, Hmong, and Somali templates first.
 - Re-auditing all 329 districts in spring 2027 and publishing the before-and-after map.
 - Running the same audit on the 467 nonpublic schools and offering them the same free
   packet. Nothing requires them to have a plan, so a plan gets written only if someone asks.

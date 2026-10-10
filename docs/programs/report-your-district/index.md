@@ -1,9 +1,9 @@
 # Tell us what your district has in place
 
-Nobody counts this. Minnesota law has required a seizure action plan and trained staff in every
-public and charter school since 2022, and no state agency tracks which districts actually have
-them. We built the only measure that exists, and it is a weak one: we checked whether a plan is
-posted where a family could find it. About 7 in 10 districts post nothing.
+Nobody counts this. Since the 2022-23 school year Minnesota law has required public and charter
+schools to keep a seizure action plan for each student with a diagnosed seizure disorder and to
+train staff, and no state agency tracks which districts actually do. We built the only measure that exists, and it is a weak one: we checked whether a plan is
+posted where a family could find it. About 7 in 10 districts do not post a seizure plan.
 
 Posting is not the same as having. Districts have told us so, and they are right. This page is
 how you correct the record for your district.

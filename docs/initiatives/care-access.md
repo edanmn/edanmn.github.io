@@ -18,7 +18,7 @@ of Emergency Medical Services, 2023).
 
 ## What the data shows
 We located every neurologist, child neurologist, and epilepsy subspecialist with a practice
-address in Minnesota or the border areas of the Dakotas, Wisconsin, and Iowa, using the
+address in Minnesota or in parts of the Dakotas, Wisconsin, and Iowa (as far as Milwaukee and Des Moines), using the
 federal provider registry, and measured the distance from every school district office.
 
 <iframe src="../../charts/care_access_map.html" class="microsim" width="100%" height="600" title="Map: distance from each school district to the nearest child neurologist" loading="lazy"></iframe>
@@ -30,8 +30,8 @@ federal provider registry, and measured the distance from every school district 
 
 | Measure | Value |
 |---|---|
-| Child neurologists serving Minnesota (in state and border areas) | 105 |
-| Epilepsy subspecialists | 35 |
+| Child neurologists | 72 in Minnesota; 105 counting those we found in Iowa, Wisconsin and the Dakotas |
+| Epilepsy subspecialists | 27 in Minnesota; 35 counting those states |
 | Districts more than 60 miles from a child neurologist | 101 (about 70,000 students) |
 | Districts more than 100 miles away | 11 |
 | Of the 101 far districts, those also without a findable seizure plan | 80 |
@@ -55,7 +55,7 @@ the Twin Cities.
     can do full monitoring, complex drug management, and epilepsy surgery. Minnesota has four.
 
 ??? quiz "2. Why are border-state clinics included in the map?"
-    A family in Luverne is 30 miles from Sioux Falls and 180 from Minneapolis. Leaving out
+    A family in Luverne is about 28 miles from Sioux Falls and about 170 from Minneapolis, in a straight line. Leaving out
     Sioux Falls would overstate the gap in southwest Minnesota by more than 100 miles.
 
 ??? quiz "3. Does 'nearest child neurologist' mean they are taking new patients?"

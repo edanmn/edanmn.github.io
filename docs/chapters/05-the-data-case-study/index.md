@@ -86,6 +86,8 @@ size effect directly:
     | 2,500-9,999 | 58 | 67% |
     | 10,000+ | 15 | 67% |
 
+    Two of the 329 districts have no enrollment figure and are left out, so the table covers 327.
+
 The honest interpretation: this is a **capacity** problem. Small districts, most of which are
 rural, simply do not have the nursing and administrative staff to write and post a current
 plan. Minnesota's own data backs this up. About half of Minnesota school districts and charter
@@ -93,7 +95,7 @@ schools have no licensed school nurse. Among regular public districts more than 
 and in public districts under 500 students it is 79% (MDH, School Nurse Workforce: A 2022
 Snapshot).
 
-And the gap tends to be largest exactly where community health needs are highest, hover the
+And the gap tends to be larger where community health needs are higher, hover the
 bubbles (size = number of districts in that county):
 
 <iframe src="../../charts/county_need_vs_gap.html" class="microsim" width="100%" height="480" title="County need versus gap" loading="lazy"></iframe>

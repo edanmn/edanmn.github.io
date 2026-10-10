@@ -17,8 +17,8 @@ without epilepsy report about 6 percent on both of those questions (CDC, MMWR 20
 survey years 2015 and 2017). Two other things stand between a Minnesota family and
 the pill: supply problems (FDA lists discontinuations of several oral seizure products, and a
 shortage of the hospital IV form of valproate open since 2020) and distance.
-Minnesota has lost 13 percent of its community pharmacies since 2009, and about one in five
-residents now lives in a low-access area.
+Minnesota lost 13 percent of its community pharmacies from 2009 to 2024, and about one in five
+residents now lives in an area with low or limited pharmacy access.
 
 ## What the data shows
 We pulled Minnesota Medicaid antiseizure prescriptions from 2019 through early 2026 from the
@@ -49,7 +49,7 @@ have asked for them.
 
 ## What a Minnesota family actually pays
 
-Medicaid prices are not what a working family sees. In September 2026 we pulled the federal
+Medicaid prices are not what a working family sees. In September and October 2026 we pulled the federal
 drug pricing file, checked which seizure medicines have a generic, priced eight real Minnesota
 insurance plans, and read the state's own claims data. Four things stand out.
 
@@ -72,8 +72,9 @@ Medicine 2013, PMID 23277164).
 
 Minnesotans on commercial insurance pay far more than people on public programs. From the
 Minnesota All Payer Claims Database for 2022: $18.48 out of pocket per fill on a commercial
-plan, against $9.30 on Medicare and $1.31 on Minnesota Health Care Programs (Medical Assistance and MinnesotaCare). For the expensive drugs the
-median payment is $0.00 while the average runs from about $96 to $267 a fill, which is the
+plan, against $9.30 on Medicare and $1.31 on Minnesota Health Care Programs (Medical Assistance and MinnesotaCare). For several expensive drugs the
+median payment is $0.00 while the average is far higher: $96 a fill for cenobamate, $122 for
+cannabidiol, $228 for fenfluramine and $267 for eslicarbazepine. That is the
 deductible pattern. Across a
 year, commercial members taking fenfluramine paid $1,822 on average, eslicarbazepine $1,460,
 and cannabidiol $1,073. Those three averages rest on small numbers of people, 12, 13 and 71
@@ -92,15 +93,15 @@ withheld as a trade secret.
 Two 2026 bills (HF 3652 and SF 3786) would have added epilepsy to Minn. Stat. 62Q.481,
 which since January 2025 has capped what a Minnesotan pays for diabetes, asthma and severe
 allergy medicine at $25 a month, for plans that state law regulates. The Department of Commerce, using claims from 2021 to 2024, projects that people filling an
-epilepsy drug will pay an average of $44.71 a month in cost sharing in 2027, with $17.35 of that above the $25
-line. Spread across everyone with private coverage, the change costs about four cents per member
+epilepsy drug will pay an average of $44.71 in cost sharing in each month they fill one in 2027, with $17.35 of that above the $25
+line. People filled in about six months of the year on average, so this is not a figure for every month. Spread across everyone with private coverage, the change costs about four cents per member
 per month. Both bills died with this legislature and would need to be reintroduced
 in 2027.
 
 The Minnesota Department of Health ran the claims counts behind that estimate and shared them
 with EDAN in September 2026. In 2024, 4,341 commercially insured Minnesotans with epilepsy
 filled a first-line seizure prescription. In 12 percent of the months they filled one, they paid more than
-$25 per 30-day supply, by $55 on average. What they paid above $25 came to $385,732 that year.
+$25 per 30-day supply. The amount over was $55 per 30-day supply on average. What they paid above $25 came to $385,732 that year.
 Both measures have fallen since 2021, when 14.6 percent of months went over and the overage came
 to $536,892. These counts come from the Minnesota All Payer Claims Database, which does not
 receive claims from self-insured employer plans and holds about 40 percent of the commercial
