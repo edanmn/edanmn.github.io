@@ -50,7 +50,7 @@ have asked for them.
 ## What a Minnesota family actually pays
 
 Medicaid prices are not what a working family sees. In September 2026 we pulled the federal
-drug pricing file, checked which seizure medicines have a generic, priced ten real Minnesota
+drug pricing file, checked which seizure medicines have a generic, priced eight real Minnesota
 insurance plans, and read the state's own claims data. Four things stand out.
 
 Six seizure medicines have no generic version: Epidiolex, Fintepla, Xcopri, Ztalmy,
@@ -125,13 +125,13 @@ supply. Self-insured (ERISA) plans are not included.*
 
 Sources: Minnesota Department of Health (All Payer Claims Database and prescription drug price
 transparency reports); CMS National Average Drug Acquisition Cost; FDA Orange Book; 2026 plan
-benefit summaries and formularies from HealthPartners, Medica, UCare and the State Employee
-Group Insurance Program.
+benefit summaries and formularies from HealthPartners, Medica and UCare.
 
 ## Explore: what a $25 cap would change, plan by plan
 
-We read the 2026 benefit summary and drug list of ten Minnesota plans and priced the twenty
-seizure medicines most prescribed to commercially insured Minnesotans against each. Pick a
+We read the 2026 benefit summary and drug list of eight Minnesota plans and priced the twenty
+seizure medicines most prescribed to commercially insured Minnesotans against each, along with
+five costly brands. Only plans whose drug list is public are included. Pick a
 medicine to see what a member pays today and what the cap would leave. For the common generics
 the cap changes little, because most plans already charge $25 or less. The brand drugs split
 two ways: on some plans the cap takes hundreds of dollars off the

@@ -30,7 +30,7 @@ docs/
   data/                        Data and Methods page, and the audit as a CSV
   charts/                      interactive Plotly charts, embedded in pages as iframes
   sims/distance-lookup/        distance-to-care lookup
-  sims/cap-calculator/         what a $25 cap would change, ten plans by the twenty most prescribed medicines
+  sims/cap-calculator/         what a $25 cap would change, eight plans by the twenty most prescribed medicines and five costly brands
   sims/district-compare/       one district beside similar districts
   sims/death-certificates/     death certificate counts, seven views
   packet/                      the Seizure-Safe Schools packet (PDF)

@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 SIMS = os.path.join(HERE, "docs", "sims")
 LOOKUP = os.path.join(HERE, "docs", "find-your-district", "district_lookup.html")
-VERSION = "2026-10-09g"
+VERSION = "2026-10-09h"
 
 SHELL = """<!doctype html>
 <html lang="en" data-autoheight><head><meta charset="utf-8">
@@ -51,7 +51,7 @@ def write(folder, title, script, data):
 
 
 # ---------------------------------------------------------------------------
-# 1. The $25 cap: ten plans, the twenty most-prescribed medicines, two points in the year
+# 1. The $25 cap: eight plans, the twenty most-prescribed medicines and five brands, two points in the year
 # ---------------------------------------------------------------------------
 # id (kept short, it goes in the page address), name shown, what kind of product it is.
 DRUGS = {
@@ -76,9 +76,14 @@ DRUGS = {
     "Nayzilam 5 mg nasal spray (midazolam)": ("nay", "Nayzilam", "midazolam nasal spray, no generic"),
     "perampanel 8 mg tablet (generic)": ("per", "Perampanel", "generic"),
     "Onfi 10 mg tablet (brand clobazam)": ("onfi", "Onfi", "brand of clobazam"),
+    "Fintepla oral solution (fenfluramine)": ("fin", "Fintepla", "fenfluramine, no generic"),
+    "Diacomit (stiripentol)": ("dia", "Diacomit", "stiripentol, no generic"),
+    "Sabril (brand vigabatrin)": ("sab", "Sabril", "brand of vigabatrin"),
+    "Aptiom 800 mg tablet (brand eslicarbazepine)": ("apt", "Aptiom", "brand of eslicarbazepine"),
 }
 # Priced as one prescription rather than thirty days of tablets.
-PER_FILL = {"epd": "dosed by weight", "val": "one carton of two devices", "nay": "one carton of two devices"}
+PER_FILL = {"epd": "dosed by weight", "fin": "dosed by weight", "dia": "dosed by weight", "sab": "dosed by weight",
+            "val": "one carton of two devices", "nay": "one carton of two devices"}
 PHASES = {"January, deductible not met": "jan", "mid-year, deductible met": "mid"}
 CARRIER = {"healthpartners": "HealthPartners", "ucare": "UCare", "medica": "Medica"}
 
@@ -109,12 +114,11 @@ def build_cap():
     for r in src:
         pid = seen.get(r["plan"])
         if pid is None:
-            segip = "SEGIP" in r["plan"]
             plans.append({
-                "name": r["plan"].replace(" (SEGIP), Cost Level 1", ""),
-                "carrier": "State employee plan (SEGIP)" if segip else CARRIER.get(r["carrier"], r["carrier"]),
-                "market": "State employees" if segip else "Individual market",
-                "metal": "" if r["metal"] == "n/a" else r["metal"],
+                "name": r["plan"],
+                "carrier": CARRIER[r["carrier"]],
+                "market": "Individual market",
+                "metal": r["metal"],
                 "hsa": r["hsa_qualified"] == "yes",
                 "ded": money(r["deductible_single"]),
                 "oop": money(r["oop_max_single"]),
@@ -139,11 +143,11 @@ def build_cap():
             "note": r["cap_note"], "st": cap_status(r),
         }
     drugs.sort(key=lambda d: d["rank"] or 99)
-    assert len(plans) == 10 and len(drugs) == 21 and len(cells) == 210
-    assert [d["rank"] for d in drugs] == list(range(1, 21)) + [None]
+    assert len(plans) == 8 and len(drugs) == 25 and len(cells) == 200
+    assert [d["rank"] for d in drugs] == list(range(1, 21)) + [None] * 5
     rank_year = {r["commercial_rx_year"] for r in src if r["commercial_rx_year"]}
     assert rank_year == {"2022"}
-    write("cap-calculator", "What would a $25 cap change? Ten Minnesota plans, twenty seizure medicines",
+    write("cap-calculator", "What would a $25 cap change? Eight Minnesota plans, twenty-five seizure medicines",
           "demo-cap.js", {"plans": plans, "drugs": drugs, "cells": cells, "year": 2026, "rank_year": 2022})
 
 

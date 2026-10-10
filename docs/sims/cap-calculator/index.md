@@ -5,8 +5,8 @@ title: What a $25 Cap Would Change
 # What a $25 Cap Would Change
 
 Two 2026 bills would have capped what a commercially insured Minnesotan pays for a seizure
-medicine at $25 a month. Pick one of the twenty most prescribed seizure medicines and a point
-in the plan year to see what ten Minnesota
+medicine at $25 a month. Pick one of the twenty most prescribed seizure medicines, or one of five costly brands, and a
+point in the plan year to see what eight Minnesota
 plans charge today and what they would charge with the cap. On some plans the cap takes
 hundreds of dollars off the month. On others the medicine is missing from the plan's drug list,
 and a cap on cost sharing does not reach it.

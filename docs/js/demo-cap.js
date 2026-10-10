@@ -1,7 +1,7 @@
 /* ==========================================================================
-   demo-cap.js: what a $25 monthly cap would change, for ten Minnesota plans
+   demo-cap.js: what a $25 monthly cap would change, for eight Minnesota plans
    and the twenty seizure medicines most prescribed to commercially insured
-   Minnesotans (plus brand Onfi). Data is window.DATA, written by build_demos.py
+   Minnesotans (plus five costly brands). Data is window.DATA, written by build_demos.py
    from each carrier's 2026 benefit summary and drug list.
 
    Every plan and medicine pairing lands in one of four groups:
@@ -38,7 +38,7 @@
   if (!(open >= 0 && open < D.plans.length)) open = -1;
 
   const cell = (p, d) => D.cells[p + "|" + d];
-  const shortPlan = (p) => p.metal ? p.carrier + " " + p.metal + (p.hsa ? " HSA" : "") : (p.hsa ? "State employees, high deductible" : "State employees");
+  const shortPlan = (p) => p.carrier + " " + p.metal + (p.hsa ? " HSA" : "");
   const dollars = (v) => usd(Math.round(v));
 
   function tier(c) {
@@ -93,7 +93,7 @@
     into.append(wrap);
   }
 
-  // Every medicine in one list: ten squares a row, one for each plan in the order shown above.
+  // Every medicine in one list: eight squares a row, one for each plan in the order shown above.
   function overview(into) {
     const count = { lower: 0, same: 0, wait: 0, nocov: 0 };
     const list = h("div", "meds");
@@ -153,25 +153,25 @@
     fig.replaceChildren();
     fig.append(h("h1", "", "What would a $25 cap change?"));
     fig.append(h("p", "lede", "Two 2026 bills would have capped what a commercially insured Minnesotan pays for a seizure medicine at $25 a month. " +
-      "We read the " + D.year + " benefit summary and drug list of ten Minnesota plans and worked out what the twenty most prescribed seizure medicines cost a member today and what they would cost with the cap."));
+      "We read the " + D.year + " benefit summary and drug list of eight Minnesota plans and worked out what the twenty most prescribed seizure medicines, and five costly brands, cost a member today and what they would cost with the cap."));
     picker(fig);
     seg(fig, "Point in the plan year", Object.keys(PHASE).map(k => ({ id: k, label: PHASE[k].label, sub: PHASE[k].sub })), phase, (id) => { phase = id; set({ when: phase }); render(); });
     const chosen = D.drugs.find(d => d.id === drug);
     fig.append(h("h2", "", chosen.name + ", plan by plan"));
     fig.append(h("p", "small", "Each plan shows the cost of " + (chosen.fill ? "one prescription (" + chosen.dose + ")" : "30 days at " + chosen.dose) + ", today and with the cap. Pick a plan to see the calculation and the documents it comes from."));
     planRows(fig);
-    fig.append(h("h2", "", "Every medicine across the ten plans"));
+    fig.append(h("h2", "", "Every medicine across the eight plans"));
     overview(fig);
 
     const foot = h("div", "foot");
     [
       "Sources: " + SOURCE + ".",
-      "The twenty medicines are those with the most prescriptions filled by commercially insured Minnesotans in " + D.rank_year + ", the newest year the state has published, counted by active ingredient. The count covers every use of a medicine, so topiramate's includes migraine and lamotrigine's includes bipolar disorder. Gabapentin, pregabalin and clonazepam are left out because most of their use is for other conditions. Brand Onfi is added as an example of a brand whose generic is on every list.",
+      "The twenty medicines are those with the most prescriptions filled by commercially insured Minnesotans in " + D.rank_year + ", the newest year the state has published, counted by active ingredient. The count covers every use of a medicine, so topiramate's includes migraine and lamotrigine's includes bipolar disorder. Gabapentin, pregabalin and clonazepam are left out because most of their use is for other conditions. Five brands are also priced. Fintepla, Diacomit, Sabril and Aptiom were the costliest seizure medicines per prescription in Minnesota Medicaid in 2025, and Onfi is the brand of clobazam. Sabril, Aptiom and Onfi each have a generic, and where a drug list carries the medicine it carries the generic.",
       "One product stands for each medicine: a common strength at a dose from its FDA label, in the generic form where one exists. Other strengths, forms and brands of the same medicine can sit on a different tier. Valtoco and Nayzilam are rescue medicines, priced as one carton and not as a month's supply.",
-      "The state employee plan's drug list is not public. Its tiers here are inferred from a national CVS Caremark list and are the least certain figures on the page.",
+      "Only plans whose drug list is public are shown, and every tier is read from the carrier's own list. Minnesota's state employee plan is left out because its drug tiers sit behind a member login.",
       "These are " + D.year + " plans. UCare's individual plans end with " + D.year + ", and most 2027 plan documents were not published when this was built.",
-      "Prices are a floor. For every medicine but one we used what pharmacies pay for the drug (CMS National Average Drug Acquisition Cost, third quarter 2026). Epidiolex is outside that survey, so its price is the average Minnesota Medicaid payment per prescription in 2025. A plan's own price is usually higher, which makes coinsurance, and the saving from a cap, larger than shown.",
-      "Ten plans from HealthPartners, UCare, Medica and the state employee plan, with drug lists dated October 2026 for the three carriers. Blue Cross and Blue Shield of Minnesota and Quartz are missing because their plan-by-plan benefit summaries could not be retrieved. Self-insured employer plans are outside state insurance law and would not be covered by the cap.",
+      "Prices are a floor. For most medicines we used what pharmacies pay for the drug (CMS National Average Drug Acquisition Cost, third quarter 2026). Epidiolex, Fintepla, Diacomit and Sabril are outside that survey, so each is priced at the average Minnesota Medicaid payment per prescription in 2025, before rebates. A plan's own price is usually higher, which makes coinsurance, and the saving from a cap, larger than shown.",
+      "Eight individual-market plans from HealthPartners, UCare and Medica, with drug lists dated October 2026. Blue Cross and Blue Shield of Minnesota and Quartz are missing because their plan-by-plan benefit summaries could not be retrieved. Self-insured employer plans are outside state insurance law and would not be covered by the cap.",
       "The bills were HF 3652 and SF 3786, which would have added epilepsy to Minn. Stat. 62Q.481. They did not pass in 2026. This page shows what the plan documents say; what one family pays depends on its own plan, dose and pharmacy.",
     ].forEach(t => foot.append(h("p", "", t)));
     fig.append(foot);
