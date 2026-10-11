@@ -87,6 +87,7 @@ select:focus { outline: none; border-color: var(--one); }
 .med .nm:focus-visible { outline: 2px solid var(--one); outline-offset: 2px; }
 .med .grid { margin: 0; flex-wrap: nowrap; gap: 3px; }
 .med .n { font-size: .76rem; color: var(--muted); white-space: nowrap; }
+.meds.one .med { grid-template-columns: minmax(150px, 34%) minmax(0, auto) 1fr; }
 .sq.lower { background: var(--good); } .sq.same { background: var(--c1); } .sq.wait { background: var(--warn); } .sq.nocov { background: var(--bad); }
 
 /* ---- District comparison ---- */
@@ -134,7 +135,7 @@ table.work tr.sum th, table.work tr.sum td { font-weight: 650; border-bottom: 0;
 
 @media (max-width: 640px) {
   .pick { grid-template-columns: 1fr; }
-  .med { grid-template-columns: 1fr auto; } .med .n { display: none; } .med .sq { width: 14px; height: 14px; border-radius: 3px; } .med .grid { gap: 2px; }
+  .med { grid-template-columns: 1fr auto; } .med .n { display: none; } .meds.one .med .n { display: block; grid-column: 1 / -1; white-space: normal; } .med .sq { width: 14px; height: 14px; border-radius: 3px; } .med .grid { gap: 2px; }
   .stack { grid-template-columns: 1fr; gap: 2px; } .stack .lab { text-align: left; } .stack .trk { margin-bottom: 8px; }
   .big b { font-size: 1.4rem; }
 }

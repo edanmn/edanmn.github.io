@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 SIMS = os.path.join(HERE, "docs", "sims")
 LOOKUP = os.path.join(HERE, "docs", "find-your-district", "district_lookup.html")
-VERSION = "2026-10-09j"
+VERSION = "2026-10-11a"
 
 SHELL = """<!doctype html>
 <html lang="en" data-autoheight><head><meta charset="utf-8">
@@ -51,7 +51,7 @@ def write(folder, title, script, data):
 
 
 # ---------------------------------------------------------------------------
-# 1. The $25 cap: eight plans, the twenty most-prescribed medicines and five brands, two points in the year
+# 1. The $25 cap: twelve plans, the twenty most-prescribed medicines and five brands, two points in the year
 # ---------------------------------------------------------------------------
 # id (kept short, it goes in the page address), name shown, what kind of product it is.
 DRUGS = {
@@ -85,7 +85,8 @@ DRUGS = {
 PER_FILL = {"epd": "dosed by weight", "fin": "dosed by weight", "dia": "dosed by weight", "sab": "dosed by weight",
             "val": "one carton of two devices", "nay": "one carton of two devices"}
 PHASES = {"January, deductible not met": "jan", "mid-year, deductible met": "mid"}
-CARRIER = {"healthpartners": "HealthPartners", "ucare": "UCare", "medica": "Medica"}
+CARRIER = {"healthpartners": "HealthPartners", "ucare": "UCare", "medica": "Medica",
+           "bluecross": "Blue Plus (Blue Cross)"}
 
 
 def money(s):
@@ -143,11 +144,21 @@ def build_cap():
             "note": r["cap_note"], "st": cap_status(r),
         }
     drugs.sort(key=lambda d: d["rank"] or 99)
-    assert len(plans) == 8 and len(drugs) == 25 and len(cells) == 200
+    assert len(plans) == 12 and len(drugs) == 25 and len(cells) == 300
+    per_carrier = {}
+    for p in plans:
+        per_carrier[p["carrier"]] = per_carrier.get(p["carrier"], 0) + 1
+    assert max(per_carrier.values()) <= 3, per_carrier        # no more than three plans a carrier
+    # keep each carrier's plans together, in the order bronze, silver, gold
+    order = sorted(range(len(plans)), key=lambda i: (list(CARRIER.values()).index(plans[i]["carrier"]),
+                                                     ["Bronze", "Silver", "Gold"].index(plans[i]["metal"])))
+    cells = {f"{new}|{k.split('|')[1]}": v for new, old in enumerate(order)
+             for k, v in cells.items() if int(k.split("|")[0]) == old}
+    plans = [plans[i] for i in order]
     assert [d["rank"] for d in drugs] == list(range(1, 21)) + [None] * 5
     rank_year = {r["commercial_rx_year"] for r in src if r["commercial_rx_year"]}
     assert rank_year == {"2022"}
-    write("cap-calculator", "What would a $25 cap change? Eight Minnesota plans, twenty-five seizure medicines",
+    write("cap-calculator", "What would a $25 cap change? Twelve Minnesota plans, twenty-five seizure medicines",
           "demo-cap.js", {"plans": plans, "drugs": drugs, "cells": cells, "year": 2026, "rank_year": 2022})
 
 

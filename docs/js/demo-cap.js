@@ -1,5 +1,5 @@
 /* ==========================================================================
-   demo-cap.js: what a $25 monthly cap would change, for eight Minnesota plans
+   demo-cap.js: what a $25 monthly cap would change, for twelve Minnesota plans
    and the twenty seizure medicines most prescribed to commercially insured
    Minnesotans (plus five costly brands). Data is window.DATA, written by build_demos.py
    from each carrier's 2026 benefit summary and drug list.
@@ -30,6 +30,7 @@
   };
   const SOURCE = "Each carrier's 2026 Summary of Benefits and Coverage and drug list; prices from the CMS National Average Drug Acquisition Cost survey and Minnesota Medicaid; ranking from the Minnesota All Payer Claims Database public use file, " + D.rank_year;
   const TOTAL = D.plans.length * D.drugs.length;
+  const NPLANS = { 8: "eight", 12: "twelve" }[D.plans.length] || String(D.plans.length);
   const each = (d) => d.fill ? "a fill" : "a month";
 
   let drug = D.drugs.some(d => d.id === get("drug")) ? get("drug") : D.drugs[0].id;
@@ -44,6 +45,7 @@
   function tier(c) {
     if (c.tier === "NF") return "Marked non-formulary, which the plan treats as not covered";
     if (c.tier === "absent") return "Not named anywhere in the drug list";
+    if (c.tier === "unlisted") return "Not on the drug list, which says an unlisted drug is generally not covered";
     return "Tier " + c.tier;
   }
   function flags(text) {
@@ -71,6 +73,7 @@
     const max = Math.max(...D.plans.map((p, i) => cell(i, drug)[phase].pays)), d = D.drugs.find(x => x.id === drug);
     const wrap = h("div", "plans");
     D.plans.forEach((p, i) => {
+      if (open >= 0 && open !== i) return;
       const now = cell(i, drug)[phase];
       const box = h("div", "plan"), b = h("button", "pick");
       b.type = "button"; b.setAttribute("aria-expanded", open === i ? "true" : "false");
@@ -93,7 +96,28 @@
     into.append(wrap);
   }
 
-  // Every medicine in one list: eight squares a row, one for each plan in the order shown above.
+  // One plan picked: every medicine on that plan, one line each.
+  function planMeds(into) {
+    const count = { lower: 0, same: 0, wait: 0, nocov: 0 };
+    const list = h("div", "meds one");
+    D.drugs.forEach(d => {
+      const now = cell(open, d.id)[phase];
+      count[now.st]++;
+      const row = h("div", "med" + (d.id === drug ? " on" : "")), name = h("button", "nm", d.name);
+      name.type = "button";
+      name.append(h("small", "", d.kind));
+      name.addEventListener("click", () => { drug = d.id; set({ drug }); render(); fig.querySelector("select").focus(); });
+      row.append(name, h("span", "chip " + now.st, GROUP[now.st]),
+        h("span", "n", now.st === "nocov" ? "full price " + usd(now.pays) + " " + each(d) : usd(now.pays) + " today, " + usd(now.under) + " with the cap"));
+      list.append(row);
+    });
+    into.append(h("p", "small", "Of the " + D.drugs.length + " medicines on this plan " + PHASE[phase].text + ": the cap lowers the cost of " + count.lower + ", " +
+      count.same + " already cost $25 or less, " + count.nocov + " are not on the plan's drug list" +
+      (count.wait ? ", and " + count.wait + " wait for the deductible." : ".") + " Pick a medicine to see how it was worked out."));
+    into.append(list);
+  }
+
+  // Every medicine in one list: a square for each plan, in the order of the plan list.
   function overview(into) {
     const count = { lower: 0, same: 0, wait: 0, nocov: 0 };
     const list = h("div", "meds");
@@ -142,7 +166,26 @@
       (d.rank ? top : more).append(o);
     });
     sel.append(top, more);
-    sel.addEventListener("change", () => { drug = sel.value; open = -1; set({ drug, plan: null }); render(); fig.querySelector("select").focus(); });
+    sel.addEventListener("change", () => { drug = sel.value; set({ drug }); render(); fig.querySelector("select").focus(); });
+    wrap.append(label, sel);
+    into.append(wrap);
+  }
+
+  // The plan picker: every plan, grouped by carrier, or all of them side by side.
+  function planPicker(into) {
+    const wrap = h("div", "ctl"), label = h("label", "", "Plan"), sel = h("select");
+    sel.id = "plan"; label.htmlFor = sel.id;
+    const all = h("option", "", "All " + NPLANS + " plans");
+    all.value = ""; all.selected = open < 0;
+    sel.append(all);
+    let group = null;
+    D.plans.forEach((p, i) => {
+      if (!group || group.label !== p.carrier) { group = h("optgroup"); group.label = p.carrier; sel.append(group); }
+      const o = h("option", "", p.name + " (" + p.metal + ", " + usd(p.ded) + " deductible)");
+      o.value = i; o.selected = open === i;
+      group.append(o);
+    });
+    sel.addEventListener("change", () => { open = sel.value === "" ? -1 : +sel.value; set({ plan: open < 0 ? null : open }); render(); fig.querySelector("#plan").focus(); });
     wrap.append(label, sel);
     into.append(wrap);
   }
@@ -153,25 +196,36 @@
     fig.replaceChildren();
     fig.append(h("h1", "", "What would a $25 cap change?"));
     fig.append(h("p", "lede", "Two 2026 bills would have capped what a commercially insured Minnesotan pays for a seizure medicine at $25 a month. " +
-      "We read the " + D.year + " benefit summary and drug list of eight Minnesota plans and worked out what the twenty most prescribed seizure medicines, and five costly brands, cost a member today and what they would cost with the cap."));
+      "We read the " + D.year + " benefit summary and drug list of " + NPLANS + " Minnesota plans, three from each of four carriers, and worked out what the twenty most prescribed seizure medicines, and five costly brands, cost a member today and what they would cost with the cap."));
     picker(fig);
+    planPicker(fig);
     seg(fig, "Point in the plan year", Object.keys(PHASE).map(k => ({ id: k, label: PHASE[k].label, sub: PHASE[k].sub })), phase, (id) => { phase = id; set({ when: phase }); render(); });
     const chosen = D.drugs.find(d => d.id === drug);
-    fig.append(h("h2", "", chosen.name + ", plan by plan"));
-    fig.append(h("p", "small", "Each plan shows the cost of " + (chosen.fill ? "one prescription (" + chosen.dose + ")" : "30 days at " + chosen.dose) + ", today and with the cap. Pick a plan to see the calculation and the documents it comes from."));
-    planRows(fig);
-    fig.append(h("h2", "", "Every medicine across the eight plans"));
-    overview(fig);
+    const cost = chosen.fill ? "one prescription (" + chosen.dose + ")" : "30 days at " + chosen.dose;
+    if (open < 0) {
+      fig.append(h("h2", "", chosen.name + ", plan by plan"));
+      fig.append(h("p", "small", "Each plan shows the cost of " + cost + ", today and with the cap. Pick a plan to see the calculation and the documents it comes from."));
+      planRows(fig);
+      fig.append(h("h2", "", "Every medicine across the " + NPLANS + " plans"));
+      overview(fig);
+    } else {
+      fig.append(h("h2", "", chosen.name + " on " + D.plans[open].name));
+      fig.append(h("p", "small", "The cost of " + cost + ", today and with the cap, with the calculation and the documents it comes from."));
+      planRows(fig);
+      fig.append(h("h2", "", "Every medicine on this plan"));
+      planMeds(fig);
+    }
 
     const foot = h("div", "foot");
     [
       "Sources: " + SOURCE + ".",
       "The twenty medicines are those with the most prescriptions filled by commercially insured Minnesotans in " + D.rank_year + ", the newest year the state has published, counted by active ingredient. The count covers every use of a medicine, so topiramate's includes migraine and lamotrigine's includes bipolar disorder. Gabapentin, pregabalin and clonazepam are left out because most of their use is for other conditions. Five brands are also priced. Fintepla, Diacomit, Sabril and Aptiom each cost Minnesota Medicaid more than $1,800 a prescription in 2025, and Onfi is the brand of clobazam. They are examples; other costly brands, such as Ztalmy, are not priced here. Sabril, Aptiom and Onfi each have a generic, and where a drug list carries the medicine it carries the generic.",
       "One product stands for each medicine: a common strength at a dose from its FDA label, in the generic form where one exists. Other strengths, forms and brands of the same medicine can sit on a different tier. Valtoco and Nayzilam are rescue medicines, priced as one carton and not as a month's supply.",
-      "Only plans whose drug list is public are shown, and every tier is read from the carrier's own list. Minnesota's state employee plan is left out because its drug tiers sit behind a member login.",
+      "Every plan here is a real " + D.year + " plan. Its deductible, copays and coinsurance are read from the plan's own Summary of Benefits and Coverage, and every tier from the carrier's own drug list. No more than three plans are shown for any carrier. Minnesota's state employee plan is left out because its drug tiers sit behind a member login.",
+      "Where a medicine's price is lower than the plan's copay, the price is shown. Minnesota law (Minn. Stat. 62W.12) bars a carrier from charging more at the pharmacy than the lesser of the copay, the plan's allowed amount and the cash price.",
       "These are " + D.year + " plans. UCare's individual plans end with " + D.year + ", and most 2027 plan documents were not published when this was built.",
-      "Prices are a floor. For most medicines we used what pharmacies pay for the drug (CMS National Average Drug Acquisition Cost, third quarter 2026). Epidiolex, Fintepla, Diacomit and Sabril are outside that survey, so each is priced at the average Minnesota Medicaid payment per prescription in 2025, before rebates. A plan's own price is usually higher, which makes coinsurance, and the saving from a cap, larger than shown.",
-      "Eight individual-market plans from HealthPartners, UCare and Medica, with drug lists dated October 2026. Blue Cross and Blue Shield of Minnesota and Quartz are missing because their plan-by-plan benefit summaries could not be retrieved. Self-insured employer plans are outside state insurance law and would not be covered by the cap.",
+      "Carriers do not publish what they pay for a drug, so prices come from outside the plan documents and are a floor. For most medicines we used what pharmacies pay for the drug (CMS National Average Drug Acquisition Cost, third quarter 2026). Epidiolex, Fintepla, Diacomit and Sabril are outside that survey, so each is priced at the average Minnesota Medicaid payment per prescription in 2025, before rebates. A plan's own price is usually higher, which makes coinsurance, and the saving from a cap, larger than shown.",
+      "Twelve individual-market plans: three each from HealthPartners, UCare, Medica and Blue Plus, the Blue Cross and Blue Shield of Minnesota company that sells its individual plans. Drug lists are dated October 2026. Quartz is missing because its plan-by-plan benefit summaries are not posted publicly. Self-insured employer plans are outside state insurance law and would not be covered by the cap.",
       "The bills were HF 3652 and SF 3786, which would have added epilepsy to Minn. Stat. 62Q.481. They did not pass in 2026. This page shows what the plan documents say; what one family pays depends on its own plan, dose and pharmacy.",
     ].forEach(t => foot.append(h("p", "", t)));
     fig.append(foot);
