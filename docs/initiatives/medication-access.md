@@ -50,8 +50,8 @@ have asked for them.
 ## What a Minnesota family actually pays
 
 Medicaid prices are not what a working family sees. In September and October 2026 we pulled the federal
-drug pricing file, checked which seizure medicines have a generic, priced sixteen real Minnesota
-insurance plans, and read the state's own claims data. Four things stand out.
+drug pricing file, checked which seizure medicines have a generic, priced the twelve most-enrolled Minnesota
+individual-market insurance plans, and read the state's own claims data. Four things stand out.
 
 Six seizure medicines have no generic version: Epidiolex, Fintepla, Xcopri, Ztalmy,
 Diacomit and nasal midazolam (Nayzilam). Other products, such as Valtoco nasal diazepam, have no
@@ -129,13 +129,13 @@ more than $25 per 30-day supply. Most self-insured (ERISA) plans are not include
 
 Sources: Minnesota Department of Health (All Payer Claims Database and prescription drug price
 transparency reports); CMS National Average Drug Acquisition Cost; FDA Orange Book; 2026 plan
-benefit summaries and formularies from HealthPartners, Medica, UCare, Blue Plus (Blue Cross and Blue Shield of Minnesota), Quartz and Sanford Health Plan.
+benefit summaries and formularies from HealthPartners, Medica, UCare and Blue Plus (Blue Cross and Blue Shield of Minnesota); plan enrollment from the CMS rate review file for 2026.
 
 ## Explore: what a $25 cap would change, plan by plan
 
-We read the 2026 benefit summary and drug list of sixteen Minnesota plans from six carriers and priced the twenty
+We read the 2026 benefit summary and drug list of twelve Minnesota plans, the three with the most members at each of the four largest individual-market carriers, and priced the twenty
 seizure medicines most prescribed to commercially insured Minnesotans against each, along with
-five costly brands. Only plans whose benefit summary and drug list are public are included. Pick a
+five costly brands. Together they held about 30 percent of the people in that market. Pick a
 medicine to see what a member pays today and what the cap would leave. For the common generics
 the cap changes little, because most plans already charge $25 or less. The brand drugs split
 two ways: on some plans the cap takes hundreds of dollars off the
