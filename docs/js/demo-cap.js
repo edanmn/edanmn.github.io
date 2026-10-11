@@ -1,5 +1,5 @@
 /* ==========================================================================
-   demo-cap.js: what a $25 monthly cap would change, for twelve Minnesota plans
+   demo-cap.js: what a $25 monthly cap would change, for sixteen Minnesota plans
    and the twenty seizure medicines most prescribed to commercially insured
    Minnesotans (plus five costly brands). Data is window.DATA, written by build_demos.py
    from each carrier's 2026 benefit summary and drug list.
@@ -30,7 +30,7 @@
   };
   const SOURCE = "Each carrier's 2026 Summary of Benefits and Coverage and drug list; prices from the CMS National Average Drug Acquisition Cost survey and Minnesota Medicaid; ranking from the Minnesota All Payer Claims Database public use file, " + D.rank_year;
   const TOTAL = D.plans.length * D.drugs.length;
-  const NPLANS = { 8: "eight", 12: "twelve" }[D.plans.length] || String(D.plans.length);
+  const NPLANS = { 8: "eight", 12: "twelve", 16: "sixteen" }[D.plans.length] || String(D.plans.length);
   const each = (d) => d.fill ? "a fill" : "a month";
 
   let drug = D.drugs.some(d => d.id === get("drug")) ? get("drug") : D.drugs[0].id;
@@ -39,13 +39,13 @@
   if (!(open >= 0 && open < D.plans.length)) open = -1;
 
   const cell = (p, d) => D.cells[p + "|" + d];
-  const shortPlan = (p) => p.carrier + " " + p.metal + (p.hsa ? " HSA" : "");
+  const shortPlan = (p) => p.carrier + " " + (p.metal || usd(p.ded)) + (p.hsa ? " HSA" : "");
   const dollars = (v) => usd(Math.round(v));
 
   function tier(c) {
     if (c.tier === "NF") return "Marked non-formulary, which the plan treats as not covered";
     if (c.tier === "absent") return "Not named anywhere in the drug list";
-    if (c.tier === "unlisted") return "Not on the drug list, which says an unlisted drug is generally not covered";
+    if (c.tier === "unlisted") return "Not on the drug list, and the plan excludes drugs that are not on it";
     return "Tier " + c.tier;
   }
   function flags(text) {
@@ -181,7 +181,7 @@
     let group = null;
     D.plans.forEach((p, i) => {
       if (!group || group.label !== p.carrier) { group = h("optgroup"); group.label = p.carrier; sel.append(group); }
-      const o = h("option", "", p.name + " (" + p.metal + ", " + usd(p.ded) + " deductible)");
+      const o = h("option", "", p.name + " (" + [p.metal, usd(p.ded) + " deductible"].filter(Boolean).join(", ") + ")");
       o.value = i; o.selected = open === i;
       group.append(o);
     });
@@ -196,7 +196,7 @@
     fig.replaceChildren();
     fig.append(h("h1", "", "What would a $25 cap change?"));
     fig.append(h("p", "lede", "Two 2026 bills would have capped what a commercially insured Minnesotan pays for a seizure medicine at $25 a month. " +
-      "We read the " + D.year + " benefit summary and drug list of " + NPLANS + " Minnesota plans, three from each of four carriers, and worked out what the twenty most prescribed seizure medicines, and five costly brands, cost a member today and what they would cost with the cap."));
+      "We read the " + D.year + " benefit summary and drug list of " + NPLANS + " Minnesota plans from six carriers and worked out what the twenty most prescribed seizure medicines, and five costly brands, cost a member today and what they would cost with the cap."));
     picker(fig);
     planPicker(fig);
     seg(fig, "Point in the plan year", Object.keys(PHASE).map(k => ({ id: k, label: PHASE[k].label, sub: PHASE[k].sub })), phase, (id) => { phase = id; set({ when: phase }); render(); });
@@ -219,13 +219,14 @@
     const foot = h("div", "foot");
     [
       "Sources: " + SOURCE + ".",
-      "The twenty medicines are those with the most prescriptions filled by commercially insured Minnesotans in " + D.rank_year + ", the newest year the state has published, counted by active ingredient. The count covers every use of a medicine, so topiramate's includes migraine and lamotrigine's includes bipolar disorder. Gabapentin, pregabalin and clonazepam are left out because most of their use is for other conditions. Five brands are also priced. Fintepla, Diacomit, Sabril and Aptiom each cost Minnesota Medicaid more than $1,800 a prescription in 2025, and Onfi is the brand of clobazam. They are examples; other costly brands, such as Ztalmy, are not priced here. Sabril, Aptiom and Onfi each have a generic, and where a drug list carries the medicine it carries the generic.",
+      "The twenty medicines are those with the most prescriptions filled by commercially insured Minnesotans in " + D.rank_year + ", the newest year the state has published, counted by active ingredient. The count covers every use of a medicine, so topiramate's includes migraine and lamotrigine's includes bipolar disorder. Gabapentin, pregabalin and clonazepam are left out because most of their use is for other conditions. Five brands are also priced. Fintepla, Diacomit, Sabril and Aptiom each cost Minnesota Medicaid more than $1,800 a prescription in 2025, and Onfi is the brand of clobazam. They are examples; other costly brands, such as Ztalmy, are not priced here. Sabril, Aptiom and Onfi each have a generic, and most drug lists that carry the medicine carry only the generic.",
       "One product stands for each medicine: a common strength at a dose from its FDA label, in the generic form where one exists. Other strengths, forms and brands of the same medicine can sit on a different tier. Valtoco and Nayzilam are rescue medicines, priced as one carton and not as a month's supply.",
-      "Every plan here is a real " + D.year + " plan. Its deductible, copays and coinsurance are read from the plan's own Summary of Benefits and Coverage, and every tier from the carrier's own drug list. No more than three plans are shown for any carrier. Minnesota's state employee plan is left out because its drug tiers sit behind a member login.",
+      "Every plan here is a real " + D.year + " plan. Its deductible, copays and coinsurance are read from the plan's own Summary of Benefits and Coverage, and every tier from the carrier's own drug list. No more than three plans are shown for any carrier. Sanford's summaries state no metal level, so its plans are named by deductible. Minnesota's state employee plan is left out because its drug tiers sit behind a member login.",
       "Where a medicine's price is lower than the plan's copay, the price is shown. Minnesota law (Minn. Stat. 62W.12) bars a carrier from charging more at the pharmacy than the lesser of the copay, the plan's allowed amount and the cash price.",
+      "Sanford lists brand Onfi, Sabril and Aptiom but adds a brand penalty, the difference in cost between the brand and its generic, on top of the copay. Sanford does not publish that difference, so it is left out and the figure shown for those three is the copay alone. Its plans also charge nothing for a generic that costs the plan under $6; the plan's cost is not published, so the higher figure is shown.",
       "These are " + D.year + " plans. UCare's individual plans end with " + D.year + ", and most 2027 plan documents were not published when this was built.",
       "Carriers do not publish what they pay for a drug, so prices come from outside the plan documents and are a floor. For most medicines we used what pharmacies pay for the drug (CMS National Average Drug Acquisition Cost, third quarter 2026). Epidiolex, Fintepla, Diacomit and Sabril are outside that survey, so each is priced at the average Minnesota Medicaid payment per prescription in 2025, before rebates. A plan's own price is usually higher, which makes coinsurance, and the saving from a cap, larger than shown.",
-      "Twelve individual-market plans: three each from HealthPartners, UCare, Medica and Blue Plus, the Blue Cross and Blue Shield of Minnesota company that sells its individual plans. Drug lists are dated October 2026. Quartz is missing because its plan-by-plan benefit summaries are not posted publicly. Self-insured employer plans are outside state insurance law and would not be covered by the cap.",
+      "Thirteen individual-market plans: three each from HealthPartners, UCare, Medica and Blue Plus, the Blue Cross and Blue Shield of Minnesota company that sells its individual plans, and one from Quartz, the only Quartz plan whose 2026 summary we could find on its website. Three small-group plans from Sanford Health Plan, which sells no individual plans in Minnesota. UnitedHealthcare also sells small-group plans here, and we found no public benefit summaries for them. Drug lists are dated September and October 2026. Self-insured employer plans are outside state insurance law and would not be covered by the cap.",
       "The bills were HF 3652 and SF 3786, which would have added epilepsy to Minn. Stat. 62Q.481. They did not pass in 2026. This page shows what the plan documents say; what one family pays depends on its own plan, dose and pharmacy.",
     ].forEach(t => foot.append(h("p", "", t)));
     fig.append(foot);
