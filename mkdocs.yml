@@ -3,6 +3,10 @@ site_description: "Epilepsy data that nobody else has assembled. We find public 
 site_author: Rishik Kondadadi, Epilepsy Data & Advocacy Network (EDAN)
 # Set these two when you create the GitHub repo:
 site_url: https://edanmn.org/
+# Shown in the footer of every page: who runs the site and how to reach them.
+copyright: >-
+  Epilepsy Data &amp; Advocacy Network (EDAN), Minnesota. Student-led, free, and sourced.
+  <a href="/about/">About EDAN</a> · <a href="mailto:edanmnorg@gmail.com">edanmnorg@gmail.com</a>
 
 theme:
   name: material
@@ -53,6 +57,8 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - footnotes
+  # Web and email addresses written out in the text become links.
+  - pymdownx.magiclink
   - tables
   - toc:
       permalink: true
@@ -62,10 +68,10 @@ plugins:
 
 extra_css:
   # Bump the version after CSS changes so browsers fetch the new file right away.
-  - css/extra.css?v=2026-10-08d
+  - css/extra.css?v=2026-10-18a
 
 extra_javascript:
-  - js/reactbits.js?v=2026-10-08d
+  - js/reactbits.js?v=2026-10-18a
 
 # The quiz is reached from the button at the end of the law page, not from the menu.
 not_in_nav: |

@@ -58,6 +58,46 @@
   // Home page search box: the same dropdown as the Find Your District lookup. Matching and
   // ranking follow docs/find-your-district/district_lookup.html; picking a district opens it.
   var findNames = null;
+
+  // Close spellings, for when nothing matches as typed: most site searches give up on a typo,
+  // and "Worthingon" or "Rosseau" should still find the district. Each typed word has to be
+  // within one edit of the start of some word in the district's name, county or city (two
+  // edits for words of seven letters or more); the closest come first.
+  function edits(a, b) {
+    var m = a.length, n = b.length, d = [], i, j;
+    for (i = 0; i <= m; i++) d[i] = [i];
+    for (j = 0; j <= n; j++) d[0][j] = j;
+    for (i = 1; i <= m; i++) for (j = 1; j <= n; j++) {
+      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1);
+    }
+    return d[m][n];
+  }
+  // A district whose own name is the near match ranks above one that only shares a county.
+  function nearest(items, typed, hayOf, nameOf) {
+    var words = typed.split(/\s+/).filter(Boolean);
+    if (typed.length < 3) return [];
+    function split(t) { return t.toLowerCase().split(/[\s\-.,()\/]+/).filter(Boolean); }
+    function closest(w, ws) {
+      var best = 9;
+      ws.forEach(function (h) {
+        [w.length - 1, w.length, w.length + 1].forEach(function (n) {
+          if (n > 0) best = Math.min(best, edits(w, h.slice(0, n)));
+        });
+      });
+      return best;
+    }
+    return items.map(function (it) {
+      var all = split(hayOf(it)), own = split(nameOf(it)), sum = 0;
+      for (var k = 0; k < words.length; k++) {
+        var w = words[k], tol = w.length < 4 ? 0 : w.length < 7 ? 1 : 2, best = closest(w, all);
+        if (best > tol) return null;
+        sum += best + (closest(w, own) > best ? 0.5 : 0);
+      }
+      return [sum, it];
+    }).filter(Boolean).sort(function (x, y) { return x[0] - y[0]; }).slice(0, 6).map(function (x) { return x[1]; });
+  }
+
   function initFind() {
     var q = document.getElementById("edan-find-q");
     if (!q || q.getAttribute("role") === "combobox") return;
@@ -73,12 +113,19 @@
     q.setAttribute("aria-expanded", "false");
     q.setAttribute("aria-controls", list.id);
 
-    if (!findNames) {
+    // The 20 KB list of names is fetched when someone reaches for the field (pointer over it,
+    // a tap, or keyboard focus), not with the page, so a visit that never searches skips it.
+    var asked = false;
+    function load() {
+      if (findNames || asked) return;
+      asked = true;
       fetch(new URL("district_names.json", form.action))
         .then(function (r) { return r.json(); })
         .then(function (n) { findNames = n; if (q.value) search(); })
-        .catch(function () {});
+        .catch(function () { asked = false; });
     }
+    ["pointerenter", "pointerdown", "focus", "input"].forEach(function (t) { q.addEventListener(t, load); });
+    if (document.activeElement === q || q.value) load();
     function hay(d) { return (d[0] + " " + d[1] + " " + d[3] + " " + d[2]).toLowerCase(); }
     function close() {
       list.style.display = "none";
@@ -93,7 +140,15 @@
       function rank(h) { return h.indexOf(s) === 0 ? 0 : h.indexOf(" " + s) >= 0 ? 1 : 2; }
       matches = findNames.filter(function (d) { return hay(d).indexOf(s) >= 0; })
         .sort(function (x, y) { return rank(hay(x)) - rank(hay(y)); }).slice(0, 12);
+      var close_ = !matches.length && (matches = nearest(findNames, s, hay, function (d) { return d[0]; })).length;
       list.textContent = "";
+      if (close_) {
+        var note = document.createElement("div");
+        note.className = "edan-find-none";
+        note.setAttribute("aria-hidden", "true");
+        note.textContent = "No exact match. Closest names:";
+        list.appendChild(note);
+      }
       matches.forEach(function (d, i) {
         var el = document.createElement("div"), county = document.createElement("span");
         el.setAttribute("role", "option");
@@ -130,7 +185,7 @@
     q.addEventListener("focus", function () { if (q.value) search(); });
     q.addEventListener("keydown", function (e) {
       if (list.style.display !== "block" || !matches.length) return;
-      var items = Array.prototype.slice.call(list.children);
+      var items = Array.prototype.slice.call(list.querySelectorAll("[role=option]"));
       if (e.key === "ArrowDown") { ai = Math.min(ai + 1, items.length - 1); e.preventDefault(); }
       else if (e.key === "ArrowUp") { ai = Math.max(ai - 1, 0); e.preventDefault(); }
       else if (e.key === "Enter") { e.preventDefault(); pick(ai < 0 ? 0 : ai); return; }

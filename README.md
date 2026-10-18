@@ -73,4 +73,12 @@ Edit the script, not the generated file, or the next rebuild will undo the chang
 The chart scripts also download public shape files each time they run: US county outlines, and
 the Census Bureau's Minnesota school district boundaries for the distance-to-care map.
 
+The logo and the four chart pictures in `docs/img/` (used on the medication access and SUDEP
+pages) are saved as 256-colour PNGs, which look the same and are about a quarter of the size.
+A picture saved fresh from a plotting script will be full size again; to shrink it:
+
+```bash
+.venv/bin/python -c "from PIL import Image; import sys; p=sys.argv[1]; Image.open(p).convert('RGBA').quantize(256, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.NONE).save(p, optimize=True)" docs/img/NAME.png
+```
+
 This material is informational, not legal or medical advice.

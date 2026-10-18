@@ -346,6 +346,21 @@ function render(d){{
  }};
 }}
 
+// Close spellings, for when nothing matches as typed ("Worthingon", "Rosseau"): each typed
+// word must be within one edit of the start of a word in the name, county or city (two for
+// words of seven letters or more). A district whose own name is the near match comes first.
+function edits(a,b){{const m=a.length,n=b.length,d=[];for(let i=0;i<=m;i++)d[i]=[i];for(let j=0;j<=n;j++)d[0][j]=j;
+ for(let i=1;i<=m;i++)for(let j=1;j<=n;j++){{d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])d[i][j]=Math.min(d[i][j],d[i-2][j-2]+1);}}
+ return d[m][n];}}
+function nearest(s,hay){{
+ const split=t=>t.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean), words=split(s);
+ const closest=(w,ws)=>Math.min(9,...ws.flatMap(h=>[w.length-1,w.length,w.length+1].filter(n=>n>0).map(n=>edits(w,h.slice(0,n)))));
+ if(s.length<3)return [];
+ return D.map(d=>{{const all=split(hay(d)),own=split(d.name);let sum=0;
+  for(const w of words){{const tol=w.length<4?0:w.length<7?1:2,best=closest(w,all);if(best>tol)return null;sum+=best+(closest(w,own)>best?.5:0);}}
+  return [sum,d];}}).filter(Boolean).sort((a,b)=>a[0]-b[0]).slice(0,6).map(x=>x[1]);
+}}
 function close(){{list.style.display="none";q.setAttribute("aria-expanded","false");q.removeAttribute("aria-activedescendant");}}
 function search(){{
  const s=q.value.toLowerCase().trim(); ai=-1;
@@ -355,9 +370,11 @@ function search(){{
  const hay=d=>(d.name+" "+d.county+" "+d.city+" "+d.isd).toLowerCase();
  const rank=h=>h.startsWith(s)?0:h.includes(" "+s)?1:2;
  matches=D.filter(d=>hay(d).includes(s)).sort((a,b)=>rank(hay(a))-rank(hay(b))).slice(0,12);
+ const near=!matches.length&&(matches=nearest(s,hay)).length>0;
  list.innerHTML=matches.map((d,i)=>`<div role="option" id="opt-${{i}}" data-i="${{i}}">${{d.name}} <span class="muted">&middot; ${{d.county}} County</span></div>`).join("");
  if(!matches.length){{close();hint.textContent=`No district or county matches "${{q.value.trim()}}".`;return;}}
- list.style.display="block"; q.setAttribute("aria-expanded","true"); hint.textContent=HINT;
+ list.style.display="block"; q.setAttribute("aria-expanded","true");
+ hint.textContent=near?`No exact match for "${{q.value.trim()}}". Closest names are listed.`:HINT;
 }}
 function pick(i){{
  if(!matches[i])return;

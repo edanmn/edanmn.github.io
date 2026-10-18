@@ -33,24 +33,37 @@
   --md-default-fg-color: #232020;
   --md-default-fg-color--light: #5d5851;
   --md-default-bg-color: #fcfcfb;
+
+  /* Surfaces and edges for cards and callouts: one warm grey, one hairline. */
+  --edan-surface: #f5f2ed;
+  --edan-line: rgba(36, 33, 30, 0.13);
+  --edan-amber: #a15c07;     /* the one caution colour, 5.6:1 on the page */
+  --edan-radius: 12px;
 }
 
 /* Recolor Material's primary (header, drawer, search) to charcoal ink.
-   Must match Material's own [data-md-color-primary] scope to win the cascade. */
+   Must match Material's own [data-md-color-primary] scope to win the cascade.
+   Material also takes the link colour from the primary colour, so links came
+   out the same near-black as the text. They are brand red again here. */
 [data-md-color-primary="red"] {
   --md-primary-fg-color: var(--edan-ink);
   --md-primary-fg-color--light: #4a463f;
   --md-primary-fg-color--dark: #19170f;
+  --md-typeset-a-color: var(--edan-red);
 }
 
 /* Dark scheme adjustments — keep brand red legible on dark surfaces */
 [data-md-color-scheme="slate"] {
   --edan-red: #ff6b73;
+  --edan-red-dark: #ffa3a8;  /* the hover colour: lighter, not darker, on a dark page */
   --edan-red-tint: rgba(255, 107, 115, 0.12);
   --md-primary-fg-color: #1b1916;
   --md-accent-fg-color: #ff8088;
   --md-typeset-a-color: #ff8088;
   --md-default-bg-color: #16140f;
+  --edan-surface: #201d18;
+  --edan-line: rgba(255, 255, 255, 0.12);
+  --edan-amber: #f0a43a;
 }
 
 /* --------------------------------------------------------------------------
@@ -115,25 +128,40 @@
   color: var(--md-default-fg-color--light);
 }
 
-/* Comfortable measure for prose without starving wide tables/figures */
+/* Comfortable measure for prose without starving wide tables/figures.
+   Lines were about 90 characters long on a laptop; reading is easiest at
+   roughly 50 to 75, so the cap is set in em (about 70 characters of Inter)
+   and follows the text size instead of the screen. */
 .md-typeset p,
 .md-typeset ul,
 .md-typeset ol {
-  max-width: 42rem;
+  max-width: 35em;
+}
+/* On large screens the body text steps up from 16.4px to 18px, the size at which
+   reading speed and comprehension stopped improving in Rello et al. (CHI 2016). */
+@media screen and (min-width: 76.25em) {
+  .md-typeset { font-size: 0.9rem; line-height: 1.65; }
 }
 
 /* --------------------------------------------------------------------------
    3. Links
    -------------------------------------------------------------------------- */
+/* A link has to look like one without hovering: red is too close to the dark
+   text to tell apart by colour alone, so links carry a light underline that
+   firms up under the pointer. Buttons and the menus are not underlined. */
 .md-typeset a {
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 160ms ease, border-color 160ms ease;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, currentColor 38%, transparent);
+  transition: color 160ms ease, text-decoration-color 160ms ease;
 }
 .md-typeset a:hover {
   color: var(--edan-red-dark);
-  border-bottom-color: currentColor;
+  text-decoration-color: currentColor;
 }
+.md-typeset a.md-button,
+.md-typeset .md-typeset__table th a { text-decoration: none; }
 
 /* --------------------------------------------------------------------------
    4. Header / navigation — quiet charcoal bar with red accents
@@ -197,20 +225,57 @@ button:focus-visible {
    6. Blockquotes, admonitions, tables, code
    -------------------------------------------------------------------------- */
 .md-typeset blockquote {
+  width: fit-content;
   border-left: 3px solid var(--edan-red);
-  background: var(--edan-red-tint);
+  background: var(--edan-surface);
   color: var(--md-default-fg-color);
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 8px 8px 0;
   padding: 0.5rem 1rem;
 }
 
-.md-typeset .admonition,
-.md-typeset details {
-  border-radius: 8px;
-  border-width: 1px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  font-size: 0.78rem;
+/* Callouts are one family. Material gives every type its own colour (teal tips,
+   blue notes, orange warnings, grey quotes) and a tinted title band, so a page
+   with four callouts had four competing colours. Here each is a warm card with a
+   hairline edge and a bold title line; only the icon, and for an action or a
+   caution the edge, says which kind it is, in one of three colours:
+   ink (note, quote), red (an action, a question) and amber (a caution).
+   The [class] in each selector only lifts it over Material's per-type rules. */
+.md-typeset .admonition[class],
+.md-typeset details[class] {
+  --edan-callout: var(--md-default-fg-color--light);
+  background-color: var(--edan-surface);
+  border: 1px solid var(--edan-line);
+  border-radius: var(--edan-radius);
+  box-shadow: none;
+  font-size: 0.8rem;
+  padding: 0 0.9rem;
 }
+.md-typeset :is(.tip, .success, .question, .quiz, .law)[class] { --edan-callout: var(--edan-red); }
+.md-typeset :is(.warning, .caution, .attention, .danger, .error, .failure, .bug)[class] { --edan-callout: var(--edan-amber); }
+.md-typeset :is(.tip, .success, .law, .warning, .caution, .attention, .danger, .error)[class] {
+  border-color: color-mix(in srgb, var(--edan-callout) 42%, transparent);
+}
+.md-typeset .admonition[class] > .admonition-title,
+.md-typeset details[class] > summary {
+  background-color: transparent;
+  margin: 0 -0.9rem;
+  padding: 0.75rem 0.9rem 0.15rem 2.5rem;
+  font-weight: 650;
+  color: var(--md-default-fg-color);
+}
+.md-typeset details[class] > summary { padding-bottom: 0.75rem; padding-right: 2.2rem; }
+.md-typeset details[class][open] > summary { padding-bottom: 0.15rem; }
+.md-typeset .admonition[class] > .admonition-title::before,
+.md-typeset details[class] > summary::before {
+  background-color: var(--edan-callout);
+  left: 0.9rem;
+  top: 0.78rem;
+}
+.md-typeset .admonition[class] > :last-child,
+.md-typeset details[class] > :last-child { margin-bottom: 0.9rem; }
+.md-typeset details[class] > summary::after { top: 0.78rem; right: 0.8rem; }
+.md-typeset .admonition[class]:focus-within,
+.md-typeset details[class]:focus-within { box-shadow: 0 0 0 3px color-mix(in srgb, var(--edan-red) 22%, transparent); }
 
 .md-typeset table:not([class]) {
   border-radius: 8px;
@@ -244,15 +309,7 @@ button:focus-visible {
    8. Existing EDAN components (preserved + refined)
    -------------------------------------------------------------------------- */
 
-/* Minnesota-law callout */
-.md-typeset .admonition.law,
-.md-typeset details.law {
-  border-color: var(--edan-red);
-}
-.md-typeset .law > .admonition-title,
-.md-typeset .law > summary {
-  background-color: var(--edan-red-tint);
-}
+/* Minnesota-law callout: red edge and icon, set with the other callouts in section 6. */
 
 /* MicroSim iframe sizing */
 .microsim {
@@ -263,10 +320,7 @@ button:focus-visible {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* Quiz answer reveal */
-.md-typeset details.quiz {
-  border-left: 3px solid #1a9850;
-}
+/* Quiz answer reveal: styled with the other callouts in section 6. */
 
 /* Headline statistic */
 .edan-stat {
@@ -361,42 +415,11 @@ button:focus-visible {
   }
 }
 
-/* ---- Homepage testimonial in the right sidebar ---------------------------
-   The secondary sidebar only shows at 76.25em and wider. Below that the quote
-   stays in the page body; at that width and up the body copy is hidden so the
-   quote does not appear twice. The toc partial is also reused inside the
-   mobile drawer, so the sidebar box is hidden everywhere except the sidebar. */
-.edan-side-quote { display: none; }
-@media screen and (min-width: 76.25em) {
-  .md-sidebar--secondary .edan-side-quote {
-    display: block;
-    margin: 0 0 1.2rem 0.6rem;
-    padding: 0.8rem 0.9rem;
-    border-left: 0.2rem solid var(--md-accent-fg-color);
-    border-radius: 0.2rem;
-    background: var(--md-code-bg-color);
-    font-size: 0.64rem;
-    line-height: 1.5;
-  }
-  .edan-side-quote__title {
-    margin: 0 0 0.4rem;
-    font-weight: 700;
-    color: var(--md-default-fg-color);
-  }
-  .edan-side-quote blockquote {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    color: var(--md-default-fg-color--light);
-    font-style: italic;
-  }
-  .edan-side-quote blockquote p { margin: 0 0 0.5rem; }
-  .edan-side-quote__by {
-    margin: 0.4rem 0 0.3rem;
-    color: var(--md-default-fg-color--lighter);
-  }
-  .edan-quote-inline { display: none; }
-}
+/* ---- Homepage testimonial ----------------------------------------------
+   It used to sit in the right sidebar, in small grey italics, and the body copy
+   was hidden on wide screens so it did not appear twice. It now stands beside
+   the packet it is about (section 13), at every width, and the home page has no
+   sidebar of contents. */
 
 /* Hide the permalink symbol on every heading. Anchors still work: the heading
    ids are unchanged, so links like /about/#who-we-are jump as before. */
@@ -664,3 +687,187 @@ button:focus-visible {
 @media screen and (max-width: 76.234375em) {
   .md-sidebar--primary { touch-action: pan-y; }
 }
+
+/* ==========================================================================
+   13. Layout pass: the home page, the phone header, and hands on glass.
+   The home page now reads in the order a visitor needs it: what this is and the
+   one thing to do (check a district), the offer to schools with the proof
+   beside it, the three initiatives as cards that can be scanned in a glance,
+   then the longer story. Nothing on it moves on its own.
+   ========================================================================== */
+
+/* ---- Hero: the question in the heading face, a search field big enough to hit */
+.md-typeset .edan-hero > p:first-child {
+  font-family: var(--edan-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+  color: var(--edan-ink);
+  max-width: 22em;
+  margin-bottom: 0;
+}
+[data-md-color-scheme="slate"] .md-typeset .edan-hero > p:first-child { color: #f3efe9; }
+.edan-find { max-width: 34rem; gap: 0.5rem; }
+.edan-find label { color: var(--md-default-fg-color--light); }
+.edan-find input { min-height: 2.6rem; font-size: 0.85rem; }
+.md-typeset .edan-find .md-button { min-height: 2.6rem; font-size: 0.78rem; padding: 0 1.2em; }
+
+/* ---- The packet and the district's note about it, side by side ---------- */
+.edan-pair { display: grid; gap: 1rem; margin: 1.8rem 0 1rem; }
+.md-typeset .edan-pair > .admonition { margin: 0; }
+@media screen and (min-width: 48em) {
+  .edan-pair { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: stretch; }
+}
+.md-typeset .edan-pair .tip .md-button { margin: 0.2rem 0 0; }
+/* A spoken quote is set in the reading serif, a little larger than the cards around it. */
+.md-typeset .edan-testimonial > p:not(.admonition-title) {
+  font-family: var(--edan-serif);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.md-typeset .edan-testimonial > p:last-child {
+  font-family: inherit;
+  font-size: 0.72rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ---- In the news: one quiet line of proof, not another box to read ------ */
+.md-typeset .edan-news[class] {
+  background: transparent;
+  border-style: solid none;
+  border-radius: 0;
+  margin: 1.4rem 0;
+}
+
+/* ---- Initiatives as cards ----------------------------------------------- */
+.edan-cards { display: grid; gap: 1rem; margin: 1.1rem 0 1.2rem; }
+@media screen and (min-width: 60em) {
+  .edan-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.edan-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.05rem 1.15rem 1rem;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--edan-line);
+  border-radius: var(--edan-radius);
+  box-shadow: 0 1px 2px rgba(36, 33, 30, 0.04);
+  transition: border-color 160ms ease;
+}
+.edan-card:hover { border-color: color-mix(in srgb, var(--edan-red) 45%, var(--edan-line)); }
+[data-md-color-scheme="slate"] .edan-card { background: #1b1813; }
+.md-typeset .edan-card h3 { margin: 0 0 0.45rem; font-size: 1.2rem; line-height: 1.2; }
+.md-typeset .edan-card h3 a { color: inherit; text-decoration: none; }
+.md-typeset .edan-card h3 a:hover { text-decoration: underline; text-decoration-color: var(--edan-red); }
+.md-typeset .edan-card p { margin: 0 0 0.9rem; font-size: 0.8rem; line-height: 1.55; color: var(--md-default-fg-color--light); }
+.md-typeset .edan-card p:last-child { margin: auto 0 0; }
+/* The way into each demo: a red action with an arrow that leans the way it goes. */
+.md-typeset a.edan-card__go {
+  display: inline-block;
+  padding: 0.35rem 0;
+  font-weight: 650;
+  color: var(--edan-red);
+  text-decoration: none;
+}
+.md-typeset a.edan-card__go::after { content: "→"; display: inline-block; margin-left: 0.3em; transition: transform 160ms ease-out; }
+.md-typeset a.edan-card__go:hover { text-decoration: underline; }
+@media (prefers-reduced-motion: no-preference) {
+  .md-typeset a.edan-card__go:hover::after { transform: translateX(3px); }
+}
+
+/* ---- Who we work for: four audiences, each a label and a line ----------- */
+.md-typeset .edan-who ul {
+  display: grid;
+  gap: 0.75rem;
+  max-width: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+@media screen and (min-width: 45em) {
+  .md-typeset .edan-who ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.md-typeset .edan-who li {
+  margin: 0;
+  padding: 0.85rem 1rem;
+  background: var(--edan-surface);
+  border-radius: var(--edan-radius);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--md-default-fg-color--light);
+}
+.md-typeset .edan-who li strong { display: block; margin-bottom: 0.2rem; color: var(--md-default-fg-color); font-weight: 650; }
+
+/* ---- Phone header: the name fits ----------------------------------------
+   "Epilepsy Data & Advocacy Network" was cut to "Epilepsy Data & Ad..." beside
+   the menu, theme and search buttons. On narrow screens the bar says EDAN. */
+@media screen and (max-width: 30em) {
+  .md-header__topic:first-child .md-ellipsis,
+  body:has(.edan-hero) .md-header__topic + .md-header__topic .md-ellipsis { font-size: 0; }
+  .md-header__topic:first-child .md-ellipsis::after,
+  body:has(.edan-hero) .md-header__topic + .md-header__topic .md-ellipsis::after { content: "EDAN"; font-size: 1.05rem; }
+  /* On a phone the quote is a long read; it steps down to the body size. */
+  .md-typeset .edan-testimonial > p:not(.admonition-title) { font-size: 0.84rem; }
+}
+
+/* ---- Hands on glass: anything pressed with a finger is at least 44px tall */
+@media (pointer: coarse) {
+  .md-typeset .md-button { min-height: 2.75rem; display: inline-flex; align-items: center; justify-content: center; }
+  .edan-find input, .md-typeset .edan-find .md-button { min-height: 2.75rem; }
+}
+
+/* A web address written out in full can be longer than a phone is wide; it breaks
+   where it has to instead of pushing the page sideways. */
+.md-typeset a { overflow-wrap: break-word; }
+
+/* In dark mode the primary button was charcoal on a charcoal page, barely there.
+   It inverts instead, as the ink button does in light mode: a light button with
+   dark text. Hover turns it brand red, still with dark text (6.6:1). */
+[data-md-color-scheme="slate"] {
+  --md-accent-bg-color: #16140f;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  background-color: #f3efe9;
+  border-color: #f3efe9;
+  color: #16140f;
+}
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:hover,
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary:focus-visible {
+  background-color: var(--edan-red);
+  border-color: var(--edan-red);
+  color: #16140f;
+}
+
+/* ---- Phones: titles and standfirsts scale down ------------------------------
+   A 47px title and a 21px grey standfirst filled the first phone screen before
+   any of the page began. Both step down on narrow screens. */
+.md-typeset h1 { font-size: clamp(1.75rem, 1.15rem + 2.6vw, 2.35rem); }
+@media screen and (max-width: 44.984375em) {
+  .md-typeset h1 + p { font-size: 0.9rem; line-height: 1.55; }
+  .md-typeset h2 { font-size: 1.35rem; margin-top: 2.2em; }
+}
+
+/* The menu repeated the site name the header already shows. */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary > .md-nav__title { display: none; }
+  .md-sidebar--primary .md-sidebar__scrollwrap { padding-top: 0.6rem; }
+}
+
+/* The four chart pictures on the initiative pages are white images. They sit in
+   a card with a hairline edge, so in dark mode they read as a figure on the page
+   rather than a hole in it. */
+.md-typeset p > img[src*="img/"]:not(.edan-hero-logo) {
+  display: block;
+  border: 1px solid var(--edan-line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* ---- Footer: who is behind every page, and how to reach them --------------
+   People judging a health or advocacy site look first for who runs it, and few
+   ever open an About page, so the footer of every page says it. */
+.md-copyright { font-size: 0.68rem; line-height: 1.6; }
+.md-copyright__highlight { color: var(--md-footer-fg-color); }
+.md-copyright a { color: var(--md-footer-fg-color); text-decoration: underline; text-underline-offset: 0.2em; text-decoration-color: rgba(255, 255, 255, 0.4); }
+.md-copyright a:hover { text-decoration-color: currentColor; }

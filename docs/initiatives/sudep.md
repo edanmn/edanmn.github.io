@@ -98,7 +98,7 @@ States. Iowa is marginal, since its interval touches ours at 2.9. South Dakota i
 neighbor with a higher estimate, 3.4, and its interval overlaps ours, so we cannot say the two
 states differ.
 
-![Minnesota's epilepsy death rate against neighboring states](../img/epilepsy_mortality_neighbors.png)
+![Minnesota's epilepsy death rate against neighboring states](../img/epilepsy_mortality_neighbors.png){ width="1783" height="970" loading="lazy" }
 
 One caution before reading too much into that gap. A state's rate depends partly on how often
 doctors write epilepsy on a death certificate, which varies. A higher rate may mean more
