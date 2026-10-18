@@ -1,0 +1,11 @@
+Fonts served with this site
+
+inter-latin.woff2, inter-italic-latin.woff2
+  Inter, by The Inter Project Authors (https://github.com/rsms/inter)
+
+newsreader-latin.woff2
+  Newsreader, by The Newsreader Project Authors (https://github.com/productiontype/Newsreader)
+
+Both are licensed under the SIL Open Font License, Version 1.1 (https://openfontlicense.org).
+These are the unmodified Latin subsets that Google Fonts serves (fonts.gstatic.com, October 2026),
+hosted here so that pages do not contact Google.

@@ -19,6 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The whole history, so each page's "Page updated" date is its own (hooks/page_dates.py).
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.x'

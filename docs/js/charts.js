@@ -7,11 +7,16 @@
    answers a pointer straight away.
 
    SPEC.type is one of:
-     "bars"     rows: [{label, value, text, tone?, tip?}]        scale?: "log"
-     "columns"  cols: [{label, value, text, sub?, tip?}]         ymax?, yTitle?
-     "lines"    x: [..], series: [{name, values, on?}]           yTitle?, toggle?
+     "bars"     rows: [{label, value, text, tone?, group?, part?, tip?}]   scale?: "log", max?
+     "columns"  cols: [{label, value, text, sub?, part?, tip?}]  ymax?, yTitle?
+     "lines"    x: [..], series: [{name, values, on?}]           yTitle?, toggle?, partial?
      "bubbles"  pts: [{name, x, y, n}]                           xTitle, yTitle, ymax
      "counties" areas: [{name, d, v, n}], h, bins                legend, valueLabel
+     "ranges"   rows: [{label, value, lo, hi, text, mark?, tip?}]   axis
+   A bar or column with part: true is a part-year figure and is hatched. In "lines",
+   partial is the index of the first part-year x: from there the line is dashed, the
+   points are hollow, and the numbers are given as "about". max fixes the end of a bar
+   scale (100 for shares). Rows that share a group are listed under its name.
    Every chart also takes title, and may take sub, axis, note, head (table headings).
    tip is a list of [value, label] pairs for the hover card.
    ========================================================================== */
@@ -87,18 +92,23 @@
 
   /* ---- Bars ---------------------------------------------------------------- */
   function bars(rows, into) {
-    const values = rows.map(r => r.value), max = Math.max(...values);
+    const values = rows.map(r => r.value), max = S.max || Math.max(...values);
     const floor = S.scale === "log" ? Math.pow(10, Math.floor(Math.log10(Math.min(...values)))) : 0;
     const share = (v) => S.scale === "log" ? Math.log10(v / floor) / Math.log10(max / floor) : v / max;
     // Every bar leaves the same room for its value, so lengths can be compared with each other.
     const room = (Math.max(...rows.map(r => String(r.text).length)) + 1) * 0.56;
     const wrap = h("div", "bars" + (rows.length > 12 ? " dense" : ""));
+    let group = null;
     rows.forEach(r => {
-      const row = h("div", "row"), track = h("div", "track"), bar = h("div", "bar" + (r.tone ? " " + r.tone : ""));
-      bar.style.width = "calc((100% - " + room.toFixed(2) + "em) * " + Math.max(0, share(r.value)).toFixed(4) + ")";
+      if (r.group && r.group !== group) { group = r.group; wrap.append(h("div", "grp", group)); }
+      const row = h("div", "row"), track = h("div", "track");
+      const bar = h("div", "bar" + (r.tone ? " " + r.tone : "") + (r.part ? " part" : "") + (r.value ? "" : " nil"));
+      bar.style.width = "calc((100% - " + room.toFixed(2) + "em) * " + Math.max(0, r.value ? share(r.value) : 0).toFixed(4) + ")";
+      // On a fixed scale (shares of 100 percent) a faint rail shows where the whole would end.
+      if (S.max) { const rail = h("i", "rail"); rail.style.width = "calc(100% - " + room.toFixed(2) + "em)"; track.append(rail); }
       track.append(bar, h("span", "val", r.text));
       row.append(h("div", "lab", r.label), track);
-      hover(row, r.label, r.tip || [[r.text, S.axis || ""]]);
+      hover(row, (r.group ? r.group + ", " : "") + r.label, r.tip || [[r.text, S.axis || ""]]);
       wrap.append(row);
     });
     into.append(wrap);
@@ -110,7 +120,7 @@
      are drawn as bars instead. */
   function columns(into) {
     if (S.cols.length * 50 > into.clientWidth) {
-      return bars(S.cols.map(c => ({ label: c.label, value: c.value, text: c.sub ? c.text + " (" + c.sub + ")" : c.text, tip: c.tip })), into);
+      return bars(S.cols.map(c => ({ label: c.label, value: c.value, text: c.sub ? c.text + " (" + c.sub + ")" : c.part ? c.text + " (part year)" : c.text, part: c.part, tip: c.tip })), into);
     }
     const ax = scale(Math.max(...S.cols.map(c => c.value)), S.ymax);
     const wrap = h("div", "cols"), ticks = h("div", "ticks"), plot = h("div", "plot"), labs = h("div", "labs");
@@ -122,9 +132,10 @@
       if (t) { const line = h("i"); line.style.bottom = t / ax.top * 100 + "%"; plot.append(line); }
     });
     S.cols.forEach(c => {
-      const col = h("div", "col"), bar = h("div", "bar"), cap = h("div", "cap", c.text), p = c.value / ax.top * 100 + "%";
+      const col = h("div", "col"), bar = h("div", "bar" + (c.part ? " part" : "")), cap = h("div", "cap", c.text), p = c.value / ax.top * 100 + "%";
       bar.style.height = p; cap.style.bottom = p;
       if (c.sub) cap.append(h("small", "", c.sub));
+      else if (c.part) cap.append(h("small", "", "part year"));
       col.append(bar, cap);
       hover(col, c.label, c.tip || [[c.text, S.yTitle || ""]]);
       plot.append(col);
@@ -158,7 +169,8 @@
     const live = S.series.map((d, i) => i).filter(i => shown[i]);
     const W = into.clientWidth, H = W < 480 ? 230 : 280, n = S.x.length;
     const endLabels = live.length <= 4 && W >= 520;
-    const m = { l: 40, r: endLabels ? Math.min(210, Math.max(...live.map(i => S.series[i].name.length), 4) * 6.4 + 16) : 14, t: 10, b: 24 };
+    const part = S.partial == null ? n : S.partial;                             // index of the first part-year x
+    const m = { l: 40, r: endLabels ? Math.min(210, Math.max(...live.map(i => S.series[i].name.length), 4) * 6.4 + 16) : 14, t: 10, b: part < n ? 38 : 24 };
     const ax = scale(Math.max(1, ...live.flatMap(i => S.series[i].values.filter(v => v != null))));
     const X = (i) => m.l + i * (W - m.l - m.r) / (n - 1), Y = (v) => m.t + (1 - v / ax.top) * (H - m.t - m.b);
     const svg = s("svg", { viewBox: "0 0 " + W + " " + H, height: H, role: "img", "aria-label": S.title + ". The table below has every number." });
@@ -166,16 +178,24 @@
       s("line", { class: t ? "gridline" : "baseline", x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t) }, svg);
       s("text", { x: m.l - 6, y: Y(t) + 4, "text-anchor": "end" }, svg).textContent = short(t);
     });
-    S.x.forEach((x, i) => { s("text", { x: X(i), y: H - 6, "text-anchor": "middle" }, svg).textContent = x; });
+    S.x.forEach((x, i) => {
+      s("text", { x: X(i), y: H - (i >= part ? 20 : m.b - 18), "text-anchor": "middle" }, svg).textContent = x;
+      if (i >= part) s("text", { class: "partlab", x: X(i), y: H - 6, "text-anchor": "middle" }, svg).textContent = "part year";
+    });
     const cross = s("line", { class: "cross", y1: m.t, y2: H - m.b }, svg);
     const ends = [];
     live.forEach(i => {
       const pts = S.series[i].values.map((v, j) => v == null ? null : [X(j), Y(v)]);
-      // A gap in the data is a gap in the line.
-      const d = pts.reduce((a, p, j) => a + (p ? (j && pts[j - 1] ? "L" : "M") + p[0].toFixed(1) + "," + p[1].toFixed(1) : ""), "");
-      s("path", { class: "series", d: d, style: "stroke:" + colour(i) }, svg);
+      // A gap in the data is a gap in the line. The part year is joined on with a dashed line.
+      const path = (from, to) => pts.slice(from, to).reduce((a, p, k) => a + (p ? (k && pts[from + k - 1] ? "L" : "M") + p[0].toFixed(1) + "," + p[1].toFixed(1) : ""), "");
+      s("path", { class: "series", d: path(0, part), style: "stroke:" + colour(i) }, svg);
+      if (part < n) s("path", { class: "series dash", d: path(part - 1, n), style: "stroke:" + colour(i) }, svg);
       const last = pts.filter(Boolean).pop();
-      if (last) { s("circle", { class: "dot", cx: last[0], cy: last[1], r: 4, style: "fill:" + colour(i) }, svg); ends.push([last, S.series[i].name]); }
+      if (last) {
+        const hollow = pts.lastIndexOf(last) >= part;
+        s("circle", { class: "dot" + (hollow ? " hollow" : ""), cx: last[0], cy: last[1], r: 4, style: (hollow ? "stroke:" : "fill:") + colour(i) }, svg);
+        ends.push([last, S.series[i].name]);
+      }
     });
     // Name the lines at their ends only when the names would not sit on top of each other.
     ends.sort((a, b) => a[0][1] - b[0][1]);
@@ -194,7 +214,8 @@
         if (v != null) { marks[k].setAttribute("cx", X(j)); marks[k].setAttribute("cy", Y(v)); rows.push([v, S.series[i].name, colour(i)]); }
       });
       rows.sort((a, b) => b[0] - a[0]);
-      showTip(String(S.x[j]), rows.map(r => [num(r[0]), r[1], r[2]]), ...at(e));
+      const about = j >= part ? "about " : "";
+      showTip(String(S.x[j]) + (j >= part ? ", " + (S.partLabel || "part of the year") : ""), rows.map(r => [about + num(r[0]), r[1], r[2]]), ...at(e));
     }
     svg.addEventListener("pointermove", point);
     svg.addEventListener("pointerdown", point);
@@ -261,11 +282,47 @@
     into.append(wrap);
   }
 
+  /* ---- Ranges: a dot for the estimate, a line for its interval -------------------
+     One row per place, on one shared scale. The value is written past the end of
+     the interval, so the line is never covered. */
+  function ranges(into) {
+    const lo = Math.min(...S.rows.map(r => r.lo)), hi = Math.max(...S.rows.map(r => r.hi));
+    const st = step((hi - lo) / 5), x0 = Math.floor(lo / st) * st, x1 = Math.ceil(hi / st) * st;
+    const P = (v) => ((v - x0) / (x1 - x0) * 100).toFixed(3) + "%";
+    const ticks = [];
+    for (let t = x0; t <= x1 + 1e-9; t += st) ticks.push(+t.toPrecision(6));
+    const wrap = h("div", "bars rng");
+    const lines = (scale) => ticks.forEach(t => { const g = h("i", "gl"); g.style.left = P(t); scale.append(g); });
+    S.rows.forEach(r => {
+      const row = h("div", "row" + (r.mark ? " mark" : "")), track = h("div", "track"), scale = h("div", "scale");
+      lines(scale);
+      const ci = h("i", "ci"), dot = h("b", "pt"), val = h("span", "val", r.text);
+      ci.style.left = P(r.lo); ci.style.right = "calc(100% - " + P(r.hi) + ")";
+      dot.style.left = P(r.value); val.style.left = P(r.hi);
+      scale.append(ci, dot, val);
+      track.append(scale);
+      row.append(h("div", "lab", r.label), track);
+      hover(row, r.label, r.tip || [[r.text, ""], [r.lo + " to " + r.hi, "interval"]]);
+      wrap.append(row);
+    });
+    const axis = h("div", "row ticks"), track = h("div", "track"), scale = h("div", "scale");
+    ticks.forEach(t => { const l = h("span", "", String(t)); l.style.left = P(t); scale.append(l); });
+    track.append(scale);
+    axis.append(h("div", "lab"), track);
+    wrap.append(axis);
+    into.append(wrap);
+    if (S.axis) into.append(h("p", "axis", S.axis));
+  }
+
   /* ---- Table view: every number on the chart, without hovering ------------------ */
   function tableRows() {
-    if (S.type === "bars") return S.rows.map(r => [r.label, r.text].concat((r.tip || []).slice(1).map(t => t[0])));
-    if (S.type === "columns") return S.cols.map(c => [c.label].concat(c.sub ? [c.sub] : [], [c.text], (c.tip || []).slice(1).map(t => t[0])));
-    if (S.type === "lines") return S.x.map((x, j) => [String(x)].concat(S.series.map(d => d.values[j] == null ? "" : num(d.values[j]))));
+    if (S.type === "bars") return S.rows.map(r => [(r.group ? r.group + ", " : "") + r.label, r.text].concat((r.tip || []).slice(1).map(t => t[0])));
+    if (S.type === "ranges") return S.rows.map(r => [r.label, r.text, r.tip ? r.tip[1][0] : r.lo + " to " + r.hi]);
+    if (S.type === "columns") return S.cols.map(c => [c.label + (c.part ? " (" + (S.partLabel || "part of the year") + ")" : "")].concat(c.sub ? [c.sub] : [], [c.text], (c.tip || []).slice(1).map(t => t[0])));
+    if (S.type === "lines") return S.x.map((x, j) => {
+      const part = S.partial != null && j >= S.partial;
+      return [String(x) + (part ? " (" + (S.partLabel || "part of the year") + ")" : "")].concat(S.series.map(d => d.values[j] == null ? "" : (part ? "about " : "") + num(d.values[j])));
+    });
     if (S.type === "bubbles") return S.pts.slice().sort((a, b) => b.y - a.y || a.name.localeCompare(b.name)).map(p => [p.name, p.x + "%", p.y + "%", p.n]);
     return S.areas.slice().sort((a, b) => b.v - a.v || a.name.localeCompare(b.name)).map(a => [a.name, a.v + "%", a.n]);
   }
@@ -300,6 +357,7 @@
     else if (S.type === "columns") columns(body);
     else if (S.type === "lines") lines(body);
     else if (S.type === "bubbles") bubbles(body);
+    else if (S.type === "ranges") ranges(body);
     else counties(body);
     if (S.note && S.type !== "counties") body.append(h("p", "note", S.note));
   }

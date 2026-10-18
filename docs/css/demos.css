@@ -10,7 +10,7 @@ body { max-width: 900px; }
 h1 { font-size: 1.15rem; }
 h2 { font-size: .95rem; font-weight: 650; margin: 22px 0 4px; text-wrap: balance; }
 p { margin: 0 0 10px; }
-.lede { color: var(--muted); font-size: .88rem; margin: 0 0 14px; max-width: 64ch; }
+.lede { color: var(--muted); font-size: .88rem; margin: 6px 0 14px; max-width: 64ch; }
 .small { font-size: .78rem; color: var(--muted); }
 a { color: var(--one); }
 

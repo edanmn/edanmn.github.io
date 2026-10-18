@@ -128,7 +128,11 @@ page = f"""<!doctype html>
  .freshness span{{background:var(--soft);border-radius:20px;padding:2px 9px}}
  table{{border-collapse:collapse;width:100%;font-size:.86rem;margin-top:4px}}
  th,td{{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}}
- th{{position:sticky;top:0;background:color-mix(in srgb,var(--head) 78%,transparent);-webkit-backdrop-filter:blur(12px) saturate(170%);backdrop-filter:blur(12px) saturate(170%);font-size:.8rem;white-space:nowrap}}
+ th{{position:sticky;top:0;background:color-mix(in srgb,var(--head) 78%,transparent);-webkit-backdrop-filter:blur(12px) saturate(170%);backdrop-filter:blur(12px) saturate(170%);font-size:.8rem;vertical-align:bottom}}
+ /* Headings wrap, and their notes in brackets sit on a line of their own, so the table fits the
+    page instead of scrolling sideways and squeezing the district names. */
+ th span{{display:block}}
+ td:first-child{{min-width:10em}}
  @media (prefers-reduced-transparency:reduce),(prefers-contrast:more){{th{{background:var(--head);-webkit-backdrop-filter:none;backdrop-filter:none}}}}
  .dot{{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:middle}}
  .muted{{color:var(--muted);font-size:.8rem}} a{{color:var(--link)}}

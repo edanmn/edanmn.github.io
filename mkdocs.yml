@@ -13,9 +13,8 @@ theme:
   custom_dir: overrides
   logo: img/brand/edan-icon-96.png
   favicon: img/brand/favicon-48.png
-  font:
-    text: Inter
-    code: JetBrains Mono
+  # The fonts are served from docs/fonts/ (see the top of css/extra.css), not from Google.
+  font: false
   palette:
     - scheme: default
       primary: red
@@ -66,9 +65,13 @@ markdown_extensions:
 plugins:
   - search
 
+# Adds "Page updated <date>" under each page title, from the git history (hooks/page_dates.py).
+hooks:
+  - hooks/page_dates.py
+
 extra_css:
   # Bump the version after CSS changes so browsers fetch the new file right away.
-  - css/extra.css?v=2026-10-18a
+  - css/extra.css?v=2026-10-18c
 
 extra_javascript:
   - js/reactbits.js?v=2026-10-18a

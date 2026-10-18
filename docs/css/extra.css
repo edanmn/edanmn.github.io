@@ -5,9 +5,34 @@
    Brand: medical red (#b3202c) with warm-ink neutrals.
    ========================================================================== */
 
-/* Serif display face for headings: Newsreader, linked from overrides/main.html so the browser
-   finds it straight away instead of after this file has loaded. (Inter + JetBrains Mono load
-   via mkdocs.yml.) */
+/* Fonts: Inter for text, Newsreader for headings, served from docs/fonts/ rather than Google
+   (overrides/main.html asks for them early). Each file is the Latin set and covers every weight
+   from 400 to 700. Code uses the system's monospace face. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/inter-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Newsreader";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/newsreader-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+:root { --md-text-font: "Inter"; }
 
 /* --------------------------------------------------------------------------
    1. Design tokens
@@ -118,11 +143,11 @@
 }
 
 /* The italic lede paragraph right under the page title reads as a standfirst */
-.md-typeset h1 + p > em:only-child,
-.md-typeset h1 + p em {
+.md-typeset :is(h1, h1 + .edan-updated) + p > em:only-child,
+.md-typeset :is(h1, h1 + .edan-updated) + p em {
   font-style: italic;
 }
-.md-typeset h1 + p {
+.md-typeset :is(h1, h1 + .edan-updated) + p {
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--md-default-fg-color--light);
@@ -311,7 +336,9 @@ button:focus-visible {
 
 /* Minnesota-law callout: red edge and icon, set with the other callouts in section 6. */
 
-/* MicroSim iframe sizing */
+/* MicroSim iframe sizing. Each embed is its own block with the same space above and below,
+   so two charts in a row are clearly two, not one frame touching the next. */
+.md-typeset iframe.microsim { display: block; margin: 1.25em 0; }
 .microsim {
   width: 100%;
   max-width: 820px;
@@ -844,7 +871,7 @@ button:focus-visible {
    any of the page began. Both step down on narrow screens. */
 .md-typeset h1 { font-size: clamp(1.75rem, 1.15rem + 2.6vw, 2.35rem); }
 @media screen and (max-width: 44.984375em) {
-  .md-typeset h1 + p { font-size: 0.9rem; line-height: 1.55; }
+  .md-typeset :is(h1, h1 + .edan-updated) + p { font-size: 0.9rem; line-height: 1.55; }
   .md-typeset h2 { font-size: 1.35rem; margin-top: 2.2em; }
 }
 
@@ -871,3 +898,13 @@ button:focus-visible {
 .md-copyright__highlight { color: var(--md-footer-fg-color); }
 .md-copyright a { color: var(--md-footer-fg-color); text-decoration: underline; text-underline-offset: 0.2em; text-decoration-color: rgba(255, 255, 255, 0.4); }
 .md-copyright a:hover { text-decoration-color: currentColor; }
+
+/* ---- "Page updated" under each title (hooks/page_dates.py) ------------------
+   How current a page is matters to anyone deciding whether to trust its numbers. */
+.md-typeset .edan-updated {
+  margin: -0.35rem 0 1rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.01em;
+  color: var(--md-default-fg-color--light);
+  font-variant-numeric: tabular-nums;
+}

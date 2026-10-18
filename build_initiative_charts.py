@@ -81,6 +81,103 @@ write_chart("asm_cost_per_rx.html", {
              for m, cost, n in reversed(c25)],          # dearest first
     "head": ["Drug", "Per prescription", "Prescriptions in 2025"]})
 
+# ---------- Initiative 3: the years side by side, with the part year marked ----------
+# These replace the four chart pictures that used to be pasted into the medication access and
+# SUDEP pages. The newest year in the CMS file covers only its first months; drawn like a full
+# year it looked like a collapse, so it is hatched (spending) or dashed with hollow points
+# (prescriptions), and its prescription counts are given as "about", to the nearest hundred.
+TREND = ["lamotrigine", "topiramate", "levetiracetam", "valproate", "oxcarbazepine",
+         "carbamazepine", "lacosamide", "zonisamide"]
+SDUD_NOTE = ("Source: CMS State Drug Utilization Data, Minnesota, fee-for-service and managed care. "
+             "CMS withholds any count under 11, so totals run slightly low.")
+PART = "first months only"
+
+def rx_trend_spec(years, part, rx):
+    """rx: {drug: {year: prescriptions}}; part: index in years of the first part year, or None."""
+    late = lambda i: part is not None and i >= part
+    return {"type": "lines", "title": "Minnesota Medicaid antiseizure prescriptions, by drug, 2019 to early 2026",
+            "sub": "Press a drug's name to show or hide it. 2026 is the first months of the year only, so its line is dashed and its points are hollow.",
+            "yTitle": "Prescriptions per year", "toggle": True, "x": years, "partial": part, "partLabel": PART,
+            "series": [{"name": m, "on": k < 6,
+                        "values": [None if rx[m].get(y) is None else round(rx[m][y], -2) if late(i) else round(rx[m][y])
+                                   for i, y in enumerate(years)]}
+                       for k, m in enumerate(TREND)],
+            "note": SDUD_NOTE, "head": ["Year"]}
+
+def spend_trend_spec(years, part, spend):
+    """spend: {year: dollars reimbursed}."""
+    cols = []
+    for i, y in enumerate(years):
+        m, late = round(spend[y] / 1e6), part is not None and i >= part
+        cols.append({"label": str(y), "value": m, "text": f"${m}M", **({"part": True} if late else {}),
+                     "tip": [[f"${m} million", "reimbursed in the first months of the year" if late else "reimbursed"]]})
+    return {"type": "columns", "title": "Total reimbursed, all antiseizure medicines", "yTitle": "Millions of dollars",
+            "partLabel": PART, "cols": cols, "head": ["Year", "Reimbursed"],
+            "note": SDUD_NOTE + " The hatched 2026 column is the first months of the year only."}
+
+BRAND_ONLY = {"cannabidiol": "Epidiolex", "fenfluramine": "Fintepla", "cenobamate": "Xcopri",
+              "ganaxolone": "Ztalmy", "stiripentol": "Diacomit", "rescue_midazolam": "nasal midazolam"}
+
+def brand_only_spec(rx_b, usd_b, rx_all, usd_all):
+    ps, pd = 100 * rx_b / rx_all, 100 * usd_b / usd_all
+    names = ", ".join(list(BRAND_ONLY.values())[:-1]) + " and " + list(BRAND_ONLY.values())[-1]
+    return {"type": "bars", "max": 100,
+            "title": f"Six seizure medicines have no generic. They are {ps:.1f} percent of prescriptions and {pd:.0f} percent of the spending.",
+            "axis": "Percent of Minnesota Medicaid antiseizure prescriptions or dollars, 2025",
+            "rows": [{"label": "Share of spending", "value": round(pd, 1), "text": f"{pd:.1f}%",
+                      "tip": [[f"{pd:.1f}%", "of Medicaid seizure-drug spending"], [f"${usd_b / 1e6:.1f} million", f"of ${usd_all / 1e6:.1f} million"]]},
+                     {"label": "Share of prescriptions", "value": round(ps, 2), "text": f"{ps:.2f}%",
+                      "tip": [[f"{ps:.2f}%", "of Medicaid seizure prescriptions"], [f"{rx_b:,.0f}", f"of {rx_all:,.0f} prescriptions"]]}],
+            "note": f"{names[0].upper() + names[1:]}: {rx_b:,.0f} prescriptions, {usd_b / 1e6:.1f} million dollars of {usd_all / 1e6:.1f} million. "
+                    "Source: CMS Medicaid State Drug Utilization Data 2025; generic status from the FDA Orange Book, September 2026."}
+
+# What a 30-day supply costs a pharmacy: CMS NADAC, September 2026, standard adult dose.
+# Update these with each NADAC pull: (medicine, generic $ or None, brand, brand $).
+NADAC = [("Clobazam", 14.84, "Onfi", 1795), ("Levetiracetam", 4.43, "Keppra", 595), ("Cenobamate", None, "Xcopri", 1196)]
+
+def nadac_spec(rows):
+    out = []
+    for med, gen, brand, cost in rows:
+        g = f"${gen:,.2f}" if gen else "no generic"
+        out.append({"group": med, "label": "Generic", "value": gen or 0, "text": g, "tone": "none", "tip": [[g, "generic, 30 days"]]})
+        out.append({"group": med, "label": f"{brand} (brand)", "value": cost, "text": f"${cost:,}", "tip": [[f"${cost:,}", f"{brand}, 30 days"]]})
+    return {"type": "bars", "title": "What a month of seizure medicine costs a pharmacy", "sub": "September 2026, standard adult dose",
+            "axis": "Cost of a 30-day supply", "rows": out, "head": ["Medicine", "30-day cost"],
+            "note": "Source: CMS National Average Drug Acquisition Cost (NADAC), September 2026. Doses from FDA labels. "
+                    "Acquisition cost is what the pharmacy pays, not what a family pays."}
+
+all_years = sorted({int(r["year"]) for r in yr})
+part = next((i for i, y in enumerate(all_years) if y > 2025), None)
+rx = {m: {int(r["year"]): f(r["prescriptions"]) for r in yr if r["molecule"] == m} for m in TREND}
+spend = defaultdict(float)
+for r in yr: spend[int(r["year"])] += f(r["total_reimbursed_usd"]) or 0
+write_chart("medicaid_rx_trend.html", rx_trend_spec(all_years, part, rx))
+write_chart("medicaid_spending_trend.html", spend_trend_spec(all_years, part, spend))
+y25 = [r for r in yr if r["year"] == "2025" and f(r["prescriptions"])]
+write_chart("asm_brandonly_share.html", brand_only_spec(
+    sum(f(r["prescriptions"]) for r in y25 if r["molecule"] in BRAND_ONLY),
+    sum(f(r["total_reimbursed_usd"]) or 0 for r in y25 if r["molecule"] in BRAND_ONLY),
+    sum(f(r["prescriptions"]) for r in y25), sum(f(r["total_reimbursed_usd"]) or 0 for r in y25)))
+write_chart("asm_brand_vs_generic.html", nadac_spec(NADAC))
+
+# ---------- Initiative 5: Minnesota's epilepsy death rate beside its neighbors ----------
+# CDC WONDER, Multiple Cause of Death, 2018 to 2024, epilepsy (G40-G41) anywhere on the
+# certificate, age adjusted per 100,000: (place, rate, lower and upper 95% limits).
+NEIGHBORS = [("South Dakota", 3.4, 3.0, 3.9), ("Minnesota", 3.0, 2.9, 3.2), ("Iowa", 2.7, 2.4, 2.9),
+             ("Wisconsin", 2.5, 2.3, 2.6), ("United States", 2.4, 2.4, 2.5), ("North Dakota", 2.1, 1.8, 2.6)]
+
+def neighbors_spec(rows):
+    return {"type": "ranges", "title": "Minnesota's epilepsy death rate runs about 25 percent above the national rate",
+            "axis": "Deaths per 100,000, age adjusted, 2018 to 2024",
+            "rows": [{"label": n, "value": v, "lo": lo, "hi": hi, "text": f"{v:.1f}", **({"mark": True} if n == "Minnesota" else {}),
+                      "tip": [[f"{v:.1f}", "deaths per 100,000, age adjusted"], [f"{lo:.1f} to {hi:.1f}", "95 percent confidence interval"]]}
+                     for n, v, lo, hi in rows],
+            "note": "Deaths with epilepsy (ICD-10 G40-G41) anywhere on the death certificate. Lines show 95 percent confidence intervals. "
+                    "Source: CDC WONDER Multiple Cause of Death, pulled September 2026 by EDAN.",
+            "head": ["Place", "Rate", "95% interval"]}
+
+write_chart("mortality_neighbors.html", neighbors_spec(NEIGHBORS))
+
 # ---------- Initiative 4: map + lookup ----------
 # The map is hand-built SVG rather than Plotly, so it loads fast and plain scrolling never zooms
 # it. Each district's territory is shaded in one of five distance classes; child neurologist
@@ -301,7 +398,7 @@ CARE_MAP_HTML = """<!doctype html>
  }
  *{box-sizing:border-box}
  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:16px;color:var(--fg);background:var(--bg);line-height:1.45}
- h1{font-size:1rem;font-weight:650;margin:0 0 2px}
+ h1{font-size:1rem;font-weight:650;margin:0 0 4px}
  .sub{color:var(--muted);font-size:.84rem;margin:0 0 12px}
  .fig{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:20px;align-items:start}
  .map{position:relative;min-width:0}
@@ -336,7 +433,7 @@ CARE_MAP_HTML = """<!doctype html>
  button:hover{border-color:var(--muted)}
  button:active{transform:scale(.95)}                 /* answer the press itself, not the release */
  button:disabled{opacity:.4;cursor:default;transform:none}
- .zoom{position:absolute;top:0;right:0;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+ .zoom{position:absolute;top:0;right:0;z-index:1;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
  /* The controls and the hover card float over the map as a frosted layer. */
  .zoom button{width:32px;height:32px;padding:0;font-size:1.15rem;line-height:1;background:color-mix(in srgb,var(--bg) 70%,transparent);-webkit-backdrop-filter:blur(12px) saturate(170%);backdrop-filter:blur(12px) saturate(170%)}
  .zoom #zreset{width:auto;height:26px;padding:0 8px;font-size:.72rem}

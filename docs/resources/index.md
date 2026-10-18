@@ -11,7 +11,7 @@ endorsement.
 ## Minnesota
 
 **Epilepsy Foundation of Minnesota (EFMN)**, https://www.epilepsyfoundationmn.org
-Phone **651-287-2300** · info@efmn.org. Free, statewide support:
+Phone **[651-287-2300](tel:+16512872300)** · info@efmn.org. Free, statewide support:
 
 - **Personalized support & care coordination** (phone, video, in person; English and Spanish)
 - **Community Health Workers** who connect families to healthcare and social services
@@ -36,7 +36,7 @@ tool, and an implementation checklist.
 ## National
 
 **Epilepsy Foundation Helpline**, https://www.epilepsy.com/helpline
-**1-800-332-1000** (English) · **1-866-748-8008** (Spanish). Note: live specialists answer
+**[1-800-332-1000](tel:+18003321000)** (English) · **[1-866-748-8008](tel:+18667488008)** (Spanish). Note: live specialists answer
 Monday to Friday, 8am-8pm ET; outside those hours it's self-service (online form + assistant).
 
 - Seizure first aid (Stay, Safe, Side), https://www.epilepsy.com/recognition/first-aid-resources
@@ -50,20 +50,20 @@ Questions about SUDEP risk belong with a neurologist. For information and suppor
 
 - Epilepsy Foundation SUDEP Program, https://www.epilepsy.com/programs/sudep-program
 - Danny Did Foundation, https://www.dannydid.org
-- Epilepsy Foundation of Minnesota, https://www.epilepsyfoundationmn.org, 651-287-2300
+- Epilepsy Foundation of Minnesota, https://www.epilepsyfoundationmn.org, [651-287-2300](tel:+16512872300)
 
 EDAN's own Minnesota death data is on the [SUDEP initiative page](../initiatives/sudep.md).
 
 ## Help affording medication
-- **NeedyMeds**, https://www.needymeds.org (helpline 800-503-6897): free directory of patient
+- **NeedyMeds**, https://www.needymeds.org (helpline [800-503-6897](tel:+18005036897)): free directory of patient
   assistance programs and a discount card.
 - **RxAssist**, https://www.rxassist.org: directory of manufacturer assistance programs.
 - **GoodRx**, https://www.goodrx.com: free coupon/price-comparison tool (a discount tool, not
   insurance or charity).
 - **Manufacturer programs:** most brand-name epilepsy drugs have their own assistance programs;
   search the maker's site, or use NeedyMeds/RxAssist to find it.
-- **Minnesota Medical Assistance and MA-TEFRA**, https://mn.gov/dhs (651-297-3862 or
-  800-657-3672) and https://disabilityhubmn.org/top-topics/health/medical-assistance/ma-tefra/
+- **Minnesota Medical Assistance and MA-TEFRA**, https://mn.gov/dhs ([651-297-3862](tel:+16512973862) or
+  [800-657-3672](tel:+18006573672)) and https://disabilityhubmn.org/top-topics/health/medical-assistance/ma-tefra/
 
 ## If you are in crisis
 
@@ -84,7 +84,7 @@ If someone is in immediate danger, call 911.
 ## Mental health support
 
 - Epilepsy Foundation of Minnesota, free Connect Groups for teens, adults and caregivers, plus
-  one to one support: <https://www.epilepsyfoundationmn.org/connect/>, 651-287-2300
+  one to one support: <https://www.epilepsyfoundationmn.org/connect/>, [651-287-2300](tel:+16512872300)
 - Fast-Tracker, a free Minnesota search for mental health providers with current openings:
   <https://fasttrackermn.org/>
 - Epilepsy Foundation, related conditions in children: <https://www.epilepsy.com/parents-and-caregivers/talking-kids-about-epilepsy/related-conditions>

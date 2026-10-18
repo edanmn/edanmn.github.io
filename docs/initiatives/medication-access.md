@@ -26,7 +26,9 @@ federal State Drug Utilization Data. CMS hides any cell under 11 prescriptions, 
 run slightly low, and gabapentin, pregabalin and clonazepam are left out because most of their
 use is for other conditions. The 2026 figures cover only part of the year.
 
-![Minnesota Medicaid antiseizure prescriptions and spending, 2019 to 2025, with a partial 2026](../img/medicaid_asm_trend.png){ width="1950" height="750" loading="lazy" }
+<iframe src="../../charts/medicaid_rx_trend.html" class="microsim" width="100%" height="470" title="Minnesota Medicaid antiseizure prescriptions by drug, 2019 to early 2026" loading="lazy"></iframe>
+
+<iframe src="../../charts/medicaid_spending_trend.html" class="microsim" width="100%" height="400" title="Total Medicaid spending on antiseizure medicines by year, 2019 to early 2026" loading="lazy"></iframe>
 
 | 2025 | Value |
 |---|---|
@@ -58,7 +60,7 @@ Diacomit and nasal midazolam (Nayzilam). Other products, such as Valtoco nasal d
 generic in their own form. In Minnesota Medicaid in 2025 the six were 1.5 percent
 of seizure prescriptions and 32 percent of the spending, before manufacturer rebates.
 
-![Six seizure medicines with no generic version take about a third of Medicaid seizure-drug spending before rebates](../img/asm_brandonly_share.png){ width="1854" height="930" loading="lazy" }
+<iframe src="../../charts/asm_brandonly_share.html" class="microsim" width="100%" height="260" title="Six seizure medicines with no generic version take about a third of Medicaid seizure-drug spending before rebates" loading="lazy"></iframe>
 
 Where a generic does exist, the gap is enormous. A month of generic clobazam costs a pharmacy
 about $15. The brand, Onfi, costs about $1,795. Generic levetiracetam is $4.43 against $595
@@ -68,7 +70,7 @@ Lancet Neurology 2016, PMID 26875743). A change in pill color between refills di
 somewhat more likely to stop filling the prescription (Kesselheim et al., JAMA Internal
 Medicine 2013, PMID 23277164).
 
-![What a month of seizure medicine costs a pharmacy](../img/asm_brand_vs_generic.png){ width="1800" height="1040" loading="lazy" }
+<iframe src="../../charts/asm_brand_vs_generic.html" class="microsim" width="100%" height="380" title="What a month of seizure medicine costs a pharmacy, generic and brand" loading="lazy"></iframe>
 
 Minnesotans on commercial insurance pay far more than people on public programs. From the
 Minnesota All Payer Claims Database for 2022: $18.48 out of pocket per fill on a commercial
