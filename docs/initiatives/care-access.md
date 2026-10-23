@@ -35,6 +35,8 @@ federal provider registry, and measured the distance from every school district 
 | Districts more than 60 miles from a child neurologist | 101 (about 70,000 students) |
 | Districts more than 100 miles away | 11 |
 | Of the 101 far districts, those also without a findable seizure plan | 80 |
+| Districts more than 60 miles from a Level 4 epilepsy center | 205 (about 220,000 students) |
+| Districts more than 100 miles from a Level 4 epilepsy center | 155 (about 150,000 students) |
 | Districts more than 15 miles from any retail pharmacy | 15 (14 without a findable plan) |
 
 Kittson, Roseau, Cook, and Big Stone counties are farthest. Distances are straight-line, so
@@ -42,6 +44,35 @@ the drive is longer. Minnesota's Level 4 epilepsy centers, the highest
 designation, are Mayo Clinic in Rochester, the University of Minnesota Medical Center and
 Abbott Northwestern in Minneapolis, and Minnesota Epilepsy Group with Children's Minnesota in
 the Twin Cities.
+
+## How much hospital care seizures require
+
+The distance numbers above say how far a family is from a clinic. They say nothing about
+how often Minnesotans actually end up in a hospital or emergency department for a seizure.
+We pulled that separately from AHRQ's HCUPnet, which draws on hospital discharge records
+reported by the Minnesota Hospital Association.
+
+| Minnesota, principal diagnosis of epilepsy or convulsions | 2022 | 2023 | 2024 |
+|---|---:|---:|---:|
+| Inpatient stays, Minnesota hospitals | 4,042 | 4,338 | 4,618 |
+| Emergency department visits (treat-and-release) | 12,247 | 13,007 | 13,524 |
+| Minnesota resident inpatient rate per 100,000 | 64.1 | not yet released | not yet released |
+
+Children carried more of this than adults. Minnesotans aged 1 to 17 made up 28.6 percent of
+Minnesota's epilepsy inpatient stays in 2023, against 16.5 percent nationally, and their own
+resident inpatient rate has run at or above the national children's rate every year HCUPnet
+reports. A Minnesota epilepsy stay in 2023 billed $50,555 in charges and cost the hospital
+$17,649 on average, both lower than the national mean, and in-hospital deaths from epilepsy
+ran below the national rate in every year from 2016 to 2023.
+
+HCUPnet cannot isolate status epilepticus specifically. The closest available category,
+CCSR NVS009, bundles chronic epilepsy together with single convulsions and febrile seizures,
+so a status-epilepsy-specific Minnesota count would need record-level data MDH or the
+Minnesota Hospital Association would have to pull directly.
+
+Source: Agency for Healthcare Research and Quality, HCUPnet (State Inpatient and State
+Emergency Department Databases, Minnesota, data from the Minnesota Hospital Association;
+Community-Level Statistics; Nationwide Inpatient Sample), accessed 2026.
 
 ## What comes next
 - Giving the map to the Minnesota Epilepsy Program at MDH as a candidate "area of need."

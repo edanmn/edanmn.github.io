@@ -75,6 +75,14 @@ Look up any district in [Find Your District](../find-your-district/index.md).
 | Districts that confirmed a plan and trained staff by email | 13 (as of September 16, 2026) |
 | Districts that adopted a plan after our outreach | 1 |
 | Reliability of the audit (blind re-check of 30 districts) | 90% agreement, kappa 0.82 |
+| Students with an Other Health Disability IEP in no-plan districts | 7,040 (Minnesota Department of Education, December 1, 2025 count) |
+
+Other Health Disability is a special education category covering many conditions besides
+epilepsy, among them ADHD, diabetes, and asthma, so this is not a count of students with
+epilepsy. It is the closest published proxy for how many students in no-plan districts have
+a health condition serious enough to need an individualized education plan. The ten districts
+with the largest counts are all large and in the lowest nurse-staffing risk tier, so a single
+posted plan in one of them would reach more students than many small districts combined.
 
 ## What a district told us
 
