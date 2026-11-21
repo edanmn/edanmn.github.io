@@ -74,6 +74,40 @@ Source: Agency for Healthcare Research and Quality, HCUPnet (State Inpatient and
 Emergency Department Databases, Minnesota, data from the Minnesota Hospital Association;
 Community-Level Statistics; Nationwide Inpatient Sample), accessed 2026.
 
+## How long EMS takes to reach a seizure
+
+The Minnesota Office of Emergency Medical Services pulled every ambulance record from 2021 to
+2025 in which the crew recorded a seizure, at EDAN's request. There were 58,469 of them,
+about 32 a day. The yearly count rose from 9,781 in 2021 to 12,401 in 2025, and part of that
+rise may come from changes in reporting. About one record in four, 14,236 in all, was for a
+patient under 18.
+
+Half of these crews reached the scene within 6.6 minutes of dispatch. The slowest tenth took
+13.6 minutes or more statewide, and the wait grows with distance from a metro area.
+
+<iframe src="../../charts/ems_seizure_wait.html" class="microsim" width="100%" height="420" title="Chart: slowest tenth of EMS seizure responses, by county type" loading="lazy"></iframe>
+
+| EMS seizure responses, 2021 to 2025 | Metropolitan | Nonmetro, urban | Nonmetro, large town | Rural |
+|---|---:|---:|---:|---:|
+| Median minutes, dispatch to scene | 6.5 | 6.7 | 6.7 | 9.0 |
+| Slowest tenth, minutes or more | 12.7 | 14.8 | 17.1 | 21.0 |
+| Crew gave a benzodiazepine | 15.9% | 18.2% | 17.8% | 13.5% |
+
+Crews gave a benzodiazepine (midazolam, lorazepam or diazepam) in about 16 percent of records,
+with no change across the five years. About 80 percent of patients were taken to a hospital.
+The lower benzodiazepine share in rural counties may reflect crews trained at the basic life
+support level, who do not carry these drugs. The records cannot show that.
+
+How we counted. A record is one crew's patient care report, so two crews at the same patient
+make two records. The selection covers emergency responses and public assistance calls where
+the symptom or either impression began with ICD-10 R56 or G40 or named a seizure. Response
+times below zero or above four hours, and blanks, were left out (10,422 records, mostly 2021
+and 2022). County type is the USDA rural-urban category.
+
+Source: Minnesota Office of Emergency Medical Services, MNSTAR summary data, request
+R000881-100126, November 2026. As a regulatory agency, the OEMS does not validate results
+derived from the use of the raw data.
+
 ## What comes next
 - Giving the map to the Minnesota Epilepsy Program at MDH as a candidate "area of need."
 - Pharmacy distance is now in the same file and the lookup tool, so one map shows the
