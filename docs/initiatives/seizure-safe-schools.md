@@ -19,7 +19,17 @@ The audit also left out charter schools, which the same law covers. Minnesota ha
 operating charter schools with about 69,800 students in 2023-24, roughly 8 percent of public
 school enrollment (National Center for Education Statistics, Common Core of Data). Most are
 small. Half enroll fewer than 215 students, and in regular districts small size was the
-strongest predictor of posting no plan. We have not checked their websites yet.
+strongest predictor of posting no plan.
+
+In November 2026 we checked the websites of all 181, using the same rubric as the district
+audit. Twelve had since closed or merged. Of the 169 still open, 42 (25 percent) post something
+that mentions seizures. Only 13 (8 percent) post an actual seizure action plan, seizure form or
+seizure response procedure; the other 29 name seizures in passing, usually in a list of health
+conditions families should report. Another 107 post medication rules that never mention
+seizures. Ten post neither, and ten had no policies we could reach. A second reviewer
+re-checked every seizure finding and every school first marked as posting nothing, and found
+medication rules or a passing seizure mention at 16 of those 28 schools. We did not re-check
+the 107 medication-only schools, so 42 is a floor.
 
 The law stops at public and charter schools. Minnesota also had 467 nonpublic schools in
 2024-25, with 72,871 students in kindergarten through grade 12 (Minnesota Department of
